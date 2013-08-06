@@ -1,0 +1,63 @@
+\documentclass[10pt]{book}
+
+\usepackage[top=1in, bottom=1in, left=1.5in, right=1.5in, letterpaper]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{SIunits}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{trackchanges}
+
+% remove empty pages after \chapter commands
+\let\cleardoublepage\clearpage
+
+% make bibliographies have section headings instead of chapter headings
+% http://stackoverflow.com/questions/1037905/bibliography-as-section-in-latex-bibtex
+
+% set up our spacing
+\onehalfspacing
+
+% no page style for the preface
+\pagestyle{empty}
+
+\begin{document}
+%% TITLE PAGE %%
+\begin{center}
+
+{\fontsize{14pt}{1em}\selectfont \textbf{University of Alberta}}
+\vspace{3em}
+
+{\fontsize{13pt}{1em}\selectfont Numerical Characterization of Ultrasound Elastography for the Early Detection of Deep Tissue Injuries}
+\vspace{2em}
+
+{\fontsize{10pt}{1em} by}
+\vspace{1em}
+
+{\fontsize{13pt}{1em} Kenton Hamaluik}
+\vspace{5em}
+
+{\fontsize{11pt}{1em} A thesis submitted to the Faculty of Graduate Studies and Research in partial fulfillment of the requirements for the degree of}
+\vspace{3em}
+
+{\fontsize{13pt}{1em} Master of Science}
+\vspace{4em}
+
+{\fontsize{13pt}{1em} Department of Mechanical Engineering}
+\vspace{5em}
+
+{\fontsize{11pt}{1em}\copyright\ Kenton Hamaluik \\
+Fall 2013 \\
+Edmonton, Alberta}
+\vfill
+
+{\fontsize{9pt}{1em} Permission is hereby granted to the University of Alberta Libraries to reproduce single copies of this thesis and to lend or sell such copies for private, scholarly or scientific research purposes only. Where the thesis is converted to, or otherwise made available in digital form, the University of Alberta will advise potential users of the thesis of these terms.
+\vspace{1em}
+
+The author reserves all other publication and other rights in association with the copyright in the thesis and, except as herein before provided, neither the thesis nor any substantial portion thereof may be printed or otherwise reproduced in any material form whatsoever without the author's prior written permission.}
+\end{center}
+
+\chapter*{\centering Abstract}
+\doublespacing
+
+\annote[Kenton]{Deep tissue injuries are subcutaneous regions of extreme tissue breakdown generally induced by the application of significant mechanical pressure over extended periods of time through the biological mechanisms of ischemia and cell deformation causing rupture}{Way too long}. These wounds are commonly suffered as a secondary wound or disease, often formed due to extended periods of motionless such as stationary sitting in spinal cord injured patients or those undergoing surgery.
+
+\end{document}
