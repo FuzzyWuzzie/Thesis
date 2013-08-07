@@ -6,13 +6,26 @@
 \usepackage{booktabs}
 \usepackage{setspace}
 \usepackage{trackchanges}
-\usepackage
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{lipsum}
 
 % remove empty pages after \chapter commands
 \let\cleardoublepage\clearpage
 
-% no page style for the preface
-\pagestyle{empty}
+% set up our headers
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancyplain}% original style: plain
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
 
 \begin{document}
 
@@ -52,7 +65,7 @@
 	\end{center}
 
 %% ABSTRACT %%
-\chapter*{\centering Abstract}
+\chapter*{Abstract}
 	\doublespacing
 
 	\annote[Kenton]{Deep tissue injuries are subcutaneous regions of extreme tissue breakdown generally induced by the application of significant mechanical pressure over extended periods of time through the biological mechanisms of ischemia and cell deformation causing rupture}{Way too long}. These wounds are commonly suffered as a secondary wound or disease, often formed due to extended periods of motionless such as stationary sitting in spinal cord injured patients or those undergoing surgery. \note[Kenton]{Abstract should be $<=$ 150 words and give a decent summary of everything}
@@ -60,18 +73,23 @@
 %% ACKNOWLEDGEMENT %%
 \onehalfspacing
 \chapter*{Acknowledgements}
-	Thanks!
+	\lipsum[1]
 
 %% TOC %%
 \tableofcontents
+\clearpage
 
 \listoftables
+\clearpage
 
 \listoffigures
+\clearpage
 
-\pagebreak
+\setcounter{page}{1}
+\doublespacing
 
 %% INTRODUCTION %%
+\rfoot[\thepage]{\thepage}
 \chapter{Introduction}
 	Ultrasound elastography is a relatively new ultrasonic imaging modality which utilizes traditional ultrasound waveforms to interrogate tissue stiffness rather than tissue echogenicity as is done in classic ultrasound imaging. The resulting tissue stiffness maps are referred to as elastograms, a terminology which will be used throughout this work. By examining displacement characteristics of tissue under load, the relative localized stiffness of the tissue may be ascertained. While regional tissue stiffness changes are to be expected due to the heterogeneous composition of generalized soft tissues, localized stiffness changes may be used as an indicator of tissue health \cite{gefen09} with relatively stiff tissues showing signs of rigor mortis and cell death and relatively soft tissues showing signs of tissue necrosis and decomposition. While ultrasound elastography has typically been used to investigate cancerous lesions this work seeks to use it as a means of detecting deep tissue injuries which as of the time of writing are not clinically detectable until they breach the surface of the skin.
 
@@ -85,6 +103,7 @@
 
 		As of the time of writing, there is no clinically feasible method of detecting deep tissue injuries until they begin to damage the skin---even the National Pressure Ulcer Advisory Panel's description of them is largely based on their appearance after the fact \cite{npuap07}. With our inability to detect these forming injuries and subsequently implement deep tissue injury prevention and mitigation protocols, the injuries may eventually progress to form large subcutaneous cavities which eventually break through the surface and reveal themselves as stage III or IV pressure ulcers \cite{bouten03,oomens10}. \note[Kenton]{Needs more}
 
+	\section{Methodology}
 		In order to investigate the use of ultrasound elastography for the detection of deep tissue injuries, the technology must first be characterized and fully understood. While traditional experimentation provides an opportunity to work with physical subjects it can be severely limiting as absolute control over all investigated parameters is relinquished. Further, subject recruitment may present an insurmountable barrier to the execution of the study. As such, in this exploratory work, various numerical models of the technology have been utilized to investigate the controlled effect of a broad number of parameters relating to each technology. Specifically, finite-element models of ultrasonic wave propagation in heterogeneous soft tissues have been developed. \annote[Kenton]{These models were coupled with various tissue strain estimation algorithms and utilized to carry out parametric studies on the detection sensitivity of ultrasound elastography with respect to various lesion and technological parameters.}{Holy wordy batman!}
 
 	\section{Thesis Outline}
@@ -93,35 +112,58 @@
 %% LITERATURE REVIEW %%
 \chapter{Literature Review}
 	\section{Introduction}
+		\lipsum[1]
 	\section{Deep Tissue Injuries}
+		\lipsum[1]
 		\subsection{Aetiology}
+			\lipsum[1]
 		\subsection{Treatment}
+			\lipsum[1]
 		\subsection{Detection}
+			\lipsum[1]
 	\section{Ultrasound Elastography}
+		\lipsum[1]
 		\subsection{Quasi-Static Ultrasound Elastography}
+			\lipsum[1]
 		\subsection{Acoustic Radiation Force Impulse Imaging}
+			\lipsum[1]
 		\subsection{Shear Wave Speed Quantification}
+			\lipsum[1]
 	\section{Numerical Characterization / Finite-Element Modelling}
+		\lipsum[1]
 	\section{Conclusion}
+		\lipsum[1]
 
 %% QUASI-STATIC %%
 \chapter{Numerical Characterization of Quasi-Static Ultrasound Elastography}
 	\section{Introduction}
+		\lipsum[1]
 	\section{Methods}
+		\lipsum[1]
 		\subsection{Finite-Element Model of Ultrasound Image Formation in Heterogeneous Soft Tissue}
+			\lipsum[1]
 			\subsubsection{Governing Equations}
+				\lipsum[1]
 			\subsubsection{Boundary and Initial Conditions}
+				\lipsum[1]
 		\subsection{Implementation of Tissue Strain Estimation Algorithm}
+			\lipsum[1]
 	\section{Results}
+		\lipsum[1]
 		\subsection{Lesion Depth Characterization}
+			\lipsum[1]
 		\subsection{Lesion Size Characterization}
+			\lipsum[1]
 		\subsection{Lesion Stiffness Characterization}
+			\lipsum[1]
 
 %% ARFI %%
 \chapter{Numerical Characterization of Acoustic Radiation Force Impulse Imaging}
 	\section{Introduction}
+		\lipsum[1]
 	\section{Methods}
-		\subsection{Numerical Model}
+		\lipsum[1]
+		\subsection{Numerical Model}	\lipsum[1]
 			\subsubsection{Governing Equations}
 				The governing equations used for this model were the set of coupled first-order partial differential equations \ref{equ:arfi_gov_p1} -- \ref{equ:arfi_gov_p3}.
 				\begin{equation}
@@ -138,24 +180,47 @@
 				\end{equation}
 
 			\subsubsection{Boundary and Initial Conditions}
+				\lipsum[1]
 	\section{Results}
+		\lipsum[1]
 
 %% SHEAR %%
 \chapter{Numerical Characterization of Shear Wave Speed Quantification}
+	\lipsum[1]
 
 %% DISCUSSION %%
 \chapter{Discussion}
+	\lipsum[1]
 
 %% CONCLUSION %%
 \chapter{Conclusion}
+	\lipsum[1]
 	\section{Clinical Need for DTI Detection}
+		\lipsum[1]
 	\section{USE Provides Potential Diagnosis Capability}
+		\lipsum[1]
 	\section{Future Work}
+		\lipsum[1]
 		\subsection{Animal Studies?}
+			\lipsum[1]
 		\subsection{Human Studies?}
+			\lipsum[1]
 
 %% BIBLIOGRAPHY %%
 \bibliographystyle{plain}
 \bibliography{references}
+
+%% APPENDICES %%
+\appendix
+\pretocmd{\chapter}{%
+  \clearpage
+  \pagenumbering{arabic}%
+  \renewcommand*{\thepage}{\thechapter-\arabic{page}}%
+}{}{}
+\setcounter{page}{1}
+\chapter{Source Code}
+	\lipsum[1]
+	\section{Quasi2DUltrasound}
+		\lipsum[1]
 
 \end{document}
