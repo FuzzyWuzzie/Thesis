@@ -1,0 +1,463 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "thesis.tex",
+			"settings":
+			{
+				"buffer_size": 3444,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/quasi-static.tex",
+			"settings":
+			{
+				"buffer_size": 49419,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"matl",
+				"Set Syntax: MATLAB"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/media/kenton/data/Google Drive/School/Thesis/latex/appendices/sourcecode.tex",
+		"/home/kenton/Google Drive/School/Thesis/latex/chapters/shear.tex",
+		"/home/kenton/Google Drive/School/Thesis/latex/chapters/conclusion.tex",
+		"/media/kenton/data/Google Drive/School/Thesis/latex/chapters/arfi.tex",
+		"/media/kenton/data/Google Drive/School/Thesis/latex/chapters/litreview.tex",
+		"/media/kenton/data/Google Drive/School/Thesis/latex/chapters/introduction.tex",
+		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/toc.tex",
+		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/acknowledgements.tex",
+		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/abstract.tex",
+		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/titlepage.tex",
+		"/home/kenton/Google Drive/School/Thesis/latex/chapters/quasi-static.tex",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/processing.m",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_viscoelastic.m",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/findRelaxationTime.m",
+		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/LaTeXTools Preferences.sublime-settings",
+		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-build",
+		"/home/kenton/.config/sublime-text-2/Packages/User/LaTeXTools Preferences.sublime-settings",
+		"/home/kenton/Google Drive/School/USEbrella/Publications/Kenton IEEE Quasi-Static Paper Rewrite/QuasiStaticCharacterisation.tex",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_newtest.m",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation.m",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/intensity2.m",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/intensity.m",
+		"/home/kenton/Kalk/Kalk/gtk-gui/gui.stetic",
+		"/home/kenton/Kalk/Kalk/gtk-gui/MainWindow.cs",
+		"/home/kenton/Kalk/Kalk/gtk-gui/generated.cs",
+		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-13.xml",
+		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-14.xml",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_stiffness.m",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/QuasiRedo/db.sql",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/QuasiRedo/process.m",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_new.mph",
+		"/media/kenton/data/School/Drive/USEbrella/Programs/ARFI/relaxation_newtest.m",
+		"/media/kenton/data/School/Drive/USEbrella/Programs/ARFI/relaxation.m",
+		"/media/kenton/COMSOL43/install.txt",
+		"/home/kenton/Downloads/Mathworks_Matlab_R2013a_(8.01)_Linux_MacOS_x64/serial/Readme.txt",
+		"/usr/share/applications/matlab.desktop",
+		"/home/kenton/Downloads/Mathworks_Matlab_R2013a_(8.01)_Linux_MacOS_x64/mount_matlab801"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Kenton",
+			"caption",
+			"pc1",
+			"rgb",
+			"IEEEPlotCycle",
+			"HEAD",
+			"Page 2",
+			"pg2",
+			"relaxation_newtest"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ColourPlotCycle"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "thesis.tex",
+					"settings":
+					{
+						"buffer_size": 3444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2872,
+								2872
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sublime_auto_complete": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1309.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "chapters/quasi-static.tex",
+					"settings":
+					{
+						"buffer_size": 49419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

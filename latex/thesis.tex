@@ -1,0 +1,132 @@
+\documentclass[12pt]{book}
+
+\usepackage[top=1in, bottom=1in, left=1.5in, right=1.5in, letterpaper]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{SIunits}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{trackchanges}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{wasysym}
+\usepackage{float}
+\usepackage[caption=false,font=footnotesize,format=hang]{subfig}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{plotmarks,arrows}
+\tikzset{>=latex}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{chapterbib}
+%\usepackage{subfiles}
+
+%\usepackage{draftwatermark}
+%\SetWatermarkLightness{0.8}
+%\SetWatermarkScale{1.5}
+
+% customize pgf plots plot styles
+%\pgfplotscreateplotcyclelist{ColourPlotCycle}{%
+%solid,mark=*\\%
+%dashed,mark=square*\\%
+%dotted,mark=diamond*\\%
+%dashdotted,mark=pentagon*\\%
+%dashed,mark=triangle*\\%
+%solid,thick,mark=o\\%
+%}
+
+\definecolor{pc1}{HTML}{8DD3C7}
+\definecolor{pc2}{HTML}{FDB462}
+\definecolor{pc3}{HTML}{FB8072}
+\definecolor{pc4}{HTML}{80B1D3}
+\definecolor{pc5}{HTML}{B3DE69}
+\definecolor{pc6}{HTML}{BEBADA}
+\definecolor{pc7}{HTML}{FCCDE5}
+\definecolor{pc8}{HTML}{D9D9D9}
+\definecolor{pc9}{HTML}{FFFFB3}
+\pgfplotscreateplotcyclelist{ColourPlotCycle}{%
+solid,pc1,every mark/.append style={fill=pc1},mark=*\\%
+solid,pc2,every mark/.append style={fill=pc2},mark=square*\\%
+solid,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
+solid,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
+solid,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
+dashed,pc6,every mark/.append style={fill=pc6},mark=*\\%
+dashed,pc7,every mark/.append style={fill=pc7},mark=square*\\%
+dashed,pc8,every mark/.append style={fill=pc8},mark=diamond*\\%
+dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
+}
+
+\definecolor{tissueColour}{RGB}{255,255,255}
+\definecolor{lesionColour}{RGB}{200,200,200}
+\definecolor{fatColour}{RGB}{100,100,100}
+\definecolor{boneColour}{RGB}{0,0,0}
+
+% align subfloats to the top of the float
+%\captionsetup[subfloat]{position=top}
+
+\addeditor{KH}
+\addeditor{MFP}
+\addeditor{WM}
+
+\renewcommand\thefootnote{\textcolor{blue}{\arabic{footnote}}}
+
+\renewcommand\bibname{References}
+
+% remove empty pages after \chapter commands
+\let\cleardoublepage\clearpage
+
+% set up our headers
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{fancyplain}% original style: plain
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother
+
+\newcommand{\comment}[1]{}
+
+\addeditor{KH}
+\addeditor{MFP}
+\addeditor{WM}
+
+\begin{document}
+
+\input{frontback/titlepage}
+\input{frontback/abstract}
+\input{frontback/acknowledgements}
+\input{frontback/toc}
+
+\setcounter{page}{1}
+\doublespacing
+\rfoot[\thepage]{\thepage}
+
+\input{chapters/introduction}
+\input{chapters/litreview}
+\input{chapters/quasi-static}
+\input{chapters/arfi}
+\input{chapters/shear}
+
+%% BIBLIOGRAPHY %%
+\bibliographystyle{plain}
+\bibliography{references}
+
+%% APPENDICES %%
+\appendix
+\pretocmd{\chapter}{%
+  \clearpage
+  \pagenumbering{arabic}%
+  \renewcommand*{\thepage}{\thechapter-\arabic{page}}%
+}{}{}
+\setcounter{page}{1}
+
+\input{appendices/sourcecode}
+
+\end{document}

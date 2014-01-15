@@ -1,0 +1,28 @@
+\chapter{Numerical Characterization of Acoustic Radiation Force Impulse Imaging}
+	\section{Introduction}
+		\lipsum[1]
+	\section{Methods}
+		\lipsum[1]
+		\subsection{Numerical Model}
+			\lipsum[1]
+			\subsubsection{Governing Equations}
+				The governing equations use for this model were the set of coupled first-order partial differential equations \ref{equ:arfi_gov}. These equations are the first-order equivalents of \ref{equ:wave_equation} taking into account acoustic absorption, tissue heterogeneities, and acoustic wave non-linearities \cite{treeby12}.
+
+				\begin{subequations}
+					\label{equ:arfi_gov}
+					\comment{\begin{align}
+						\frac{\partial \mathbf{u}}{\partial t} &= - \frac{1}{\rho_0} p \label{equ:arfi_gov_p1} \\
+						\frac{\partial p}{\partial t} &= -\left(2 \rho + \rho_0\right)\nabla \cdoe \mathbf{u} - \mathbf{u} \cdot \nabla \rho_0 \label{equ:arfi_gov_p2} \\
+						p &= c_0^2 \left(\rho + \mathbf{d} \cdot \nabla \rho_0 + \frac{B}{2A} \frac{\rho^2}{\rho_0} - L\rho \right) \label{equ:arfi_gov_p3}
+					\end{align}}
+				\end{subequations}
+
+				\begin{equation}
+					\label{equ:wave_equation}
+					\nabla^2 p - \frac{1}{c_0^2}\frac{\partial^2 p}{\partial t^2} = 0
+				\end{equation}
+
+			\subsubsection{Boundary and Initial Conditions}
+				\lipsum[1]
+	\section{Results}
+		\lipsum[1]

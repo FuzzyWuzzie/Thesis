@@ -1,0 +1,21 @@
+\documentclass[tikz]{standalone}
+\usepackage{wasysym}
+\usepackage{SIunits}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{plotmarks,arrows}
+\tikzset{>=latex}
+
+\definecolor{tissueColour}{RGB}{255,255,255}
+\definecolor{lesionColour}{RGB}{0,0,0}
+\definecolor{fatColour}{RGB}{100,100,100}
+\definecolor{boneColour}{RGB}{0,0,0}
+\begin{document}
+	\begin{tikzpicture}[x=0.038\textwidth, y=0.038\textwidth]
+		% the main domain area
+		\draw[draw=black, fill=tissueColour] (0, 0) rectangle(2, 3);
+
+		% the lesion
+		\draw[fill=lesionColour] (1, 1.5) circle(0.5);
+	\end{tikzpicture}
+\end{document}
