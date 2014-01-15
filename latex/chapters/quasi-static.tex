@@ -1,16 +1,136 @@
 \chapter{Numerical Characterization of Quasi-Static Ultrasound Elastography}
 	\section{Introduction}
 		\lipsum[1]
-	\section{Methods}
-		\lipsum[1]
-		\subsection{Finite-Element Model of Ultrasound Image Formation in Heterogeneous Soft Tissue}
-			\lipsum[1]
-			\subsubsection{Governing Equations}
-				\lipsum[1]
-			\subsubsection{Boundary and Initial Conditions}
-				\lipsum[1]
-		\subsection{Implementation of Tissue Strain Estimation Algorithm}
-			\lipsum[1]
+	\section{Method}
+	\label{sec:method}
+		In order to evaluate the sensitivity of using quasi-static ultrasound elastography to detect deep tissue injuries, a numerical model of these injuries was created such that a subset of the investigated cases mimicked a physical phantom model which was used for validation. This numerical model allowed the rapid modification of numerous parameters related to DTI to examine their effect on the method's detection sensitivity where detection sensitivity is defined as the slope of the given characterization plot\note[KH]{Added definition for detection sensitivity}. To fully understand the problem, 5 general model cases \note[KH]{Added models to study co-located lesions, lesions with blurred boundaries, clusters of small lesions, and a lesion in a human tissue domain} were studied with each case \change[MFP]{investigating}{generating} numerous sub-studies on the effect of various parameters relating to that case. These parameters included: lesion depth; lesion altitude (distance of the lesion above deep bone); lesion diameter; ratio of the stiffness between the lesion and the surrounding tissue; ultrasound probing frequency; strain level applied by the transducer; the separation distance between two co-located lesions; radius of a circular averaging filter applied to the lesion boundaries; the number of smaller clustered lesions per unit area; the radius of each individual clustered lesion; the width of the lesion in a Visible Human \cite{visiblehuman} model and the depth of the lesion in a Visible Human model. The range of values for the tested parameters are given in Table \ref{tab:parametervalues} which resulted in a total of 144 model cases that were analyzed\note[KH]{Increased number of investigated models for 64 to 144}. The geometry of the models shown in Fig. \ref{fig:geometry} include: a simple spherical lesion embedded within a 2-dimensional rectangular zone of soft tissue; two lesions located at the same depth separated laterally by a finite dimension, $\delta_{sep}$; a spherical lesion without hard boundaries; a cluster of small lesions which together form a larger lesion area; and a lesion with mri-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}.
+
+		In Fig. \ref{fig:schematic_human}, the lesion is located superficial to the left ischial tuberosity in the transverse plane. The lesion geometry was obtained from an MRI scan of a real deep tissue injury induced in a porcine model \cite{solis13}. The generic soft tissue in this model is modelled after muscle, with a layer of adipose tissue residing at the surface of the model.
+
+		Note that the axial direction referred to henceforth \change[MFP]{represents}{as} the ``axial'' direction of an ultrasound transducer placed along the top (superficial) surface of the domain such that it becomes the ``vertical'' direction.
+
+		\begin{table}[!t]
+			\centering
+			\caption{Range of values of investigated parameters}
+			\label{tab:parametervalues}
+			\begin{tabular}{lcc}
+				\toprule
+				Parameter & Symbol & Values \\
+				\midrule
+				Lesion depth & $d$ & \unit{[3.5, 6.5, 8.5, 10.0]}{cm} \\
+				Lesion altitude & $h$ & \unit{[1.25, 2.50, 3.75]}{cm} \\
+				Lesion diameter & $\diameter S$ & \unit{[0.5, 1.0, 2.0, 2.5]}{cm} \\
+				Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ \\
+				Ultrasound frequency & $f$ & \unit{[2, 4, 8]}{MHz} \\
+				Transudcer-applied strain & $\varepsilon_{app}$ & \unit{[2.5, 5.0, 10.0]}{\%} \\
+				Colocated separation distance & $\delta_{sep}$ & \unit{[1.25, 1.50, 1.75, 2.00]}{cm} \\
+				Blurred lesion blur radius & $b_r$ & \unit{[1.0, 2.5, 5.0, 7.5]}{mm} \\
+				Clustered lesion density & $b_\rho$ & \unit{[10, 20, 30, 40]}{cm^{-2}} \\
+				Clustered lesion radius & $r_{bl}$ & \unit{[0.5, 1.0, 1.5]}{mm} \\
+				Visible human lesion width & $\diameter S$ & \unit{[0.5, 1.0, 2.0, 2.5]}{cm} \\
+				Visible human lesion depth & $d$ & \unit{[6.25, 6.75, 7.25]}{cm} \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+
+		\begin{figure*}[!t]
+			\centering
+			\subfloat[]{
+				\input{drawings/schematic_single}
+				\label{fig:schematic_single}
+			}
+			~
+			\subfloat[]{
+				\input{drawings/schematic_colocated}
+				\label{fig:schematic_colocated}
+			}
+			~
+			\subfloat[]{
+				\input{drawings/schematic_blur}
+				\label{fig:schematic_blur}
+			}
+			~
+			\subfloat[]{
+				\input{drawings/schematic_blob}
+				\label{fig:schematic_blob}
+			}
+			~
+			\subfloat[]{
+				\input{drawings/schematic_human}
+				\label{fig:schematic_human}
+			}
+			\caption[Investigated model geometries]{Model geometry showing the investigated lesions embedded in a \unit{4}{cm} wide soft tissue domain. Axial and lateral directions mimic that of a typical ultrasound transducer placed along the top boundary of the domain. The simplest case of a circular lesion embedded in a soft tissue domain located superior to hard underlying bone is shown in \protect\subref{fig:schematic_single}. In order to investigate the interference caused by closely-located lesions, the case shown in \protect\subref{fig:schematic_colocated} was investigated. Because of the relatively unknown and variable geometric properties of deep tissue injury lesions, cases \protect\subref{fig:schematic_blur} and \protect\subref{fig:schematic_blob} were investigated where the lesion edges were blurred and the lesion was actually a large collection of small lesions, respectively. Finally, to investigate detection sensitivity in a realistic setting, case \protect\subref{fig:schematic_human} was investigated where an mri-acquired deep tissue injury was overlaid on a slice from the Visible Human Project such that the injury lesion was located immediately superior to an ischial tuberosity.}	
+			\label{fig:geometry}
+		\end{figure*}
+
+		Simulated ultrasound images were acquired through the convolution of a point spread function with a normally distributed background map of scattering centres \cite{bamber80}. These images were then combined with a finite-element deformation model of the strained tissue to generate both pre- and post- compression images of the lesions and surrounding tissue. These images were fed into a tissue strain estimation algorithm to determine the detection sensitivity of the technique. Finally, the technique was validated against a physical phantom model using a subset of the simulated cases.
+
+		\subsection{Formation of B-Mode Ultrasound Images}
+			\note[KH]{The method of ultrasound simulation has been changed from a pure acoustic simulation to the one recommended by reviewer 3} Through the convolution of a point spread function and a normal random distribution of scattering centres, simulated ultrasound images were generated. The point spread function was defined axially as a cosine function operating at the ultrasound probing frequency modulated by a Gaussian distribution defined by $\mu = 2\lambda$ and $\sigma = 2\lambda$ where $\lambda$ is the wavelength of the ultrasonic probing waves. Laterally, the point spread function was modelled as a Gaussian distribution defined by $\mu = 0$ and $\sigma = 0.25w_{active}$ where $w_{active}$ is the total width of the active transducer elements during scan-line acquisition.  This resulted in the point spread function given in Fig. \ref{fig:point_spread_function}. Resulting images were composed of 192 scan lines each sampled at \unit{50}{MHz}.
+
+			\begin{figure}[!t]
+				\centering
+					\begin{tikzpicture}
+						\begin{axis}[
+						width=0.9\columnwidth,
+						enlargelimits=false,
+						unit vector ratio*=1 1 1,
+						axis on top,
+						xlabel={Lateral (mm)},
+						ylabel={Axial (mm)},
+						y dir=reverse,
+						draw=black, text=black, fill=black
+						]
+							\addplot graphics[xmin=-1.15,xmax=1.15,ymin=0,ymax=1.54]{images/psf.png};
+						\end{axis}
+					\end{tikzpicture}
+				\caption[Point spread function used for simulating ultrasound images]{Point spread function used for simulating b-mode ultrasound scans. The function is defined axially by a cosine function at the probing frequency and modulated by a Gaussian function both axially and laterally.}
+				\label{fig:point_spread_function}
+			\end{figure}
+
+		\subsection{Finite-Element Model of Tissue Deformation Under Surface Distortion}
+			As a response to an external load being applied to the boundary of a domain, internal structures deform. In the case of a relatively stiff deep tissue injury embedded within surrounding soft tissues, this implies that when the surface of the skin is depressed, the relatively stiff lesion will not strain to the same magnitude that the surrounding soft tissue does. In order to simulate the deformation of interrogated tissue, the displacement field for the simulated models was calculated according to:
+			\begin{equation}
+				- {\nabla} \cdot \sigma = {F}
+			\end{equation}
+			Where $\sigma$ is the Cauchy stress tensor and $F$ are the applied body forces\note[KH]{fixed typo from ``tractions'' to ``body forces''}. Simulations were performed assuming a 2-dimensional linearly elastic material deformation model under plane strain conditions. A 3-dimensional model was also considered, however the deformations differed from the 2-dimensional simulation by less than \unit{1}{\%} so a 2-dimensional model was deemed adequate\note[KH]{included reasoning for 2D model over 3D}. Soft tissue was modelled using a Young's modulus of elasticity of \unit{25}{kPa}, Poisson's ratio of 0.499, and density of \unit{998}{kg/m^3} \cite{krouskop98, choi05, martin94}. The only difference in lesion mechanical properties from the surrounding soft tissue was the modulus of elasticity which varied according to the simulation parameters. The bottom of the domain was held fixed such that:
+			\begin{equation}
+				{u} = 0, \qquad \Gamma = \Gamma_{bottom}
+			\end{equation}
+			While this boundary condition represents an idealized scenario, it may be likened to that of tissue located superficial to a relatively stiff anchoring bone below. This lower region is where deep tissue injuries generally form and is therefore of special importance. Compressive strains were applied to the top of the domain so as to induce strain along the top boundary:
+			\begin{equation}
+				{u} = (0, -u_0), \qquad \Gamma = \Gamma_{top}
+			\end{equation}
+
+			From these simulations, displacement fields throughout the domain were calculated which were then used to displace tissue (including scattering centres) in the simulated ultrasound images in both the axial and lateral directions. This process resulted in pairs of pre- and post- compression simulated b-mode images of lesions of varying parameters which could then be analyzed and characterized.
+
+		\subsection{Characterizing Quasi-Static Ultrasound Elastography}
+			\label{sec:elastography_algorithm}
+			Utilizing a 2-\change[MFP]{d}{D} locally regularized tissue strain estimation algorithm \cite{brusseau08}, pairs of pre- and post- compression images were used to calculate elastogram estimations for the full range of parameter values of the simulated lesions. The algorithm consists of sweeping the image domain with a series of overlapping regions of interest (ROI). ROI are compared between pre- and post- compression images, with ROI in the post- compression images being axially scaled and translated and laterally translated versions of the same ROI in the pre-compression images.
+
+			Qualitatively, the noise and computation time of the resulting elastograms were\note[KH]{corrected typo ``was'' to ``were''} found to be minimum when using an axial ROI size of approximately 10 times the ultrasound wavelength. Axial ROI overlap was held at \unit{99}{\%} to produce elastograms with minimal noise, even though this introduced significant increases in computation time. Due to the extreme anisotropic nature of ultrasound signals, lateral ROI size was kept to 5 signal widths with lateral ROI overlaps of \unit{80}{\%}.
+
+		\subsection{Model Validation Using a Commercially Available Phantom}
+			Utilizing a CIRS Elasticity QA Phantom model 049, a subset of the results obtained from the finite-element simulations and numerical characterizations were compared against their physical phantom equivalents. The phantom mimics acoustically homogeneous soft tissue with embedded lesions which vary in depth, size, and mechanical stiffness. Mechanical properties of the phantom as given by manufacturer specifications are summarized in Table \ref{tab:phantomproperties}. Pre- and post- compression b-mode ultrasound images were obtained of each lesion in the phantom and the resulting strain ratio for that lesion was compared to the simulated strain ratio for that combination of parameters. Specifically, lesions at a depth of \unit{3.5}{cm}, a diameter of \unit{2.0}{cm}, and with true stiffness ratios of 0.56, 1.80, and 3.20 were examined. Surface indentation was performed manually with the transducer indenting approximately \unit{0.5}{cm} (\unit{6.25}{\%}) at the surface. \note[KH]{New experiments were performed}
+
+			\begin{table}[!t]
+				\centering
+				\caption{CIRS Phantom Model Mechanical Properties}
+				\label{tab:phantomproperties}
+				\begin{tabular}{lcc}
+					\toprule
+					Property & Value \\
+					\midrule
+					\add[MFP]{Nominal} basal stiffness & \unit{25}{kPa} \\
+					Lesion stiffness & \unit{[8, 14, 45, 80]}{kPa} \\
+					Speed of sound & \unit{1540}{m/s} \\
+					Acoustic attenuation & \unit{0.5}{dB / cm \usk MHz} \\
+					Lesion diameter & \unit{[10, 20]}{mm} \\
+					Lesion depth & \unit{[15, 35]}{mm} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+
 	\section{Results}
 		\note[KH]{Completely new results section due to the new b-mode image formation technique and inclusion of new models.}Following the procedure outlined in Section \ref{sec:method}, finite-element models of ultrasonic b-mode image formation and tissue deformation were synthesized. The results of these models were then fed into the local strain estimation algorithm described in Section \ref{sec:elastography_algorithm}. The resulting numerical characterizations of the relationship between measured and true strain ratios in the simulated tissue and their dependence on the various lesion parameters given in Table \ref{tab:parametervalues} were examined. Finally, the local strain estimation algorithm was carried out on a physical phantom and compared against a subset of the simulated cases.
 
@@ -343,7 +463,7 @@
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{elastograms/e080_bw.png};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Elastogram for two co-located lesions of \unit{1.0}{cm} diameter at a depth of \unit{10}{cm} interrogated using a \unit{4}{MHz} probing frequency with \unit{5}{\%} applied strain. A pattern of decreased strain is present above and below the centerline between the two lesions while the lesions themselves are not affected by each other.}
+				\caption[Elastogram for two co-located lesions]{Elastogram for two co-located lesions of \unit{1.0}{cm} diameter at a depth of \unit{10}{cm} interrogated using a \unit{4}{MHz} probing frequency with \unit{5}{\%} applied strain. A pattern of decreased strain is present above and below the centerline between the two lesions while the lesions themselves are not affected by each other.}
 				\label{fig:separation_elastogram}
 			\end{figure}
 
@@ -369,7 +489,7 @@
 							\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{insets/inset_blur.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Characterization of the effect of lesion blur radius on lesion detection sensitivity for a \unit{2.5}{cm} diameter lesion at a depth of \unit{10}{cm} using a probing frequency of \unit{4}{MHz} and applied strain of \unit{5}{\%}. While there is negligible effect of the blur radius on stiff lesions, the strain ratio for soft lesions is considerably over-estimated.}
+				\caption[Lesion blur radius characterization]{Characterization of the effect of lesion blur radius on lesion detection sensitivity for a \unit{2.5}{cm} diameter lesion at a depth of \unit{10}{cm} using a probing frequency of \unit{4}{MHz} and applied strain of \unit{5}{\%}. While there is negligible effect of the blur radius on stiff lesions, the strain ratio for soft lesions is considerably over-estimated.}
 				\label{fig:blur_radius_characterization}
 			\end{figure}
 
@@ -398,7 +518,7 @@
 							\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Characterization of lesion density for a group of numerous smaller \unit{2}{mm} diameter lesions comprising a large area with a diameter of \unit{2.5}{cm} at a depth of \unit{10}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. Detection sensitivity decreases with decreasing lesion density, as expected.}
+				\caption[Lesion cluster density characterization]{Characterization of lesion density for a group of numerous smaller \unit{2}{mm} diameter lesions comprising a large area with a diameter of \unit{2.5}{cm} at a depth of \unit{10}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. Detection sensitivity decreases with decreasing lesion density, as expected.}
 				\label{fig:blob_density_characterization}
 			\end{figure}
 
@@ -445,7 +565,7 @@
 					\end{tikzpicture}
 					\label{fig:blob_elastogram_b}
 				}
-				\caption{Stiffness map \protect\subref{fig:blob_elastogram_a} and corresponding elastogram \protect\subref{fig:blob_elastogram_b} for a group a small lesions with a density of 10 lesions per \unit{}{cm^2} grouped in a \unit{2.5}{cm} diameter circle at a depth of \unit{10}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. In \protect\subref{fig:blob_elastogram_a}, white regions are regular tissue while black regions are the small lesions. In the elastogram, individual lesions do not stand out, rather the entire region of lesions appears as one large region of unhealthy tissue.}
+				\caption[Stiffness map and corresponding elastogram for clustered lesions]{Stiffness map \protect\subref{fig:blob_elastogram_a} and corresponding elastogram \protect\subref{fig:blob_elastogram_b} for a group a small lesions with a density of 10 lesions per \unit{}{cm^2} grouped in a \unit{2.5}{cm} diameter circle at a depth of \unit{10}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. In \protect\subref{fig:blob_elastogram_a}, white regions are regular tissue while black regions are the small lesions. In the elastogram, individual lesions do not stand out, rather the entire region of lesions appears as one large region of unhealthy tissue.}
 				\label{fig:blob_elastogram}
 			\end{figure}
 
@@ -467,7 +587,7 @@
 							\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Characterization of lesion radius for a group of numerous smaller lesions with a density of 30 lesions per \unit{}{cm^2} comprising a large area with a diameter of \unit{2.5}{cm} at a depth of \unit{10}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. Detection sensitivity decreases with decreasing individual lesion size, as expected.}
+				\caption[Clustered lesion radius characterization]{Characterization of lesion radius for a group of numerous smaller lesions with a density of 30 lesions per \unit{}{cm^2} comprising a large area with a diameter of \unit{2.5}{cm} at a depth of \unit{10}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. Detection sensitivity decreases with decreasing individual lesion size, as expected.}
 				\label{fig:blob_radius_characterization}
 			\end{figure}
 
@@ -497,7 +617,7 @@
 							\node [anchor=south](rect) at (axis cs:3.2,0.72) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Characterization of lesion width in a Visible Human-MRI model for lesions at a depth of \unit{7.25}{cm} interrogated with a \unit{4}{MHz} probing frequency with \unit{5}{\%} applied strain. Small lesions (with a width $\leq \unit{1.0}{cm}$) are severely misrepresented and portray general over-estimation of lesion stiffness larger lesions.}
+				\caption[Lesion width characterization in a Visible Human-MRI model]{Characterization of lesion width in a Visible Human-MRI model for lesions at a depth of \unit{7.25}{cm} interrogated with a \unit{4}{MHz} probing frequency with \unit{5}{\%} applied strain. Small lesions (with a width $\leq \unit{1.0}{cm}$) are severely misrepresented and portray general over-estimation of lesion stiffness larger lesions.}
 				\label{fig:human_size_characterization}
 			\end{figure}
 
@@ -524,7 +644,7 @@
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{elastograms/e117_bw.png};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Elastogram for a \unit{0.5}{cm} wide lesion embedded in the Visible Human-MRI model domain at a depth of \unit{7.25}{cm} interrogated at \unit{4}{MHz} with an applied strain of \unit{2.5}{\%}. The lesion is not visible and is the resultant elastogram.}
+				\caption[Elastogram of a Visible Human-MRI model]{Elastogram for a \unit{0.5}{cm} wide lesion embedded in the Visible Human-MRI model domain at a depth of \unit{7.25}{cm} interrogated at \unit{4}{MHz} with an applied strain of \unit{2.5}{\%}. The lesion is not visible and is the resultant elastogram.}
 				\label{fig:human_elastogram}
 			\end{figure}
 
@@ -547,7 +667,7 @@
 							\node [anchor=south](rect) at (axis cs:3.2,0.64) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Characterization of lesion depth in a Visible Human-MRI model for lesions with a width of \unit{2.5}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. Deeper lesions (closer to the bony promience) are have slightly over-estimated lesion stiffness ratios as opposed to more superficial lesions while detection sensitivity is not affected by lesion depth.}
+				\caption[Lesion depth in a Visible Human-MRI model]{Characterization of lesion depth in a Visible Human-MRI model for lesions with a width of \unit{2.5}{cm} interrogated with a \unit{4}{MHz} probing frequency and \unit{5}{\%} applied strain. Deeper lesions (closer to the bony promience) are have slightly over-estimated lesion stiffness ratios as opposed to more superficial lesions while detection sensitivity is not affected by lesion depth.}
 				\label{fig:human_depth_characterization}
 			\end{figure}
 
@@ -573,7 +693,7 @@
 							\node [anchor=north west](c) at (axis cs:0.55,2.45) {\includegraphics{insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \unit{3.5}{cm} and diameter of \unit{2.0}{cm} showing general agreement between simulated and experimental cases. Idealization errors are the most likely the cause of the differences seen between simulated and experimental cases.}
+				\caption[Experimental validation]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \unit{3.5}{cm} and diameter of \unit{2.0}{cm} showing general agreement between simulated and experimental cases. Idealization errors are the most likely the cause of the differences seen between simulated and experimental cases.}
 				\label{fig:phantom_validation}
 			\end{figure}
 

@@ -1,49 +1,36 @@
-\documentclass[tikz]{standalone}
-\usepackage{wasysym}
-\usepackage{SIunits}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.5}
-\usetikzlibrary{plotmarks,arrows}
-\tikzset{>=latex}
-\definecolor{tissueColour}{RGB}{251,185,130}
-\definecolor{lesionColour}{RGB}{175,50,53}
-\definecolor{fatColour}{RGB}{240,236,182}
-\definecolor{boneColour}{RGB}{200,200,200}
-\begin{document}
-	\begin{tikzpicture}[x=0.038\textwidth, y=0.038\textwidth, draw=black, text=black, fill=black]
-		% the image domain
-		%\draw (2, 5) node{\includegraphics[width=0.152\textwidth,height=0.38\textwidth]{images/human_colour.png}};
-		\draw (2, 5) node{\includegraphics[width=0.152\textwidth,height=0.38\textwidth]{images/human.png}};
+\begin{tikzpicture}[x=0.038\textwidth, y=0.038\textwidth, draw=black, text=black, fill=black]
+	% the image domain
+	%\draw (2, 5) node{\includegraphics[width=0.152\textwidth,height=0.38\textwidth]{images/human_colour.png}};
+	\draw (2, 5) node{\includegraphics[width=0.152\textwidth,height=0.38\textwidth]{images/human_colour.png}};
 
-		% the main domain area
-		\draw (0, 0) rectangle(4, 10);
+	% the main domain area
+	\draw (0, 0) rectangle(4, 10);
 
-		% legend entries
-		\draw[fill=tissueColour] (4.1, 9.5) rectangle(4.6, 10);
-		\draw (4.6, 9.75) node[right]{\scriptsize Tissue};
-		\draw[fill=lesionColour] (4.1, 8.7) rectangle(4.6, 9.2);
-		\draw (4.6, 8.95) node[right]{\scriptsize Lesion};
-		\draw[fill=fatColour] (4.1, 7.9) rectangle(4.6, 8.4);
-		\draw (4.6, 8.15) node[right]{\scriptsize Fat};
-		\draw[fill=boneColour] (4.1, 7.1) rectangle(4.6, 7.6);
-		\draw (4.6, 7.35) node[right]{\scriptsize Bone};
+	% legend entries
+	\draw[fill=tissueColour] (4.1, 9.5) rectangle(4.6, 10);
+	\draw (4.6, 9.75) node[right]{\scriptsize Tissue};
+	\draw[fill=lesionColour] (4.1, 8.7) rectangle(4.6, 9.2);
+	\draw (4.6, 8.95) node[right]{\scriptsize Lesion};
+	\draw[fill=fatColour] (4.1, 7.9) rectangle(4.6, 8.4);
+	\draw (4.6, 8.15) node[right]{\scriptsize Fat};
+	\draw[fill=boneColour] (4.1, 7.1) rectangle(4.6, 7.6);
+	\draw (4.6, 7.35) node[right]{\scriptsize Bone};
 
-		% lesion size
-		\draw (1, 4) -- (1, 5);
-		\draw (3, 4) -- (3, 5);
-		\draw (2, 4.5) node{\scriptsize $\diameter S$};
-		\draw[->] (0.1, 4.5) -- (1, 4.5);
-		\draw[<-] (3.1, 4.5) -- (3.9, 4.5);
+	% lesion size
+	\draw (1, 4) -- (1, 5);
+	\draw (3, 4) -- (3, 5);
+	\draw (2, 4.5) node{\scriptsize $\diameter S$};
+	\draw[->] (0.1, 4.5) -- (1, 4.5);
+	\draw[<-] (3.1, 4.5) -- (3.9, 4.5);
 
-		% lesion depth
-		\draw (-1.1, 10) -- (-0.1, 10);
-		\draw (-0.5, 2.75) -- (-0.1, 2.75);
-		\draw (-0.3, 6.5) node{\scriptsize $d$};
-		\draw[<-] (-0.3, 10) -- (-0.3, 7);
-		\draw[->] (-0.3, 6) -- (-0.3, 2.75);
-		\draw (-1.1, 0) -- (-0.1, 0);
-		\draw (-0.7, 1.375) node{\scriptsize $\unit{10}{cm}$};
-		\draw[<-] (-0.7, 10) -- (-0.7, 1.75);
-		\draw[->] (-0.7, 1) -- (-0.7, 0);
-	\end{tikzpicture}
-\end{document}
+	% lesion depth
+	\draw (-1.1, 10) -- (-0.1, 10);
+	\draw (-0.5, 2.75) -- (-0.1, 2.75);
+	\draw (-0.3, 6.5) node{\scriptsize $d$};
+	\draw[<-] (-0.3, 10) -- (-0.3, 7);
+	\draw[->] (-0.3, 6) -- (-0.3, 2.75);
+	\draw (-1.1, 0) -- (-0.1, 0);
+	\draw (-0.7, 1.375) node{\scriptsize $\unit{10}{cm}$};
+	\draw[<-] (-0.7, 10) -- (-0.7, 1.75);
+	\draw[->] (-0.7, 1) -- (-0.7, 0);
+\end{tikzpicture}
