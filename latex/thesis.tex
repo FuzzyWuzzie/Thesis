@@ -21,8 +21,9 @@
 \tikzset{>=latex}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{graphicx}
-\usepackage{chapterbib}
-%\usepackage{subfiles}
+
+ \usepackage[style=ieee]{biblatex}
+ \addbibresource{references.bib}
 
 %\usepackage{draftwatermark}
 %\SetWatermarkLightness{0.8}
@@ -73,7 +74,10 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 
 \renewcommand\thefootnote{\textcolor{blue}{\arabic{footnote}}}
 
-\renewcommand\bibname{References}
+%\renewcommand\bibname{References}
+\DefineBibliographyStrings{english}{%
+	bibliography = {References},
+}
 
 % remove empty pages after \chapter commands
 \let\cleardoublepage\clearpage
@@ -93,6 +97,7 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 \makeatother
 
 \newcommand{\comment}[1]{}
+\newcommand{\x}[1]{}
 
 \addeditor{KH}
 \addeditor{MFP}
@@ -112,12 +117,12 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 \doublespacing
 \rfoot[\thepage]{\thepage}
 
-\input{chapters/introduction}
-\input{chapters/litreview}
-\input{chapters/quasi-static}
-\input{chapters/arfi}
-\input{chapters/shear}
-\input{chapters/conclusion}
+%\input{chapters/introduction}
+\begin{refsection}\input{chapters/litreview}\end{refsection}
+\begin{refsection}\input{chapters/quasi-static}\end{refsection}
+%\input{chapters/arfi}
+%\input{chapters/shear}
+%\input{chapters/conclusion}
 
 %% BIBLIOGRAPHY %%
 \cleardoublepage
@@ -125,8 +130,10 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 \phantomsection
 
 \addcontentsline{toc}{chapter}{References}
-\bibliographystyle{IEEEtran}
-\bibliography{references}
+%\bibliographystyle{IEEEtran}
+%\bibliography{references}
+\nocite{*}
+\printbibliography
 
 %% APPENDICES %%
 \appendix

@@ -4,7 +4,7 @@
 		{
 			"path": "/home/kenton/Google Drive/School/Thesis/latex",
 			"folder_exclude_patterns": ["elastograms", "images"],
-			"file_exclude_patterns": ["*.aux", "*.bbl", "*.blg", "*.dvi", "*.fdb_latexmk", "*.fls", "*.lof", "*.log", "*.out", "*.pdf", "*.synctex.gz", "*.toc", "*.sty", "*.png", "*.lot"]
+			"file_exclude_patterns": ["*.aux", "*.bbl", "*.blg", "*.dvi", "*.fdb_latexmk", "*.fls", "*.lof", "*.log", "*.out", "*.pdf", "*.synctex.gz", "*.toc", "*.sty", "*.png", "*.lot", "*.bcf", "*.xml"]
 		}
 	]
 }
