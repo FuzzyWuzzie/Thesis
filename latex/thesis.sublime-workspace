@@ -11,28 +11,52 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 3749,
+				"buffer_size": 4616,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/home/kenton/Google Drive/School/USEbrella/Publications/Kenton IEEE Quasi-Static Paper Rewrite/QuasiStaticCharacterisation_nonderp.tex",
+			"file": "chapters/introduction.tex",
 			"settings":
 			{
-				"buffer_size": 74775,
+				"buffer_size": 12727,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/litreview.tex",
+			"settings":
+			{
+				"buffer_size": 9058,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/quasi-static.tex",
+			"settings":
+			{
+				"buffer_size": 67996,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 54.0,
+		"height": 243.0,
 		"selected_items":
 		[
 			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
 			],
 			[
 				"matl",
@@ -56,9 +80,31 @@
 	},
 	"file_history":
 	[
+		"/media/kenton/data/Google Drive/School/USEbrella/Programs/ARFI/derp.m",
+		"/home/kenton/Google Drive/School/Thesis/latex/references.bib",
+		"/home/kenton/Downloads/FuzzyWuzzie (5).bib",
+		"/home/kenton/Google Drive/School/Thesis/latex/chapters/introduction.tex",
+		"/home/kenton/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/kenton/Google Drive/School/Thesis/latex/chapters/litreview.tex",
+		"/home/kenton/Google Drive/School/Thesis/latex/chapters/arfi.tex",
+		"/home/kenton/Google Drive/School/Thesis/latex/updateRefs.sh",
+		"/home/kenton/Downloads/FuzzyWuzzie (4).bib",
+		"/home/kenton/Downloads/FuzzyWuzzie (3).bib",
+		"/home/kenton/Downloads/FuzzyWuzzie (1).bib",
+		"/home/kenton/Downloads/FuzzyWuzzie (2).bib",
+		"/home/kenton/Google Drive/School/Thesis/latex/thesis.sublime-project",
+		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/LaTeXTools Preferences.sublime-settings",
+		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-build",
+		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/viewPDF.py",
+		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/latexEnvironment.py",
+		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/messages/1.txt",
+		"/home/kenton/Google Drive/School/Thesis/latex/chapters/quasi-static.tex",
+		"/home/kenton/Google Drive/School/Thesis/latex/thesis.tex",
+		"/home/kenton/Google Drive/School/Thesis/.gitignore",
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/saveToGIF.m",
+		"/home/kenton/Google Drive/School/USEbrella/Publications/Kenton IEEE Quasi-Static Paper Rewrite/QuasiStaticCharacterisation_nonderp.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/appendices/datatables.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/appendices/sourcecode.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/chapters/quasi-static.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_blob.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_blur.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_human.tex",
@@ -66,8 +112,6 @@
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_single.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/frontback/toc.tex",
 		"/home/kenton/Google Drive/School/USEbrella/Publications/Kenton IEEE Quasi-Static Paper Rewrite/QuasiStaticCharacterisation.tex",
-		"/home/kenton/Google Drive/School/Thesis/.gitignore",
-		"/home/kenton/Google Drive/School/Thesis/latex/thesis.sublime-project",
 		"/media/kenton/data/Google Drive/School/Thesis/latex/appendices/sourcecode.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/chapters/shear.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/chapters/conclusion.tex",
@@ -81,8 +125,6 @@
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/processing.m",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_viscoelastic.m",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/findRelaxationTime.m",
-		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/LaTeXTools Preferences.sublime-settings",
-		"/home/kenton/.config/sublime-text-2/Packages/LaTeXTools/LaTeX.sublime-build",
 		"/home/kenton/.config/sublime-text-2/Packages/User/LaTeXTools Preferences.sublime-settings",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_newtest.m",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation.m",
@@ -120,6 +162,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ignore",
+			"niazi97",
+			"gyawali11",
+			"treeby",
+			"tree",
+			"Bradley",
+			"treeby",
+			"\\begin{refsection}",
+			"hy]",
+			"approach for elastic",
+			"\\begin{cbinput}",
+			"\\input",
 			"\\caption{",
 			"KH",
 			"\\anote",
@@ -160,15 +214,192 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 3749,
+						"buffer_size": 4616,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								302,
-								302
+								3464,
+								3464
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"sublime_auto_complete": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2074.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "chapters/introduction.tex",
+					"settings":
+					{
+						"buffer_size": 12727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								851,
+								851
 							]
 						],
 						"settings":
@@ -328,25 +559,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 102.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/home/kenton/Google Drive/School/USEbrella/Publications/Kenton IEEE Quasi-Static Paper Rewrite/QuasiStaticCharacterisation_nonderp.tex",
+					"buffer": 2,
+					"file": "chapters/litreview.tex",
 					"settings":
 					{
-						"buffer_size": 74775,
+						"buffer_size": 9058,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								68489,
-								68489
+								5987,
+								5987
 							]
 						],
 						"settings":
@@ -499,12 +730,88 @@
 							},
 							"codeintel_tooltips": "popup",
 							"incomplete_sync": null,
+							"remote_loading": false,
 							"sublime_auto_complete": true,
+							"synced": false,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 23500.0,
+						"translation.y": 467.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "chapters/quasi-static.tex",
+					"settings":
+					{
+						"buffer_size": 67996,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								892,
+								892
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -545,7 +852,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 112.0
+		"height": 140.0
 	},
 	"output.sftp":
 	{

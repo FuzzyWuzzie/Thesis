@@ -21,8 +21,9 @@
 \tikzset{>=latex}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{graphicx}
+\usepackage{lmodern}
 
- \usepackage[style=ieee]{biblatex}
+ \usepackage[style=ieee,backend=biber,refsection=chapter]{biblatex}
  \addbibresource{references.bib}
 
 %\usepackage{draftwatermark}
@@ -76,7 +77,7 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 
 %\renewcommand\bibname{References}
 \DefineBibliographyStrings{english}{%
-	bibliography = {References},
+	bibliography = {References}
 }
 
 % remove empty pages after \chapter commands
@@ -117,14 +118,15 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 \doublespacing
 \rfoot[\thepage]{\thepage}
 
-%\input{chapters/introduction}
-\begin{refsection}\input{chapters/litreview}\end{refsection}
-\begin{refsection}\input{chapters/quasi-static}\end{refsection}
-%\input{chapters/arfi}
-%\input{chapters/shear}
-%\input{chapters/conclusion}
+\input{chapters/introduction}
+\input{chapters/litreview}
+\input{chapters/quasi-static}
+\input{chapters/arfi}
+\input{chapters/shear}
+\input{chapters/conclusion}
 
 %% BIBLIOGRAPHY %%
+\comment{
 \cleardoublepage
 
 \phantomsection
@@ -132,8 +134,16 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 \addcontentsline{toc}{chapter}{References}
 %\bibliographystyle{IEEEtran}
 %\bibliography{references}
-\nocite{*}
-\printbibliography
+%\nocite{*}
+%\printbibliography{section=1}
+
+\printbibheading
+\printbibliography[section=1, heading=subbibliography, title={Introduction}]
+\printbibliography[section=2, heading=subbibliography, title={Literature Review}]
+\printbibliography[section=3, heading=subbibliography, title={Numerical Characterization of Quasi-Static Ultrasound Elastography}]
+\printbibliography[section=4, heading=subbibliography, title={Numerical Characterization of Acoustic Radiation Force Impulse Imaging}]
+\printbibliography[section=5, heading=subbibliography, title={Numerical Characterization of Shear Wave Speed Quantification}]
+\printbibliography[section=6, heading=subbibliography, title={Conclusion}]}
 
 %% APPENDICES %%
 \appendix
