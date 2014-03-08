@@ -39,7 +39,7 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 4843,
+				"buffer_size": 4839,
 				"line_ending": "Windows"
 			}
 		},
@@ -47,7 +47,7 @@
 			"file": "frontback/nomenclature.tex",
 			"settings":
 			{
-				"buffer_size": 540,
+				"buffer_size": 629,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,7 +55,7 @@
 			"file": "chapters/litreview.tex",
 			"settings":
 			{
-				"buffer_size": 22523,
+				"buffer_size": 24925,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,7 +63,7 @@
 			"file": "chapters/references.bib",
 			"settings":
 			{
-				"buffer_size": 389855,
+				"buffer_size": 417732,
 				"line_ending": "Windows"
 			}
 		}
@@ -128,6 +128,8 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/AppData/Roaming/Vertcoin/vertcoin.conf",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
@@ -234,7 +236,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"C:\\Users\\Kenton\\Documents\\Thesis\\latex",
@@ -246,6 +248,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"meffre06",
+			"solis12",
+			"maklebust05",
+			"17909702",
 			"perce",
 			"\\percent",
 			"\\%",
@@ -350,15 +356,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 4843,
+						"buffer_size": 4839,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1237,
-								1237
+								2755,
+								2755
 							]
 						],
 						"settings":
@@ -517,7 +523,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 454.0,
+						"translation.y": 1339.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -527,21 +533,24 @@
 					"file": "frontback/nomenclature.tex",
 					"settings":
 					{
-						"buffer_size": 540,
+						"buffer_size": 629,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								522,
-								522
+								87,
+								87
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -554,15 +563,15 @@
 					"file": "chapters/litreview.tex",
 					"settings":
 					{
-						"buffer_size": 22523,
+						"buffer_size": 24925,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19785,
-								19785
+								24301,
+								24301
 							]
 						],
 						"settings":
@@ -575,7 +584,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2965.0,
+						"translation.y": 3535.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -591,15 +600,15 @@
 					"file": "chapters/references.bib",
 					"settings":
 					{
-						"buffer_size": 389855,
+						"buffer_size": 417732,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								340735,
-								340743
+								395452,
+								395753
 							]
 						],
 						"settings":
@@ -612,7 +621,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 127369.0,
+						"translation.y": 147064.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
