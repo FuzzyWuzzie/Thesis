@@ -55,23 +55,7 @@
 			"file": "chapters/litreview.tex",
 			"settings":
 			{
-				"buffer_size": 12845,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 200,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Thesaurus/thesaurus.py",
-			"settings":
-			{
-				"buffer_size": 3936,
+				"buffer_size": 16334,
 				"line_ending": "Unix"
 			}
 		},
@@ -92,10 +76,10 @@
 			}
 		},
 		{
-			"file": "references.bib",
+			"file": "chapters/references.bib",
 			"settings":
 			{
-				"buffer_size": 341794,
+				"buffer_size": 377506,
 				"line_ending": "Windows"
 			}
 		}
@@ -103,9 +87,17 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 58.0,
+		"height": 173.0,
 		"selected_items":
 		[
+			[
+				"thes",
+				"Thesaurus search"
+			],
+			[
+				"thesu",
+				"Thesaurus search"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -121,10 +113,6 @@
 			[
 				"pane",
 				"Origami: Create Pane on the Right"
-			],
-			[
-				"thes",
-				"Thesaurus search"
 			],
 			[
 				"sftp",
@@ -156,10 +144,17 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Thesaurus/thesaurus.py",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kenton/Downloads/cudaminer-2014-02-09/passwds.txt",
+		"/C/Users/Kenton/Programming/Portman/portman.json",
+		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).dic",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).txt",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).aff",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_cite_completions.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_ref_cite_completions.py",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
-		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/UpdateCiteULikeBib/UpdateCiteULikeBib.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/UpdateCiteULikeBib/Default (Windows).sublime-keymap",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/font.py",
@@ -172,7 +167,6 @@
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Package Control/Default.sublime-commands",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Package Control/package_control/package_creator.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Package Control/package_control/__init__.py",
-		"/C/Users/Kenton/Downloads/cudaminer-2014-02-09/passwds.txt",
 		"/media/kenton/data/Google Drive/School/USEbrella/Programs/ARFI/derp.m",
 		"/home/kenton/Google Drive/School/Thesis/latex/references.bib",
 		"/home/kenton/Downloads/FuzzyWuzzie (5).bib",
@@ -255,6 +249,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"solis12",
+			"slomka",
+			"ceelen",
 			"stekelenburg",
 			"ceelen",
 			"    ",
@@ -332,8 +329,8 @@
 						"selection":
 						[
 							[
-								3145,
-								3145
+								664,
+								664
 							]
 						],
 						"settings":
@@ -492,7 +489,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1659.0,
+						"translation.y": 99.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -681,15 +678,15 @@
 					"file": "chapters/litreview.tex",
 					"settings":
 					{
-						"buffer_size": 12845,
+						"buffer_size": 16334,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4089,
-								4089
+								6656,
+								6656
 							]
 						],
 						"settings":
@@ -702,74 +699,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 172.0,
+						"translation.y": 892.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 200,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								194,
-								194
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Thesaurus/thesaurus.py",
-					"settings":
-					{
-						"buffer_size": 3936,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								766,
-								820
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "chapters/quasi-static.tex",
 					"settings":
 					{
@@ -843,7 +779,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "chapters/conclusion.tex",
 					"settings":
 					{
@@ -879,19 +815,19 @@
 			"sheets":
 			[
 				{
-					"buffer": 7,
-					"file": "references.bib",
+					"buffer": 5,
+					"file": "chapters/references.bib",
 					"settings":
 					{
-						"buffer_size": 341794,
+						"buffer_size": 377506,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								92066,
-								92078
+								20194,
+								20202
 							]
 						],
 						"settings":
@@ -904,7 +840,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 34849.0,
+						"translation.y": 7189.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

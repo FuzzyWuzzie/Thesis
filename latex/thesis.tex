@@ -22,6 +22,7 @@
 \usepackage[absolute,overlay]{textpos}
 \usepackage{graphicx}
 \usepackage{lmodern}
+\usepackage{longtable}
 
  \usepackage[style=ieee,backend=biber,refsection=chapter]{biblatex}
  \addbibresource{references.bib}
@@ -114,6 +115,7 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 \pdfbookmark{Acknowledgements}{acknowledgements}
 \input{frontback/acknowledgements}
 \input{frontback/toc}
+\input{frontback/nomenclature}
 
 \setcounter{page}{1}
 \doublespacing
@@ -121,30 +123,31 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 
 \input{chapters/introduction}
 \input{chapters/litreview}
-\input{chapters/quasi-static}
-\input{chapters/arfi}
-\input{chapters/shear}
-\input{chapters/conclusion}
+%\input{chapters/quasi-static}
+%\input{chapters/arfi}
+%\input{chapters/shear}
+%\input{chapters/conclusion}
 
 %% BIBLIOGRAPHY %%
 \comment{
-\cleardoublepage
+	\cleardoublepage
 
-\phantomsection
+	\phantomsection
 
-\addcontentsline{toc}{chapter}{References}
-%\bibliographystyle{IEEEtran}
-%\bibliography{references}
-%\nocite{*}
-%\printbibliography{section=1}
+	\addcontentsline{toc}{chapter}{References}
+	%\bibliographystyle{IEEEtran}
+	%\bibliography{references}
+	%\nocite{*}
+	%\printbibliography{section=1}
 
-\printbibheading
-\printbibliography[section=1, heading=subbibliography, title={Introduction}]
-\printbibliography[section=2, heading=subbibliography, title={Literature Review}]
-\printbibliography[section=3, heading=subbibliography, title={Numerical Characterization of Quasi-Static Ultrasound Elastography}]
-\printbibliography[section=4, heading=subbibliography, title={Numerical Characterization of Acoustic Radiation Force Impulse Imaging}]
-\printbibliography[section=5, heading=subbibliography, title={Numerical Characterization of Shear Wave Speed Quantification}]
-\printbibliography[section=6, heading=subbibliography, title={Conclusion}]}
+	\printbibheading
+	\printbibliography[section=1, heading=subbibliography, title={Introduction}]
+	\printbibliography[section=2, heading=subbibliography, title={Literature Review}]
+	\printbibliography[section=3, heading=subbibliography, title={Numerical Characterization of Quasi-Static Ultrasound Elastography}]
+	\printbibliography[section=4, heading=subbibliography, title={Numerical Characterization of Acoustic Radiation Force Impulse Imaging}]
+	\printbibliography[section=5, heading=subbibliography, title={Numerical Characterization of Shear Wave Speed Quantification}]
+	\printbibliography[section=6, heading=subbibliography, title={Conclusion}]
+}
 
 %% APPENDICES %%
 \appendix
