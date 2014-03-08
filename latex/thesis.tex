@@ -3,7 +3,6 @@
 \usepackage[top=1in, bottom=1in, left=1.5in, right=1.5in, letterpaper]{geometry}
 \usepackage[hidelinks, bookmarks=true]{hyperref}
 \usepackage{bookmark}
-\usepackage{SIunits}
 \usepackage{booktabs}
 \usepackage{setspace}
 \usepackage{trackchanges}
@@ -23,6 +22,7 @@
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage{longtable}
+\usepackage{siunitx}
 
  \usepackage[style=ieee,backend=biber,refsection=chapter]{biblatex}
  \addbibresource{references.bib}
@@ -40,6 +40,13 @@
 %dashed,mark=triangle*\\%
 %solid,thick,mark=o\\%
 %}
+
+% set up SIunitsX
+\sisetup{
+	group-four-digits = true,
+	group-separator = {,}
+}
+%\newcommand{\usd}[1]{\SI{#1}[\$\ensuremath{\,}]{}}
 
 \definecolor{pc1}{HTML}{8DD3C7}
 \definecolor{pc2}{HTML}{FDB462}
