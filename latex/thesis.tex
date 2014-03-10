@@ -22,32 +22,29 @@
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage{longtable}
+\usepackage{xfrac}
 \usepackage{siunitx}
 
  \usepackage[style=ieee,backend=biber,refsection=chapter]{biblatex}
  \addbibresource{references.bib}
 
+% add a "DRAFT" watermark to everything
 %\usepackage{draftwatermark}
 %\SetWatermarkLightness{0.8}
 %\SetWatermarkScale{1.5}
 
-% customize pgf plots plot styles
-%\pgfplotscreateplotcyclelist{ColourPlotCycle}{%
-%solid,mark=*\\%
-%dashed,mark=square*\\%
-%dotted,mark=diamond*\\%
-%dashdotted,mark=pentagon*\\%
-%dashed,mark=triangle*\\%
-%solid,thick,mark=o\\%
-%}
-
 % set up SIunitsX
 \sisetup{
 	group-four-digits = true,
-	group-separator = {,}
+	group-separator = {,},
+	per=frac,
+	fraction=nice
+	%fraction=sfrac
 }
 %\newcommand{\usd}[1]{\SI{#1}[\$\ensuremath{\,}]{}}
 
+% set up colours for plots
+% these are based on mapping colours that should photocopy in black and white well
 \definecolor{pc1}{HTML}{8DD3C7}
 \definecolor{pc2}{HTML}{FDB462}
 \definecolor{pc3}{HTML}{FB8072}
@@ -58,17 +55,18 @@
 \definecolor{pc8}{HTML}{D9D9D9}
 \definecolor{pc9}{HTML}{FFFFB3}
 \pgfplotscreateplotcyclelist{ColourPlotCycle}{%
-solid,pc1,every mark/.append style={fill=pc1},mark=*\\%
-solid,pc2,every mark/.append style={fill=pc2},mark=square*\\%
-solid,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
-solid,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
-solid,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
-dashed,pc6,every mark/.append style={fill=pc6},mark=*\\%
-dashed,pc7,every mark/.append style={fill=pc7},mark=square*\\%
-dashed,pc8,every mark/.append style={fill=pc8},mark=diamond*\\%
-dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
+solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=*\\%
+solid,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square*\\%
+solid,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
+solid,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
+solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
+dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
+dashed,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
+dashed,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond*\\%
+dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 }
 
+% set up colours for schematics
 \definecolor{tissueColour}{RGB}{251,185,130}
 \definecolor{lesionColour}{RGB}{175,50,53}
 \definecolor{fatColour}{RGB}{240,236,182}
@@ -77,12 +75,11 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 % align subfloats to the top of the float
 %\captionsetup[subfloat]{position=top}
 
-\addeditor{KH}
-\addeditor{MFP}
-\addeditor{WM}
+% highlight footnotes in red
+\renewcommand\thefootnote{\textcolor{red}{\arabic{footnote}}}
+% TODO: automate footnote command with \textcolor{red} in the footnote as well
 
-\renewcommand\thefootnote{\textcolor{blue}{\arabic{footnote}}}
-
+% setup the bibliography
 %\renewcommand\bibname{References}
 \DefineBibliographyStrings{english}{%
 	bibliography = {References}
@@ -105,13 +102,18 @@ dashed,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
                     \secdef\@chapter\@schapter}
 \makeatother
 
+% some utility commands
 \newcommand{\comment}[1]{}
 \newcommand{\x}[1]{}
 \newcommand{\bibcomplete}[1]{}
 
+% trackchanges editors
 \addeditor{KH}
 \addeditor{MFP}
 \addeditor{WM}
+
+% rename "Figure" to "Fig."
+\def\figurename{Fig.}
 
 \begin{document}
 

@@ -1,0 +1,16 @@
+\documentclass[tikz]{standalone}
+\usepackage{wasysym}
+\usepackage{SIunits}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{plotmarks,arrows}
+\tikzset{>=latex}
+\begin{document}
+	\begin{tikzpicture}[x=0.04\textwidth, y=0.04\textwidth]
+		% the main domain area
+		\draw (0, 0) rectangle(4, 10);
+
+		% the lesion
+		\draw (2, 3) node{\includegraphics{images/blur.png}};
+	\end{tikzpicture}
+\end{document}
