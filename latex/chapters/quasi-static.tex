@@ -24,8 +24,8 @@
 				Lesion diameter & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$\,\si{\cm} \\
 				Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ \\
 				Ultrasound frequency & $f$ & $[2, 4, 8]$\,\si{\MHz} \\
-				Transudcer-applied strain & $\varepsilon_{app}$ & $[2.5, 5.0, 10.0]$\,\si{\percent} \\
-				Colocated separation distance & $\delta_{sep}$ & $[1.25, 1.50, 1.75, 2.00]$\,\si{\cm} \\
+				Transducer-applied strain & $\varepsilon_{app}$ & $[2.5, 5.0, 10.0]$\,\si{\percent} \\
+				Co-located separation distance & $\delta_{sep}$ & $[1.25, 1.50, 1.75, 2.00]$\,\si{\cm} \\
 				Blurred lesion blur radius & $b_r$ & $[1.0, 2.5, 5.0, 7.5]$\,\si{\mm} \\
 				Clustered lesion density & $b_\rho$ & $[10, 20, 30, 40]$\,\si[per=reciprocal]{\per\cm\squared} \\
 				Clustered lesion radius & $r_{bl}$ & $[0.5, 1.0, 1.5]$\,\si{\mm} \\
@@ -78,8 +78,8 @@
 						enlargelimits=false,
 						unit vector ratio*=1 1 1,
 						axis on top,
-						xlabel={Lateral (mm)},
-						ylabel={Axial (mm)},
+						xlabel={Lateral (\si{\mm})},
+						ylabel={Axial (\si{\mm})},
 						y dir=reverse,
 						draw=black, text=black, fill=black
 						]
@@ -95,7 +95,7 @@
 			\begin{equation}
 				- {\nabla} \cdot \sigma = {F}
 			\end{equation}
-			Where $\sigma$ is the Cauchy stress tensor and $F$ are the applied body forces. Simulations were performed assuming a 2-dimensional linearly elastic material deformation model under plane strain conditions. A 3-dimensional model was also considered, however the deformations differed from the 2-dimensional simulation by less than \SI{1}{\percent} so a 2-dimensional model was deemed adequate. Soft tissue was modelled using a Young's modulus of elasticity of \SI{25}{kPa}, Poisson's ratio of 0.499, and density of \SI{998}{kg/m^3} \cite{krouskop98, choi05, martin94}. Bone was modelled in the Visible Human model with a Young's modulus of elasticity of \SI{18.6}{GPa}, Poisson's ratio of 0.15 and density of \SI{297}{kg/m^3} \cite{rho93,shahar07,zheng00}. The only difference in lesion mechanical properties from the surrounding soft tissue was the modulus of elasticity which varied according to the simulation parameters. The bottom of the domain was held fixed such that:
+			Where $\sigma$ is the Cauchy stress tensor and $F$ are the applied body forces. Simulations were performed assuming a 2-dimensional linearly elastic material deformation model under plane strain conditions. A 3-dimensional model was also considered, however the deformations differed from the 2-dimensional simulation by less than \SI{1}{\percent} so a 2-dimensional model was deemed adequate. Soft tissue was modelled using a Young's modulus of elasticity of \SI{25}{\kPa}, Poisson's ratio of 0.499, and density of \SI{998}{\kg\per\metre\cubed} \cite{krouskop98, choi05, martin94}. Bone was modelled in the Visible Human model with a Young's modulus of elasticity of \SI{18.6}{\GPa}, Poisson's ratio of 0.15 and density of \SI{297}{\kg\per\metre\cubed} \cite{rho93,shahar07,zheng00}. The only difference in lesion mechanical properties from the surrounding soft tissue was the modulus of elasticity which varied according to the simulation parameters. The bottom of the domain was held fixed such that:
 			\begin{equation}
 				{u} = 0, \qquad \Gamma = \Gamma_{bottom}
 			\end{equation}
@@ -123,9 +123,9 @@
 					\toprule
 					Property & Value \\
 					\midrule
-					Nominal basal stiffness & \SI{25}{kPa} \\
-					Lesion stiffness &  $[8, 14, 45, 80]$\,\si{kPa} \\
-					Speed of sound & \SI{1540}{m/s} \\
+					Nominal basal stiffness & \SI{25}{\kPa} \\
+					Lesion stiffness &  $[8, 14, 45, 80]$\,\si{\kPa} \\
+					Speed of sound & \SI{1540}{\metre\per\second} \\
 					Acoustic attenuation & \SI{0.5}{\decibel\per\cm\per\MHz} \\
 					Lesion diameter & $[10, 20]$\,\si{\mm} \\
 					Lesion depth & $[15, 35]$\,\si{\mm} \\
@@ -145,7 +145,7 @@
 				\centering
 				\subfloat[]{
 					\begin{tikzpicture}
-						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (cm)}, ylabel={Depth, $d$ (cm)}, y dir=reverse,
+						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={Depth, $d$ (\si{\cm})}, y dir=reverse,
 						draw=black, text=black, fill=black]
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/bModeA.png};
 						\end{axis}
@@ -155,7 +155,7 @@
 				~
 				\subfloat[]{
 					\begin{tikzpicture}
-						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (cm)}, ylabel={}, y dir=reverse, colormap/blackwhite, colorbar, point meta min=-1.17, point meta max=1.17, colorbar style={at={(1.05,0)}, anchor=south west, width=0.01\textwidth, ylabel={Lateral Displacement (mm)},
+						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={}, y dir=reverse, colormap/blackwhite, colorbar, point meta min=-1.17, point meta max=1.17, colorbar style={at={(1.05,0)}, anchor=south west, width=0.01\textwidth, ylabel={Lateral Displacement (\si{\mm})},
 						draw=black, text=black, fill=black},
 						draw=black, text=black, fill=black]
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/displacement_u.png};
@@ -166,7 +166,7 @@
 				
 				\subfloat[]{
 					\begin{tikzpicture}
-						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (cm)}, ylabel={}, y dir=reverse, colormap={whiteblack}{gray(0cm)=(1); gray(1cm)=(0)}, colorbar, point meta min=-6.25, point meta max=0, colorbar style={at={(1.05,0)}, anchor=south west, width=0.01\textwidth, ylabel={Axial Displacement (mm)},
+						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={}, y dir=reverse, colormap={whiteblack}{gray(0cm)=(1); gray(1cm)=(0)}, colorbar, point meta min=-6.25, point meta max=0, colorbar style={at={(1.05,0)}, anchor=south west, width=0.01\textwidth, ylabel={Axial Displacement (\si{\mm})},
 						draw=black, text=black, fill=black, y dir=reverse},
 						draw=black, text=black, fill=black]
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/displacement_v.png};
@@ -177,7 +177,7 @@
 				~
 				\subfloat[]{
 					\begin{tikzpicture}
-						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (cm)}, ylabel={}, y dir=reverse,
+						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={}, y dir=reverse,
 						draw=black, text=black, fill=black]
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/bModeB.png};
 						\end{axis}
@@ -195,13 +195,13 @@
 			\begin{figure}[!t]
 				\centering
 					\begin{tikzpicture}
-						\begin{axis}[width=0.75\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (cm)}, ylabel={Depth, $d$ (cm)}, y dir=reverse, colormap/blackwhite, colorbar, point meta min=0, point meta max=7, colorbar style={yticklabel={\pgfmathprintnumber{\tick}\,\%},at={(1.05,0)}, width=0.01\textwidth, ylabel={Compressive Strain}, anchor=south west,
+						\begin{axis}[width=\columnwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={Depth, $d$ (\si{\cm})}, y dir=reverse, colormap/jet, colorbar, point meta min=0, point meta max=7, colorbar style={yticklabel={\pgfmathprintnumber{\tick}\,\percent},at={(1.05,0)}, width=0.01\textwidth, ylabel={Compressive Strain}, anchor=south west,
 						draw=black, text=black, fill=black},
 						draw=black, text=black, fill=black]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/elastogram_c040.png};
+							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/elastograms/e040_colour.png};
 						\end{axis}
 					\end{tikzpicture}
-				\caption[Sample strain elastogram for a hard spherical lesion]{Sample strain elastogram showing estimated strain values for $d=\SI{10}{cm}$, $\diameter S = \SI{2.5}{cm}$, $\varepsilon_{rel} = 3.20$, $f = \SI{4}{MHz}$. While undetectable on a single b-mode image, the elastogram clearly shows a low-strain (stiff) lesion located approximately \SI{10}{cm} from the surface.}
+				\caption[Sample strain elastogram for a hard spherical lesion]{Sample strain elastogram showing estimated strain values for $d=\SI{10}{\cm}$, $\diameter S = \SI{2.5}{\cm}$, $\varepsilon_{rel} = 3.20$, $f = \SI{4}{\MHz}$. While undetectable on a single b-mode image, the elastogram clearly shows a low-strain (stiff) lesion located approximately \SI{10}{\cm} from the surface.}
 				\label{fig:sample_elastogram}
 			\end{figure}
 
@@ -227,7 +227,7 @@
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Lesion Stiffness Ratio},
-						ylabel={\% Error},
+						ylabel={\percent Error},
 						grid=major,
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -249,7 +249,7 @@
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Normalized Characterization Index},
-						ylabel={\% Error},
+						ylabel={\percent Error},
 						grid=major,
 						legend entries={Lesion Size, Lesion Depth, Bone Separation, Probing Frequency, Applied Strain},
 						legend style={at={(0.5,0.975)},anchor=north,font=\small},
@@ -276,7 +276,7 @@
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Normalized Characterization Index},
-						ylabel={\% Error},
+						ylabel={\percent Error},
 						grid=major,
 						legend entries={Boundary Blur Radius, Co-Located Lesion Separation, Clustered Lesion Density, Clustered Lesion Size, Human Lesion Size, Human Lesion Depth},
 						legend style={legend pos=north east,font=\small},
@@ -312,7 +312,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$\diameter S = \SI{0.5}{cm}$, $\diameter S = \SI{1.0}{cm}$, $\diameter S = \SI{2.0}{cm}$, $\diameter S = \SI{2.5}{cm}$},
+						legend entries={$\diameter S = \SI{0.5}{\cm}$, $\diameter S = \SI{1.0}{\cm}$, $\diameter S = \SI{2.0}{\cm}$, $\diameter S = \SI{2.5}{\cm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -324,13 +324,13 @@
 						\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static lesion size characterization]{Lesion size characterization at a depth of \SI{10}{cm} with a \SI{4}{MHz} ultrasound probing frequency showing increasing detection sensitivity of the lesion with increasing lesion size. Detection sensitivity is less than ideal for all cases, with the best case being for lesions approximately \SI{2.5}{cm} in diameter.}
+				\caption[Quasi-static lesion size characterization]{Lesion size characterization at a depth of \SI{10}{\cm} with a \SI{4}{\MHz} ultrasound probing frequency showing increasing detection sensitivity of the lesion with increasing lesion size. Detection sensitivity is less than ideal for all cases, with the best case being for lesions approximately \SI{2.5}{\cm} in diameter.}
 				\label{fig:size_characterization}
 			\end{figure}
 
-			Fig. \ref{fig:size_characterization} shows the relationship between lesion size and detection sensitivity for lesions at a depth of \SI{10}{cm} in a model depth of \SI{12.5}{cm} interrogated at \SI{4}{MHz} with \SI{5}{\%} applied strain. Specifically, Fig. \ref{fig:size_characterization} shows the decreasing detection sensitivity with decreasing lesion size with the best detection sensitivity being with the largest investigated lesions with a diameter of \SI{2.5}{cm}. On the opposite end, the detection sensitivity of lesions at or below \SI{0.5}{cm} in diameter is questionable. Although data is lacking on the true size of formative DTI, MRI results indicate that untreated DTI are on the scale of multiple centimetres \cite{solis13}. Thus, the ability to detect lesions of at least \SI{1}{cm} in diameter should prove to be adequate to both detect and monitor DTI.
+			Fig. \ref{fig:size_characterization} shows the relationship between lesion size and detection sensitivity for lesions at a depth of \SI{10}{\cm} in a model depth of \SI{12.5}{\cm} interrogated at \SI{4}{\MHz} with \SI{5}{\percent} applied strain. Specifically, Fig. \ref{fig:size_characterization} shows the decreasing detection sensitivity with decreasing lesion size with the best detection sensitivity being with the largest investigated lesions with a diameter of \SI{2.5}{\cm}. On the opposite end, the detection sensitivity of lesions at or below \SI{0.5}{\cm} in diameter is questionable. Although data is lacking on the true size of formative DTI, MRI results indicate that untreated DTI are on the scale of multiple centimetres \cite{solis13}. Thus, the ability to detect lesions of at least \SI{1}{\cm} in diameter should prove to be adequate to both detect and monitor DTI.
 
-			In order to investigate the effect of lesion depth on the detection sensitivity, measured strain ratios for circular lesions with a diameter of \SI{2.5}{cm} located at various depths were interrogated with a \SI{4}{MHz} probing frequency, and strained by \SI{5}{\%}. The results of this investigation are seen in Fig. \ref{fig:depth_characterization}.
+			In order to investigate the effect of lesion depth on the detection sensitivity, measured strain ratios for circular lesions with a diameter of \SI{2.5}{\cm} located at various depths were interrogated with a \SI{4}{\MHz} probing frequency, and strained by \SI{5}{\percent}. The results of this investigation are seen in Fig. \ref{fig:depth_characterization}.
 
 			\begin{figure}[!t]
 				\centering
@@ -342,7 +342,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$d = \SI{3.5}{cm}$, $d = \SI{6.5}{cm}$, $d = \SI{8.5}{cm}$, $d = \SI{10}{cm}$},
+						legend entries={$d = \SI{3.5}{\cm}$, $d = \SI{6.5}{\cm}$, $d = \SI{8.5}{\cm}$, $d = \SI{10}{\cm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -354,13 +354,13 @@
 						\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static lesion depth characterization]{Lesion depth characterization at a lesion diameter of \SI{2.5}{cm} with a \SI{4}{MHz} ultrasound probing frequency generally showing general independence of detection sensitivity on lesion depth in the tissue.}
+				\caption[Quasi-static lesion depth characterization]{Lesion depth characterization at a lesion diameter of \SI{2.5}{\cm} with a \SI{4}{\MHz} ultrasound probing frequency generally showing general independence of detection sensitivity on lesion depth in the tissue.}
 				\label{fig:depth_characterization}
 			\end{figure}
 
 			In Fig. \ref{fig:depth_characterization}, it can be seen that there was little interplay between detection sensitivity and measured strain ratios at the various depths examined for all but the case for very soft (mushy) lesions (with a stiffness ratio of 0.32). At such low stiffness ratios, the excessive tissue deformation interrupts the tissue strain estimation algorithm's ability to adequately track the induced displacements in the lesion.
 
-			Since the strain field caused by compressive forces near an extremely rigid structure embedded within a relatively soft domain will be significantly heterogeneous, the effect of lesion altitude above the underlying stiff bone was examined with the hypothesis that if the lesion were too close to the hard bone, it would be masked by the strain field caused by the bone's existence. A \SI{2.5}{cm} diameter lesion was interrogated with a \SI{4}{MHz} probing frequency and \SI{5}{\%} applied strain. The results of this characterization are given in Fig. \ref{fig:bottomsep_characterization}.
+			Since the strain field caused by compressive forces near an extremely rigid structure embedded within a relatively soft domain will be significantly heterogeneous, the effect of lesion altitude above the underlying stiff bone was examined with the hypothesis that if the lesion were too close to the hard bone, it would be masked by the strain field caused by the bone's existence. A \SI{2.5}{\cm} diameter lesion was interrogated with a \SI{4}{\MHz} probing frequency and \SI{5}{\percent} applied strain. The results of this characterization are given in Fig. \ref{fig:bottomsep_characterization}.
 
 			\begin{figure}[!t]
 				\centering
@@ -372,7 +372,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$h = \SI{1.25}{cm}$, $h = \SI{2.50}{cm}$, $h = \SI{3.75}{cm}$},
+						legend entries={$h = \SI{1.25}{\cm}$, $h = \SI{2.50}{\cm}$, $h = \SI{3.75}{\cm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -389,7 +389,7 @@
 
 			In Fig. \ref{fig:bottomsep_characterization}, it can be seen that the lesion altitude above the underlying bone had very little effect on the detection sensitivity. Although larger strain fields may be generated near the bone, it is hypothesized that the larger fields also extend larger and so affect healthy tissue to more or less the same degree as the forming lesion.
 
-			In order to characterize the effect of using alternate ultrasound probing frequencies, simulations were carried out on lesions using probing frequencies of \SI{2}{MHz}, \SI{4}{MHz}, and \SI{8}{MHz}. The simulated lesions had a diameter of \SI{2.5}{cm}, were located at a depth of \SI{10}{cm} and we strain at \SI{5}{\%}. The results of this study are given in Fig. \ref{fig:freq_characterization}.
+			In order to characterize the effect of using alternate ultrasound probing frequencies, simulations were carried out on lesions using probing frequencies of \SI{2}{\MHz}, \SI{4}{\MHz}, and \SI{8}{\MHz}. The simulated lesions had a diameter of \SI{2.5}{\cm}, were located at a depth of \SI{10}{\cm} and we strain at \SI{5}{\percent}. The results of this study are given in Fig. \ref{fig:freq_characterization}.
 
 			\begin{figure}[!t]
 				\centering
@@ -401,7 +401,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$f = \SI{2}{MHz}$, $f = \SI{4}{MHz}$, $f = \SI{8}{MHz}$},
+						legend entries={$f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{8}{\MHz}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -418,7 +418,7 @@
 
 			As can be seen from Fig. \ref{fig:freq_characterization}, there is very little effect on the detection sensitivity from the ultrasound probing frequency that was used, therefore an appropriate frequency should be chosen so as to reach the the full depth of the bone-muscle interface at suspected DTI locations while retaining the best image resolution.
 
-			As quasi-static ultrasound elastography is most likely to be performed via manual indentation where the exact magnitude of applied deformation is unknown, it is important to study the effect of applied strain magnitude on the detection sensitivity. Applied strains of \SI{2.5}{\%}, \SI{5.0}{\%}, and \SI{10}{\%} were investigated on a \SI{2.5}{cm} diameter lesion at a depth of \SI{10}{cm} using a probing frequency of \SI{4}{MHz}; the results are given in Fig. \ref{fig:strain_characterization}.
+			As quasi-static ultrasound elastography is most likely to be performed via manual indentation where the exact magnitude of applied deformation is unknown, it is important to study the effect of applied strain magnitude on the detection sensitivity. Applied strains of \SI{2.5}{\percent}, \SI{5.0}{\percent}, and \SI{10}{\percent} were investigated on a \SI{2.5}{\cm} diameter lesion at a depth of \SI{10}{\cm} using a probing frequency of \SI{4}{\MHz}; the results are given in Fig. \ref{fig:strain_characterization}.
 
 			\begin{figure}[!t]
 				\centering
@@ -430,7 +430,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$\varepsilon_{app} = \SI{2.5}{\%}$, $\varepsilon_{app} = \SI{5.0}{\%}$, $\varepsilon_{app} = \SI{10.0}{\%}$},
+						legend entries={$\varepsilon_{app} = \SI{2.5}{\percent}$, $\varepsilon_{app} = \SI{5.0}{\percent}$, $\varepsilon_{app} = \SI{10.0}{\percent}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -441,13 +441,13 @@
 						\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static applied strain characterization]{Applied strain characterization plot for lesions with a diamater of \SI{2.5}{cm} located at a depth of \SI{10}{cm} interrogated at \SI{4}{MHz}. There is little difference between \SI{2.5}{\%} and \SI{5.0}{\%} applied strain, while large-magnitude strains of \SI{10}{\%} generate significant error for both very soft and very stiff lesions.}
+				\caption[Quasi-static applied strain characterization]{Applied strain characterization plot for lesions with a diamater of \SI{2.5}{\cm} located at a depth of \SI{10}{\cm} interrogated at \SI{4}{\MHz}. There is little difference between \SI{2.5}{\percent} and \SI{5.0}{\percent} applied strain, while large-magnitude strains of \SI{10}{\percent} generate significant error for both very soft and very stiff lesions.}
 				\label{fig:strain_characterization}
 			\end{figure}
 
-			While Fig. \ref{fig:strain_characterization} shows a relatively constant detection sensitivity for compressive strains of \SI{2.5}{\%} and \SI{5}{\%}, compressive strains of \SI{10}{\%} generate significant measurement error for both very soft and very stiff lesions. Under large compressive strains, the tissue (either in the lesion as in the soft lesion case, or the surrounding tissue as in the stiff lesion case) deforms considerably which again interferes with the algorithm's ability to properly track the displacement of tissue. It should also be noted that applying overly large strains to an already forming deep tissue injury may cause additional unwarranted damage. Thus it is imperative that applied surface indentation be kept to reasonable bounds (\SI{2.5}{\%} -- \SI{5}{\%}, or \SI{0.25}{cm} -- \SI{0.50}{cm} in \SI{10}{cm} deep domains), not only for safety of the tissue but also for clarity of the diagnostic test.
+			While Fig. \ref{fig:strain_characterization} shows a relatively constant detection sensitivity for compressive strains of \SI{2.5}{\percent} and \SI{5}{\percent}, compressive strains of \SI{10}{\percent} generate significant measurement error for both very soft and very stiff lesions. Under large compressive strains, the tissue (either in the lesion as in the soft lesion case, or the surrounding tissue as in the stiff lesion case) deforms considerably which again interferes with the algorithm's ability to properly track the displacement of tissue. It should also be noted that applying overly large strains to an already forming deep tissue injury may cause additional unwarranted damage. Thus it is imperative that applied surface indentation be kept to reasonable bounds (\SI{2.5}{\percent} -- \SI{5}{\percent}, or \SI{0.25}{\cm} -- \SI{0.50}{\cm} in \SI{10}{\cm} deep domains), not only for safety of the tissue but also for clarity of the diagnostic test.
 
-			To study the effect that closely spaced lesions will have on the detection sensitivity as well as how discernible the lesions will be from each other, the separation distance between two \SI{1.0}{cm} diameter co-located lesions at a depth of \SI{10}{cm} was examined using a \SI{4}{MHz} probing frequency with \SI{5}{\%} applied strain magnitude. The results of this study are shown in \ref{fig:separation_characterization}.
+			To study the effect that closely spaced lesions will have on the detection sensitivity as well as how discernible the lesions will be from each other, the separation distance between two \SI{1.0}{\cm} diameter co-located lesions at a depth of \SI{10}{\cm} was examined using a \SI{4}{\MHz} probing frequency with \SI{5}{\percent} applied strain magnitude. The results of this study are shown in \ref{fig:separation_characterization}.
 
 			\begin{figure}[!t]
 				\centering
@@ -459,7 +459,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$\delta_{sep} = \SI{1.25}{cm}$, $\delta_{sep} = \SI{1.50}{cm}$, $\delta_{sep} = \SI{1.75}{cm}$, $\delta_{sep} = \SI{2.00}{cm}$},
+						legend entries={$\delta_{sep} = \SI{1.25}{\cm}$, $\delta_{sep} = \SI{1.50}{\cm}$, $\delta_{sep} = \SI{1.75}{\cm}$, $\delta_{sep} = \SI{2.00}{\cm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -471,7 +471,7 @@
 							\node [anchor=south](c) at (axis cs:3.125,0.7) {\includegraphics{assets/quasistatic/insets/inset_colocated.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static lesion separation distance characterization]{Effect of lesion separation distance on two \SI{1.0}{cm} diameter lesions co-located at a depth of \SI{10}{cm} interrogated with a \SI{4}{MHz} probe with \SI{5}{\%} applied strain. There is no negligible difference between separation distances on the detection sensitivity.}
+				\caption[Quasi-static lesion separation distance characterization]{Effect of lesion separation distance on two \SI{1.0}{\cm} diameter lesions co-located at a depth of \SI{10}{\cm} interrogated with a \SI{4}{\MHz} probe with \SI{5}{\percent} applied strain. There is no negligible difference between separation distances on the detection sensitivity.}
 				\label{fig:separation_characterization}
 			\end{figure}
 
@@ -485,24 +485,24 @@
 						enlargelimits=false,
 						unit vector ratio*=1 1 1,
 						axis on top,
-						xlabel={Lateral deviation, $x$ (cm)},
-						ylabel={Depth, $d$ (cm)},
+						xlabel={Lateral deviation, $x$ (\si{\cm})},
+						ylabel={Depth, $d$ (\si{\cm})},
 						y dir=reverse,
-						colormap/blackwhite,
+						colormap/jet,
 						colorbar,
 						point meta min=0,
 						point meta max=7,
 						colorbar style={yticklabel={\pgfmathprintnumber{\tick}\,\si{\percent}}, at={(1.05,0)}, width=0.01\textwidth, ylabel={Compressive Strain}, anchor=south west,
 						draw=black, text=black, fill=black},
 						draw=black, text=black, fill=black]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/elastograms/e080_bw.png};
+							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/elastograms/e080_colour.png};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Sample elastogram for two co-located lesions]{Elastogram for two co-located lesions of \SI{1.0}{cm} diameter at a depth of \SI{10}{cm} interrogated using a \SI{4}{MHz} probing frequency with \SI{5}{\%} applied strain. A pattern of decreased strain is present above and below the centerline between the two lesions while the lesions themselves are not affected by each other.}
+				\caption[Sample elastogram for two co-located lesions]{Elastogram for two co-located lesions of \SI{1.0}{\cm} diameter at a depth of \SI{10}{\cm} interrogated using a \SI{4}{\MHz} probing frequency with \SI{5}{\percent} applied strain. A pattern of decreased strain is present above and below the centerline between the two lesions while the lesions themselves are not affected by each other.}
 				\label{fig:separation_elastogram}
 			\end{figure}
 
-			While the simulations performed thus far assumed that lesions were perfect spheres with hard boundaries in order to isolate specific parameters of interest, this assumption may not always be accurate. Rather, due to the nature of injury formation, lesions may form gradual boundaries that ``fade'' from stiff or necrotic tissue to healthy tissue. To investigate the effect of this phenomenon on the detection sensitivity, lesions with ``blurred boundaries'' were investigated. Hard spherical lesions were blurred by convolving the lesion domain with a disc blurring kernel of varying radius. The results for this investigation on lesions with a diameter of \SI{2.5}{cm}, at a depth of \SI{10}{cm} and interrogated with a \SI{4}{MHz} probing frequency with \SI{5}{\%} applied strain are given in Fig. \ref{fig:blur_radius_characterization}.
+			While the simulations performed thus far assumed that lesions were perfect spheres with hard boundaries in order to isolate specific parameters of interest, this assumption may not always be accurate. Rather, due to the nature of injury formation, lesions may form gradual boundaries that ``fade'' from stiff or necrotic tissue to healthy tissue. To investigate the effect of this phenomenon on the detection sensitivity, lesions with ``blurred boundaries'' were investigated. Hard spherical lesions were blurred by convolving the lesion domain with a disc blurring kernel of varying radius. The results for this investigation on lesions with a diameter of \SI{2.5}{\cm}, at a depth of \SI{10}{\cm} and interrogated with a \SI{4}{\MHz} probing frequency with \SI{5}{\percent} applied strain are given in Fig. \ref{fig:blur_radius_characterization}.
 
 			\begin{figure}[!t]
 				\centering
@@ -514,7 +514,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$b_r = \SI{1.0}{mm}$, $b_r = \SI{2.5}{mm}$, $b_r = \SI{5.0}{mm}$, $b_r = \SI{7.5}{mm}$},
+						legend entries={$b_r = \SI{1.0}{\mm}$, $b_r = \SI{2.5}{\mm}$, $b_r = \SI{5.0}{\mm}$, $b_r = \SI{7.5}{\mm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -527,7 +527,7 @@
 							\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{assets/quasistatic/insets/inset_blur.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static lesion blur radius characterization]{Characterization of the effect of lesion blur radius on lesion detection sensitivity for a \SI{2.5}{cm} diameter lesion at a depth of \SI{10}{cm} using a probing frequency of \SI{4}{MHz} and applied strain of \SI{5}{\%}. While there is negligible effect of the blur radius on stiff lesions, the strain ratio for soft lesions is considerably over-estimated.}
+				\caption[Quasi-static lesion blur radius characterization]{Characterization of the effect of lesion blur radius on lesion detection sensitivity for a \SI{2.5}{\cm} diameter lesion at a depth of \SI{10}{\cm} using a probing frequency of \SI{4}{\MHz} and applied strain of \SI{5}{\percent}. While there is negligible effect of the blur radius on stiff lesions, the strain ratio for soft lesions is considerably over-estimated.}
 				\label{fig:blur_radius_characterization}
 			\end{figure}
 
@@ -535,7 +535,7 @@
 
 			% REASON?
 
-			Similar to how lesions may have ``blurred boundaries'' rather that hard ones, so too may lesion composition not be homogeneous. In order to study the effect of heterogeneous regions of injured tissue, the detection sensitivity of a set of numerous small lesions located within close proximity to each other so as to form a large, heterogeneous area of diseased tissue was examined. Fig. \ref{fig:blob_density_characterization} shows the results for this model for varying numbers of \SI{2}{mm} diameter lesions in a \SI{2.5}{cm} diameter circle located at a depth of \SI{10}{cm} with a probing frequency of \SI{4}{MHz} and \SI{5}{\%} applied strain. Fig. \ref{fig:blob_radius_characterization} further explores this model by investigating the case where there are 30 small lesions per square \SI{}{cm} with individual lesions ranging in diameter from \SI{0.5}{mm} to \SI{1.5}{mm}.
+			Similar to how lesions may have ``blurred boundaries'' rather that hard ones, so too may lesion composition not be homogeneous. In order to study the effect of heterogeneous regions of injured tissue, the detection sensitivity of a set of numerous small lesions located within close proximity to each other so as to form a large, heterogeneous area of diseased tissue was examined. Fig. \ref{fig:blob_density_characterization} shows the results for this model for varying numbers of \SI{2}{\mm} diameter lesions in a \SI{2.5}{\cm} diameter circle located at a depth of \SI{10}{\cm} with a probing frequency of \SI{4}{\MHz} and \SI{5}{\percent} applied strain. Fig. \ref{fig:blob_radius_characterization} further explores this model by investigating the case where there are 30 small lesions per square \SI{}{\cm} with individual lesions ranging in diameter from \SI{0.5}{\mm} to \SI{1.5}{\mm}.
 
 			\begin{figure}[!t]
 				\centering
@@ -547,7 +547,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$b_\rho = \SI{10}{cm^{-2}}$, $b_\rho = \SI{20}{cm^{-2}}$, $b_\rho = \SI{30}{cm^{-2}}$, $b_\rho = \SI{40}{cm^{-2}}$},
+						legend entries={$b_\rho = \SI[per=reciprocal]{10}{\per\cm\squared}$, $b_\rho = \SI[per=reciprocal]{20}{\per\cm\squared}$, $b_\rho = \SI[per=reciprocal]{30}{\per\cm\squared}$, $b_\rho = \SI[per=reciprocal]{40}{\per\cm\squared}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -559,7 +559,7 @@
 							\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static lesion density characterization]{Characterization of lesion density for a group of numerous smaller \SI{2}{mm} diameter lesions comprising a large area with a diameter of \SI{2.5}{cm} at a depth of \SI{10}{cm} interrogated with a \SI{4}{MHz} probing frequency and \SI{5}{\%} applied strain. Detection sensitivity decreases with decreasing lesion density, as expected.}
+				\caption[Quasi-static lesion density characterization]{Characterization of lesion density for a group of numerous smaller \SI{2}{\mm} diameter lesions comprising a large area with a diameter of \SI{2.5}{\cm} at a depth of \SI{10}{\cm} interrogated with a \SI{4}{\MHz} probing frequency and \SI{5}{\percent} applied strain. Detection sensitivity decreases with decreasing lesion density, as expected.}
 				\label{fig:blob_density_characterization}
 			\end{figure}
 
@@ -574,11 +574,11 @@
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
 							axis on top,
-							xlabel={Lateral deviation, $x$ (cm)},
-							ylabel={Depth, $d$ (cm)},
+							xlabel={Lateral deviation, $x$ (\si{\cm})},
+							ylabel={Depth, $d$ (\si{\cm})},
 							y dir=reverse,
 							draw=black, text=black, fill=black]
-								\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/stiffnessMap_092.png};
+								\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/stiffnessMap_092_colour.png};
 						\end{axis}
 					\end{tikzpicture}
 					\label{fig:blob_elastogram_a}
@@ -591,22 +591,22 @@
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
 							axis on top,
-							xlabel={Lateral deviation, $x$ (cm)},
-							ylabel={Depth, $d$ (cm)},
+							xlabel={Lateral deviation, $x$ (\si{\cm})},
+							ylabel={Depth, $d$ (\si{\cm})},
 							y dir=reverse,
-							colormap/blackwhite,
+							colormap/jet,
 							colorbar,
 							point meta min=0,
 							point meta max=7,
 							colorbar style={yticklabel={\pgfmathprintnumber{\tick}\,\si{\percent}}, at={(1.05,0)}, width=0.01\textwidth, ylabel={Compressive Strain}, anchor=south west,
 							draw=black, text=black, fill=black},
 							draw=black, text=black, fill=black]
-								\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/elastograms/e092_bw.png};
+								\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/elastograms/e092_colour.png};
 						\end{axis}
 					\end{tikzpicture}
 					\label{fig:blob_elastogram_b}
 				}
-				\caption[Sample elastogram for a set of clustered lesions]{Stiffness map \protect\subref{fig:blob_elastogram_a} and corresponding elastogram \protect\subref{fig:blob_elastogram_b} for a group a small lesions with a density of 10 lesions per \SI{}{cm^2} grouped in a \SI{2.5}{cm} diameter circle at a depth of \SI{10}{cm} interrogated with a \SI{4}{MHz} probing frequency and \SI{5}{\%} applied strain. In \protect\subref{fig:blob_elastogram_a}, white regions are regular tissue while black regions are the small lesions. In the elastogram, individual lesions do not stand out, rather the entire region of lesions appears as one large region of unhealthy tissue.}
+				\caption[Sample elastogram for a set of clustered lesions]{Stiffness map \protect\subref{fig:blob_elastogram_a} and corresponding elastogram \protect\subref{fig:blob_elastogram_b} for a group a small lesions with a density of 10 lesions per \SI{}{cm^2} grouped in a \SI{2.5}{\cm} diameter circle at a depth of \SI{10}{\cm} interrogated with a \SI{4}{\MHz} probing frequency and \SI{5}{\percent} applied strain. In \protect\subref{fig:blob_elastogram_a}, white regions are regular tissue while black regions are the small lesions. In the elastogram, individual lesions do not stand out, rather the entire region of lesions appears as one large region of unhealthy tissue.}
 				\label{fig:blob_elastogram}
 			\end{figure}
 
@@ -620,7 +620,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$r_{bl} = \SI{0.5}{mm}$, $r_{bl} = \SI{1.0}{mm}$, $r_{bl} = \SI{2.0}{mm}$, $r_{bl} = \SI{2.5}{mm}$},
+						legend entries={$r_{bl} = \SI{0.5}{\mm}$, $r_{bl} = \SI{1.0}{\mm}$, $r_{bl} = \SI{2.0}{\mm}$, $r_{bl} = \SI{2.5}{\mm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -631,13 +631,13 @@
 							\node [anchor=south](c) at (axis cs:3.125,0.6) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static clustered lesion radius characterization]{Characterization of lesion radius for a group of numerous smaller lesions with a density of 30 lesions per \SI{}{cm^2} comprising a large area with a diameter of \SI{2.5}{cm} at a depth of \SI{10}{cm} interrogated with a \SI{4}{MHz} probing frequency and \SI{5}{\%} applied strain. Detection sensitivity decreases with decreasing individual lesion size, as expected.}
+				\caption[Quasi-static clustered lesion radius characterization]{Characterization of lesion radius for a group of numerous smaller lesions with a density of 30 lesions per \SI{}{cm^2} comprising a large area with a diameter of \SI{2.5}{\cm} at a depth of \SI{10}{\cm} interrogated with a \SI{4}{\MHz} probing frequency and \SI{5}{\percent} applied strain. Detection sensitivity decreases with decreasing individual lesion size, as expected.}
 				\label{fig:blob_radius_characterization}
 			\end{figure}
 
 			Similar to the results shown in Fig. \ref{fig:blob_density_characterization}, changing the size of the individual small lesions does have an effect on the measured strain. In this case, when individual lesions are small, the total area occupied by lesions is lesser which results in a lesser average tissue stiffness over the grouped lesion region.
 
-			Note that although the elastography algorithm was able to detect the larger lesion-filled regions in these simulations, it was completely unable to discern the individual lesions comprising those regions. This is not surprising due to both the generated strain fields in the healthy tissue throughout the larger lesion area as well as the results presented in Fig. \ref{fig:size_characterization} showing poor detection sensitivity for lesions with diameters $\leq \SI{1}{cm}$ while the individual lesions in this simulation had diameters of the scale of \SI{0.5}{mm} -- \SI{1.5}{mm}.
+			Note that although the elastography algorithm was able to detect the larger lesion-filled regions in these simulations, it was completely unable to discern the individual lesions comprising those regions. This is not surprising due to both the generated strain fields in the healthy tissue throughout the larger lesion area as well as the results presented in Fig. \ref{fig:size_characterization} showing poor detection sensitivity for lesions with diameters $\leq \SI{1}{\cm}$ while the individual lesions in this simulation had diameters of the scale of \SI{0.5}{\mm} -- \SI{1.5}{\mm}.
 
 			Finally, in order to place these results within the context of a likely real scenario in humans, a more complicated model utilizing an MRI-acquired lesion and slides from the Visible Human Project \cite{visiblehuman} was developed. Specifically, lesion geometry was taken from a real deep tissue injury in a pig model imaged using $\mathrm{T}_2^*$-weighted MRI. The human geometry was taken from a transverse plane slice aross the left ischial tuberosity such that the lesion was placed immediately superficial to the boney promience. For this model, the overall lesion width and lesion depth were examined with results shown in Figs. \ref{fig:human_size_characterization} and \ref{fig:human_depth_characterization} respectively.
 
@@ -651,7 +651,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$\diameter S = \SI{0.5}{cm}$, $\diameter S = \SI{1.0}{cm}$, $\diameter S = \SI{2.0}{cm}$, $\diameter S = \SI{2.5}{cm}$},
+						legend entries={$\diameter S = \SI{0.5}{\cm}$, $\diameter S = \SI{1.0}{\cm}$, $\diameter S = \SI{2.0}{\cm}$, $\diameter S = \SI{2.5}{\cm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -664,11 +664,11 @@
 							\node [anchor=south](rect) at (axis cs:3.2,0.72) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static Visible Human model lesion width characterization]{Characterization of lesion width in a Visible Human-MRI model for lesions at a depth of \SI{7.25}{cm} interrogated with a \SI{4}{MHz} probing frequency with \SI{5}{\%} applied strain. Small lesions (with a width $\leq \SI{1.0}{cm}$) are severely misrepresented and portray general over-estimation of lesion stiffness larger lesions.}
+				\caption[Quasi-static Visible Human model lesion width characterization]{Characterization of lesion width in a Visible Human-MRI model for lesions at a depth of \SI{7.25}{\cm} interrogated with a \SI{4}{\MHz} probing frequency with \SI{5}{\percent} applied strain. Small lesions (with a width $\leq \SI{1.0}{\cm}$) are severely misrepresented and portray general over-estimation of lesion stiffness larger lesions.}
 				\label{fig:human_size_characterization}
 			\end{figure}
 
-			In Fig. \ref{fig:human_size_characterization}, it is clear to see than small lesions (with a diameter $\leq \SI{1.0}{cm}$) are almost impossible to adequately detect (although larger lesions will be adequately detectable). It is hypothesized that this phenomenon is due to the excessive strain apparent above the boney prominence that is seen in the resultant elastogram given in Fig. \ref{fig:human_elastogram} such that the lesion is ``washed out'' by the strain field developed by the relatively stiff bone nearby.
+			In Fig. \ref{fig:human_size_characterization}, it is clear to see than small lesions (with a diameter $\leq \SI{1.0}{\cm}$) are almost impossible to adequately detect (although larger lesions will be adequately detectable). It is hypothesized that this phenomenon is due to the excessive strain apparent above the boney prominence that is seen in the resultant elastogram given in Fig. \ref{fig:human_elastogram} such that the lesion is ``washed out'' by the strain field developed by the relatively stiff bone nearby.
 
 			\begin{figure}[!t]
 				\centering
@@ -678,8 +678,8 @@
 						enlargelimits=false,
 						unit vector ratio*=1 1 1,
 						axis on top,
-						xlabel={Lateral deviation, $x$ (cm)},
-						ylabel={Depth, $d$ (cm)},
+						xlabel={Lateral deviation, $x$ (\si{\cm})},
+						ylabel={Depth, $d$ (\si{\cm})},
 						y dir=reverse,
 						colormap/blackwhite,
 						colorbar,
@@ -688,10 +688,10 @@
 						colorbar style={yticklabel={\pgfmathprintnumber{\tick}\,\si{\percent}}, at={(1.05,0)}, width=0.01\textwidth, ylabel={Compressive Strain}, anchor=south west,
 						draw=black, text=black, fill=black},
 						draw=black, text=black, fill=black]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/quasistatic/elastograms/e117_bw.png};
+							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/quasistatic/elastograms/e117_colour.png};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Sample elastogram of a Visible Human model lesion]{Elastogram for a \SI{0.5}{cm} wide lesion embedded in the Visible Human-MRI model domain at a depth of \SI{7.25}{cm} interrogated at \SI{4}{MHz} with an applied strain of \SI{2.5}{\%}. The lesion is not visible in the resultant elastogram.}
+				\caption[Sample elastogram of a Visible Human model lesion]{Elastogram for a \SI{0.5}{\cm} wide lesion embedded in the Visible Human-MRI model domain at a depth of \SI{7.25}{\cm} interrogated at \SI{4}{\MHz} with an applied strain of \SI{2.5}{\percent}. The lesion is not visible in the resultant elastogram.}
 				\label{fig:human_elastogram}
 			\end{figure}
 
@@ -705,7 +705,7 @@
 						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$d = \SI{6.25}{cm}$, $d = \SI{6.75}{cm}$, $d = \SI{7.25}{cm}$},
+						legend entries={$d = \SI{6.25}{\cm}$, $d = \SI{6.75}{\cm}$, $d = \SI{7.25}{\cm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -717,14 +717,14 @@
 							\node [anchor=south](rect) at (axis cs:3.2,0.64) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static characterization of lesion depth in a Visible Human model]{Characterization of lesion depth in a Visible Human-MRI model for lesions with a width of \SI{2.5}{cm} interrogated with a \SI{4}{MHz} probing frequency and \SI{5}{\%} applied strain. Deeper lesions (closer to the bony promience) are have slightly over-estimated lesion stiffness ratios as opposed to more superficial lesions while detection sensitivity is not affected by lesion depth.}
+				\caption[Quasi-static characterization of lesion depth in a Visible Human model]{Characterization of lesion depth in a Visible Human-MRI model for lesions with a width of \SI{2.5}{\cm} interrogated with a \SI{4}{\MHz} probing frequency and \SI{5}{\percent} applied strain. Deeper lesions (closer to the bony promience) are have slightly over-estimated lesion stiffness ratios as opposed to more superficial lesions while detection sensitivity is not affected by lesion depth.}
 				\label{fig:human_depth_characterization}
 			\end{figure}
 
 			In Fig. \ref{fig:human_depth_characterization}, there is little to no dependence of the detection sensitivity on the lesion depth in the Visible Human-MRI model with all depth curves displaying the same profile. However, deeper lesions (lesions closer to the bony prominence) have stiffnesses that are over-estimated with respect to their superficial counterparts. This is hypothesized to be due to the increased strain field present in all of the soft tissue located immediately superior to the bony prominence, but should not pose a serious problem for imaging lesions of this nature.
 
 		\subsection{Physical Phantom Validation}
-			In order to ensure that the models presented here represented physical realities, a small subset of the cases studied were modelled in a physical phantom, specifically for three lesions with stiffness ratios of 0.56, 1.80, and 3.20 with a diameter of \SI{2.0}{cm} and at a depth of \SI{3.5}{cm}, interrogated at \SI{8}{MHz} with approximately \SI{5}{\%} applied strain. The results of this study are summarized in Fig. \ref{fig:phantom_validation}.
+			In order to ensure that the models presented here represented physical realities, a small subset of the cases studied were modelled in a physical phantom, specifically for three lesions with stiffness ratios of 0.56, 1.80, and 3.20 with a diameter of \SI{2.0}{\cm} and at a depth of \SI{3.5}{\cm}, interrogated at \SI{8}{\MHz} with approximately \SI{5}{\percent} applied strain. The results of this study are summarized in Fig. \ref{fig:phantom_validation}.
 
 			\begin{figure}[!t]
 				\centering
@@ -746,7 +746,7 @@
 							\node [anchor=north west](c) at (axis cs:0.55,2.45) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Experimental validation of quasi-static model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{cm} and diameter of \SI{2.0}{cm} showing general agreement between simulated and experimental cases. Idealization errors are the most likely the cause of the differences seen between simulated and experimental cases.}
+				\caption[Experimental validation of quasi-static model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases. Idealization errors are the most likely the cause of the differences seen between simulated and experimental cases.}
 				\label{fig:phantom_validation}
 			\end{figure}
 
@@ -757,16 +757,18 @@
 	\section{Conclusion}
 		With this work, we presented a numerical characterization of the use of quasi-static ultrasound elastography for the early detection of deep tissue injuries (DTI). There is a real clinical need for an objective tool that is capable of detecting the formation and progression of DTI in human subjects as these wounds are generally not visible from the surface of the skin until they have broken through and already caused substantial damage.
 
-		Through our numerical characterization, quasi-static ultrasound elastography was found to be an effective tool for detecting and monitoring DTI in theoretical simulations. Overall, detection sensitivity was less than expected. Small lesions (with diameters $\leq \SI{1.0}{cm}$) were more difficult to differentiate due to the low lesion detection sensitivity. While lesion depth, altitude above the underlying bone, and probing frequency did not have significant effect on the lesion detection sensitivity, it was found that applying high levels of compressive strain (\SI{10}{\%}) introduced severe error for both very soft and very stiff lesions, thus it is recommended that diagnosticians only apply moderate ($\leq \SI{5}{\%}$) compressive strain when interrogating potential lesions. Larger strains may alternately be induced by slowly palpating the tissue with very minor strains frame-by-frame and cumulating the displacement fields across these smaller palpations. Care must be used when palpating the tissue, lest ``vigorous'' palpations cause harm to the already sensitive injury. In the more complicated model of co-located lesions, while the separation distance between adjacent lesions did not affect the detection sensitivity, the placing of adjacent lesions generated ``phantom'' lesion regions with altered strain that may appear to be diseased tissue when they are in fact healthy. In a model lesion with gradual blurred boundaries, the effect of blur radius only affected the detection sensitivity and ability to differentiate soft lesions. Specifically, soft lesions with large blur radii became nearly impossible to differentiate as these lesions all showed a measured lesion stiffness ratio of approximately 1 which would show up as regular, healthy tissue. In the case of numerous clustered small lesions, both decreased lesion density and decreased individual lesion size caused a decrease in lesion detection sensitivity, likely due to the averaging effect of healthy tissue and diseased tissue in near proximity. Finally, in the Visible Human-MRI acquired lesion model, lesions with widths $\leq \SI{1.0}{cm}$ are nearly impossible to differentiate as they are hidden by the strain field generated by the bony prominence. Lesion depth did not have an effect on the detection sensitivity, though deeper lesions (lesions which were closer to the bony prominence) had overestimated stiffnesses with respect to their more superficial counterparts.
+		Through our numerical characterization, quasi-static ultrasound elastography was found to be an effective tool for detecting and monitoring DTI in theoretical simulations. Overall, detection sensitivity was less than expected. Small lesions (with diameters $\leq \SI{1.0}{\cm}$) were more difficult to differentiate due to the low lesion detection sensitivity. While lesion depth, altitude above the underlying bone, and probing frequency did not have significant effect on the lesion detection sensitivity, it was found that applying high levels of compressive strain (\SI{10}{\percent}) introduced severe error for both very soft and very stiff lesions, thus it is recommended that diagnosticians only apply moderate ($\leq \SI{5}{\percent}$) compressive strain when interrogating potential lesions. Larger strains may alternately be induced by slowly palpating the tissue with very minor strains frame-by-frame and cumulating the displacement fields across these smaller palpations. Care must be used when palpating the tissue, lest ``vigorous'' palpations cause harm to the already sensitive injury. In the more complicated model of co-located lesions, while the separation distance between adjacent lesions did not affect the detection sensitivity, the placing of adjacent lesions generated ``phantom'' lesion regions with altered strain that may appear to be diseased tissue when they are in fact healthy. In a model lesion with gradual blurred boundaries, the effect of blur radius only affected the detection sensitivity and ability to differentiate soft lesions. Specifically, soft lesions with large blur radii became nearly impossible to differentiate as these lesions all showed a measured lesion stiffness ratio of approximately 1 which would show up as regular, healthy tissue. In the case of numerous clustered small lesions, both decreased lesion density and decreased individual lesion size caused a decrease in lesion detection sensitivity, likely due to the averaging effect of healthy tissue and diseased tissue in near proximity. Finally, in the Visible Human-MRI acquired lesion model, lesions with widths $\leq \SI{1.0}{\cm}$ are nearly impossible to differentiate as they are hidden by the strain field generated by the bony prominence. Lesion depth did not have an effect on the detection sensitivity, though deeper lesions (lesions which were closer to the bony prominence) had overestimated stiffnesses with respect to their more superficial counterparts.
 
 		Although the studies presented here resulted in less-than-ideal detection sensitivities, the technique was still able to pick out lesions from the surrounding soft (and hard) tissue. Work done by Solis et al. \cite{solis13} has shown that untreated DTI are multiple centimeters in size, while work done by Gefen et al. \cite{gefen05} has shown that deep tissue injuries exhibit 1.8-fold to 3.3-fold mechanical stiffening. The work presented here has shown that quasi-static ultrasound elastography is adequate at detecting deep tissue injury lesions in these ranges of parameters and will thus be adequate to detect and monitor progress DTI. However, without further real-world experimentation on the exact nature of newly-forming DTI, the detection sensitivity required to detect newly-forming DTI is indeterminate.
 
 		A subset of the results found through simulation were compared with similar experiments done using a tissue mimicking phantom model. The experimental results using the phantom model generally agreed with those found from simulation cases. It was also noted that the manual skin indentation technique involved with quasi-static ultrasound elastography proved to be difficult to produce reliable images. This difficulty suggests that an alternate method of performing ultrasound elastography may be preferable to quasi-static ultrasound elastography with manual indentation. Acoustic radiation force impulse (ARFI) elastography may be a more appropriate method to acquire DTI elastograms as although ARFI elastography works on the same principles as quasi-static elastography, the difference lays in the fact that tissue deformation is caused by localized large-amplitude acoustic waves generated by the transducer. This means that human factors play a far less substantial role in image acquisition and would likely improve repeatability and inter-operator reliability. Nevertheless, the work done here to characterize the use of quasi-static ultrasound elastography is an important step along the path of generating a useful clinical tool for detecting formative and monitoring progressive deep tissue injuries.
 
-\cleardoublepage
+\comment{
+	\cleardoublepage
 
-\phantomsection
+	\phantomsection
 
-\addcontentsline{toc}{section}{References}
-\bibcomplete{references}
-\printbibliography[heading=subbibliography]
+	\addcontentsline{toc}{section}{References}
+	\bibcomplete{references}
+	\printbibliography[heading=subbibliography]
+}

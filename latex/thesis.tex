@@ -1,8 +1,6 @@
 \documentclass[12pt]{book}
 
 \usepackage[top=1in, bottom=1in, left=1.5in, right=1.5in, letterpaper]{geometry}
-\usepackage[hidelinks, bookmarks=true]{hyperref}
-\usepackage{bookmark}
 \usepackage{booktabs}
 \usepackage{setspace}
 \usepackage{trackchanges}
@@ -13,6 +11,7 @@
 \usepackage{listings}
 \usepackage{wasysym}
 \usepackage{float}
+\usepackage[font=small,labelfont=bf]{caption}
 \usepackage[caption=false,font=footnotesize,format=hang]{subfig}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.5}
@@ -24,9 +23,10 @@
 \usepackage{longtable}
 \usepackage{xfrac}
 \usepackage{siunitx}
-
- \usepackage[style=ieee,backend=biber,refsection=chapter]{biblatex}
- \addbibresource{references.bib}
+\usepackage[style=ieee,backend=biber]{biblatex}
+\addbibresource{references.bib}
+\usepackage[hidelinks, bookmarks=true]{hyperref}
+\usepackage{bookmark}
 
 % add a "DRAFT" watermark to everything
 %\usepackage{draftwatermark}
@@ -147,18 +147,40 @@ dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 % rename "Figure" to "Fig."
 \def\figurename{Fig.}
 
+% rename "Contents" to "Table of Contents"
+\renewcommand*\contentsname{Table of Contents}
+
 \begin{document}
 
 \pdfbookmark{Title Page}{title}
 \input{frontback/titlepage}
-\pdfbookmark{Abstract}{abstract}
-\input{frontback/abstract}
-\pdfbookmark{Acknowledgements}{acknowledgements}
-\input{frontback/acknowledgements}
-\input{frontback/toc}
-\input{frontback/nomenclature}
+\newpage
 
 \setcounter{page}{1}
+\pagenumbering{roman}
+\doublespacing
+\rfoot[\thepage]{\thepage}
+
+\pdfbookmark{Abstract}{abstract}
+\input{frontback/abstract}
+\newpage
+\pdfbookmark{Preface}{preface}
+\input{frontback/preface}
+\newpage
+\pdfbookmark{Dedication}{dedication}
+\input{frontback/dedication}
+\newpage
+\pdfbookmark{Acknowledgements}{acknowledgements}
+\input{frontback/acknowledgements}
+\newpage
+\input{frontback/toc}
+\newpage
+\pdfbookmark{Nomenclature}{nomenclature}
+\input{frontback/nomenclature}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
 \doublespacing
 \rfoot[\thepage]{\thepage}
 
@@ -170,34 +192,21 @@ dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 \input{chapters/conclusion}
 
 %% BIBLIOGRAPHY %%
-\comment{
-	\cleardoublepage
+\cleardoublepage
 
-	\phantomsection
+\phantomsection
 
-	\addcontentsline{toc}{chapter}{References}
-	%\bibliographystyle{IEEEtran}
-	%\bibliography{references}
-	%\nocite{*}
-	%\printbibliography{section=1}
-
-	\printbibheading
-	\printbibliography[section=1, heading=subbibliography, title={Introduction}]
-	\printbibliography[section=2, heading=subbibliography, title={Literature Review}]
-	\printbibliography[section=3, heading=subbibliography, title={Numerical Characterization of Quasi-Static Ultrasound Elastography}]
-	\printbibliography[section=4, heading=subbibliography, title={Numerical Characterization of Acoustic Radiation Force Impulse Imaging}]
-	\printbibliography[section=5, heading=subbibliography, title={Numerical Characterization of Shear Wave Speed Quantification}]
-	\printbibliography[section=6, heading=subbibliography, title={Conclusion}]
-}
+\addcontentsline{toc}{chapter}{References}
+\printbibliography
 
 %% APPENDICES %%
 \appendix
-\pretocmd{\chapter}{%
+\comment{\pretocmd{\chapter}{%
   \clearpage
   \pagenumbering{arabic}%
   \renewcommand*{\thepage}{\thechapter-\arabic{page}}%
 }{}{}
-\setcounter{page}{1}
+\setcounter{page}{1}}
 
 %\input{appendices/datatables}
 \input{appendices/sourcecode}

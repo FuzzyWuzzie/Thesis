@@ -39,15 +39,15 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 4839,
+				"buffer_size": 7592,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "frontback/nomenclature.tex",
+			"file": "frontback/preface.tex",
 			"settings":
 			{
-				"buffer_size": 629,
+				"buffer_size": 46,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,7 +55,15 @@
 			"file": "chapters/litreview.tex",
 			"settings":
 			{
-				"buffer_size": 24925,
+				"buffer_size": 27259,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/quasi-static.tex",
+			"settings":
+			{
+				"buffer_size": 72898,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,7 +71,7 @@
 			"file": "chapters/references.bib",
 			"settings":
 			{
-				"buffer_size": 427113,
+				"buffer_size": 430955,
 				"line_ending": "Windows"
 			}
 		}
@@ -71,17 +79,9 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 173.0,
+		"height": 265.0,
 		"selected_items":
 		[
-			[
-				"thes",
-				"Thesaurus search"
-			],
-			[
-				"thesu",
-				"Thesaurus search"
-			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -89,6 +89,26 @@
 			[
 				"word",
 				"Word Wrap: Toggle"
+			],
+			[
+				"origa",
+				"Origami: Create Pane on the Right"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"matl",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"thes",
+				"Thesaurus search"
+			],
+			[
+				"thesu",
+				"Thesaurus search"
 			],
 			[
 				"anno",
@@ -105,10 +125,6 @@
 			[
 				"wor",
 				"Word Wrap: Toggle"
-			],
-			[
-				"matl",
-				"Set Syntax: MATLAB"
 			]
 		],
 		"width": 536.0
@@ -128,15 +144,26 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
+		"/C/Users/Kenton/Documents/mining activity.csv",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.sublime-workspace",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.blg",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/abstract.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
+		"/C/Users/Kenton/Downloads/FuzzyWuzzie (1).bib",
+		"/C/Users/Kenton/Downloads/cudaminer-2014-02-09/passwds.txt",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Programming/Portman/portman.json",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.aux",
 		"/C/Users/Kenton/AppData/Roaming/Vertcoin/vertcoin.conf",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.bbl",
-		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_single.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_human.tex",
@@ -145,14 +172,11 @@
 		"/C/Users/Kenton/Pictures/Diagram1.tex",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Thesaurus/thesaurus.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/C/Users/Kenton/Downloads/cudaminer-2014-02-09/passwds.txt",
-		"/C/Users/Kenton/Programming/Portman/portman.json",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).dic",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).txt",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).aff",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_cite_completions.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_ref_cite_completions.py",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/UpdateCiteULikeBib/UpdateCiteULikeBib.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/UpdateCiteULikeBib/Default (Windows).sublime-keymap",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/font.py",
@@ -249,6 +273,71 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dedication",
+			"images/elastogram",
+			"_bw",
+			"cm^{-2}",
+			"\\%",
+			"{cm}",
+			"{mm}",
+			"(cm)",
+			"{MHz}",
+			"(mm)",
+			"{m/s}",
+			"\\si",
+			"tanter",
+			"ophir",
+			"bercoff",
+			"compression",
+			"convolvedBMode",
+			"tree",
+			"thick",
+			"2in",
+			"\\unit",
+			"{insets/",
+			"{elastograms/",
+			"{data/",
+			"IEEEPlotCycle",
+			"\\unit",
+			"\\includegraphics{insets/",
+			"{data/",
+			"IEEEPlotCycle",
+			"\\unit",
+			"IEEEPlotCycle",
+			"\\unit",
+			"IEEEPlotCycle",
+			"\\unit",
+			"IEEEPlotCycle",
+			"unit",
+			"\\%",
+			"unit",
+			"=0.5",
+			"0.5",
+			"0.5\\textwidth",
+			"\\unit",
+			"\\%",
+			"{mm}",
+			"{cm}",
+			"{MHz}",
+			"\\unit",
+			"unit",
+			"images/",
+			"\\si{mm}",
+			"\\si{MHz}",
+			"\\si{cm}",
+			"\\%",
+			"unit",
+			"0.914835",
+			"0.60989",
+			".pdf",
+			"]}{",
+			"\\unit{[",
+			"0.175\\textwidth",
+			"[width=0.175\\textwidth]",
+			"\\input",
+			"unit",
+			"images",
+			"DOGE",
 			"meffre06",
 			"solis12",
 			"maklebust05",
@@ -311,20 +400,7 @@
 			"approach for elastic",
 			"\\begin{cbinput}",
 			"\\input",
-			"\\caption{",
-			"KH",
-			"\\anote",
-			"\\annote",
-			"\\note",
-			"Kenton",
-			"caption",
-			"pc1",
-			"rgb",
-			"IEEEPlotCycle",
-			"HEAD",
-			"Page 2",
-			"pg2",
-			"relaxation_newtest"
+			"\\caption{"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -332,6 +408,32 @@
 		"regex": false,
 		"replace_history":
 		[
+			"_colour",
+			"\\percent",
+			"{\\cm}",
+			"{\\mm}",
+			"(\\si{\\cm})",
+			"{\\MHz}",
+			"(\\si{mm})",
+			"{\\metre\\per\\second}",
+			"\\SI",
+			"{assets/quasistatic/insets/",
+			"{assets/quasistatic/elastograms/",
+			"{assets/quasistatic/data/",
+			"\\SI",
+			"\\includegraphics{assets/quasistatic/insets/",
+			"{assets/quasistatic/data/",
+			"\\SI",
+			"ColourPlotCycle",
+			"\\SI",
+			"\\percent",
+			"{\\mm}",
+			"{\\cm}",
+			"{\\MHz}",
+			"\\si{\\mm}",
+			"\\si{\\MHz}",
+			"\\si{\\cm}",
+			"\\percent",
 			"\\%",
 			"\\percent",
 			"\\SI",
@@ -349,7 +451,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -357,192 +459,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 4839,
+						"buffer_size": 7592,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3207,
-								3207
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"sublime_auto_complete": true,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2014.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "frontback/nomenclature.tex",
-					"settings":
-					{
-						"buffer_size": 629,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								87,
-								87
+								906,
+								906
 							]
 						],
 						"settings":
@@ -552,6 +477,33 @@
 							"synced": false,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "frontback/preface.tex",
+					"settings":
+					{
+						"buffer_size": 46,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								33,
+								33
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -564,15 +516,45 @@
 					"file": "chapters/litreview.tex",
 					"settings":
 					{
-						"buffer_size": 24925,
+						"buffer_size": 27259,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								24301,
-								24301
+								26101,
+								26101
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4477.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "chapters/quasi-static.tex",
+					"settings":
+					{
+						"buffer_size": 72898,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2816,
+								2816
 							]
 						],
 						"settings":
@@ -585,7 +567,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3535.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -597,19 +579,19 @@
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "chapters/references.bib",
 					"settings":
 					{
-						"buffer_size": 427113,
+						"buffer_size": 430955,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								345508,
+								345517
 							]
 						],
 						"settings":
@@ -622,7 +604,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 150499.0,
+						"translation.y": 138214.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -658,7 +640,7 @@
 		"cols":
 		[
 			0.0,
-			0.655681818182,
+			0.672159090909,
 			1.0
 		],
 		"rows":
