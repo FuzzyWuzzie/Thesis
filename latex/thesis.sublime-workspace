@@ -39,15 +39,7 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 7592,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontback/preface.tex",
-			"settings":
-			{
-				"buffer_size": 46,
+				"buffer_size": 7179,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,7 +47,7 @@
 			"file": "chapters/litreview.tex",
 			"settings":
 			{
-				"buffer_size": 27259,
+				"buffer_size": 33781,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,15 +55,39 @@
 			"file": "chapters/quasi-static.tex",
 			"settings":
 			{
-				"buffer_size": 72898,
+				"buffer_size": 72928,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/arfi.tex",
+			"settings":
+			{
+				"buffer_size": 6832,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "frontback/nomenclature.tex",
+			"settings":
+			{
+				"buffer_size": 1890,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "chapters/references.bib",
 			"settings":
 			{
-				"buffer_size": 430955,
+				"buffer_size": 442174,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "dictionary.txt",
+			"settings":
+			{
+				"buffer_size": 127,
 				"line_ending": "Windows"
 			}
 		}
@@ -79,16 +95,20 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 265.0,
+		"height": 150.0,
 		"selected_items":
 		[
 			[
-				"install",
-				"Package Control: Install Package"
+				"latextool",
+				"LaTeXTools: Reconfigure and migrate settings"
 			],
 			[
 				"word",
 				"Word Wrap: Toggle"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"origa",
@@ -144,24 +164,40 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Get-Vert.bat",
+		"/C/Users/Kenton/Downloads/Urist McSlyrDVS's Optimize Plan V1 (1).0",
+		"/C/Users/Kenton/Documents/USEbrella/Publications/IEEE Quasi-Static Final/QuasiStaticCharacterisation.tex",
+		"/C/Users/Kenton/Downloads/Map Maker/GFXiNXS_Map_Maker.txt",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_ref_cite_completions.py",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_cite_completions.py",
+		"/E/Backup Jan 4 2014/Downloads/COMSOL Multiphysics 4.3 with Update 2/COMSOL43/install.txt",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/LaTeXTools.sublime-settings",
+		"/C/Users/Kenton/AppData/Roaming/MathWorks/MATLAB/R2013a/javaclasspath.txt",
+		"/C/ProgramData/MySQL/MySQL Server 5.6/my.ini",
+		"/C/Program Files/MySQL/MySQL Server 5.6/my-default.ini",
+		"/C/Users/Kenton/Transfer/usebrella.sql",
+		"/C/Users/Kenton/Downloads/cudaminer-2014-02-09/passwds.txt",
 		"/C/Users/Kenton/Documents/mining activity.csv",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/MonCrypto VTC.bat",
+		"/E/Backup Jan 4 2014/Downloads/Windows_8.1_Pro_X64_Activated_Final/Install Keys.txt",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Surly P2Pool VTC.bat",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.sublime-workspace",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.blg",
-		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/abstract.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
 		"/C/Users/Kenton/Downloads/FuzzyWuzzie (1).bib",
-		"/C/Users/Kenton/Downloads/cudaminer-2014-02-09/passwds.txt",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
 		"/C/Users/Kenton/Programming/Portman/portman.json",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.aux",
 		"/C/Users/Kenton/AppData/Roaming/Vertcoin/vertcoin.conf",
-		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.bbl",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
@@ -175,8 +211,6 @@
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).dic",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).txt",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).aff",
-		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_cite_completions.py",
-		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_ref_cite_completions.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/UpdateCiteULikeBib/UpdateCiteULikeBib.py",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/UpdateCiteULikeBib/Default (Windows).sublime-keymap",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/font.py",
@@ -273,6 +307,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"1",
+			"190",
+			"$I_{SPPA.3}$ safety measures of ARFI pulses",
+			"isppa",
+			"nightin",
+			"Lessening of ARFI with increasing depth and probing frequency",
+			"force",
+			"_force",
+			"Lack of effect of pulse cycles on force at focal point",
+			"Lack of transducer width effect on focal force",
+			"si",
+			"1",
+			"vargheese09",
+			"meunier95",
+			"brusseau08",
+			",",
+			".5",
+			"fill",
 			"dedication",
 			"images/elastogram",
 			"_bw",
@@ -382,25 +434,7 @@
 			"message",
 			"  ",
 			"API",
-			"    ",
-			"ceelen08",
-			"gefen07-09",
-			"freitas11",
-			"beckrich99",
-			"solis12",
-			"ignore",
-			"niazi97",
-			"gyawali11",
-			"treeby",
-			"tree",
-			"Bradley",
-			"treeby",
-			"\\begin{refsection}",
-			"hy]",
-			"approach for elastic",
-			"\\begin{cbinput}",
-			"\\input",
-			"\\caption{"
+			"    "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -451,7 +485,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -459,15 +493,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 7592,
+						"buffer_size": 7179,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								906,
-								906
+								2519,
+								2519
 							]
 						],
 						"settings":
@@ -479,82 +513,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 920.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "frontback/preface.tex",
-					"settings":
-					{
-						"buffer_size": 46,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								33,
-								33
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "chapters/litreview.tex",
 					"settings":
 					{
-						"buffer_size": 27259,
+						"buffer_size": 33781,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26101,
-								26101
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4477.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "chapters/quasi-static.tex",
-					"settings":
-					{
-						"buffer_size": 72898,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2816,
-								2816
+								29224,
+								29224
 							]
 						],
 						"settings":
@@ -567,7 +544,101 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 3643.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "chapters/quasi-static.tex",
+					"settings":
+					{
+						"buffer_size": 72928,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23990,
+								23957
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4786.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "chapters/arfi.tex",
+					"settings":
+					{
+						"buffer_size": 6832,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4317,
+								4317
+							],
+							[
+								4326,
+								4326
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1166.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "frontback/nomenclature.tex",
+					"settings":
+					{
+						"buffer_size": 1890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								190,
+								190
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -579,19 +650,19 @@
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "chapters/references.bib",
 					"settings":
 					{
-						"buffer_size": 430955,
+						"buffer_size": 442174,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								345508,
-								345517
+								229920,
+								229935
 							]
 						],
 						"settings":
@@ -604,7 +675,36 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 138214.0,
+						"translation.y": 7249.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "dictionary.txt",
+					"settings":
+					{
+						"buffer_size": 127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								127,
+								127
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -683,6 +783,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 160.0,
+	"side_bar_width": 187.0,
 	"status_bar_visible": true
 }

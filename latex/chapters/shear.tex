@@ -1,2 +1,232 @@
 \chapter{Numerical Characterization of Shear Wave Speed Quantification}
-	%\lipsum[1]
+	\section{Results}
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					xlabel={Distance from centerline, $x$ (\si{\cm})},
+					ylabel={Axial displacement, $v$ (\si{\um})},
+					grid=major,
+					legend entries={$t = \SI{2.5}{\ms}$, $t = \SI{7.5}{\ms}$, $t = \SI{12.5}{\ms}$, $t = \SI{17.5}{\ms}$, $t = \SI{22.5}{\ms}$, $t = \SI{27.5}{\ms}$},
+					legend style={legend pos=south east,font=\small},
+					clip=true,
+					cycle list name=SmoothColourPlotCycle,
+					draw=black, text=black, fill=black,
+					xmin=0, xmax=5]
+					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t025.dat};
+					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t075.dat};
+					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t125.dat};
+					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t175.dat};
+					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t225.dat};
+					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t275.dat};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[]{}
+			\label{fig:lateral_wave_i158}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					enlargelimits=false,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					xlabel={Time, $t$ (\si{\ms})},
+					ylabel={Distance from centerline, $x$ (\si{\cm})},
+					axis on top,
+					colormap/jet, colorbar, point meta min=-6.6746e-01, point meta max=3.8648e-01, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Axial Displacement, $v$ (\si{\um})},
+						draw=black, text=black, fill=black}]
+						\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{assets/shear/data/lateralCut158.png};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[]{}
+			\label{fig:lateral_cut_i158}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					enlargelimits=false,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					xlabel={Time, $t$ (\si{\ms})},
+					ylabel={Distance from centerline, $x$ (\si{\cm})},
+					axis on top,
+					colormap/jet, colorbar, point meta min=-6.6746e-01, point meta max=3.8648e-01, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Axial Displacement, $v$ (\si{\um})},
+						draw=black, text=black, fill=black}]
+						\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{assets/shear/data/lateralCut158.png};
+						\addplot[draw=black, solid, ultra thick] table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_isoline.dat};
+						\draw[ultra thick, <->, draw=black] (axis cs:15,0.75) -- (axis cs:15,1.75);
+						\draw[ultra thick, draw=black, dashed] (axis cs:0,0.75) -- (axis cs:17.5,0.75);
+						\draw[ultra thick, draw=black, dashed] (axis cs:0,1.75) -- (axis cs:17.5,1.75);
+						\node[right] at (axis cs:15,1.25) {Lesion};
+						\draw[ultra thick, ->, draw=black] (axis cs:25.65,2.75) -- (axis cs:25.65,3.7755102040816);
+						\node[below] at (axis cs:25.65,2.75) {Iso-line};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[]{}
+			\label{fig:lateral_cut_i158_imgsc_isoline}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					xlabel={Time, $t$ (\si{\ms})},
+					ylabel={Distance from centerline, $x$ (\si{\cm})},
+					grid=major,
+					clip=true,
+					cycle list name=SmoothColourPlotCycle,
+					draw=black, text=black, fill=black]
+					\addplot table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_isoline.dat};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[]{}
+			\label{fig:lateral_cut_i158_isoline}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					xlabel={Distance from centerline, $x$ (\si{\cm})},
+					ylabel={Measured Shear Wave Speed, $c_t$ (\si{\m\per\s})},
+					grid=major,
+					clip=true,
+					cycle list name=SmoothColourPlotCycle,
+					draw=black, text=black, fill=black]
+					\addplot table[x expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_shear_wave_speed.dat};
+
+					\draw[ultra thick, ->, draw=black] (axis cs:0.25,2) -- (axis cs:0.75,2);
+					\draw[ultra thick, <-, draw=black] (axis cs:1.75,2) -- (axis cs:2.25,2);
+					\node[right] at (axis cs:2.25,2) {Lesion};
+					\draw[ultra thick, draw=black, dashed] (axis cs:0.75,0) -- (axis cs:0.75,2.05);
+					\draw[ultra thick, draw=black, dashed] (axis cs:1.75,0) -- (axis cs:1.75,2.05);
+				\end{axis}
+			\end{tikzpicture}
+			\caption[]{}
+			\label{fig:lateral_cut_i158_shear_wave_speed}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					xlabel={True Stiffness Ratio, $E_{rel,true}$},
+					ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+					grid=major,
+					legend entries={$\Delta_{off} = \SI{0.00}{\cm}$, $\Delta_{off} = \SI{1.25}{\cm}$, $\Delta_{off} = \SI{2.50}{\cm}$, $\Delta_{off} = \SI{3.75}{\cm}$},
+					legend style={legend pos=south east,font=\small},
+					clip=true,
+					cycle list name=ColourPlotCycle,
+					draw=black, text=black, fill=black]
+					\addplot table {assets/shear/data/shear_doff_d3_o000.dat};
+					\addplot table {assets/shear/data/shear_doff_d3_o125.dat};
+					\addplot table {assets/shear/data/shear_doff_d3_o250.dat};
+					\addplot table {assets/shear/data/shear_doff_d3_o375.dat};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[Shear-wave speed measured stiffness ratio at a depth of \SI{3}{\cm}]{Shear-wave speed measured stiffness ratio at a depth of \SI{3}{\cm}}
+			\label{fig:erel_doff_d3}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					major x tick style = transparent,
+					ybar=2*\pgflinewidth,
+					bar width=14pt,
+					ymajorgrids=true,
+					xlabel={True Stiffness Ratio, $E_{rel,true}$},
+					ylabel={Mean Squared Error},
+					enlarge x limits=0.25,
+					ymin=0,
+					symbolic x coords={0.32, 0.56, 1.8, 3.2},
+					xtick=data,
+					legend entries={$\Delta_{off} = \SI{0.00}{\cm}$, $\Delta_{off} = \SI{1.25}{\cm}$, $\Delta_{off} = \SI{2.50}{\cm}$, $\Delta_{off} = \SI{3.75}{\cm}$},
+					legend style={legend pos=north west,font=\small},
+					cycle list name=BarColourPlotCycle]
+					\addplot table {assets/shear/data/shear_doff_mse_d3_o000.dat};
+					\addplot table {assets/shear/data/shear_doff_mse_d3_o125.dat};
+					\addplot table {assets/shear/data/shear_doff_mse_d3_o250.dat};
+					\addplot table {assets/shear/data/shear_doff_mse_d3_o375.dat};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[Shear-wave speed measured stiffness ratio mean-squared error at a depth of \SI{3}{\cm}]{Shear-wave speed measured stiffness ratio mean-squared error at a depth of \SI{3}{\cm}}
+			\label{fig:erel_doff_mse_d3}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					xlabel={True Stiffness Ratio, $E_{rel,true}$},
+					ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+					grid=major,
+					legend entries={$\Delta_{off} = \SI{0.00}{\cm}$, $\Delta_{off} = \SI{1.25}{\cm}$, $\Delta_{off} = \SI{2.50}{\cm}$, $\Delta_{off} = \SI{3.75}{\cm}$},
+					legend style={legend pos=south east,font=\small},
+					clip=true,
+					cycle list name=ColourPlotCycle,
+					draw=black, text=black, fill=black]
+					\addplot table {assets/shear/data/shear_doff_d4_o000.dat};
+					\addplot table {assets/shear/data/shear_doff_d4_o125.dat};
+					\addplot table {assets/shear/data/shear_doff_d4_o250.dat};
+					\addplot table {assets/shear/data/shear_doff_d4_o375.dat};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}]{Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}}
+			\label{fig:erel_doff_d4}
+		\end{figure}
+
+		\begin{figure}[!t]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}[
+					scale only axis,
+					height=3in,
+					width=\textwidth-\widthof{100}-1in,
+					major x tick style = transparent,
+					ybar=2*\pgflinewidth,
+					bar width=14pt,
+					ymajorgrids=true,
+					xlabel={True Stiffness Ratio, $E_{rel,true}$},
+					ylabel={Mean Squared Error},
+					enlarge x limits=0.25,
+					ymin=0,
+					symbolic x coords={0.32, 0.56, 1.8, 3.2},
+					xtick=data,
+					legend entries={$\Delta_{off} = \SI{0.00}{\cm}$, $\Delta_{off} = \SI{1.25}{\cm}$, $\Delta_{off} = \SI{2.50}{\cm}$, $\Delta_{off} = \SI{3.75}{\cm}$},
+					legend style={legend pos=north west,font=\small},
+					cycle list name=BarColourPlotCycle]
+					\addplot table {assets/shear/data/shear_doff_mse_d4_o000.dat};
+					\addplot table {assets/shear/data/shear_doff_mse_d4_o125.dat};
+					\addplot table {assets/shear/data/shear_doff_mse_d4_o250.dat};
+					\addplot table {assets/shear/data/shear_doff_mse_d4_o375.dat};
+				\end{axis}
+			\end{tikzpicture}
+			\caption[Shear-wave speed measured stiffness ratio mean-squared error at a depth of \SI{4}{\cm}]{Shear-wave speed measured stiffness ratio mean-squared error at a depth of \SI{4}{\cm}}
+			\label{fig:erel_doff_mse_d4}
+		\end{figure}

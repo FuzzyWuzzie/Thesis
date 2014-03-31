@@ -145,16 +145,6 @@
 				\centering
 				\subfloat[]{
 					\begin{tikzpicture}
-						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={Depth, $d$ (\si{\cm})}, y dir=reverse,
-						draw=black, text=black, fill=black]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/bModeA.png};
-						\end{axis}
-					\end{tikzpicture}
-					\label{fig:precompression_bmode}
-				}
-				~
-				\subfloat[]{
-					\begin{tikzpicture}
 						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={}, y dir=reverse, colormap/blackwhite, colorbar, point meta min=-1.17, point meta max=1.17, colorbar style={at={(1.05,0)}, anchor=south west, width=0.01\textwidth, ylabel={Lateral Displacement (\si{\mm})},
 						draw=black, text=black, fill=black},
 						draw=black, text=black, fill=black]
@@ -163,7 +153,7 @@
 					\end{tikzpicture}
 					\label{fig:displacement_field_u}
 				}
-				
+				~
 				\subfloat[]{
 					\begin{tikzpicture}
 						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={}, y dir=reverse, colormap={whiteblack}{gray(0cm)=(1); gray(1cm)=(0)}, colorbar, point meta min=-6.25, point meta max=0, colorbar style={at={(1.05,0)}, anchor=south west, width=0.01\textwidth, ylabel={Axial Displacement (\si{\mm})},
@@ -174,17 +164,27 @@
 					\end{tikzpicture}
 					\label{fig:displacement_field_v}
 				}
+				
+				\subfloat[]{
+					\begin{tikzpicture}
+						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={Depth, $d$ (\si{\cm})}, y dir=reverse,
+						draw=black, text=black, fill=black]
+							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/bModeA.png};
+						\end{axis}
+					\end{tikzpicture}
+					\label{fig:precompression_bmode}
+				}
 				~
 				\subfloat[]{
 					\begin{tikzpicture}
-						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={}, y dir=reverse,
+						\begin{axis}[width=0.6\textwidth, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={Lateral deviation, $x$ (\si{\cm})}, ylabel={Depth, $d$ (\si{\cm})}, y dir=reverse,
 						draw=black, text=black, fill=black]
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/images/bModeB.png};
 						\end{axis}
 					\end{tikzpicture}
 					\label{fig:postcompression_bmode}
 				}
-				\caption[Sample deformation finite-element model results for a hard spherical lesion]{Finite-element model results for the case when \ensuremath{d=\SI{10}{\cm}}, \ensuremath{\diameter S = \SI{2.5}{\cm}}, \ensuremath{\varepsilon_{rel} = 3.20}, and \ensuremath{f=\SI{4}{\MHz}} showing \protect\subref{fig:precompression_bmode} a generated b-mode image of the pre-compressed tissue domain, \protect\subref{fig:displacement_field_u} the lateral displacement field and \protect\subref{fig:displacement_field_v} the axial displacement field induced by compressive strain applied to the top of the boundary, and \protect\subref{fig:postcompression_bmode} a generated b-mode image of the post-compressed tissue domain. The included lesion is not visible in \protect\subref{fig:precompression_bmode} and \protect\subref{fig:postcompression_bmode} as it's acoustic properties were no different than surrounding tissues. An anechoic region is visible along the bottom of the domain in \protect\subref{fig:postcompression_bmode} which represents tissue outside of the domain visible in \protect\subref{fig:precompression_bmode}.}
+				\caption[Sample deformation finite-element model results for a hard spherical lesion]{Finite-element model results for the case when \ensuremath{d=\SI{10}{\cm}}, \ensuremath{\diameter S = \SI{2.5}{\cm}}, \ensuremath{\varepsilon_{rel} = 3.20}, and \ensuremath{f=\SI{4}{\MHz}} showing \protect\subref{fig:displacement_field_u} the lateral displacement field and \protect\subref{fig:displacement_field_v} the axial displacement field induced by compressive strain applied to the top of the boundary, \protect\subref{fig:precompression_bmode} a generated b-mode image of the pre-compressed tissue domain, and \protect\subref{fig:postcompression_bmode} a generated b-mode image of the post-compressed tissue domain. The included lesion is not visible in \protect\subref{fig:precompression_bmode} and \protect\subref{fig:postcompression_bmode} as it's acoustic properties were no different than surrounding tissues. An anechoic region is visible along the bottom of the domain in \protect\subref{fig:postcompression_bmode} which represents tissue outside of the domain visible in \protect\subref{fig:precompression_bmode}.}
 				\label{fig:modelresults}
 			\end{figure*}
 
@@ -681,7 +681,7 @@
 						xlabel={Lateral deviation, $x$ (\si{\cm})},
 						ylabel={Depth, $d$ (\si{\cm})},
 						y dir=reverse,
-						colormap/blackwhite,
+						colormap/jet,
 						colorbar,
 						point meta min=0,
 						point meta max=7,
