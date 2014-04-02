@@ -1,12 +1,28 @@
 \chapter{Numerical Characterization of Shear Wave Speed Quantification}
 	\label{chap:shear}
 	\section{Introduction}
-		Shear wave speed quantification offers the most desirable method of detecting early deep tissues injuries as it takes the transducer-generated external deformation force that is the chief benefit of ARFI imaging and combines it with a quantitative measure of tissue elasticity rather than the qualitative measures used in both quasi-static elastography and ARFI imaging. Specifically, by monitoring the speed of shear waves that are generated in the tissue as a response to a localized acoustic radiation force
+		Shear wave speed quantification offers the most desirable method of detecting early deep tissues injuries as it takes the transducer-generated external deformation force that is the chief benefit of ARFI imaging and combines it with a quantitative measure of tissue elasticity rather than the qualitative measures used in both quasi-static elastography and ARFI imaging. Specifically, monitoring the speed of shear waves that are generated in the tissue as a response to a localized acoustic radiation force allows the calculation of tissue stiffness which may again be used as an analogue of tissue health.
 
 	\section{Method}
-		In order to investigate the sensitivity and applicability 
+		In order to investigate the sensitivity and applicability of shear wave speed quantification for the early detection of deep tissue injuries, a combination of k-space pseudospectral models of acoustic wave propagation and time-domain finite-element models of tissue deformation were employed. The theory and procedure behind both the generalized acoustic simulations using k-space pseudospectral models and time-dependent solid mechanics finite-element models used here were presented in Chapter \ref{chap:arfi}. As an alternative to monitoring the dynamic response of tissue at the focal point as in ARFI imaging, shear wave speed quantification tracks the velocity of shear waves which radiate laterally outward from the focal point of an ARFI load. If the focal point is positioned such that the generated shear waves propagate through a lesionous region and the speed of the shear waves is monitored, the stiffness of that region may be calculated.
+
+		\note[KH]{Derive shear wave speed here}
+
+
 
 	\section{Results and Discussion}
+		Although measuring the shear wave speed of tissue may quantify the tissue stiffness through equation \ref{}, the results presented here represent the measured stiffness ratio of lesions in order to present continuity with Chapters \ref{chap:quasi-static} and \ref{chap:arfi}. In all cases where relative lesion stiffness is presented, it was calculated through comparison of the mean shear wave speed in the defined lesion region with the mean shear wave speed outside of the lesion region along the path of the lateral shear wave radiation direction. Specific ratios may be calculated using equation \ref{equ:shear_stiffness_ratio} where $E_{rel}$ is the relative stiffness ratio, $\mu_l$ and $\mu_t$ are Lam\'{e}'s second parameter for the lesion and tissue respectively, $c_{T,l}$ and $c_{T,t}$ are the shear wave speeds in the lesion and tissue respectively, and $\rho$ is the density of the tissue and assumed to be constant between the lesion and tissue.
+
+		\begin{subequations}
+			\label{equ:shear_stiffness_ratio}
+			\begin{align}
+				c_T &= \sqrt{\frac{\mu}{\rho}} \\
+				c_T^2\rho &= \mu \\
+				E_{rel} = \frac{\mu_l}{\mu_t} &= \frac{c_{T,l}^2}{c_{T,t}^2}
+			\end{align}
+		\end{subequations}
+
+		In order to determine the velocity of generated shear waves, the ARFI load-induced displacement of the soft tissue must be tracked through time along a line passing through the focal point radiating laterally outward in the finite-element model of tissue deformation. A sample result of tissue displacement through time and along such a line is presented in Fig. \ref{fig:lateral_wave_i158} where the wave can be readily visualized through time, noting that the wave travels ever further from the centerline.
 
 		\begin{figure}[!t]
 			\centering
@@ -35,6 +51,8 @@
 			\caption[]{}
 			\label{fig:lateral_wave_i158}
 		\end{figure}
+
+		The results in Fig. \ref{fig:lateral_wave_i158} represent a finite subsample of the shear wave's propagation along the focal line. For a continuous representation of the shear wave propagation, the surface shown in Fig \ref{fig:lateral_cut_i158} may be constructed. In order to track the wave through both position and time, a contour line representing a constant displacement value may be extracted. For this work, a contour line representing the mean value of the displacement over the entire position-time domain was utilized and is portrayed in Fig. \ref{fig:lateral_cut_i158_imgsc_isoline}.
 
 		\begin{figure}[!t]
 			\centering
@@ -83,6 +101,13 @@
 			\label{fig:lateral_cut_i158_imgsc_isoline}
 		\end{figure}
 
+		Fig. \ref{fig:lateral_cut_i158_isoline} represents the extracted contour line. This contour line now represents a position-time trace of the shear wave, from which the velocity of the wave may be calculated by differentiating the position of the wave with respect to time as per equation \ref{equ:shear_speed_differentiation}. Care must be taken when numerically differentiating, as numerical errors are greatly amplified by differentiation. To combat this, a moving window average filter with a kernel of \SI{5}{\mm} was applied to the position-time curve before center-difference differentiation was used to result in the shear wave speed graph given in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}.
+
+		\begin{equation}
+			\label{equ:shear_speed_differentiation}
+			c_T = \frac{dx}{dt}
+		\end{equation}
+
 		\begin{figure}[!t]
 			\centering
 			\begin{tikzpicture}
@@ -128,6 +153,8 @@
 			\caption[]{}
 			\label{fig:lateral_cut_i158_shear_wave_speed}
 		\end{figure}
+
+		As is obvious in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case $3.2 \times$ as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value roughly halfway through the lesion, indicating that the wave requires ...
 
 		\begin{figure}[!t]
 			\centering
