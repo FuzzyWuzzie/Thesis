@@ -7,59 +7,6 @@
 		In order to investigate the sensitivity and applicability 
 
 	\section{Results and Discussion}
-		\begin{figure}[!t]
-			\centering
-			\subfloat[]{
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						enlargelimits=false,
-						unit vector ratio*=1 1 1,
-						height=2in,
-						y dir=reverse,
-						xlabel={X-Coordinate, $x$ (\si{\cm})},
-						ylabel={Depth, $d$ (\si{\cm})},
-						axis on top,]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/Fx158.png};
-					\end{axis}
-				\end{tikzpicture}
-				\label{fig:shear_arfi_fx}
-			}
-			\subfloat[]{
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						enlargelimits=false,
-						unit vector ratio*=1 1 1,
-						height=2in,
-						y dir=reverse,
-						xlabel={X-Coordinate, $x$ (\si{\cm})},
-						axis on top,]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/Fy158.png};
-					\end{axis}
-				\end{tikzpicture}
-				\label{fig:shear_arfi_fy}
-			}
-			\subfloat[]{
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						enlargelimits=false,
-						unit vector ratio*=1 1 1,
-						height=2in,
-						y dir=reverse,
-						xlabel={X-Coordinate, $x$ (\si{\cm})},
-						axis on top,
-						colormap/jet, colorbar, point meta min=-2.75e4, point meta max=2.75e4, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\newton\per\metre\cubed})},
-						draw=black, text=black, fill=black}]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/F158.png};
-					\end{axis}
-				\end{tikzpicture}
-				\label{fig:shear_arfi_fsum}
-			}
-			\caption[]{}
-			\label{fig:shear_arfi_forces}
-		\end{figure}
 
 		\begin{figure}[!t]
 			\centering
