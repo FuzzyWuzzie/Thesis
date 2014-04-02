@@ -1,7 +1,8 @@
 \chapter{Numerical Characterization of Acoustic Radiation Force Impulse Imaging}
 	\label{chap:arfi}
 	\section{Introduction}
-		%\lipsum[1]
+		Acoustic radiation force impulse imaging presents a chief benefit over quasi-static ultrasound elastography in that since the external deformation force is applied by the transducer itself
+
 	\section{Methods}
 		%\lipsum[1]
 		\subsection{Numerical Model}
@@ -156,13 +157,19 @@
 					scale only axis,
 					height=3in,
 					width=\textwidth-\widthof{100}-1in,
-					xlabel={Source Pressure, $P_{ARFI}$ (\si{\MPa})},
+					xlabel={Focal Depth, $d_f$ (\si{m})},
 					ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\newton\per\metre\cubed})},
 					grid=major,
+					legend entries={$P_{source} = \SI{4}{\MPa}$, $P_{source} = \SI{5}{\MPa}$, $P_{source} = \SI{6}{\MPa}$, $P_{source} = \SI{7}{\MPa}$, $P_{source} = \SI{8}{\MPa}$},
+					legend style={legend pos=north east,font=\small},
 					clip=true,
 					cycle list name=ColourPlotCycle,
 					draw=black, text=black, fill=black]
-					\addplot table {assets/arfi/data/source_pressure.dat};
+					\addplot table {assets/arfi/data/focal_force_depth_p4.dat};
+					\addplot table {assets/arfi/data/focal_force_depth_p5.dat};
+					\addplot table {assets/arfi/data/focal_force_depth_p6.dat};
+					\addplot table {assets/arfi/data/focal_force_depth_p7.dat};
+					\addplot table {assets/arfi/data/focal_force_depth_p8.dat};
 				\end{axis}
 			\end{tikzpicture}
 			\caption[Strong dependence on source pressure of focal point force]{Strong dependence on source pressure of focal point force}

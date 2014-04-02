@@ -2,7 +2,7 @@ elastogram
 elastography
 debriding
 hamaluik
-kentnon
+kenton
 moussa
 walied
 mach

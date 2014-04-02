@@ -39,7 +39,15 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 7179,
+				"buffer_size": 7625,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "appendices/sourcecode.tex",
+			"settings":
+			{
+				"buffer_size": 481,
 				"line_ending": "Windows"
 			}
 		},
@@ -47,31 +55,15 @@
 			"file": "chapters/litreview.tex",
 			"settings":
 			{
-				"buffer_size": 33781,
+				"buffer_size": 33801,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "chapters/quasi-static.tex",
+			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 72928,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "chapters/arfi.tex",
-			"settings":
-			{
-				"buffer_size": 6832,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "frontback/nomenclature.tex",
-			"settings":
-			{
-				"buffer_size": 1890,
+				"buffer_size": 9823,
 				"line_ending": "Windows"
 			}
 		},
@@ -95,9 +87,13 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 150.0,
+		"height": 265.0,
 		"selected_items":
 		[
+			[
+				"pastry",
+				"Text Pastry: Command Line"
+			],
 			[
 				"latextool",
 				"LaTeXTools: Reconfigure and migrate settings"
@@ -164,6 +160,11 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_lateral_i158_isoline.dat",
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Get-Vert.bat",
 		"/C/Users/Kenton/Downloads/Urist McSlyrDVS's Optimize Plan V1 (1).0",
 		"/C/Users/Kenton/Documents/USEbrella/Publications/IEEE Quasi-Static Final/QuasiStaticCharacterisation.tex",
@@ -181,17 +182,13 @@
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/MonCrypto VTC.bat",
 		"/E/Backup Jan 4 2014/Downloads/Windows_8.1_Pro_X64_Activated_Final/Install Keys.txt",
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Surly P2Pool VTC.bat",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.sublime-workspace",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.blg",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/abstract.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
 		"/C/Users/Kenton/Downloads/FuzzyWuzzie (1).bib",
@@ -307,6 +304,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			",2",
+			"0.75",
+			"erel_doff_mse_d3",
+			"1.5",
+			"1.50",
+			"\\thisrow{t}*100",
+			"0.0275",
+			"0.02565",
+			"0.0175",
+			"0.0175)",
+			"0.0075",
+			"0.015",
+			"Shear-wave speed measured stiffness ratio at a depth of \\SI{3}{\\cm}",
+			"0.0075",
+			"3.125",
+			"161",
+			"1",
+			"0",
+			"Shear-wave speed measured stiffness ratio at a depth of \\SI{3}{\\cm}",
+			"3",
+			"Shear-wave speed measured stiffness ratio",
+			"3",
+			"cm",
+			"Lack of transducer width effect on focal force",
+			"arfi",
 			"1",
 			"190",
 			"$I_{SPPA.3}$ safety measures of ARFI pulses",
@@ -409,32 +431,7 @@
 			"campbell10",
 			"boney",
 			"dimaio01",
-			"baharestani",
-			"baharestanti",
-			"langemo",
-			"solis12-02",
-			"fill=none",
-			"25",
-			"\\commen{",
-			"bouten03",
-			"\\lipsum",
-			"treeby12",
-			"reddy81",
-			"solis12",
-			"slomka",
-			"ceelen",
-			"stekelenburg",
-			"ceelen",
-			"    ",
-			"  ",
-			"response",
-			"chunk_read",
-			"byte_so_far",
-			"status",
-			"message",
-			"  ",
-			"API",
-			"    "
+			"baharestani"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -493,15 +490,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 7179,
+						"buffer_size": 7625,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2519,
-								2519
+								1332,
+								1338
 							]
 						],
 						"settings":
@@ -513,56 +510,54 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 920.0,
+						"translation.y": 614.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/litreview.tex",
+					"file": "appendices/sourcecode.tex",
 					"settings":
 					{
-						"buffer_size": 33781,
+						"buffer_size": 481,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								29224,
-								29224
+								189,
+								189
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
 							"remote_loading": false,
-							"spell_check": true,
 							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3643.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "chapters/quasi-static.tex",
+					"file": "chapters/litreview.tex",
 					"settings":
 					{
-						"buffer_size": 72928,
+						"buffer_size": 33801,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23990,
-								23957
+								12454,
+								12454
 							]
 						],
 						"settings":
@@ -574,29 +569,29 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4786.0,
+						"translation.y": 1976.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "chapters/arfi.tex",
+					"file": "chapters/shear.tex",
 					"settings":
 					{
-						"buffer_size": 6832,
+						"buffer_size": 9823,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4317,
-								4317
+								4968,
+								4968
 							],
 							[
-								4326,
-								4326
+								5053,
+								5053
 							]
 						],
 						"settings":
@@ -604,41 +599,10 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1166.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "frontback/nomenclature.tex",
-					"settings":
-					{
-						"buffer_size": 1890,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								190,
-								190
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1507.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -646,11 +610,11 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "chapters/references.bib",
 					"settings":
 					{
@@ -675,13 +639,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 7249.0,
+						"translation.y": 3199.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "dictionary.txt",
 					"settings":
 					{
@@ -783,6 +747,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 187.0,
+	"side_bar_width": 244.0,
 	"status_bar_visible": true
 }

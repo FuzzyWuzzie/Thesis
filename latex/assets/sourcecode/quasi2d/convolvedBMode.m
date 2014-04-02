@@ -1,91 +1,60 @@
-function bmode = convolvedBMode(dbConnection, caseIndex, model)
+% generate normally distributed noise across the domain
+rng(domainSeed);
+backgroundMap = 1 + noiseMagnitude * randn([Ny, Nx]);
 
-	% build our point spread function
-	query = [...
-		'select waveSpeed, '...
-		'domainWidth, '...
-		'domainDepth, '...
-		'samplingFrequency, '...
-		'probingFrequency, '...
-		'numElements, '...
-		'numActiveElements, '...
-		'domainSeed, '...
-		'noiseMagnitude, '...
-		'Nx, '...
-		'Ny '...
-		'from convBModes where id=''' sprintf('%d', caseIndex) ''' limit 1;'];
-	results = fetch(dbConnection, query);
+% transform the background map into the domain -1 -> 1
+backgroundMap = (backgroundMap - min(min(backgroundMap))) / (max(max(backgroundMap)) - min(min(backgroundMap)));
+backgroundMap = 2 * backgroundMap - 1;
 
-	waveSpeed = results.waveSpeed;
-	samplingFrequency = results.samplingFrequency;
-	depth = results.domainDepth;
-	pointsPerM = samplingFrequency / waveSpeed;
-	pointDepth = pointsPerM * depth;
-	frequency = results.probingFrequency;
-	waveLength = waveSpeed / frequency;
-	pointsPerWaveLength = round(pointsPerM * waveLength);
-	numElements = results.numElements;
-	numActiveElements = results.numActiveElements;
-	transducerWidth = results.domainWidth;
-	windowWidth = numActiveElements * transducerWidth / numElements;
+% if a finite-element model of tissue compression is being used,
+% compress the background map
+if model ~= 0
+	% extract the resultant degrees of freedom from the model
+	[x, y, u, v] = extractUV([transducerWidth, depth], size(backgroundMap), model);
 
-	% interpolate our data for higher fidelity
-	[xx, yy] = meshgrid(linspace(-results.domainWidth/2, results.domainWidth/2, results.Nx), linspace(0, depth, results.Ny));
-	[x, y] = meshgrid(linspace(-results.domainWidth/2, results.domainWidth/2, numElements), linspace(0, depth, pointDepth));
+	% generate the domain over which interpolation will occur
+	[xx, yy] = meshgrid(x, y);
 
-	% get our scatterer map
-	rng(results.domainSeed);
-	backgroundMap = 1 + results.noiseMagnitude * randn([results.Ny, results.Nx]);
-
-	backgroundMap = interp2(xx, yy, backgroundMap, x, y, 'cubic');
-	backgroundMap = (backgroundMap - min(min(backgroundMap)))/(max(max(backgroundMap)) - min(min(backgroundMap)));
-	backgroundMap = 2*backgroundMap-1;
-
-	% if we have a model input, deform our background map
-	if model ~= 0
-		% extract our U and V from the model
-		[x, y, u, v] = extractUV([transducerWidth, depth], size(backgroundMap), model);
-
-		% and store it in the db!
-		saveMatrixInDB(dbConnection, 'convBModes', caseIndex, u, 'uMap');
-		saveMatrixInDB(dbConnection, 'convBModes', caseIndex, v, 'vMap');
-
-		backgroundMap = compressBMode(x, y, backgroundMap, u, v);
-	end
-
-	% use a cos function to create the shape in the axial direction
-	xpsf = linspace(-windowWidth/2, windowWidth/2, 1*pointsPerWaveLength);
-	ypsf = linspace(0, 4*waveLength, 2*pointsPerWaveLength);
-	[xmpsf, ympsf] = meshgrid(xpsf, ypsf);
-	psf = cos(2 * pi * frequency * ympsf / waveSpeed);
-	
-	% lateral gaussian
-	mu = 0; sigma = windowWidth/4;
-	gauss = (1 / (sigma * sqrt(2*pi))) * exp(-(xmpsf - mu).^2 / (2*sigma^2));
-	psf = psf .* gauss;
-
-	% axial gaussian
-	mu = 2*waveLength; sigma = waveLength*2;
-	gauss = (1 / (sigma * sqrt(2*pi))) * exp(-(ympsf - mu).^2 / (2*sigma^2));
-	gauss = (gauss - min(min(gauss)))/(max(max(gauss)) - min(min(gauss)));
-	psf = psf .* gauss;
-
-	% normalize it
-	psf = (psf - min(min(psf)))/(max(max(psf)) - min(min(psf)));
-	psf = 2*psf-1;
-
-	% now convolve!
-	bmode = conv2(backgroundMap, psf);
-
-	% and window it out
-	sz = size(bmode);
-	bmode = bmode(int32(floor((sz(1) - pointDepth) / 2)) : int32(floor((sz(1) - pointDepth) / 2) + pointDepth - 1), int32(floor((sz(2) - numElements) / 2)) : int32(floor((sz(2) - numElements) / 2) + numElements - 1));
-
-	% and post-process it
-	bmode = envelopeDetection(bmode')';
-	bmode = logCompression(bmode, 3, true);
-
-	% normalize it
-	bmode = (bmode - min(min(bmode))) ./ (max(max(bmode)) - min(min(bmode)));
-
+	% interpolate the data to deform it
+	backgroundMap = interp2(xx, yy, backgroundMap, xx - u, yy - v, 'spline', mean(mean(backgroundMap)));
 end
+
+% use a cosine function to create the point-spread function shape in the axial direction
+xpsf = linspace(-windowWidth / 2, windowWidth / 2, 1 * pointsPerWaveLength);
+ypsf = linspace(0, 4 * waveLength, 2 * pointsPerWaveLength);
+[xmpsf, ympsf] = meshgrid(xpsf, ypsf);
+psf = cos(2 * pi * frequency * ympsf / waveSpeed);
+
+% apply a lateral gaussian "filter" to the signal
+mu = 0;
+sigma = windowWidth / 4;
+gauss = (1 / (sigma * sqrt(2 * pi))) * exp(-(xmpsf - mu) .^ 2 / (2 * sigma ^ 2));
+psf = psf .* gauss;
+
+% apply an axial gaussian "filter" to the signal
+mu = 2 * waveLength;
+sigma = waveLength * 2;
+gauss = (1 / (sigma * sqrt(2 * pi))) * exp(-(ympsf - mu) .^ 2 / (2 * sigma ^ 2));
+gauss = (gauss - min(min(gauss))) / (max(max(gauss)) - min(min(gauss)));
+psf = psf .* gauss;
+
+% normalize it to -1 -> 1
+psf = (psf - min(min(psf)))/(max(max(psf)) - min(min(psf)));
+psf = 2 * psf - 1;
+
+% convolve the scattering map with the point spread function
+bmode = conv2(backgroundMap, psf);
+
+% crop the image to the appropriate size
+sz = size(bmode);
+bmode = bmode(int32(floor((sz(1) - pointDepth) / 2)) : int32(floor((sz(1) - pointDepth) / 2) + pointDepth - 1), int32(floor((sz(2) - numElements) / 2)) : int32(floor((sz(2) - numElements) / 2) + numElements - 1));
+
+% apply classical ultrasound post-processing
+% the signal is currently oscillating a high frequency
+%  - extract the envelope of the signal
+bmode = envelopeDetection(bmode')';
+% apply log compression to allow to be readily viewed
+bmode = logCompression(bmode, 3, true);
+
+% normalize it to 0 -> 1
+bmode = (bmode - min(min(bmode))) ./ (max(max(bmode)) - min(min(bmode)));
