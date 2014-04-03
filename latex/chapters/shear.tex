@@ -1,182 +1,271 @@
 \chapter{Numerical Characterization of Shear Wave Speed Quantification}
 	\label{chap:shear}
 	\section{Introduction}
-		Shear wave speed quantification offers the most desirable method of detecting early deep tissues injuries as it takes the transducer-generated external deformation force that is the chief benefit of ARFI imaging and combines it with a quantitative measure of tissue elasticity rather than the qualitative measures used in both quasi-static elastography and ARFI imaging. Specifically, monitoring the speed of shear waves that are generated in the tissue as a response to a localized acoustic radiation force allows the calculation of tissue stiffness which may again be used as an analogue of tissue health.
+		Shear wave speed quantification offers the most desirable method of detecting early deep tissues injuries as it takes the transducer-generated external deformation force that is the chief benefit of ARFI imaging and combines it with a quantitative measure of tissue elasticity rather than the qualitative measures used in both quasi-static elastography and ARFI imaging. Specifically, monitoring the speed of shear waves that are generated in the tissue as a response to a localized acoustic radiation force allows the calculation of tissue stiffness which may again be used as an analogue of tissue health. Further, since the technique is quantitative in nature, tissue stiffness may be accurately tracked over time, enabling physicians to appropriately monitor the progression and treatment of a given deep tissue injury on a per-patient basis.
 
 	\section{Method}
-		In order to investigate the sensitivity and applicability of shear wave speed quantification for the early detection of deep tissue injuries, a combination of k-space pseudospectral models of acoustic wave propagation and time-domain finite-element models of tissue deformation were employed. The theory and procedure behind both the generalized acoustic simulations using k-space pseudospectral models and time-dependent solid mechanics finite-element models used here were presented in Chapter \ref{chap:arfi}. As an alternative to monitoring the dynamic response of tissue at the focal point as in ARFI imaging, shear wave speed quantification tracks the velocity of shear waves which radiate laterally outward from the focal point of an ARFI load. If the focal point is positioned such that the generated shear waves propagate through a lesionous region and the speed of the shear waves is monitored, the stiffness of that region may be calculated.
+		In order to investigate the sensitivity and applicability of shear wave speed quantification for the early detection of deep tissue injuries, a combination of k-space pseudospectral models of acoustic wave propagation and time-domain finite-element models of tissue deformation were employed. The theory and procedure behind both the generalized acoustic simulations using k-space pseudospectral models and time-dependent solid mechanics finite-element models used here were presented in Chapter \ref{chap:arfi}. As an alternative to monitoring the dynamic response of tissue at the focal point as in ARFI imaging, shear wave speed quantification tracks the velocity of shear waves which radiate laterally outward from the focal point of an ARFI load. If the focal point is positioned such that the generated shear waves propagate through a lesionous region and the speed of the generated shear wave is monitored, the stiffness of that region may be calculated.
 
-		\note[KH]{Derive shear wave speed here}
+		\subsection{Shear Wave Speed}
+			The foundation of shear wave speed quantification with regards to detecting lesionous regions lies in the quantifiable relationship between shear wave speeds and tissue stiffness. This relationship between shear wave speed and tissue stiffness is derived here, assuming a linear elastic, isotropic material. Soft tissue is generally considered a viscoelastic material and as such modifications to the linear elastic wave speed are taken into account.
 
+			Equation \ref{equ:shear_constitutive} represents the constitutive equation of a linear elastic material where the strain tensor is defined as per equation \ref{equ:shear_strain_tensor} such that equation \ref{equ:shear_constitutive_complete} holds true.
 
+			\begin{equation}
+				\label{equ:shear_constitutive}
+				\sigma_{ij} = \lambda \delta_{ij} \varepsilon_{kk} + 2 \mu \varepsilon_{ij}
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:shear_strain_tensor}
+				\varepsilon_{ij} = \frac{1}{2}\left(u_{i,j} + u_{j,i}\right)
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:shear_constitutive_complete}
+				\sigma_{ij} = \lambda \varepsilon_{ii} \delta_{ij} + \mu \left(u_{i,j} + u_{j,i}\right)
+			\end{equation}
+
+			Neglecting time-invariant body loads, the balance of linear momentum is given for a linear elastic continuum is given in equation \ref{equ:shear_balance_momentum}.
+
+			\begin{equation}
+				\label{equ:shear_balance_momentum}
+				\sigma_{ij,j} = \rho \ddot{u_i}
+			\end{equation}
+
+			Substituting equation \ref{equ:shear_constitutive_complete} into equation \ref{equ:shear_balance_momentum} yields equation \ref{equ:shear_momentum_constitutive} which may be rearranged into equation \ref{equ:shear_momentum_constitutive_rearranged} by noting that $\varepsilon_{ii,j} = u_{j,ij}$.
+
+			\begin{equation}
+				\label{equ:shear_momentum_constitutive}
+				\lambda \varepsilon_{ii,j} + \mu\left(u_{i,jj} + u_{j,ij}\right) = \rho \ddot{u_i}
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:shear_momentum_constitutive_rearranged}
+				\rho \ddot{u_i} = \left(\lambda + \mu\right)u_{j,ji} + \mu u_{i,jj}
+			\end{equation}
+
+			Utilizing the Helmholtz decomposition of the particle displacement given in equation \ref{equ:shear_helmholtz_decomp}, equation \ref{equ:shear_momentum_constitutive_rearranged} becomes equation \ref{equ:shear_helmholtz_subbed}.
+
+			\begin{equation}
+				\label{equ:shear_helmholtz_decomp}
+				u_i = \partial_i \phi + \varepsilon_{ijk}\partial_j\psi_k
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:shear_helmholtz_subbed}
+				\nabla\left[\left(\lambda + 2\mu\right) \nabla^2 \phi - \rho \ddot{\phi}\right] + \nabla \times \left[\mu \nabla^2 \vec{\psi} - \rho\ddot{\vec{\psi}}\right] = 0
+			\end{equation}
+
+			Examining the transverse propagation component of equation \ref{equ:shear_helmholtz_subbed} in one direction yields the familiar shear wave equation given in equation \ref{equ:shear_wave_equation} such that the shear wave speed is given by equation \ref{equ:shear_wave_speed}.
+
+			\begin{equation}
+				\label{equ:shear_wave_equation}
+				0 = \frac{\partial^2 \vec{\psi}}{\partial x^2} - \frac{\rho}{\mu}\frac{\partial^2 \vec{\psi}}{dt^2}
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:shear_wave_speed}
+				c_T = \sqrt{\frac{\mu}{\rho}}
+			\end{equation}
+
+			While the above equation holds for linear elastic materials, soft tissues in the human body are generally considered viscoelastic \note[KH]{Add citation}. In the case of viscoelastic tissues, complex Lam\'{e} parameters must be used, such that the shear wave speed is represented by equation \ref{equ:shear_wave_speed_complex} \note[KH]{Add citation}. Note that viscoelastic shear wave speeds of viscoelastic tissues are generally acquired through empirical measurements rather than any sort of mathematical derivation \note[KH]{Add citation}.
+
+			\begin{equation}
+				\label{equ:shear_wave_speed_complex}
+				c_T = \sqrt{\frac{\mu^*}{\rho}}
+			\end{equation}
+
+		\subsection{Model Set Up}
+			\note[KH]{Talk about the different models investigated and the range of parameters for each of them}
+
+			\note[KH]{Include schematics of the different models}
+
+			\note[KH]{Briefly mention the k-wave toolbox models}
+
+			\note[KH]{Briefly mention the COMSOL displacement models}
+
+			A discussion of how shear wave speeds are tracked in the finite-element model of tissue deformation is given in Section \ref{subsec:shear_results_sample_wave_speed} by working though a sample dataset result.
+
+			\note[KH]{Talk about model validation setup}
 
 	\section{Results and Discussion}
-		Although measuring the shear wave speed of tissue may quantify the tissue stiffness through equation \ref{}, the results presented here represent the measured stiffness ratio of lesions in order to present continuity with Chapters \ref{chap:quasi-static} and \ref{chap:arfi}. In all cases where relative lesion stiffness is presented, it was calculated through comparison of the mean shear wave speed in the defined lesion region with the mean shear wave speed outside of the lesion region along the path of the lateral shear wave radiation direction. Specific ratios may be calculated using equation \ref{equ:shear_stiffness_ratio} where $E_{rel}$ is the relative stiffness ratio, $\mu_l$ and $\mu_t$ are Lam\'{e}'s second parameter for the lesion and tissue respectively, $c_{T,l}$ and $c_{T,t}$ are the shear wave speeds in the lesion and tissue respectively, and $\rho$ is the density of the tissue and assumed to be constant between the lesion and tissue.
+	\label{sec:shear_results}
+		\subsection{Acoustic Radiation Force Impulse Simulations}
+			\note[KH]{Talk about ARFI model results---though this is largely the same as in the ARFI cases}
+			\note[KH]{Show picture relating the force distributon to a lesion location}
 
-		\begin{subequations}
-			\label{equ:shear_stiffness_ratio}
-			\begin{align}
-				c_T &= \sqrt{\frac{\mu}{\rho}} \\
-				c_T^2\rho &= \mu \\
-				E_{rel} = \frac{\mu_l}{\mu_t} &= \frac{c_{T,l}^2}{c_{T,t}^2}
-			\end{align}
-		\end{subequations}
+		\subsection{Sample Shear Wave Speed Measurement}
+		\label{subsec:shear_results_sample_wave_speed}
+			Although measuring the shear wave speed of tissue may quantify the tissue stiffness through equation \ref{equ:shear_wave_speed_complex}, the results presented here represent the measured stiffness ratio of lesions in order to present continuity with Chapters \ref{chap:quasi-static} and \ref{chap:arfi}. In all cases where relative lesion stiffness is presented, it was calculated through comparison of the mean shear wave speed in the defined lesion region with the mean shear wave speed outside of the lesion region along the path of the lateral shear wave radiation direction. Specific ratios may be calculated using equation \ref{equ:shear_stiffness_ratio} where $E_{rel}$ is the relative stiffness ratio, $\mu_l$ and $\mu_t$ are Lam\'{e}'s second parameter for the lesion and tissue respectively, $c_{T,l}$ and $c_{T,t}$ are the shear wave speeds in the lesion and tissue respectively, and $\rho$ is the density of the tissue and assumed to be constant between the lesion and tissue.
 
-		In order to determine the velocity of generated shear waves, the ARFI load-induced displacement of the soft tissue must be tracked through time along a line passing through the focal point radiating laterally outward in the finite-element model of tissue deformation. A sample result of tissue displacement through time and along such a line is presented in Fig. \ref{fig:lateral_wave_i158} where the wave can be readily visualized through time, noting that the wave travels ever further from the centerline.
+			\begin{subequations}
+				\label{equ:shear_stiffness_ratio}
+				\begin{align}
+					c_T &= \sqrt{\frac{\mu}{\rho}} \\
+					c_T^2\rho &= \mu \\
+					E_{rel} = \frac{\mu_l}{\mu_t} &= \frac{c_{T,l}^2}{c_{T,t}^2}
+				\end{align}
+			\end{subequations}
 
-		\begin{figure}[!t]
-			\centering
-			\begin{tikzpicture}
-				\begin{axis}[
-					scale only axis,
-					height=3in,
-					width=\textwidth-\widthof{100}-1in,
-					xlabel={Distance from centerline, $x$ (\si{\cm})},
-					ylabel={Axial displacement, $v$ (\si{\um})},
-					grid=major,
-					legend entries={$t = \SI{2.5}{\ms}$, $t = \SI{7.5}{\ms}$, $t = \SI{12.5}{\ms}$, $t = \SI{17.5}{\ms}$, $t = \SI{22.5}{\ms}$, $t = \SI{27.5}{\ms}$},
-					legend style={legend pos=south east,font=\small},
-					clip=true,
-					cycle list name=SmoothColourPlotCycle,
-					draw=black, text=black, fill=black,
-					xmin=0, xmax=5]
-					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t025.dat};
-					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t075.dat};
-					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t125.dat};
-					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t175.dat};
-					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t225.dat};
-					\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t275.dat};
-				\end{axis}
-			\end{tikzpicture}
-			\caption[]{}
-			\label{fig:lateral_wave_i158}
-		\end{figure}
+			In order to determine the velocity of generated shear waves, the ARFI load-induced displacement of the soft tissue must be tracked through time along a line passing through the focal point radiating laterally outward in the finite-element model of tissue deformation. A sample result of tissue displacement through time and along such a line is presented in Fig. \ref{fig:lateral_wave_i158} where the wave can be readily visualized through time, noting that the wave travels ever further from the centerline.
 
-		The results in Fig. \ref{fig:lateral_wave_i158} represent a finite subsample of the shear wave's propagation along the focal line. For a continuous representation of the shear wave propagation, the surface shown in Fig \ref{fig:lateral_cut_i158} may be constructed. In order to track the wave through both position and time, a contour line representing a constant displacement value may be extracted. For this work, a contour line representing the mean value of the displacement over the entire position-time domain was utilized and is portrayed in Fig. \ref{fig:lateral_cut_i158_imgsc_isoline}.
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Distance from centerline, $x$ (\si{\cm})},
+						ylabel={Axial displacement, $v$ (\si{\um})},
+						grid=major,
+						legend entries={$t = \SI{2.5}{\ms}$, $t = \SI{7.5}{\ms}$, $t = \SI{12.5}{\ms}$, $t = \SI{17.5}{\ms}$, $t = \SI{22.5}{\ms}$, $t = \SI{27.5}{\ms}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=SmoothColourPlotCycle,
+						draw=black, text=black, fill=black,
+						xmin=0, xmax=5]
+						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t025.dat};
+						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t075.dat};
+						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t125.dat};
+						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t175.dat};
+						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t225.dat};
+						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {assets/shear/data/shear_lateral_i158_t275.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Sample shear wave motion through time]{Axial displacement induced by a shear wave traveling laterally across the focal line of an ARFI load. There is a stiff ($E_{rel} = 3.2$) lesion with a diameter of \SI{1}{\cm} located \SI{1.25}{\cm} away from the centerline, with both the focal line and the lesion located at a depth of \SI{4}{\cm} from the surface.}
+				\label{fig:lateral_wave_i158}
+			\end{figure}
 
-		\begin{figure}[!t]
-			\centering
-			\begin{tikzpicture}
-				\begin{axis}[
-					scale only axis,
-					enlargelimits=false,
-					height=3in,
-					width=\textwidth-\widthof{100}-1in,
-					xlabel={Time, $t$ (\si{\ms})},
-					ylabel={Distance from centerline, $x$ (\si{\cm})},
-					axis on top,
-					colormap/jet, colorbar, point meta min=-6.6746e-01, point meta max=3.8648e-01, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Axial Displacement, $v$ (\si{\um})},
-						draw=black, text=black, fill=black}]
-						\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{assets/shear/data/lateralCut158.png};
-				\end{axis}
-			\end{tikzpicture}
-			\caption[]{}
-			\label{fig:lateral_cut_i158}
-		\end{figure}
+			The results in Fig. \ref{fig:lateral_wave_i158} represent a finite subsample of the shear wave's propagation along the focal line. For a continuous representation of the shear wave propagation, the surface shown in Fig \ref{fig:lateral_cut_i158} may be constructed. In order to track the wave through both position and time, a contour line representing a constant displacement value may be extracted. For this work, a contour line representing the mean value of the displacement over the entire position-time domain was utilized and is portrayed in Fig. \ref{fig:lateral_cut_i158_imgsc_isoline}.
 
-		\begin{figure}[!t]
-			\centering
-			\begin{tikzpicture}
-				\begin{axis}[
-					scale only axis,
-					enlargelimits=false,
-					height=3in,
-					width=\textwidth-\widthof{100}-1in,
-					xlabel={Time, $t$ (\si{\ms})},
-					ylabel={Distance from centerline, $x$ (\si{\cm})},
-					axis on top,
-					colormap/jet, colorbar, point meta min=-6.6746e-01, point meta max=3.8648e-01, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Axial Displacement, $v$ (\si{\um})},
-						draw=black, text=black, fill=black}]
-						\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{assets/shear/data/lateralCut158.png};
-						\addplot[draw=black, solid, ultra thick] table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_isoline.dat};
-						\draw[ultra thick, <->, draw=black] (axis cs:15,0.75) -- (axis cs:15,1.75);
-						\draw[ultra thick, draw=black, dashed] (axis cs:0,0.75) -- (axis cs:17.5,0.75);
-						\draw[ultra thick, draw=black, dashed] (axis cs:0,1.75) -- (axis cs:17.5,1.75);
-						\node[right] at (axis cs:15,1.25) {Lesion};
-						\draw[ultra thick, ->, draw=black] (axis cs:25.65,2.75) -- (axis cs:25.65,3.7755102040816);
-						\node[below] at (axis cs:25.65,2.75) {Iso-line};
-				\end{axis}
-			\end{tikzpicture}
-			\caption[]{}
-			\label{fig:lateral_cut_i158_imgsc_isoline}
-		\end{figure}
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						enlargelimits=false,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Time, $t$ (\si{\ms})},
+						ylabel={Distance from centerline, $x$ (\si{\cm})},
+						axis on top,
+						colormap/jet, colorbar, point meta min=-6.6746e-01, point meta max=3.8648e-01, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Axial Displacement, $v$ (\si{\um})},
+							draw=black, text=black, fill=black}]
+							\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{assets/shear/data/lateralCut158.png};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Sample continuous surface plot of shear wave induced displacement]{Continous surface plot of the shear wave induced axial displacement tracked through both time and distance from the transducer centerline. The sharp transition from negative to positive displacement marks the location of shear wave in time at any given location.}
+				\label{fig:lateral_cut_i158}
+			\end{figure}
 
-		Fig. \ref{fig:lateral_cut_i158_isoline} represents the extracted contour line. This contour line now represents a position-time trace of the shear wave, from which the velocity of the wave may be calculated by differentiating the position of the wave with respect to time as per equation \ref{equ:shear_speed_differentiation}. Care must be taken when numerically differentiating, as numerical errors are greatly amplified by differentiation. To combat this, a moving window average filter with a kernel of \SI{5}{\mm} was applied to the position-time curve before center-difference differentiation was used to result in the shear wave speed graph given in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}.
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						enlargelimits=false,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Time, $t$ (\si{\ms})},
+						ylabel={Distance from centerline, $x$ (\si{\cm})},
+						axis on top,
+						colormap/jet, colorbar, point meta min=-6.6746e-01, point meta max=3.8648e-01, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Axial Displacement, $v$ (\si{\um})},
+							draw=black, text=black, fill=black}]
+							\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{assets/shear/data/lateralCut158.png};
+							\addplot[draw=black, solid, ultra thick] table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_isoline.dat};
+							\draw[ultra thick, <->, draw=black] (axis cs:15,0.75) -- (axis cs:15,1.75);
+							\draw[ultra thick, draw=black, dashed] (axis cs:0,0.75) -- (axis cs:17.5,0.75);
+							\draw[ultra thick, draw=black, dashed] (axis cs:0,1.75) -- (axis cs:17.5,1.75);
+							\node[right] at (axis cs:15,1.25) {Lesion};
+							\draw[ultra thick, ->, draw=black] (axis cs:25.65,2.75) -- (axis cs:25.65,3.7755102040816);
+							\node[below] at (axis cs:25.65,2.75) {Iso-line};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Sample continuous surface plot of shear wave induced axial displacement highlighting the shear wave location in time]{Continuous surface plot of shear wave induced axial displacement highlighting a mean contour line representing the shear wave location as time progresses. By inspection, the slope of the contour line is greater within the lesionous region than outside of it, suggesting that the lesion is stiffer than the surrounding tissue.}
+				\label{fig:lateral_cut_i158_imgsc_isoline}
+			\end{figure}
 
-		\begin{equation}
-			\label{equ:shear_speed_differentiation}
-			c_T = \frac{dx}{dt}
-		\end{equation}
+			Fig. \ref{fig:lateral_cut_i158_isoline} represents the extracted contour line. This contour line now represents a position-time trace of the shear wave, from which the velocity of the wave may be calculated by differentiating the position of the wave with respect to time as per equation \ref{equ:shear_speed_differentiation}. Care must be taken when numerically differentiating, as numerical errors are greatly amplified by differentiation. To combat this, a moving window average filter with a kernel of \SI{5}{\mm} was applied to the position-time curve before center-difference differentiation was used to result in the shear wave speed graph given in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}.
 
-		\begin{figure}[!t]
-			\centering
-			\begin{tikzpicture}
-				\begin{axis}[
-					scale only axis,
-					height=3in,
-					width=\textwidth-\widthof{100}-1in,
-					xlabel={Time, $t$ (\si{\ms})},
-					ylabel={Distance from centerline, $x$ (\si{\cm})},
-					grid=major,
-					clip=true,
-					cycle list name=SmoothColourPlotCycle,
-					draw=black, text=black, fill=black]
-					\addplot table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_isoline.dat};
-				\end{axis}
-			\end{tikzpicture}
-			\caption[]{}
-			\label{fig:lateral_cut_i158_isoline}
-		\end{figure}
+			\begin{equation}
+				\label{equ:shear_speed_differentiation}
+				c_T = \frac{dx}{dt}
+			\end{equation}
 
-		\begin{figure}[!t]
-			\centering
-			\begin{tikzpicture}
-				\begin{axis}[
-					scale only axis,
-					height=3in,
-					width=\textwidth-\widthof{100}-1in,
-					xlabel={Distance from centerline, $x$ (\si{\cm})},
-					ylabel={Measured Shear Wave Speed, $c_t$ (\si{\m\per\s})},
-					grid=major,
-					clip=true,
-					cycle list name=SmoothColourPlotCycle,
-					draw=black, text=black, fill=black]
-					\addplot table[x expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_shear_wave_speed.dat};
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Time, $t$ (\si{\ms})},
+						ylabel={Distance from centerline, $x$ (\si{\cm})},
+						grid=major,
+						clip=true,
+						cycle list name=SmoothColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_isoline.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Sample extracted shear wave position-time trace]{The extracted shear wave position-time trace showing the location of the generated shear wave increases with time, albeit at different rates depending on the underlying tissue properties.}
+				\label{fig:lateral_cut_i158_isoline}
+			\end{figure}
 
-					\draw[ultra thick, ->, draw=black] (axis cs:0.25,2) -- (axis cs:0.75,2);
-					\draw[ultra thick, <-, draw=black] (axis cs:1.75,2) -- (axis cs:2.25,2);
-					\node[right] at (axis cs:2.25,2) {Lesion};
-					\draw[ultra thick, draw=black, dashed] (axis cs:0.75,0) -- (axis cs:0.75,2.05);
-					\draw[ultra thick, draw=black, dashed] (axis cs:1.75,0) -- (axis cs:1.75,2.05);
-				\end{axis}
-			\end{tikzpicture}
-			\caption[]{}
-			\label{fig:lateral_cut_i158_shear_wave_speed}
-		\end{figure}
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Distance from centerline, $x$ (\si{\cm})},
+						ylabel={Measured Shear Wave Speed, $c_t$ (\si{\m\per\s})},
+						grid=major,
+						clip=true,
+						cycle list name=SmoothColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table[x expr=\thisrow{x}*100] {assets/shear/data/shear_lateral_i158_shear_wave_speed.dat};
 
-		As is obvious in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case $3.2 \times$ as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value roughly halfway through the lesion, indicating that the wave requires ...
+						\draw[ultra thick, ->, draw=black] (axis cs:0.25,2) -- (axis cs:0.75,2);
+						\draw[ultra thick, <-, draw=black] (axis cs:1.75,2) -- (axis cs:2.25,2);
+						\node[right] at (axis cs:2.25,2) {Lesion};
+						\draw[ultra thick, draw=black, dashed] (axis cs:0.75,0) -- (axis cs:0.75,2.05);
+						\draw[ultra thick, draw=black, dashed] (axis cs:1.75,0) -- (axis cs:1.75,2.05);
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Sample trace of shear wave speed through the focal line]{Trace of the shear wave speed along the focal line through both lesionous and ``healthy'' tissue. The shear wave speed within the lesion is much greater than the shear wave speed through the ``healthy'' tissue, indicating that the lesion is significantly stiffer than the surrounding tissue. The shear wave speed was calculated as the numerical differentiation of the shear wave's position through time.}
+				\label{fig:lateral_cut_i158_shear_wave_speed}
+			\end{figure}
 
-		\begin{figure}[!t]
-			\centering
-			\begin{tikzpicture}
-				\begin{axis}[
-					scale only axis,
-					height=3in,
-					width=\textwidth-\widthof{100}-1in,
-					xlabel={True Stiffness Ratio, $E_{rel,true}$},
-					ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
-					grid=major,
-					legend entries={$\Delta_{off} = \SI{0.00}{\cm}$, $\Delta_{off} = \SI{1.25}{\cm}$, $\Delta_{off} = \SI{2.50}{\cm}$, $\Delta_{off} = \SI{3.75}{\cm}$},
-					legend style={legend pos=south east,font=\small},
-					clip=true,
-					cycle list name=ColourPlotCycle,
-					draw=black, text=black, fill=black]
-					\addplot table {assets/shear/data/shear_doff_d4_o000.dat};
-					\addplot table {assets/shear/data/shear_doff_d4_o125.dat};
-					\addplot table {assets/shear/data/shear_doff_d4_o250.dat};
-					\addplot table {assets/shear/data/shear_doff_d4_o375.dat};
-				\end{axis}
-			\end{tikzpicture}
-			\caption[Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}]{Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}}
-			\label{fig:erel_doff_d4}
-		\end{figure}
+			As is obvious in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case 3.2 times as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value roughly halfway through the lesion, indicating that the wave requires some minute amount of time to both speed up and slow down within the lesion, suggesting that the technique may have difficulty identifying small lesions as the shear wave speed will not be able to fully adjust to the lesion in the time it takes for the wave to completely pass through the lesion.
+
+		\subsection{Characterization}
+			\note[KH]{Add and talk lesion size characterization here}
+
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$\Delta_{off} = \SI{0.00}{\cm}$, $\Delta_{off} = \SI{1.25}{\cm}$, $\Delta_{off} = \SI{2.50}{\cm}$, $\Delta_{off} = \SI{3.75}{\cm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/shear/data/shear_doff_d4_o000.dat};
+						\addplot table {assets/shear/data/shear_doff_d4_o125.dat};
+						\addplot table {assets/shear/data/shear_doff_d4_o250.dat};
+						\addplot table {assets/shear/data/shear_doff_d4_o375.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}]{Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}}
+				\label{fig:erel_doff_d4}
+			\end{figure}
