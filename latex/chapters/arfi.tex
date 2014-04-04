@@ -119,13 +119,13 @@
 				\centering
 				\caption{ARFI Model Viscoelastic Tissue Properties}
 				\label{tab:arfi_properties}
-				\begin{tabular}{lr}
+				\begin{tabular}{lrs[table-unit-alignment = left]}
 					\toprule
-					Property & Value \\
+					Property & Value & Units \\
 					\midrule
-					Bulk Modulus & \SI{515.7}{\kPa} \\
-					Shear Modulus & \SI{1.0}{\kPa} \\
-					Density & \SI{1060}{\kg\per\m\cubed} \\
+					Bulk Modulus & 515.7 & \si{\kPa} \\
+					Shear Modulus & 1.0 & \si{\kPa} \\
+					Density & 1060 & \si{\kg\per\m\cubed} \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
@@ -136,7 +136,8 @@
 				\label{tab:arfi_maxwell_properties}
 				\begin{tabular}{lrr}
 					\toprule
-					Branch & Shear Modulus (\si{\Pa}) & Relaxation Time (\si{\s}) \\
+					Branch & Shear Modulus & Relaxation Time \\
+					& (\si{\Pa}) & (\si{\s}) \\
 					\midrule
 					1 & 791.0 & 2 \\
 					2 & 66.5 & 40 \\
@@ -157,11 +158,11 @@
 				\begin{align}
 					\vec{F} v &= \rho \ddot{\vec{u}} - \nabla \cdot \sigma \\
 					\sigma - S_0 &= - p_w \vec{I} + 2 G\left(\varepsilon - \varepsilon_0 - \frac{1}{3} tr(\varepsilon - \varepsilon_0)\vec{I}\right) + \sum_{m=1}^N 2G_m q_m \\
-					\dot{q_m} + \frac{1}{\tau_m} q_m &= \frac{\partial}{\partial t}\left(\varepsilon - \varepsilon_0 - \frac{1}{3} tr(\varepsilon - \varepsilon_0)\vec{I}\right)
+					\dot{q}_m + \frac{1}{\tau_m} q_m &= \frac{\partial}{\partial t}\left(\varepsilon - \varepsilon_0 - \frac{1}{3} tr(\varepsilon - \varepsilon_0)\vec{I}\right)
 				\end{align}
 			\end{subequations}
 
-			In the simulations, the boundary equation \ref{equ:arfi_fea_fixed_bc} was used to apply a fixed boundary condition to the bottom (deep) boundary of the model. All other boundaries of the model were free to translate in all dimensions. The acoustic radiation force was applied as a body load to the tissue according to equation \ref{equ:arfi_fea_body_load} and the distribution calculated by the k-space pseudospectral model and resultant body forces described in Sections \ref{subsec:kspace_model} and \ref{subsec:body_load_derivation}. In order to prevent reflections into the model domain that might affect the simulation results, the model geometry extended laterally by \SI{5}{\cm} in either direction from the centerline. Simulations were run until the axial displacement at the focal depth returned to \SI{1}{\%} of it's maximal value during the entire simulation---at this point, the tissue was considered to be ``relaxed'' after being disturbed by the acoustic radiation force.
+			In the simulations, the boundary equation \ref{equ:arfi_fea_fixed_bc} was used to apply a fixed boundary condition to the bottom (deep) boundary of the model. All other boundaries of the model were free to translate in all dimensions. The acoustic radiation force was applied as a body load to the tissue according to equation \ref{equ:arfi_fea_body_load} and the distribution calculated by the k-space pseudospectral model and resultant body forces described in Sections \ref{subsec:kspace_model} and \ref{subsec:body_load_derivation}. In order to prevent reflections into the model domain that might affect the simulation results, the model geometry extended laterally by \SI{5}{\cm} in either direction from the centerline. Simulations were run until the axial displacement at the focal depth returned to \SI{1}{\percent} of it's maximal value during the entire simulation---at this point, the tissue was considered to be ``relaxed'' after being disturbed by the acoustic radiation force.
 
 			\begin{equation}
 				\label{equ:arfi_fea_fixed_bc}
