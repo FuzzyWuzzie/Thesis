@@ -4,28 +4,119 @@
 		Acoustic radiation force impulse imaging presents a chief benefit over quasi-static ultrasound elastography in that since the external deformation force is applied by the transducer itself rather than through manual indentation of the transducer by the diagnostician, the inter-operator reliability may be greatly increased. The net effect of this is an expected decrease in the required amount of training of diagnosticians as well as an expected increase in the sensitivity and specificity of early deep tissue injury detection.
 
 	\section{Methods}
-		%\lipsum[1]
-		\subsection{Numerical Model}
-			%\lipsum[1]
-			\subsubsection{Governing Equations}
-				The governing equations use for this model were the set of coupled first-order partial differential equations \ref{equ:arfi_gov}. These equations are the first-order equivalents of equation \ref{equ:wave_equation} taking into account acoustic absorption, tissue heterogeneities, and acoustic wave non-linearities \cite{treeby12}.
+		\subsection{K-Space Pseudospectral Model of Acoustic Fields}
+			In order to simulate the body loads generated within deep tissue by a continuous ultrasound beam, a k-space pseudospectral model of acoustic field intensities was generated. The body load fields that were generated as a result of this model were fed into a temporal soft tissue deformation model to investigate the dynamic response of tissue to ARFI loads.
 
-				\begin{subequations}
-					\label{equ:arfi_gov}
-					\begin{align}
-						\frac{\partial \mathbf{u}}{\partial t} &= - \frac{1}{\rho_0} p \label{equ:arfi_gov_p1} \\
-						\frac{\partial p}{\partial t} &= -\left(2 \rho + \rho_0\right)\nabla \cdot \mathbf{u} - \mathbf{u} \cdot \nabla \rho_0 \label{equ:arfi_gov_p2} \\
-						p &= c_0^2 \left(\rho + \mathbf{d} \cdot \nabla \rho_0 + \frac{B}{2A} \frac{\rho^2}{\rho_0} - L\rho \right) \label{equ:arfi_gov_p3}
-					\end{align}
-				\end{subequations}
+			The governing equations used for the k-space pseudospectral model were the set of coupled first-order partial differential equations \ref{equ:arfi_gov_p1} -- \ref{equ:arfi_gov_p3}. These equations are the first-order equivalents of equation \ref{equ:wave_equation} taking into account acoustic absorption, tissue heterogeneities, and acoustic wave non-linearities \cite{treeby12}. Equations \ref{equ:arfi_gov_p1}, \ref{equ:arfi_gov_p2}, and \ref{equ:arfi_gov_p3} represent the momentum conservation, mass conservation, and pressure-density relation terms respectively.
 
-				\begin{equation}
-					\label{equ:wave_equation}
-					\nabla^2 p - \frac{1}{c_0^2}\frac{\partial^2 p}{\partial t^2} = 0
-				\end{equation}
+			\begin{subequations}
+				\label{equ:arfi_gov}
+				\begin{align}
+					\frac{\partial \vec{u}}{\partial t} &= - \frac{1}{\rho_0} \nabla p \label{equ:arfi_gov_p1} \\
+					\frac{\partial p}{\partial t} &= -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{u} - \vec{u} \cdot \nabla \rho_0 \label{equ:arfi_gov_p2} \\
+					p &= c_0^2 \left(\rho + \vec{d} \cdot \nabla \rho_0 + \frac{B}{2A} \frac{\rho^2}{\rho_0} - \mathbf{L}\rho \right) \label{equ:arfi_gov_p3}
+				\end{align}
+			\end{subequations}
 
-			\subsubsection{Boundary and Initial Conditions}
-				%\lipsum[1]
+			\begin{equation}
+				\label{equ:wave_equation}
+				\nabla^2 p - \frac{1}{c_0^2}\frac{\partial^2 p}{\partial t^2} = 0
+			\end{equation}
+
+			The $\mathbf{L}$ operator used in equation \ref{equ:arfi_gov_p3} accounts for acoustic absorption and dispersion which follows a frequency power law and is defined as per equations \ref{equ:Lop1} -- \ref{equ:Lop3}.
+
+			\begin{subequations}
+				\begin{align}
+					L &= \tau \frac{\partial}{\partial t}\left(-\nabla^2\right)^{\frac{y}{2} - 1} + \eta \left(-\nabla^2\right)^{\frac{y+1}{2} - 1} \label{equ:Lop1} \\
+					\tau &= -2\alpha_0 c_0^{y-1} \label{equ:Lop2} \\
+					\eta &= 2\alpha_0c_0^y\tan\left(\frac{\pi y}{2}\right)  \label{equ:Lop3}
+				\end{align}
+			\end{subequations}
+
+			In order to integrate pressure sources in equations \ref{equ:arfi_gov_p1} -- \ref{equ:arfi_gov_p3}, equation \ref{equ:arfi_gov_p2} is modified to include a mass source term, $S_M$ which counts as a pressure source term through changing density to form equation \ref{equ:arfi_gov_p2_source}.
+
+			\begin{equation}
+				\label{equ:arfi_gov_p2_source}
+				\frac{\partial p}{\partial t} = -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{u} - \vec{u} \cdot \nabla \rho_0 + S_M
+			\end{equation}
+
+			The k-Wave MATLAB\textsuperscript{\textregistered} toolbox version 1.0 was used to solve for the time-variant intensities resulting from simulated acoustic radiation force impulses applied to heterogeneous soft tissue using equations \ref{equ:arfi_gov_p1}, \ref{equ:arfi_gov_p2_source}, and \ref{equ:arfi_gov_p3}. Sample source code for performing these simulations using the k-Wave toolbox is given in listing \ref{lst:intensity} in Appendix \ref{app:source_code}.
+
+		\subsection{Derivation of Acoustic Radiation Force}
+			Acoustic radiation force arises as the result of absorption of linear momentum within tissue as acoustic waves travel though it with the requirement that the tissue is a viscoelastic medium---no energy would be absorbed in a purely linear elastic model. Further, at the super-\si{\MHz} frequencies involved in ultrasound interrogation, tissue may be considered a viscous fluid \note[KH]{Add citation!}.
+
+			\comment{For a linearly viscous fluid, the constitutive relationship is given in equation \ref{equ:constitutive_linear_viscous} where $D_{ij}$ is defined as per equation \ref{equ:rate_deformation_linear_viscous} and represents the rate of deformation.
+
+			\begin{equation}
+				\label{equ:constitutive_linear_viscous}
+				\sigma_{ij} = -p \delta_{ij} + \lambda_f D_{ii} \delta_{ij} + 2 \mu_f D_{ij}
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:rate_deformation_linear_viscous}
+				D_{ij} = \frac{1}{2}\left(v_{i,j} + v_{j,i}\right)
+			\end{equation}
+
+			\note[KH]{Describe symbols!}
+
+			Beginning with the Navier-Stokes equation for an incompressible Newtonian fluid given in equation \ref{equ:navier_stokes}, the acoustic radiation force may be derived given that $\mu_f$ in equation \ref{equ:navier_stokes} represents an energy loss related the an attenuation coefficient, $\alpha$ \cite{kino87}.
+
+			\begin{equation}
+				\label{equ:navier_stokes}
+				-p_{,i} + \mu_f v_{i,jj} + \rho b_i = \rho\left(\dot{v_i} + v_j v_{i,j}\right)
+			\end{equation}}
+
+			Using a perturbative expansion of equation \ref{equ:arfi_linear_momentum}, acoustic radiation force can be expressed as per equations \ref{equ:radiation_force_1} \cite{nyborg65}. In equations \ref{equ:radiation_force_1}, $\langle\rangle$ represents the time-average operator, $\vec{v_1}$ and $\vec{v_2}$ are the first and second order terms in the perturbative expansion of particle velocity, and $p_2$ is the second order pressure term in the perturbative expansion, while $\vec{F}$ represents the acoustic radiation force developed in the tissue.
+
+			\begin{equation}
+				\label{equ:arfi_linear_momentum}
+				\sigma_{ij,j} + \rho b_i = \rho f_i
+			\end{equation}
+
+			\begin{subequations}
+				\label{equ:radiation_force_1}
+				\begin{align}
+					\vec{F} &= \nabla p_2 - \mu_f \nabla^2 \vec{v_2} \label{equ:radiation_force_1a} \\
+					\vec{F} &= \rho \langle\vec{v_1}\nabla\cdot\vec{v_1} + \vec{v_1}\nabla\vec{v_1}\rangle \label{equ:radiation_force_1b}
+				\end{align}
+			\end{subequations}
+
+			For a plane wave, equation \ref{equ:radiation_force_1b} can be reduced to equation \ref{equ:radiation_force_2}. Further, substituting the generalized wave particle velocity solution given in equation \ref{equ:particle_velocity} in equation \ref{equ:radiation_force_2}, the magnitude of acoustic radiation force may be calculated as per equation \ref{equ:radiation_force_3}.
+
+			\begin{equation}
+				\label{equ:radiation_force_2}
+				\vec{F} = 2\rho\langle \vec{v} \vec{v}_{,x} \rangle
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:particle_velocity}
+				\vec{v} = i\omega A e^{-\alpha x + i\left(\omega t - k x\right)}\hat{x}
+			\end{equation}
+
+			\begin{equation}
+				\label{equ:radiation_force_3}
+				\left|\vec{F}right| = A^2 e^{-2\alpha x}\rho\alpha
+			\end{equation}
+
+			Further using the acoustic field intensity, the acoustic radiation force may be calculated as per equation \ref{equ:radiation_force} where $\alpha$ is the absorption coefficient of the tissue in \si{\Np\per\m}, $I$ is the temporal average acoustic intensity in \si{\W\per\m\squared}, and $c$ is the longitudinal speed of sound in the tissue in \si{\m\per\s}.
+
+			\begin{equation}
+				\label{equ:radiation_force}
+				\left|\vec{F}\right| = \frac{2\alpha I}{c}
+			\end{equation}
+
+			Once acoustic radiation force body loads were calculated as per equation \ref{equ:radiation_force}, they were used as initial conditions to the temporal finite-element model of soft tissue deformation described in Section \ref{sec:temporal_fea_arfi}.
+
+		\subsection{Temporal Finite-Element Model of Soft Tissue Deformation}
+			\label{sec:temporal_fea_arfi}
+			In response to the relatively short duration (``impulse'') acoustic radiation force body load applied to tissue in ARFI imaging, the interrogated tissue will exhibit a dynamic response---namely that tissue deformation will propagate outwards as the absorbed acoustic energy diffuses through the soft tissue.
+
+			In order to simulate the dynamic tissue deformation generated by the acoustic impulse force, the time-dependent displacement field was calculated according to equation \ref{fea:time_deformation} where \note[KH]{Don't leave us hanging!}.
+
+			\begin{equation}
+				\label{fea:time_deformation}
+			\end{equation}
+
 	\section{Results}
 		\begin{figure}[!t]
 			\centering
@@ -43,7 +134,7 @@
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/Fx158.png};
 					\end{axis}
 				\end{tikzpicture}
-				\label{fig:shear_arfi_fx}
+				\label{fig:arfi_forces_fx}
 			}
 			\subfloat[]{
 				\begin{tikzpicture}
@@ -58,7 +149,7 @@
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/Fy158.png};
 					\end{axis}
 				\end{tikzpicture}
-				\label{fig:shear_arfi_fy}
+				\label{fig:arfi_forces_fy}
 			}
 			\subfloat[]{
 				\begin{tikzpicture}
@@ -75,10 +166,10 @@
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/F158.png};
 					\end{axis}
 				\end{tikzpicture}
-				\label{fig:shear_arfi_fsum}
+				\label{fig:arfi_forces_fsum}
 			}
-			\caption[]{}
-			\label{fig:shear_arfi_forces}
+			\caption[Sample acoustic radiation force distribution]{Sample acoustic radiation force distribution in the \protect\subref{fig:arfi_forces_fx} lateral and \protect\subref{fig:arfi_forces_fy} axial directions, and \protect\subref{fig:arfi_forces_fsum} the resultant $L^2$-norm generated by a \SI{2}{\MHz} transducer operating with an aperture of \SI{4}{cm} focusing an acoustic beam at a depth of \SI{4}{\cm} continuously for \SI{150}{\us} applying a pressure of \SI{3.35}{\MPa}.}
+			\label{fig:arfi_forces}
 		\end{figure}
 
 		\begin{figure}[!t]
@@ -278,3 +369,5 @@
 			\caption[]{}
 			\label{fig:freq_pressure_maxDisp}
 		\end{figure}
+
+\bibcomplete{references}
