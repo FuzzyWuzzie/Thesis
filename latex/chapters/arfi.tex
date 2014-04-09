@@ -105,7 +105,7 @@
 				\left|\vec{F}\right| = A^2 e^{-2\alpha x}\rho\alpha
 			\end{equation}
 
-			Further using the acoustic field intensity, the acoustic radiation force may be calculated as per equation \ref{equ:radiation_force} where $\alpha$ is the absorption coefficient of the tissue in \si{Np\per\m} \note[KH]{Fix Neper unit}, $I$ is the temporal average acoustic intensity in \si{\W\per\m\squared}, and $c$ is the longitudinal speed of sound in the tissue in \si{\m\per\s}.
+			Further using the acoustic field intensity, the acoustic radiation force may be calculated as per equation \ref{equ:radiation_force} where $\alpha$ is the absorption coefficient of the tissue in \si{\neper\per\m}, $I$ is the temporal average acoustic intensity in \si{\W\per\m\squared}, and $c$ is the longitudinal speed of sound in the tissue in \si{\m\per\s} \cite{palmeri05}.
 
 			\begin{equation}
 				\label{equ:radiation_force}
@@ -156,35 +156,62 @@
 			% 3 0.628 80
 
 			%the time-dependent displacement field was calculated according to equation \ref{fea:time_deformation} where \note[KH]{Don't leave us hanging!}.
-			The time-dependent displacement fields were calculated according to equations \ref{fea:time_deformation} where $\sigma$ is the Cauchy stress tensor, $\vec{F}$ are the applied body forces, $\vec{u}$ is the particle displacement, $v$ is ?, $S_0$ is ?, $p_w$ is ?, $\vec{I}$ is ?, $G$ the shear modulus, $q_m$ is ?, $varepsilon$ is ?, and $t$ is time. Lesions were modeled identically to the rest of the soft tissue with the exception of the bulk and shear moduli being some fraction or multiple of the ``healthy'' moduli.
+			\comment{The time-dependent displacement fields were calculated according to equations \ref{fea:time_deformation} where $\sigma$ is the Cauchy stress tensor, $\vec{F}$ are the applied body forces, $\vec{u}$ is the particle displacement, $S_0$ is the initial stress distribution, $p_w$ is ?, $\vec{I}$ is the identity matrix, $G$ the shear modulus, $q_m$ is an auxiliary strain variable used to represent the extension of the $m$-th abstract string, $varepsilon$ is strain, and $t$ is time. Lesions were modeled identically to the rest of the soft tissue with the exception of the bulk and shear moduli being some fraction or multiple of the ``healthy'' moduli.
 
 			\begin{subequations}
 				\label{fea:time_deformation}
 				\begin{align}
-					\vec{F} v &= \rho \ddot{\vec{u}} - \nabla \cdot \sigma \\
+					\vec{F} &= \rho \ddot{\vec{u}} - \nabla \cdot \sigma \\
 					\sigma - S_0 &= - p_w \vec{I} + 2 G\left(\varepsilon - \varepsilon_0 - \frac{1}{3} tr(\varepsilon - \varepsilon_0)\vec{I}\right) + \sum_{m=1}^N 2G_m q_m \\
 					\dot{q}_m + \frac{1}{\tau_m} q_m &= \frac{\partial}{\partial t}\left(\varepsilon - \varepsilon_0 - \frac{1}{3} tr(\varepsilon - \varepsilon_0)\vec{I}\right)
 				\end{align}
+			\end{subequations}}
+
+			The time-dependent displacement fields were calculated according to equation \ref{fea:time_deformation} where $\sigma$ is the Cauchy stress tensor, $\vec{F}$ are the applied body forces, and $\vec{u}$ is the particle displacement, and $\rho$ is the density.
+
+			\begin{equation}
+				\label{fea:time_deformation}
+				%\vec{F} = \rho \ddot{\vec{u}} - \nabla \cdot \sigma
+				\rho \frac{\partial^2 \vec{u}}{\partial t^2} - \nabla \cdot \sigma = \vec{F}
+			\end{equation}
+
+			In order to include viscoelastic effects through a generalized Maxwell model of soft tissue, equation \ref{fea:time_deformation_visco} was used where $\sigma_0$ is the initial stress distribution in the tissue, $C$ is the $4^{\text{\tiny th}}$ order elasticity tensor, $\varepsilon$ is the strain, $G_m$ and $\tau_m$ are the shear modulus and relaxation time of the $m^{\text{\tiny th}}$ branch of the Maxwell model respectively, and $\gamma_m$ is an additional auxillary degree of freedom used to represent the extension of the abstract springs in the Maxwell model.
+
+			\begin{equation}
+				\label{fea:time_deformation_visco}
+				\sigma - \sigma_0 = C : \varepsilon + \sum_m 2 G_m \tau_m \dot{\gamma}_m 
+			\end{equation}
+
+			In the simulations, the boundary equations \ref{equ:arfi_fea_fixed_bc} were used to apply a fixed boundary condition to the both the bottom (deep) and top (superficial) boundaries of the model in the axial direction at both boundaries and in the lateral direction at the deep boundary. All other boundaries of the model were free to translate in all dimensions. The acoustic radiation force was applied as a body load to the tissue in the model with the distribution calculated by the k-space pseudospectral model and resultant body forces described in Sections \ref{subsec:kspace_model} and \ref{subsec:body_load_derivation}. In order to prevent reflections from the model boundaries that might affect the simulation results, the model geometry extended laterally by \SI{5}{\cm} in either direction from the centerline. Simulations were run until the axial displacement at the focal point returned to \SI{1}{\percent} of it's maximal value during the entire simulation---at this point, the tissue was considered to be ``relaxed'' after being disturbed by the acoustic radiation force.
+
+			\begin{subequations}
+				\label{equ:arfi_fea_fixed_bc}
+				\begin{align}
+					\vec{u} &= 0, \qquad \Gamma = \Gamma_{bottom} \\
+					u_y &= 0, \qquad \Gamma = \Gamma_{top}
+				\end{align}
 			\end{subequations}
 
-			In the simulations, the boundary equation \ref{equ:arfi_fea_fixed_bc} was used to apply a fixed boundary condition to the both the bottom (deep) and top (superficial) boundaries of the model in the axial direction at both boundaries and in the lateral direction at the deep boundary. All other boundaries of the model were free to translate in all dimensions. The acoustic radiation force was applied as a body load to the tissue according to equation \ref{equ:arfi_fea_body_load} with the distribution calculated by the k-space pseudospectral model and resultant body forces described in Sections \ref{subsec:kspace_model} and \ref{subsec:body_load_derivation}. In order to prevent reflections from the model boundaries that might affect the simulation results, the model geometry extended laterally by \SI{5}{\cm} in either direction from the centerline. Simulations were run until the axial displacement at the focal point returned to \SI{1}{\percent} of it's maximal value during the entire simulation---at this point, the tissue was considered to be ``relaxed'' after being disturbed by the acoustic radiation force.
-
-			\begin{equation}
-				\label{equ:arfi_fea_fixed_bc}
-			\end{equation}
-
-			\begin{equation}
-				\label{equ:arfi_fea_body_load}
-			\end{equation}
-
 		\subsection{Characterizing Acoustic Radiation Force Impulse Imaging}
-			\note[KH]{Talk about the actual simulations / simulation parameters that were used.}
+			%In order to fully understand the suitability of using ARFI imaging to detect and monitor deep tissue injuries, 5 general models of deep tissue injury lesions were modeled. Each general model was also investigated over a range of parameters in order to determine the relationship between the detection sensitivity and the various parameters that were studied. The investigated models included a model with hard boundaries
+
+			\begin{table}[!t]
+				\centering
+				\caption[ARFI model investigated parameters]{Range of values of investigated parameters}
+				\label{tab:arfi-parametervalues}
+				\begin{tabular}{lcc}
+					\toprule
+					Parameter & Symbol & Values \\
+					\midrule
+					\bottomrule
+				\end{tabular}
+			\end{table}
 
 		\subsection{Physical Phantom Validation}
 			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000 \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better}, ARFI images were acquired of lesions within the phantom. \note[KH]{More?}
 
 	\section{Results}
-		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analyzed for a range of input parameters. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{sec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters listed in Table \ref{}. The results obtained through this methodology were then compared to ARFI images taken with a commercial ultrasound machine. \note[KH]{This is terrible.}
+		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analyzed for a range of input parameters. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{sec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters listed in Table \ref{tab:arfi-parametervalues}. The results obtained through this methodology were then compared to ARFI images taken with a commercial ultrasound machine. \note[KH]{This is terrible.}
 
 		\subsection{K-Space Pseudospectral Models of Acoustic Radiation Force}
 			\begin{figure}[!t]

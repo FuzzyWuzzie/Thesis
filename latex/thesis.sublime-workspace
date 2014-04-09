@@ -39,31 +39,7 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 7804,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chapters/quasi-static.tex",
-			"settings":
-			{
-				"buffer_size": 72975,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chapters/arfi.tex",
-			"settings":
-			{
-				"buffer_size": 11771,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chapters/litreview.tex",
-			"settings":
-			{
-				"buffer_size": 33899,
+				"buffer_size": 7851,
 				"line_ending": "Windows"
 			}
 		},
@@ -71,39 +47,7 @@
 			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 6900,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chapters/figs.tex",
-			"settings":
-			{
-				"buffer_size": 3607,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "appendices/sourcecode.tex",
-			"settings":
-			{
-				"buffer_size": 1115,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "assets/sourcecode/arfi/intensity.m",
-			"settings":
-			{
-				"buffer_size": 2367,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "assets/sourcecode/quasi2d/convolvedBMode.m",
-			"settings":
-			{
-				"buffer_size": 2439,
+				"buffer_size": 20671,
 				"line_ending": "Windows"
 			}
 		}
@@ -188,15 +132,21 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/figs.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/arfi/intensity.m",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/quasi2d/convolvedBMode.m",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/shear/isoLineShearLesion.m",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/quasi2d/StrainLine.m",
 		"/C/Users/Kenton/Documents/Thesis/latex/dictionary.txt",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/references.bib",
-		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_lateral_i158_isoline.dat",
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Get-Vert.bat",
 		"/C/Users/Kenton/Downloads/Urist McSlyrDVS's Optimize Plan V1 (1).0",
@@ -230,7 +180,6 @@
 		"/C/Users/Kenton/AppData/Roaming/Vertcoin/vertcoin.conf",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.bbl",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_single.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_human.tex",
 		"/C/Users/Kenton/Documents/USEbrella/Publications/IEEE Quasi-Staztic Paper ReReWrite/QuasiStaticCharacterisation.tex",
@@ -310,12 +259,7 @@
 		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-14.xml",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_stiffness.m",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/QuasiRedo/db.sql",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/QuasiRedo/process.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_new.mph",
-		"/media/kenton/data/School/Drive/USEbrella/Programs/ARFI/relaxation_newtest.m",
-		"/media/kenton/data/School/Drive/USEbrella/Programs/ARFI/relaxation.m",
-		"/media/kenton/COMSOL43/install.txt",
-		"/home/kenton/Downloads/Mathworks_Matlab_R2013a_(8.01)_Linux_MacOS_x64/serial/Readme.txt"
+		"/home/kenton/Google Drive/School/USEbrella/Programs/QuasiRedo/process.m"
 	],
 	"find":
 	{
@@ -335,6 +279,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"1",
+			"0.038",
+			"parametervalues",
+			"equation",
+			"{m}",
+			"subequations",
 			"depth",
 			"6",
 			"Strong dependence on source pressure of focal point force",
@@ -456,13 +406,7 @@
 			"images",
 			"DOGE",
 			"meffre06",
-			"solis12",
-			"maklebust05",
-			"17909702",
-			"perce",
-			"\\percent",
-			"\\%",
-			"\\unit"
+			"solis12"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -514,7 +458,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -522,15 +466,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 7804,
+						"buffer_size": 7851,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								728,
-								728
+								1104,
+								1104
 							]
 						],
 						"settings":
@@ -542,151 +486,29 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 846.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/quasi-static.tex",
-					"settings":
-					{
-						"buffer_size": 72975,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								54562,
-								54540
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 10789.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "chapters/arfi.tex",
-					"settings":
-					{
-						"buffer_size": 11771,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1560,
-								1560
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 323.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "chapters/litreview.tex",
-					"settings":
-					{
-						"buffer_size": 33899,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1271.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "chapters/shear.tex",
 					"settings":
 					{
-						"buffer_size": 6900,
+						"buffer_size": 20671,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								743,
-								743
+								6599,
+								6599
 							]
 						],
 						"settings":
 						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"spell_check": true,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 26.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "chapters/figs.tex",
-					"settings":
-					{
-						"buffer_size": 3607,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1086,
-								1086
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
@@ -694,95 +516,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "appendices/sourcecode.tex",
-					"settings":
-					{
-						"buffer_size": 1115,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								22,
-								22
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "assets/sourcecode/arfi/intensity.m",
-					"settings":
-					{
-						"buffer_size": 2367,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2001,
-								2001
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Matlab/Matlab.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 315.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "assets/sourcecode/quasi2d/convolvedBMode.m",
-					"settings":
-					{
-						"buffer_size": 2439,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								585,
-								585
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Matlab/Matlab.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1395.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
