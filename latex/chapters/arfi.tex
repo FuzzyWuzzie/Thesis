@@ -211,9 +211,10 @@
 			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000 \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better}, ARFI images were acquired of lesions within the phantom. \note[KH]{More?}
 
 	\section{Results}
-		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analyzed for a range of input parameters. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{sec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters listed in Table \ref{tab:arfi-parametervalues}. The results obtained through this methodology were then compared to ARFI images taken with a commercial ultrasound machine. \note[KH]{This is terrible.}
+		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analyzed for a range of input parameters. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters listed in Table \ref{tab:arfi-parametervalues}. The results obtained through this methodology were then compared to ARFI images taken with a commercial ultrasound machine. \note[KH]{This is terrible.}
 
 		\subsection{K-Space Pseudospectral Models of Acoustic Radiation Force}
+		\label{subsec:kspace_results}
 			\begin{figure}[!t]
 				\centering
 				\subfloat[]{
@@ -257,7 +258,8 @@
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							axis on top,
-							colormap/jet, colorbar, point meta min=-27.5, point meta max=27.5, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\kN\per\metre\cubed})},
+							colormap name={RdBu},
+							colorbar, point meta min=-175, point meta max=175, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\kN\per\metre\cubed})},
 							draw=black, text=black, fill=black}]
 								\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/F158.png};
 						\end{axis}

@@ -17,6 +17,7 @@
 \pgfplotsset{compat=1.5}
 \usetikzlibrary{plotmarks,arrows}
 \tikzset{>=latex}
+\usepgfplotslibrary{colorbrewer}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{graphicx}
 \usepackage{lmodern}
@@ -32,6 +33,7 @@
 \usepackage[chapter]{algorithm}
 %\usepackage{droid}
 \usepackage[T1]{fontenc}
+\usepackage[titletoc]{appendix}
 
 % add a "DRAFT" watermark to everything
 %\usepackage{draftwatermark}
@@ -93,6 +95,23 @@ fill=pc6\\%
 fill=pc7\\%
 fill=pc8\\%
 fill=pc9\\%
+}
+
+\definecolor{RdBuWhiteGrey}{RGB}{247,247,247}
+\pgfplotsset{
+	colormap={RdBu}{
+		rgb255(0cm)=(5,48,97);
+		rgb255(1cm)=(33,102,172);
+		rgb255(2cm)=(67,147,195);
+		rgb255(3cm)=(146,197,222);
+		rgb255(4cm)=(209,229,240);
+		rgb255(5cm)=(247,247,247);
+		rgb255(6cm)=(253,219,199);
+		rgb255(7cm)=(244,165,130);
+		rgb255(8cm)=(214,96,77);
+		rgb255(9cm)=(178,24,43);
+		rgb255(10cm)=(103,0,31);
+	}
 }
 
 % set up colours for schematics
@@ -237,7 +256,9 @@ fill=pc9\\%
 }{}{}
 \setcounter{page}{1}}
 
+\begin{appendices}
 %\input{appendices/datatables}
 \input{appendices/sourcecode}
+\end{appendices}
 
 \end{document}
