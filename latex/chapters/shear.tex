@@ -77,20 +77,26 @@
 			\end{equation}
 
 		\subsection{Model Set Up}
-			\note[KH]{Talk about the different models investigated and the range of parameters for each of them}
+			In order to study the feasibility of using shear wave speed quantification to detect and monitor deep tissue injuries, a collection of deep tissue injury models were investigated including: spherical lesions with hard and soft boundaries, clusters of small lesions that make up a larger lesionous region, and a lesion with mri-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Each model investigated numerous parameters relating to the detection of lesions including ARFI focal depth, ARFI probing frequency, lesion size, distance of the focal point from the lesion (lesion offset), lesion blur radius, clustered lesion density, the size of individual lesions in the clustered lesion model, and the size and altitude of the lesion in the Visible Human model. The range of parameters investigated for each model are summarized in Table \ref{tab:shear-parametervalues}.
+
+			Fig. \ref{fig:shear_schematic_circle} portrays the schematics of the lesion models investigated. Note that shear wave speed quantification typically applies the acoustic radiation force impulse to a location of tissue adjacent to the desired region such that the shear waves are fully developed by the time they reach the investigated region.
 
 			\begin{figure}[!t]
 				\centering
 				\begin{tikzpicture}[x=0.05\textwidth, y=0.05\textwidth, draw=black, text=black, fill=black]
 					% the main domain area
+					\draw[dotted, fill=tissueColour] (-3, 0) rectangle(7, 10);
 					\draw[fill=tissueColour] (0, 0) rectangle(4, 10);
+
+					\draw[->] (6.5, 5) -- (7, 5);
+					\draw (6.5, 5) node[left]{\scriptsize FEA Domain};
+					\draw[<-] (4, 5) -- (4.5, 5);
+					\draw (4.5, 5) node[right]{\scriptsize K-Space Domain};
 
 					% the lesion
 					\draw[fill=lesionColour] (2, 3) circle(1);
 
 					% the lesion size
-					%\draw[<-] (2.707, 3.707) -- (3, 4) -- (3.9, 4);
-					%\draw (4.1, 4) -- (4.5, 4) node[right]{$\diameter S$};
 					\draw[<-] (1.293, 2.293) -- (0.5, 1) -- (1, 1) node[right]{\scriptsize $\diameter S$};
 
 					% the lesion locator
@@ -127,16 +133,34 @@
 					\draw (2, 0.25) node{\scriptsize Deep};
 				\end{tikzpicture}
 				\caption[]{}
-				\label{fig:schematic_circl}
+				\label{fig:shear_schematic_circle}
 			\end{figure}
 
-			\note[KH]{Briefly mention the k-wave toolbox models}
+			\begin{table}[!t]
+				\centering
+				\caption[Shear wave speed quantification model investigated parameters]{Range of values of investigated parameters}
+				\label{tab:shear-parametervalues}
+				\begin{tabular}{lcc}
+					\toprule
+					Parameter & Symbol & Values \\
+					\midrule
+					Lesion depth & $d$ & $[1, 2, 3, 4, 5, 6, 7, 8, 9]$\,\si{\cm} \\
+					Lesion diameter & $\diameter S$ & $[1.0, 2.0]$\,\si{\cm} \\
+					Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ \\
+					ARFI probing frequency & $f$ & $[1, 2, 4, 6]$\,\si{\MHz} \\
+					Blurred lesion blur radius & $b_r$ & $[1.0, 2.5, 5.0, 7.5]$\,\si{\mm} \\
+					Clustered lesion density & $b_\rho$ & $[10, 20, 30, 40]$\,\si{\per\cm\squared} \\
+					Clustered lesion radius & $r_{bl}$ & $[0.5, 1.0, 1.5]$\,\si{\mm} \\
+					Visible human lesion width & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$\,\si{\cm} \\
+					Visible human lesion depth & $d$ & $[6.25, 6.75, 7.25]$\,\si{\cm} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
 
-			\note[KH]{Briefly mention the COMSOL displacement models}
+			In all the shear wave speed quantification models, the acoustic radiation force and time-domain finite-element models of tissue deformation were the same as were used in the ARFI imaging simulations in Chapter \ref{chap:arfi} and described in Sections \ref{subsec:kspace_model} -- \ref{subsec:temporal_fea_arfi}. The difference with the shear wave speed quantification presented here and the ARFI imaging presented in Chapter \ref{chap:arfi} lies in the the data that was extracted and processed from the time-domain finite-element models of tissue displacement. A discussion of how shear wave speeds are tracked in the finite-element model of tissue deformation is given in Section \ref{subsec:shear_results_sample_wave_speed} by working though a sample dataset result.
 
-			A discussion of how shear wave speeds are tracked in the finite-element model of tissue deformation is given in Section \ref{subsec:shear_results_sample_wave_speed} by working though a sample dataset result.
-
-			\note[KH]{Talk about model validation setup}
+		\subsection{Model Validation}
+			In order to validate the results presented in Section \ref{sec:shear_results}, a subset of the results were compared with experimental results obtained with a physical tissue mimicking phantom. The phantom used was the same CIRS Elasticity QA Phantom model 049 that was used in Chapter \ref{chap:quasi-static}. The phantom models both stiff and soft lesions at two different depths and lesion sizes. The material properties of the phantom are listed in Table \ref{tab:phantomproperties}. Both tissue and lesion shear wave speeds were acquired using a Siemens AG ACUSON S2000\textsuperscript{\texttrademark} ultrasound system running the Virtual Touch\textsuperscript{\texttrademark} Quantification software suite with a Siemens 9L4 transducer. Measures of relative lesion stiffness were calculated as per equations \ref{equ:shear_stiffness_ratio} in an identical fashion to the simulated lesion cases.
 
 	\section{Results and Discussion}
 	\label{sec:shear_results}
@@ -153,7 +177,7 @@
 				\begin{align}
 					c_T &= \sqrt{\frac{\mu}{\rho}} \\
 					c_T^2\rho &= \mu \\
-					E_{rel} = \frac{\mu_l}{\mu_t} &= \frac{c_{T,l}^2}{c_{T,t}^2}
+					E_{rel} = \frac{\mu_l}{\mu_t} &= \left(\frac{c_{T,l}}{c_{T,t}}\right)^2
 				\end{align}
 			\end{subequations}
 
@@ -289,10 +313,12 @@
 				\label{fig:lateral_cut_i158_shear_wave_speed}
 			\end{figure}
 
-			As is obvious in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case 3.2 times as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value roughly halfway through the lesion, indicating that the wave requires some minute amount of time to both speed up and slow down within the lesion, suggesting that the technique may have difficulty identifying small lesions as the shear wave speed will not be able to fully adjust to the lesion in the time it takes for the wave to completely pass through the lesion.
+			As is shown in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case 3.2 times as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value roughly halfway through the lesion, indicating that the wave requires some minute amount of time to both speed up and slow down within the lesion, suggesting that the technique may have difficulty identifying small lesions as the shear wave speed will not be able to fully adjust to the lesion in the time it takes for the wave to completely pass through the lesion.
 
-		\subsection{Characterization}
+		\subsection{Lesion Detection Characterization}
 			\note[KH]{Add and talk lesion size characterization here}
+
+			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. Fig. \ref{fig:erel_doff_mse_d4} portrays the mean squared error between the measured and true lesion stiffness ratios with increasing lesion offset distance. As Fig. \ref{fig:erel_doff_mse_d4} shows, a lesion offset of approximately \SI{1.25}{\cm} is ideal for quantifying lesion stiffness as it produces the least amount of error between the true and measured lesion stiffness ratios.
 
 			\begin{figure}[!t]
 				\centering
@@ -318,3 +344,40 @@
 				\caption[Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}]{Shear-wave speed measured stiffness ratio at a depth of \SI{4}{\cm}}
 				\label{fig:erel_doff_d4}
 			\end{figure}
+			\end{figure}
+
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=14pt,
+						ymajorgrids=true,
+						xlabel={Lesion Offset, $d_{off}$ (\si{\cm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						symbolic x coords={0.00, 1.25, 2.50, 3.75},
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table {assets/shear/data/shear_doff_mse_d4.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Shear-wave speed quantified mean squared error related to lesion offset]{Mean squared error between the true and measured lesion stiffness ratios for increasing lesion offsets for a \SI{0.5}{cm} radius lesion at a depth of \SI{4}{\cm} using an ARFI probing frequency of \SI{2}{\MHz}.}
+				\label{fig:erel_doff_mse_d4}
+			\end{figure}
+
+			\note[KH]{Talk about lesion depth characterization}
+			\note[KH]{Present blurred lesion characterizations}
+			\note[KH]{Present clustered lesion characterizations}
+			\note[KH]{Present visible human lesion characterizations}
+
+		\subsection{Physical Phantom Validation}
+			\note[KH]{Present physical phantom validation}
+
+	\section{Conclusions}
+		
