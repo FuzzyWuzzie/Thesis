@@ -77,11 +77,12 @@
 			\end{equation}
 
 		\subsection{Model Set Up}
+		\label{subsec:model_setup}
 			In order to study the feasibility of using shear wave speed quantification to detect and monitor deep tissue injuries, a collection of deep tissue injury models were investigated including: spherical lesions with hard and soft boundaries, clusters of small lesions that make up a larger lesionous region, and a lesion with mri-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Each model investigated numerous parameters relating to the detection of lesions including ARFI focal depth, ARFI probing frequency, lesion size, distance of the focal point from the lesion (lesion offset), lesion blur radius, clustered lesion density, the size of individual lesions in the clustered lesion model, and the size and altitude of the lesion in the Visible Human model. The range of parameters investigated for each model are summarized in Table \ref{tab:shear-parametervalues}.
 
 			Fig. \ref{fig:shear_schematic_circle} portrays the schematics of the lesion models investigated. Note that shear wave speed quantification typically applies the acoustic radiation force impulse to a location of tissue adjacent to the desired region such that the shear waves are fully developed by the time they reach the investigated region.
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}[x=0.05\textwidth, y=0.05\textwidth, draw=black, text=black, fill=black]
 					% the main domain area
@@ -138,7 +139,7 @@
 				\label{fig:shear_schematic_circle}
 			\end{figure}
 
-			\begin{table}[!t]
+			\begin{table}[!htb]
 				\centering
 				\caption[Shear wave speed quantification model investigated parameters]{Range of values of investigated parameters}
 				\label{tab:shear-parametervalues}
@@ -170,7 +171,7 @@
 		\subsection{Acoustic Radiation Force Impulse Simulations}
 			Since the acoustic radiation force impulse simulations were run in exactly the same manner for shear wave speed quantification as in the ARFI imaging presented in Chapter \ref{chap:arfi}, the results are identical---see Section \ref{subsec:kspace_results} for the results. For completeness, the force distribution which generated the shear waves studied in Section \ref{subsec:shear_results_sample_wave_speed} is plotted in Fig. \ref{fig:arfi_force_shear_lesion_schematic}. against a schematic of the lesion in order to better visualize the shear wave speed quantification process. Fig. \ref{fig:arfi_force_shear_lesion_schematic} shows the focal line of the shear wave speed quantification technique, along which the axial displacement of the tissue is continuously monitored in order to calculate the localized shear wave speed of the tissue. This focal line extends laterally from the focal point of the acoustic radiation force impulse through the lesion to the edge of the tissue domain.
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}[x=0.05\textwidth, y=0.05\textwidth, draw=black, text=black, fill=black]
 					% the main domain area
@@ -221,12 +222,12 @@
 
 			In order to determine the velocity of generated shear waves, the ARFI load-induced displacement of the soft tissue must be tracked through time along a line passing through the focal point radiating laterally outward in the finite-element model of tissue deformation. A sample result of tissue displacement through time and along such a line is presented in Fig. \ref{fig:lateral_wave_i158} where the wave can be readily visualized through time, noting that the wave travels ever further from the centerline.
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Distance from centerline, $x$ (\si{\cm})},
 						ylabel={Axial displacement, $v$ (\si{\um})},
@@ -251,13 +252,13 @@
 
 			The results in Fig. \ref{fig:lateral_wave_i158} represent a finite subsample of the shear wave's propagation along the focal line. For a continuous representation of the shear wave propagation, the surface shown in Fig \ref{fig:lateral_cut_i158} may be constructed. In order to track the wave through both position and time, a contour line representing a constant displacement value may be extracted. For this work, a contour line representing the mean value of the displacement over the entire position-time domain was utilized and is portrayed in Fig. \ref{fig:lateral_cut_i158_imgsc_isoline}.
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						enlargelimits=false,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Time, $t$ (\si{\ms})},
 						ylabel={Distance from centerline, $x$ (\si{\cm})},
@@ -272,13 +273,13 @@
 				\label{fig:lateral_cut_i158}
 			\end{figure}
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						enlargelimits=false,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Time, $t$ (\si{\ms})},
 						ylabel={Distance from centerline, $x$ (\si{\cm})},
@@ -306,12 +307,12 @@
 				c_T = \frac{dx}{dt}
 			\end{equation}
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Time, $t$ (\si{\ms})},
 						ylabel={Distance from centerline, $x$ (\si{\cm})},
@@ -326,12 +327,12 @@
 				\label{fig:lateral_cut_i158_isoline}
 			\end{figure}
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Distance from centerline, $x$ (\si{\cm})},
 						ylabel={Measured Shear Wave Speed, $c_t$ (\si{\m\per\s})},
@@ -352,23 +353,24 @@
 				\label{fig:lateral_cut_i158_shear_wave_speed}
 			\end{figure}
 
-			As is shown in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case 3.2 times as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value roughly halfway through the lesion, indicating that the wave requires some minute amount of time to both speed up and slow down within the lesion, suggesting that the technique may have difficulty identifying small lesions as the shear wave speed will not be able to fully adjust to the lesion in the time it takes for the wave to completely pass through the lesion.
+			As is shown in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case 3.2 times as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value approximately halfway through the lesion, indicating that the wave requires some finite amount of time to both speed up and slow down within the lesion, suggesting that the technique may have difficulty identifying small lesions as the shear wave speed will not be able to fully adjust to the lesion in the time it takes for the wave to completely pass through the lesion.
 
+		\FloatBarrier
 		\subsection{Lesion Detection Characterization}
-			\note[KH]{Talk about lesion size characterization here}
+			In order to determine the detection sensitivity of shear wave speed quantification with respect to lesion size, hard-boundaried spherical lesions with varying radii were interrogated using ARFI loads while the speed of the shear waves developed along the focal line were monitored. The ARFI loads were applied using a probing frequency of \SI{2}{\MHz} for \SI{150}{\us} with a source pressure of \SI{3.35}{\MPa} using an F-number of $f/1.0$. The lesions were located at a depth of \SI{4}{\cm} with an offset of \SI{1.25}{\cm} from the focal point of the ARFI load. The results of this characterization are given in Fig. \ref{fig:erel_radius}. Lesions stiffness ratios were measured by calculating the maximum or minimum shear wave speed within the lesion if the shear wave speed within the lesion was greater than or less than the surrounding tissue respectively and the mean shear wave speed without the lesion and applying equation \ref{equ:shear_wave_speed}.
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
-						legend style={legend pos=south east,font=\small},
+						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
@@ -382,12 +384,14 @@
 				\label{fig:erel_radius}
 			\end{figure}
 
-			\begin{figure}[!t]
+			As can be seen in Fig. \ref{fig:erel_radius}, small lesions with radii $\leq \SI{5.0}{\mm}$ are nearly impossible to detect---large changes in the true lesion stiffness ratio represent very minute changes in the measured lesion stiffness ratio for these small lesions. Conversely, large lesions are much easier to detect, portraying a nearly one-to-one or better mapping between the true and measured lesion stiffness ratios. This suggests that the large the lesion is, the more readily it may be detected while smaller lesions are more difficult to detect with a lower limit of the lesion radius approaching \SI{5.0}{\mm}.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -406,14 +410,23 @@
 				\label{fig:erel_radius_mse}
 			\end{figure}
 
-			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. Fig. \ref{fig:erel_doff_mse_d4} portrays the mean squared error between the measured and true lesion stiffness ratios with increasing lesion offset distance. As Fig. \ref{fig:erel_doff_mse_d4} shows, a lesion offset of approximately \SI{2.5}{\cm} is ideal for quantifying lesion stiffness as it produces the least amount of error between the true and measured lesion stiffness ratios.
+			To further corroborate these results, the mean-squared error associated with the various lesion radii was calculated according to equation \ref{equ:mean-squared-error} where $\hat{Y}_i$ are the true lesion stiffness ratios and $Y_i$ are the measured lesion stiffness ratios. The results of this calculation are given in Fig. \ref{fig:erel_radius_mse}.
 
-			\begin{figure}[!t]
+			\begin{equation}
+				\label{equ:mean-squared-error}
+				MSE = \frac{1}{n}\sum_{i=1}^n \left(\hat{Y}_i - Y_i\right)^2
+			\end{equation}
+
+			In Fig. \ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions is significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \SI{12.5}{\mm}) presented greater error than lesions with radii of \SI{10.0}{\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\times$ basal stiffness) lesion with a radius of \SI{12.5}{\mm} seen in Fig. \ref{fig:erel_radius}. The exact cause of this error is unknown, however it is postulated that this is a numerical error resulting from ?. \note[KH]{Investigate this!}.
+
+			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. The largest exception to this generalization is for very stiff lesions for which the ARFI load is focused the farthest away from the lesion. It is hypothesized that the measured stiffness ratio of these lesions is underestimated because by the time the shear wave reaches the relatively far-away lesion, it's energy has substantially dissipated, disallowing the wave to remain fully cohesive and speed up appropriately.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
@@ -433,12 +446,14 @@
 				\label{fig:erel_doff_d4}
 			\end{figure}
 
-			\begin{figure}[!t]
+			Fig. \ref{fig:erel_doff_mse_d4} portrays the mean squared error between the measured and true lesion stiffness ratios with increasing lesion offset distance. As Fig. \ref{fig:erel_doff_mse_d4} shows, a lesion offset of approximately \SI{2.5}{\cm} is ideal for quantifying lesion stiffness as it produces the least amount of error between the true and measured lesion stiffness ratios which confirms the notion that the shear wave needs some time to become fully developed as it travels through the tissue. Since the error between lesion offsets of \SI{1.25}{\cm} and \SI{2.50}{\cm} is nearly negligible, it is likely that the wave is able to become fully developed even earlier than \SI{2.50}{\cm} and lesion offsets as small as \SI{1.25}{\cm} may be used. The relatively large error present for the largest lesion offset of \SI{3.75}{\cm} is largely due to the severe underestimation of the lesion stiffness for the stiffest lesion seen in Fig. \ref{fig:erel_doff_d4}.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -457,14 +472,14 @@
 				\label{fig:erel_doff_mse_d4}
 			\end{figure}
 
-			\note[KH]{Talk about depth characterization}
+			Another key parameter relating to the detection of deep tissue injury lesions relates to the depth that the lesions may actually be detected---for example, in people with large amounts of body fat or muscle, the distance between the surface of the skin and the boney prominence where lesions are most likely to form may be very large compared to someone with very little amounts of body fat or muscle. \note[KH]{TODO: REEXAMINE THIS DATA TO MAKE SURE IT'S ACCURATE. WHY IS THE 4 CM ONE SO DIFFERENT FROM THE LAST GRAPH?!}
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
@@ -484,12 +499,12 @@
 				\label{fig:erel_depth_o250}
 			\end{figure}
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -508,14 +523,16 @@
 				\label{fig:erel_depth_mse_o250}
 			\end{figure}
 
-			\note[KH]{Present blurred lesion characterizations}
+			Since deep tissue injury lesions are unlikely to be perfectly round and hard-boundaried, three different models of lesion geometry were investigated---namely, lesions with blurred boundaries that ``fade'' into the surrounding tissue, clusters of small lesions that together make up a larger lesions region, and a lesion with mri-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Although the spherical hard-boundaried lesions may not represent all the intricacies of real deep tissue injuries, the general trends that result from analysing them may improve the general understanding of lesion detection behaviour.
 
-			\begin{figure}[!t]
+			In order to investigate the effect of blurring lesions into the background tissue, hard-boundaried spherical lesions were blurred with varying blur radii as described in Section \ref{subsec:model_setup}. The results of this characterization are presented in Fig. \ref{fig:erel_blur}. As can be seen in Fig. \ref{fig:erel_blur}, the effect of blur radii on lesion detection ability is negligible as noted by how the detection curves of the lesions with varying blur radii are largely coincident.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
@@ -534,12 +551,16 @@
 				\label{fig:erel_blur}
 			\end{figure}
 
-			\begin{figure}[!t]
+			This lack of reliance of detection sensitivity on blur radius is further portrayed by the mean squared error of the results, calculated in Fig. \ref{fig:erel_blur_mse}. While there are some minor differences in the error between the various blur radii---chiefly between blur radii of \SI{2.5}{\mm} and \SI{5.0}{\mm}---the scale of these differences lie within the range of numerical error and noise and so is not significant.
+
+			The fact that detection sensitivity does not decrease with increasing blur radii in shear wave speed quantification makes shear wave speed quantification a desirable tool for detecting deep tissue injury lesions as it means that even imperfect, newly-forming lesions can still be readily detected and monitored.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -558,14 +579,16 @@
 				\label{fig:erel_blur_mse}
 			\end{figure}
 
-			\note[KH]{Present clustered lesion density characterizations}
+			Beyond having boundaries that ``fade'' into the background tissue, deep tissue injury lesions may in fact be heterogeneous in nature with a large number of small lesions clustered together to form a larger lesionous region. To investigate this phenomenon, the effect of small clustered lesion density and individual radii were investigated using shear wave speed quantification. The effect of clustered lesion density was investigated as outlined in Section \ref{subsec:model_setup}, the results of which are shown in Fig. \ref{fig:erel_cluster_density}. \note[KH]{Add graph of shear wave speed along focal line for clustered lesions to show lack of ability to detect individual small lesions?}
 
-			\begin{figure}[!t]
+			As Fig. \ref{fig:erel_cluster_density} shows, decreasing the cluster density generally results in a decreasing detection sensitivity with the least dense clusters both underestimating the stiffness of stiff lesions and overestimating the stiffness of soft lesions. This behaviour is somewhat expected---as the density of clustered lesions decreases, so too does the mean true stiffness of the lesionous region that is inspected due to the greater ratio of ``healthy'' tissue to lesionous tissue.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
@@ -585,12 +608,14 @@
 				\label{fig:erel_cluster_density}
 			\end{figure}
 
-			\begin{figure}[!t]
+			This generalization is further portrayed in by the mean squared error which is shown in Fig. \ref{fig:erel_cluster_density_mse}. In Fig. \ref{fig:erel_cluster_density_mse}, increasing cluster density results in monotonically decreasing error.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -609,14 +634,14 @@
 				\label{fig:erel_cluster_density_mse}
 			\end{figure}
 
-			\note[KH]{Present clustered lesion radius characterizations}
+			Beyond the cluster density, the size of individual clustered lesions within the lesionous region may affect the detection sensitivity. To investigate this parameter, the radii of the individual lesions in the clustered lesion model were varied, with the results presented in Fig. \ref{fig:erel_cluster_radius}. Fig. \ref{fig:erel_cluster_radius} shows how decreasing the individual clustered lesion radii results in decreases in the detection sensitivity. This is similar to the results presented in Fig. \ref{fig:erel_cluster_density} in that decreasing the individual lesion radii results in a decrease of the ratio between lesionous tissue and healthy tissue within the lesionous region---the greater the proportion of lesionous tissue within the investigated region, the more accurate the detection of the lesionous region.
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
@@ -635,12 +660,14 @@
 				\label{fig:erel_cluster_radius}
 			\end{figure}
 
-			\begin{figure}[!t]
+			Again, this conclusion is corroborated by the mean squared error shown in Fig. \ref{fig:erel_cluster_radius_mse}. In Fig. \ref{fig:erel_cluster_radius_mse}, increasing the individual lesion radii results in a significant decrease in the stiffness measurement error in the lesionous region.
+
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -652,7 +679,7 @@
 						ymin=0,
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
-						\addplot table {assets/shear/data/shear_cluster_radius_mse.dat};
+						\addplot table[x expr=\thisrow{radius}*1000] {assets/shear/data/shear_cluster_radius_mse.dat};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Shear-wave speed quantified mean squared error related to small lesion cluster density]{Mean squared error between the true and measured lesion stiffness ratios for increasing clustered lesion radii for clustered lesions with a density of \SI{30}{\per\cm\squared} within a \SI{1.0}{cm} radius with an offset of \SI{1.25}{\cm} at a depth of \SI{4}{\cm} using an ARFI probing frequency of \SI{2}{\MHz}.}
@@ -661,12 +688,12 @@
 
 			\note[KH]{Present visible human lesion characterizations}
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
@@ -686,12 +713,12 @@
 				\label{fig:erel_human_radius}
 			\end{figure}
 
-			\begin{figure}[!t]
+			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
