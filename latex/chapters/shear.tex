@@ -355,7 +355,56 @@
 			As is shown in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}, the speed of the shear wave within the lesion (which was in this case 3.2 times as stiff as the surrounding tissue) is substantially greater than the shear wave speed in the regular tissue. Note that instead of an impulse response at the boundaries of the lesion as might be expected, the shear wave speed reaches a peak value roughly halfway through the lesion, indicating that the wave requires some minute amount of time to both speed up and slow down within the lesion, suggesting that the technique may have difficulty identifying small lesions as the shear wave speed will not be able to fully adjust to the lesion in the time it takes for the wave to completely pass through the lesion.
 
 		\subsection{Lesion Detection Characterization}
-			\note[KH]{Add and talk lesion size characterization here}
+			\note[KH]{Talk about lesion size characterization here}
+
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/shear/data/shear_radius_r025.dat};
+						\addplot table {assets/shear/data/shear_radius_r050.dat};
+						\addplot table {assets/shear/data/shear_radius_r100.dat};
+						\addplot table {assets/shear/data/shear_radius_r125.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii]{}
+				\label{fig:erel_radius}
+			\end{figure}
+
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Lesion Radius, $r$ (\si{\mm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table[x expr=\thisrow{radius}*1000] {assets/shear/data/shear_radius_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:erel_radius_mse}
+			\end{figure}
 
 			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. Fig. \ref{fig:erel_doff_mse_d4} portrays the mean squared error between the measured and true lesion stiffness ratios with increasing lesion offset distance. As Fig. \ref{fig:erel_doff_mse_d4} shows, a lesion offset of approximately \SI{2.5}{\cm} is ideal for quantifying lesion stiffness as it produces the least amount of error between the true and measured lesion stiffness ratios.
 
@@ -611,6 +660,55 @@
 			\end{figure}
 
 			\note[KH]{Present visible human lesion characterizations}
+
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/shear/data/shear_human_radius_r025.dat};
+						\addplot table {assets/shear/data/shear_human_radius_r050.dat};
+						\addplot table {assets/shear/data/shear_human_radius_r100.dat};
+						\addplot table {assets/shear/data/shear_human_radius_r125.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii in a visible human model]{}
+				\label{fig:erel_human_radius}
+			\end{figure}
+
+			\begin{figure}[!t]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Lesion Radius, $r$ (\si{\mm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table[x expr=\thisrow{radius}*1000] {assets/shear/data/shear_human_radius_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:erel_human_radius_mse}
+			\end{figure}
 
 		\subsection{Physical Phantom Validation}
 			\note[KH]{Present physical phantom validation}

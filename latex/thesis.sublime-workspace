@@ -39,7 +39,15 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 7851,
+				"buffer_size": 8343,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/arfi.tex",
+			"settings":
+			{
+				"buffer_size": 27704,
 				"line_ending": "Windows"
 			}
 		},
@@ -47,7 +55,15 @@
 			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 20671,
+				"buffer_size": 38632,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/quasi-static.tex",
+			"settings":
+			{
+				"buffer_size": 72962,
 				"line_ending": "Windows"
 			}
 		}
@@ -55,9 +71,13 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 173.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"past",
+				"Text Pastry: Command Line"
+			],
 			[
 				"orig des",
 				"Origami: Destroy Current Pane"
@@ -115,7 +135,7 @@
 				"Word Wrap: Toggle"
 			]
 		],
-		"width": 432.0
+		"width": 536.0
 	},
 	"console":
 	{
@@ -132,13 +152,16 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz(busy)",
+		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/pgfplots.sty",
+		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/libs/tikzlibrarypgfplots.clickable.code.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/figs.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/arfi/intensity.m",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/quasi2d/convolvedBMode.m",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz",
@@ -256,10 +279,7 @@
 		"/home/kenton/Kalk/Kalk/gtk-gui/MainWindow.cs",
 		"/home/kenton/Kalk/Kalk/gtk-gui/generated.cs",
 		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-13.xml",
-		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-14.xml",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_stiffness.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/QuasiRedo/db.sql",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/QuasiRedo/process.m"
+		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-14.xml"
 	],
 	"find":
 	{
@@ -267,9 +287,11 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"C:\\texlive\\2013\\",
+			"C:\\texlive\\2013\\texmf-dist\\tex\\latex",
 			"C:\\Users\\Kenton\\Documents\\Thesis\\latex",
 			"C:\\Users\\Kenton\\Documents\\Thesis\\latex\\chapters"
 		]
@@ -279,6 +301,26 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"appendices",
+			"depth_o250",
+			"cm",
+			"d",
+			"\\Delta_{off}",
+			"8",
+			"10.25",
+			"10.5",
+			"6",
+			"5.75",
+			"6",
+			"7.5, 5.5",
+			"6.75",
+			"7.5",
+			"\\\\",
+			"5",
+			"blackwhite",
+			"greenyellow",
+			"colormap",
+			"sec:temporal_fea_arfi",
 			"1",
 			"0.038",
 			"parametervalues",
@@ -386,27 +428,7 @@
 			"{mm}",
 			"{cm}",
 			"{MHz}",
-			"\\unit",
-			"unit",
-			"images/",
-			"\\si{mm}",
-			"\\si{MHz}",
-			"\\si{cm}",
-			"\\%",
-			"unit",
-			"0.914835",
-			"0.60989",
-			".pdf",
-			"]}{",
-			"\\unit{[",
-			"0.175\\textwidth",
-			"[width=0.175\\textwidth]",
-			"\\input",
-			"unit",
-			"images",
-			"DOGE",
-			"meffre06",
-			"solis12"
+			"\\unit"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -458,7 +480,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -466,15 +488,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 7851,
+						"buffer_size": 8343,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1104,
-								1104
+								8182,
+								8182
 							]
 						],
 						"settings":
@@ -486,25 +508,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3521.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/shear.tex",
+					"file": "chapters/arfi.tex",
 					"settings":
 					{
-						"buffer_size": 20671,
+						"buffer_size": 27704,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6599,
-								6599
+								16906,
+								16879
 							]
 						],
 						"settings":
@@ -516,7 +538,68 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1395.0,
+						"translation.y": 3636.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "chapters/shear.tex",
+					"settings":
+					{
+						"buffer_size": 38632,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38449,
+								38449
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"spell_check": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 9753.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "chapters/quasi-static.tex",
+					"settings":
+					{
+						"buffer_size": 72962,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56226,
+								56099
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 11121.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
