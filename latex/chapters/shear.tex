@@ -472,7 +472,7 @@
 				\label{fig:erel_doff_mse_d4}
 			\end{figure}
 
-			Another key parameter relating to the detection of deep tissue injury lesions relates to the depth that the lesions may actually be detected---for example, in people with large amounts of body fat or muscle, the distance between the surface of the skin and the boney prominence where lesions are most likely to form may be very large compared to someone with very little amounts of body fat or muscle. \note[KH]{TODO: REEXAMINE THIS DATA TO MAKE SURE IT'S ACCURATE. WHY IS THE 4 CM ONE SO DIFFERENT FROM THE LAST GRAPH?!}
+			Another key parameter relating to the detection of deep tissue injury lesions relates to the depth that the lesions may actually be detected---for example, in people with large amounts of body fat or muscle, the distance between the surface of the skin and the boney prominence where lesions are most likely to form may be very large compared to someone with very little amounts of body fat or muscle. In order to study the effect of lesion depth on the detection sensitivity of shear wave speed quantification, simulated lesions were placed at various depths ranging from \SI{2}{\cm} -- \SI{8}{\cm} below the surface of the skin with the measured stiffness ratios for these lesions calculated and shown in Fig. \ref{fig:erel_depth_o250}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -498,6 +498,8 @@
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion depth]{Numerical characterization of the shear wave speed measured stiffness ratios acquired with varying lesion and focal point depths for a hard-boundaried \SI{0.5}{cm} radius lesion with an offset of \SI{2.50}{\cm} using an ARFI probing frequency of \SI{2}{\MHz}.}
 				\label{fig:erel_depth_o250}
 			\end{figure}
+
+			As Fig. \ref{fig:erel_depth_o250} shows, there is little dependence of shear wave speed quantifications detection sensitivity for shallow to medium-depth lesions---lesions placed at a depth of \SI{2}{\cm} -- \SI{6}{\cm} presented approximately equal detection curves. Of note in Fig. \ref{fig:erel_depth_o250} is that deep lesions---lesions at a depth of \SI{8}{\cm} or more---are difficult to detect as the method is not very sensitive these deeper lesions---both underestimating the stiffness of deep stiff lesions and overestimating the stiffness of deep soft lesions. The large error involved with attempting to measure the stiffness of deep lesions can be seen in Fig. \ref{fig:erel_depth_mse_o250} where the mean squared error for the various depths examined was calculated. In Fig. \ref{fig:erel_depth_mse_o250}, the \SI{8}{\cm} deep lesions present a significantly greater amount of error than their shallower counterparts. Also of note is that the shallowest lesions investigated---lesions at a depth of \SI{2}{\cm}---presented with greater error than the mid-depth lesions. The source of this error largely lies in the overestimation of the stiff lesion stiffness seen in Fig. \ref{fig:erel_depth_o250} which may be due to numerical errors in the models and calculations.
 
 			\begin{figure}[!htb]
 				\centering
@@ -737,6 +739,7 @@
 				\label{fig:erel_human_radius_mse}
 			\end{figure}
 
+		\FloatBarrier
 		\subsection{Physical Phantom Validation}
 			\note[KH]{Present physical phantom validation}
 
