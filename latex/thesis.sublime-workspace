@@ -39,15 +39,15 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 8343,
+				"buffer_size": 8375,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "chapters/arfi.tex",
+			"file": "chapters/conclusion.tex",
 			"settings":
 			{
-				"buffer_size": 27704,
+				"buffer_size": 323,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,15 +55,41 @@
 			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 38632,
+				"buffer_size": 58930,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "chapters/quasi-static.tex",
+			"contents": "Package Control Messages\n========================\n\nTheme - Spacegray:\n-----------------\n\n  Thanks for installing Spacegray!\n  \n  \n  How to activate\n  ===============\n  \n  Activate the UI theme and color scheme by modifying your user preferences file, which you can find using the menu item `Sublime Text -> Preferences -> Settings - User` (⌘+, on Mac).\n  \n  Spacegray comes in different flavors, based on Base16 color schemes. You can choose whichever flavor you like, but don't forget to change *both* color scheme and UI theme so they match.\n  \n  *Note: Don't forget to restart Sublime Text after activating the theme.*\n  \n  \n  Spacegray\n  ---------\n  \n  Default flavor based on Base16 Ocean Dark color scheme.\n  \n  *Example settings*\n  \n      {\n        \"theme\": \"Spacegray.sublime-theme\",\n        \"color_scheme\": \"Packages/Theme - Spacegray/base16-ocean.dark.tmTheme\"\n      }\n  \n  \n  Spacegray Light\n  ---------------\n  \n  Light variation based on Base16 Ocean Light color scheme.\n  \n  *Example settings*\n  \n      {\n        \"theme\": \"Spacegray Light.sublime-theme\",\n        \"color_scheme\": \"Packages/Theme - Spacegray/base16-ocean.light.tmTheme\"\n      }\n  \n  \n  Spacegray Eighties\n  ------------------\n  \n  A variation based on Base16 Eighties Dark color scheme.\n  \n  *Example settings*\n  \n      {\n        \"theme\": \"Spacegray Eighties.sublime-theme\",\n        \"color_scheme\": \"Packages/Theme - Spacegray/base16-eighties.dark.tmTheme\"\n      }\n  \n  \n  *Note: Don't forget to restart Sublime Text after activating the theme.*\n  \n",
 			"settings":
 			{
-				"buffer_size": 72962,
+				"buffer_size": 1528,
+				"line_ending": "Windows",
+				"name": "Package Control Messages",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 13677,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "chapters/arfi.tex",
+			"settings":
+			{
+				"buffer_size": 27858,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/quasistatic/drawings/schematic_blob.tex",
+			"settings":
+			{
+				"buffer_size": 889,
 				"line_ending": "Windows"
 			}
 		}
@@ -74,6 +100,38 @@
 		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"git gutt",
+				"GitGutter: Show Comparing Against"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"git gu",
+				"GitGutter: Compare Against Commit"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"github",
+				"Github: Open File"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
 			[
 				"past",
 				"Text Pastry: Command Line"
@@ -95,16 +153,8 @@
 				"Word Wrap: Toggle"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"origa",
 				"Origami: Create Pane on the Right"
-			],
-			[
-				"disable",
-				"Package Control: Disable Package"
 			],
 			[
 				"matl",
@@ -152,12 +202,15 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blur",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz(busy)",
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/pgfplots.sty",
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/libs/tikzlibrarypgfplots.clickable.code.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
@@ -189,7 +242,6 @@
 		"/E/Backup Jan 4 2014/Downloads/Windows_8.1_Pro_X64_Activated_Final/Install Keys.txt",
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Surly P2Pool VTC.bat",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
@@ -209,7 +261,6 @@
 		"/C/Users/Kenton/Documents/USEbrella/Presentations/SMART Talk November 26/smart_liz_kenton.tex",
 		"/C/Users/Kenton/Pictures/Diagram1.tex",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Thesaurus/thesaurus.py",
-		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).dic",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).txt",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).aff",
@@ -278,8 +329,7 @@
 		"/home/kenton/Kalk/Kalk/gtk-gui/gui.stetic",
 		"/home/kenton/Kalk/Kalk/gtk-gui/MainWindow.cs",
 		"/home/kenton/Kalk/Kalk/gtk-gui/generated.cs",
-		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-13.xml",
-		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-14.xml"
+		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-13.xml"
 	],
 	"find":
 	{
@@ -287,7 +337,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"C:\\texlive\\2013\\",
@@ -301,6 +351,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sec:shear_results",
+			"2.5",
+			"0.5",
+			"0.5,",
+			"0.035",
+			"shear_schematic_circle",
+			"0.035",
+			"0.05",
+			"symbolic",
 			"appendices",
 			"depth_o250",
 			"cm",
@@ -419,16 +478,7 @@
 			"IEEEPlotCycle",
 			"unit",
 			"\\%",
-			"unit",
-			"=0.5",
-			"0.5",
-			"0.5\\textwidth",
-			"\\unit",
-			"\\%",
-			"{mm}",
-			"{cm}",
-			"{MHz}",
-			"\\unit"
+			"unit"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -436,6 +486,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"subsec:shear_results",
 			"	",
 			"_colour",
 			"\\percent",
@@ -488,15 +539,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 8343,
+						"buffer_size": 8375,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8182,
-								8182
+								3359,
+								3359
 							]
 						],
 						"settings":
@@ -508,25 +559,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3521.0,
+						"translation.y": 1346.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/arfi.tex",
+					"file": "chapters/conclusion.tex",
 					"settings":
 					{
-						"buffer_size": 27704,
+						"buffer_size": 323,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16906,
-								16879
+								323,
+								323
 							]
 						],
 						"settings":
@@ -538,7 +589,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3636.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -548,19 +599,31 @@
 					"file": "chapters/shear.tex",
 					"settings":
 					{
-						"buffer_size": 38632,
+						"buffer_size": 58930,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								38449,
-								38449
+								57756,
+								57756
 							]
 						],
 						"settings":
 						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
+							],
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"spell_check": true,
@@ -569,25 +632,99 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 9753.0,
+						"translation.y": 16033.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "chapters/quasi-static.tex",
 					"settings":
 					{
-						"buffer_size": 72962,
+						"buffer_size": 1528,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								56226,
-								56099
+								24,
+								24
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 13677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3651,
+								3622
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1246.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "chapters/arfi.tex",
+					"settings":
+					{
+						"buffer_size": 27858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20573,
+								20610
 							]
 						],
 						"settings":
@@ -599,7 +736,37 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 11121.0,
+						"translation.y": 7246.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "assets/quasistatic/drawings/schematic_blob.tex",
+					"settings":
+					{
+						"buffer_size": 889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								796,
+								796
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -671,6 +838,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 244.0,
+	"side_bar_width": 179.0,
 	"status_bar_visible": true
 }

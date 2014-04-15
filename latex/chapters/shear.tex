@@ -80,64 +80,138 @@
 		\label{subsec:model_setup}
 			In order to study the feasibility of using shear wave speed quantification to detect and monitor deep tissue injuries, a collection of deep tissue injury models were investigated including: spherical lesions with hard and soft boundaries, clusters of small lesions that make up a larger lesionous region, and a lesion with mri-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Each model investigated numerous parameters relating to the detection of lesions including ARFI focal depth, ARFI probing frequency, lesion size, distance of the focal point from the lesion (lesion offset), lesion blur radius, clustered lesion density, the size of individual lesions in the clustered lesion model, and the size and altitude of the lesion in the Visible Human model. The range of parameters investigated for each model are summarized in Table \ref{tab:shear-parametervalues}.
 
-			Fig. \ref{fig:shear_schematic_circle} portrays the schematics of the lesion models investigated. Note that shear wave speed quantification typically applies the acoustic radiation force impulse to a location of tissue adjacent to the desired region such that the shear waves are fully developed by the time they reach the investigated region.
+			Figs. \ref{fig:shear_schematics} portray the schematics of the lesion models investigated. Note that shear wave speed quantification typically applies the acoustic radiation force impulse to a location of tissue adjacent to the desired region such that the shear waves are fully developed by the time they reach the investigated region.
 
-			\begin{figure}[!htb]
+			\begin{figure*}[!htb]
 				\centering
-				\begin{tikzpicture}[x=0.05\textwidth, y=0.05\textwidth, draw=black, text=black, fill=black]
-					% the main domain area
-					\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
 
-					% the lesion
-					\draw[fill=lesionColour] (7, 6) circle(0.5);
+						% the lesion
+						\draw[fill=lesionColour] (7, 6) circle(0.5);
 
-					% the lesion center marks
-					\draw (6.4, 6) -- (6.9, 6);
-					\draw (7.1, 6) -- (7.6, 6);
-					\draw (6.95, 6) -- (7.05, 6);
-					\draw (7, 5.4) -- (7, 5.9);
-					\draw (7, 6.1) -- (7, 6.6);
-					\draw (7, 5.95) -- (7, 6.05);
+						% the lesion center marks
+						\draw (6.4, 6) -- (6.9, 6);
+						\draw (7.1, 6) -- (7.6, 6);
+						\draw (6.95, 6) -- (7.05, 6);
+						\draw (7, 5.4) -- (7, 5.9);
+						\draw (7, 6.1) -- (7, 6.6);
+						\draw (7, 5.95) -- (7, 6.05);
 
-					% the lesion radius
-					\draw[<-] (7.3536, 5.6464) -- (8, 5);
-					\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+						% the lesion radius
+						\draw[<-] (7.3536, 5.6464) -- (8, 5);
+						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
 
-					% the lesion depth
-					\draw (6, 6) -- (6.5, 6);
-					\draw[<-] (6.25, 10) -- (6.25, 8.25);
-					\draw (6.25, 8) node{\scriptsize $d$};
-					\draw[->] (6.25, 7.75) -- (6.25, 6);
+						% the lesion depth
+						\draw (6, 6) -- (6.5, 6);
+						\draw[<-] (6.25, 10) -- (6.25, 8.25);
+						\draw (6.25, 8) node{\scriptsize $d$};
+						\draw[->] (6.25, 7.75) -- (6.25, 6);
 
-					% the lesion offset
-					\draw (7, 5.5) -- (7, 5);
-					\draw[<-] (5, 5.25) -- (5.5, 5.25);
-					\draw[->] (6.5, 5.25) -- (7, 5.25);
-					\draw (6, 5.25) node{\scriptsize $d_{off}$};
+						% the lesion offset
+						\draw (7, 5.5) -- (7, 5);
+						\draw[<-] (5, 5.25) -- (5.5, 5.25);
+						\draw[->] (6.5, 5.25) -- (7, 5.25);
+						\draw (6, 5.25) node{\scriptsize $d_{off}$};
 
-					% the centerline
-					\draw (5, -0.1) -- (5, 4.5);
-					\draw (5, 4.6) -- (5, 5.4);
-					\draw (5, 5.5) -- (5, 10.1);
+						% the centerline
+						%\draw (5, -0.1) -- (5, 4.5);
+						%\draw (5, 4.6) -- (5, 5.4);
+						%\draw (5, 5.5) -- (5, 10.1);
+						\draw (5, 0) -- (5, 1.9);
+						\draw (5, 1.95) -- (5, 2.05);
+						\draw (5, 2.1) -- (5, 3.9);
+						\draw (5, 3.95) -- (5, 4.05);
+						\draw (5, 4.1) -- (5, 5.9);
+						\draw (5, 5.95) -- (5, 6.05);
+						\draw (5, 6.1) -- (5, 7.9);
+						\draw (5, 7.95) -- (5, 8.05);
+						\draw(5, 8.1) -- (5, 10);
 
-					% the domain width
-					\draw (0, 10.1) -- (0, 10.5);
-					\draw[<-] (0, 10.25) -- (4.5, 10.25);
-					\draw (5, 10.25) node{\scriptsize \SI{10}{\cm}};
-					\draw[->] (5.5, 10.25) -- (10, 10.25);
-					\draw (10, 10.1) -- (10, 10.5);
+						% the domain width
+						\draw (0, 10.1) -- (0, 10.5);
+						\draw[<-] (0, 10.25) -- (4.25, 10.25);
+						\draw (5, 10.25) node{\scriptsize \SI{10}{\cm}};
+						\draw[->] (5.75, 10.25) -- (10, 10.25);
+						\draw (10, 10.1) -- (10, 10.5);
 
-					% the domain depth
-					\draw (10.1, 0) -- (10.75, 0);
-					\draw[<-] (10.5, 0) -- (10.5, 4.75);
-					\draw (10.5, 5) node{\scriptsize \SI{10}{\cm}};
-					\draw[->] (10.5, 5.25) -- (10.5, 10);
-					\draw (10.1, 10) -- (10.75, 10);
+						% the domain depth
+						\draw (10.1, 0) -- (11, 0);
+						\draw[<-] (10.75, 0) -- (10.75, 4.75);
+						\draw (10.75, 5) node{\scriptsize \SI{10}{\cm}};
+						\draw[->] (10.75, 5.25) -- (10.75, 10);
+						\draw (10.1, 10) -- (11, 10);
 
-				\end{tikzpicture}
-				\caption[]{}
-				\label{fig:shear_schematic_circle}
-			\end{figure}
+					\end{tikzpicture}
+					\label{fig:shear_schematic_single}
+				}
+				~
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
+
+						% the lesion
+						\draw (7, 6) node{\includegraphics[width=0.045\textwidth]{assets/shear/images/blurredLesion.png}};
+						\draw (7, 6) circle(0.5);
+
+						% the lesion radius
+						\draw[<-] (7.3536, 5.6464) -- (8, 5);
+						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+
+					\end{tikzpicture}
+					\label{fig:shear_schematic_blur}
+				}
+				
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
+
+						% the lesion
+						\draw (7, 6) node{\includegraphics[width=0.045\textwidth]{assets/shear/images/clusteredLesion.png}};
+						\draw (7, 6) circle(0.5);
+
+						% the lesion radius
+						\draw[<-] (7.3536, 5.6464) -- (8, 5);
+						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+
+						% blob size
+						\draw[<-] (6.9, 5.9) -- (6, 5) node[left]{\scriptsize $r_{bl}$};
+
+					\end{tikzpicture}
+					\label{fig:shear_schematic_clustered}
+				}
+				~
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the human stuffz
+						\draw (5, 5) node{\includegraphics[width=0.45\textwidth]{assets/shear/images/humanSchematic.png}};
+
+						% the main domain area
+						\draw (0, 0) rectangle(10, 10);
+
+						% the depth
+						\draw (7.25, 4) -- (8, 4);
+						\draw (7.75, 7) node{\scriptsize $d$};
+						\draw[<-] (7.75, 10) -- (7.75, 7.25);
+						\draw[->] (7.75, 6.75) -- (7.75, 4);
+
+						% the size
+						\draw (5, 4.7) -- (5, 5.5);
+						\draw (7.25, 4.7) -- (7.25, 5.5);
+						\draw (6.125, 5.25) node{\scriptsize $\diameter S$};
+						\draw[<-] (5, 5.25) -- (5.75, 5.25);
+						\draw[->] (6.5, 5.25) -- (7.25, 5.25);
+
+					\end{tikzpicture}
+					\label{fig:shear_schematic_human}
+				}
+				\caption[Schematic of shear wave speed quantification-investigated lesions]{Schematics of the lesion models that were investigated using shear wave speed quantification showing \protect\subref{fig:shear_schematic_single} a spherical hard-boundaried lesion, \protect\subref{fig:shear_schematic_blur} a spherical blurred-boundary lesion, \protect\subref{fig:shear_schematic_clustered} a cluster of numerous small lesions composing a larger lesionous region, and \protect\subref{fig:shear_schematic_human} the geometry from an MRI-acquired deep tissue injury overlaid on a slice from the Visible Human Project such that the injury lesion was located immediately superior to an ischial tuberosity.}	
+				\label{fig:shear_schematics}
+			\end{figure*}
 
 			\begin{table}[!htb]
 				\centering
@@ -161,15 +235,16 @@
 				\end{tabular}
 			\end{table}
 
-			In all the shear wave speed quantification models, the acoustic radiation force and time-domain finite-element models of tissue deformation were the same as were used in the ARFI imaging simulations in Chapter \ref{chap:arfi} and described in Sections \ref{subsec:kspace_model} -- \ref{subsec:temporal_fea_arfi}. The difference with the shear wave speed quantification presented here and the ARFI imaging presented in Chapter \ref{chap:arfi} lies in the the data that was extracted and processed from the time-domain finite-element models of tissue displacement. A discussion of how shear wave speeds are tracked in the finite-element model of tissue deformation is given in Section \ref{subsec:shear_results_sample_wave_speed} by working though a sample dataset result.
+			In all the shear wave speed quantification models, the acoustic radiation force and time-domain finite-element models of tissue deformation were the same as were used in the ARFI imaging simulations in Chapter \ref{chap:arfi} and described in Sections \ref{subsec:kspace_model} -- \ref{subsec:temporal_fea_arfi}. The difference with the shear wave speed quantification presented here and the ARFI imaging presented in Chapter \ref{chap:arfi} lies in the the data that was extracted and processed from the time-domain finite-element models of tissue displacement. A discussion of how shear wave speeds are tracked in the finite-element model of tissue deformation is given in Section \ref{subsubsec:shear_results_sample_wave_speed} by working though a sample dataset result.
 
 		\subsection{Model Validation}
-			In order to validate the results presented in Section \ref{sec:shear_results}, a subset of the results were compared with experimental results obtained with a physical tissue mimicking phantom. The phantom used was the same CIRS Elasticity QA Phantom model 049 that was used in Chapter \ref{chap:quasi-static}. The phantom models both stiff and soft lesions at two different depths and lesion sizes. The material properties of the phantom are listed in Table \ref{tab:phantomproperties}. Both tissue and lesion shear wave speeds were acquired using a Siemens AG ACUSON S2000\textsuperscript{\texttrademark} ultrasound system running the Virtual Touch\textsuperscript{\texttrademark} Quantification software suite with a Siemens 9L4 transducer. Measures of relative lesion stiffness were calculated as per equations \ref{equ:shear_stiffness_ratio} in an identical fashion to the simulated lesion cases.
+		\label{subsec:shear_model_validation}
+			In order to validate the results presented in Section \ref{subsec:shear_results}, a subset of the results were compared with experimental results obtained with a physical tissue mimicking phantom. The phantom used was the same CIRS Elasticity QA Phantom model 049 that was used in Chapter \ref{chap:quasi-static}. The phantom models both stiff and soft lesions at two different depths and lesion sizes. The material properties of the phantom are listed in Table \ref{tab:phantomproperties}. Both tissue and lesion shear wave speeds were acquired using a Siemens AG ACUSON S2000\textsuperscript{\texttrademark} ultrasound system running the Virtual Touch\textsuperscript{\texttrademark} Quantification software suite with a Siemens 9L4 transducer. Measures of relative lesion stiffness were calculated as per equations \ref{equ:shear_stiffness_ratio} in an identical fashion to the simulated lesion cases.
 
 	\section{Results and Discussion}
-	\label{sec:shear_results}
+	\label{subsec:shear_results}
 		\subsection{Acoustic Radiation Force Impulse Simulations}
-			Since the acoustic radiation force impulse simulations were run in exactly the same manner for shear wave speed quantification as in the ARFI imaging presented in Chapter \ref{chap:arfi}, the results are identical---see Section \ref{subsec:kspace_results} for the results. For completeness, the force distribution which generated the shear waves studied in Section \ref{subsec:shear_results_sample_wave_speed} is plotted in Fig. \ref{fig:arfi_force_shear_lesion_schematic}. against a schematic of the lesion in order to better visualize the shear wave speed quantification process. Fig. \ref{fig:arfi_force_shear_lesion_schematic} shows the focal line of the shear wave speed quantification technique, along which the axial displacement of the tissue is continuously monitored in order to calculate the localized shear wave speed of the tissue. This focal line extends laterally from the focal point of the acoustic radiation force impulse through the lesion to the edge of the tissue domain.
+			Since the acoustic radiation force impulse simulations were run in exactly the same manner for shear wave speed quantification as in the ARFI imaging presented in Chapter \ref{chap:arfi}, the results are identical---see Section \ref{subsec:kspace_results} for the results. For completeness, the force distribution which generated the shear waves studied in Section \ref{subsubsec:shear_results_sample_wave_speed} is plotted in Fig. \ref{fig:arfi_force_shear_lesion_schematic}. against a schematic of the lesion in order to better visualize the shear wave speed quantification process. Fig. \ref{fig:arfi_force_shear_lesion_schematic} shows the focal line of the shear wave speed quantification technique, along which the axial displacement of the tissue is continuously monitored in order to calculate the localized shear wave speed of the tissue. This focal line extends laterally from the focal point of the acoustic radiation force impulse through the lesion to the edge of the tissue domain.
 
 			\begin{figure}[!htb]
 				\centering
@@ -208,7 +283,7 @@
 			\end{figure}
 
 		\subsection{Sample Shear Wave Speed Measurement}
-		\label{subsec:shear_results_sample_wave_speed}
+		\label{subsubsec:shear_results_sample_wave_speed}
 			Although measuring the shear wave speed of tissue may quantify the tissue stiffness through equation \ref{equ:shear_wave_speed_complex}, the results presented here represent the measured stiffness ratio of lesions in order to present continuity with Chapters \ref{chap:quasi-static} and \ref{chap:arfi}. In all cases where relative lesion stiffness is presented, it was calculated through comparison of the mean shear wave speed in the defined lesion region with the mean shear wave speed outside of the lesion region along the path of the lateral shear wave radiation direction. Specific ratios may be calculated using equation \ref{equ:shear_stiffness_ratio} where $E_{rel}$ is the relative stiffness ratio, $\mu_l$ and $\mu_t$ are Lam\'{e}'s second parameter for the lesion and tissue respectively, $c_{T,l}$ and $c_{T,t}$ are the shear wave speeds in the lesion and tissue respectively, and $\rho$ is the density of the tissue and assumed to be constant between the lesion and tissue.
 
 			\begin{subequations}
@@ -688,7 +763,7 @@
 				\label{fig:erel_cluster_radius_mse}
 			\end{figure}
 
-			\note[KH]{Present visible human lesion characterizations}
+			Finally, in order to place these characterizations within the context of a real deep tissue injury situated within the geometry of a real human soft tissue domain, a numerical characterization of lesion size in the Visible Human lesion model outlined in Section \ref{subsec:model_setup} was carried out with the results portrayed in Fig. \ref{fig:erel_human_radius}. Fig. \ref{fig:erel_human_radius} relates the change in detection sensitivity with different sized lesions and shows that small lesions (with ``radii'' $\leq$ \SI{5.0}{\mm}) are extremely difficult to detect as the stiffness of small stiff lesions is severely underestimated and the stiffness of small soft lesions is severely overestimated. These results align with what was seen in the spherical hard-boundaried lesion case presented in Fig. \ref{fig:erel_radius}, indicating that the simplified spherical results generally hold true for the more complex geometry results.
 
 			\begin{figure}[!htb]
 				\centering
@@ -711,9 +786,11 @@
 						\addplot table {assets/shear/data/shear_human_radius_r125.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii in a visible human model]{}
+				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii in a visible human model]{Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii for MRI-acquired lesion geometry in a Visible Human model with an offset of \SI{1.25}{\cm} at a depth of \SI{6}{\cm} using an ARFI probing frequency of \SI{2}{\MHz}.}
 				\label{fig:erel_human_radius}
 			\end{figure}
+
+			As expected from the results in Fig. \ref{fig:erel_human_radius}, increasing the lesion radius results in monotonically decreasing measurement error as is shown in Fig. \ref{fig:erel_human_radius_mse} with the least amount of measurement error present for the largest lesions. This means that relatively larger lesions will be easier to detect and accurately quantify and may be due to the shear wave requiring some finite period of time to speed up or slow down with a lesionous region of tissue as discussed previously.
 
 			\begin{figure}[!htb]
 				\centering
@@ -735,13 +812,117 @@
 						\addplot table[x expr=\thisrow{radius}*1000] {assets/shear/data/shear_human_radius_mse.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[]{}
+				\caption[Shear-wave speed quantified mean squared error related to MRI-acquired lesion size in a Visible Human model]{Mean squared error between the true and measured lesion stiffness ratios for increasing lesion radii for MRI-acquired lesion geometry in a Visible Human model with an offset of \SI{1.25}{\cm} at a depth of \SI{6}{\cm} using an ARFI probing frequency of \SI{2}{\MHz}.}
 				\label{fig:erel_human_radius_mse}
 			\end{figure}
 
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
-			\note[KH]{Present physical phantom validation}
+			In order to examine the validity of the simulations presented in Section \ref{subsec:model_setup} and the results presented in Section \ref{subsec:shear_results}, experiments using a physical tissue mimicking phantom and an ultrasound machine were performed as described in Section \ref{subsec:shear_model_validation}. The results of these experiments are presented in Figs. \ref{fig:shear_phantom_validation_nominal} and \ref{fig:shear_phantom_validation} where the difference between the experimentally measured stiffness ratios of lesions were compared against their nominal and simulated stiffnesses respectively. As expected and shown in Fig. \ref{fig:shear_phantom_validation_nominal}, the experimentally measured lesion stiffnesses of the investigated lesions have an almost one-to-one mapping with their nominal values, suggesting that the experimental design was adequate for validating the simulated results.
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
+						ylabel style={align=center},
+						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
+						legend entries={Results, Ideal},
+						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						xmin=0, xmax=3.5,
+						ymin=0, ymax=3.5,
+						draw=black, text=black, fill=black]
+							\addplot table {assets/shear/data/shear_experiment_nominal.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (3.5, 3.5)};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Experimental validation of shear wave speed quantification model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases.}
+				\label{fig:shear_phantom_validation_nominal}
+			\end{figure}
+
+			The percent difference of the validation experiments is shown in Fig. \ref{fig:shear_phantom_validation_nominal_mse} where the percent difference was calculated according to equation \ref{equ:percent-error} where $Y_i$ and $\hat{Y}_i$ are the measured and expected values respectively. As expected, the difference between the experimentally-acquired and nominal stiffness ratios for the full range of stiffness ratios studied was relatively small with differences being on the order of \SI{4}{\percent} -- \SI{11}{\percent}.
+
+			\begin{equation}
+				\label{equ:percent-error}
+				\delta_\percent = \frac{Y_i - \hat{Y}_i}{\hat{Y}_i} \times \SI{100}{\percent}
+			\end{equation}
+
+			%Fig. \ref{fig:shear_phantom_validation} shows the relationship between the experimentally acquired lesion stiffness ratios and the simulated lesion stiffness ratios for pairs of parametrically identical lesions. For all but the stiffest of lesions, the 
+			\lipsum[1]
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
+						ylabel={Percent Difference, $\delta_\percent$ (\percent)},
+						enlarge x limits=0.25,
+						xtick=data,
+						symbolic x coords={0.32, 0.56, 1.8, 3.2},
+						cycle list name=BarColourPlotCycle]
+						\addplot table {assets/shear/data/shear_experiment_nominal_pe.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:shear_phantom_validation_nominal_pe}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
+						ylabel style={align=center},
+						ylabel={Simulated Measured \\ Stiffness Ratio, $E_{sim,measured}$},
+						legend entries={Results, Ideal},
+						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						xmin=0, xmax=3.5,
+						ymin=0, ymax=3.5,
+						draw=black, text=black, fill=black]
+							\addplot table {assets/shear/data/shear_experiment.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (3.5, 3.5)};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Experimental validation of shear wave speed quantification model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases.}
+				\label{fig:shear_phantom_validation}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
+						ylabel={Percent Difference, $\delta_\percent$ (\si{\percent})},
+						enlarge x limits=0.25,
+						xtick=data,
+						symbolic x coords={0.32, 0.56, 1.8, 3.2},
+						cycle list name=BarColourPlotCycle]
+						\addplot table {assets/shear/data/shear_experiment_pe.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:shear_phantom_validation_pe}
+			\end{figure}
 
 	\section{Conclusions}
 		
