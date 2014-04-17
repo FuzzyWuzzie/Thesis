@@ -4,6 +4,7 @@
 		Shear wave speed quantification offers the most desirable method of detecting early deep tissues injuries as it takes the transducer-generated external deformation force that is the chief benefit of ARFI imaging and combines it with a quantitative measure of tissue elasticity rather than the qualitative measures used in both quasi-static elastography and ARFI imaging. Specifically, monitoring the speed of shear waves that are generated in the tissue as a response to a localized acoustic radiation force allows the calculation of tissue stiffness which may again be used as an analogue of tissue health. Further, since the technique is quantitative in nature, tissue stiffness may be accurately tracked over time, enabling physicians to appropriately monitor the progression and treatment of a given deep tissue injury on a per-patient basis.
 
 	\section{Method}
+	\label{sec:shear_method}
 		In order to investigate the sensitivity and applicability of shear wave speed quantification for the early detection of deep tissue injuries, a combination of k-space pseudospectral models of acoustic wave propagation and time-domain finite-element models of tissue deformation were employed. The theory and procedure behind both the generalized acoustic simulations using k-space pseudospectral models and time-dependent solid mechanics finite-element models used here were presented in Chapter \ref{chap:arfi}. As an alternative to monitoring the dynamic response of tissue at the focal point as in ARFI imaging, shear wave speed quantification tracks the velocity of shear waves which radiate laterally outward from the focal point of an ARFI load. If the focal point is positioned such that the generated shear waves propagate through a lesionous region and the speed of the generated shear wave is monitored, the stiffness of that region may be calculated.
 
 		\subsection{Shear Wave Speed}
@@ -243,6 +244,8 @@
 
 	\section{Results and Discussion}
 	\label{subsec:shear_results}
+		Following the procedure outlined in Section \ref{sec:shear_method}, k-space models of ultrasound acoustics and finite-element models of temporal soft tissue deformation were synthesized and the resulting shear wave speeds developed in the tissue were analyzed according to the method laid out in Section \ref{subsubsec:shear_results_sample_wave_speed}. These shear wave speeds were used to calculate the relative stiffnesses of a variety of lesions with varying parameters as described in Section \ref{subsec:model_setup} which were then used to numerically characterize the use of shear wave speed quantification for the detection of early deep tissue injuries. The results of this characterization are presented here.
+
 		\subsection{Acoustic Radiation Force Impulse Simulations}
 			Since the acoustic radiation force impulse simulations were run in exactly the same manner for shear wave speed quantification as in the ARFI imaging presented in Chapter \ref{chap:arfi}, the results are identical---see Section \ref{subsec:kspace_results} for the results. For completeness, the force distribution which generated the shear waves studied in Section \ref{subsubsec:shear_results_sample_wave_speed} is plotted in Fig. \ref{fig:arfi_force_shear_lesion_schematic}. against a schematic of the lesion in order to better visualize the shear wave speed quantification process. Fig. \ref{fig:arfi_force_shear_lesion_schematic} shows the focal line of the shear wave speed quantification technique, along which the axial displacement of the tissue is continuously monitored in order to calculate the localized shear wave speed of the tissue. This focal line extends laterally from the focal point of the acoustic radiation force impulse through the lesion to the edge of the tissue domain.
 
@@ -492,7 +495,7 @@
 				MSE = \frac{1}{n}\sum_{i=1}^n \left(\hat{Y}_i - Y_i\right)^2
 			\end{equation}
 
-			In Fig. \ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions is significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \SI{12.5}{\mm}) presented greater error than lesions with radii of \SI{10.0}{\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\times$ basal stiffness) lesion with a radius of \SI{12.5}{\mm} seen in Fig. \ref{fig:erel_radius}. The exact cause of this error is unknown, however it is postulated that this is a numerical error resulting from ?. \note[KH]{Investigate this!}.
+			In Fig. \ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions is significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \SI{12.5}{\mm}) presented greater error than lesions with radii of \SI{10.0}{\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\times$ basal stiffness) lesion with a radius of \SI{12.5}{\mm} seen in Fig. \ref{fig:erel_radius}. The exact cause of this error is unknown. \note[KH]{Elaborate?}.
 
 			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. The largest exception to this generalization is for very stiff lesions for which the ARFI load is focused the farthest away from the lesion. It is hypothesized that the measured stiffness ratio of these lesions is underestimated because by the time the shear wave reaches the relatively far-away lesion, it's energy has substantially dissipated, disallowing the wave to remain fully cohesive and speed up appropriately.
 
@@ -818,7 +821,7 @@
 
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
-			In order to examine the validity of the simulations presented in Section \ref{subsec:model_setup} and the results presented in Section \ref{subsec:shear_results}, experiments using a physical tissue mimicking phantom and an ultrasound machine were performed as described in Section \ref{subsec:shear_model_validation}. The results of these experiments are presented in Figs. \ref{fig:shear_phantom_validation_nominal} and \ref{fig:shear_phantom_validation} where the difference between the experimentally measured stiffness ratios of lesions were compared against their nominal and simulated stiffnesses respectively. As expected and shown in Fig. \ref{fig:shear_phantom_validation_nominal}, the experimentally measured lesion stiffnesses of the investigated lesions have an almost one-to-one mapping with their nominal values, suggesting that the experimental design was adequate for validating the simulated results.
+			In order to examine the validity of the simulations presented in Section \ref{subsec:model_setup} and the results presented in Section \ref{subsec:shear_results}, experiments using a physical tissue mimicking phantom and an ultrasound machine were performed as described in Section \ref{subsec:shear_model_validation}. The results of these experiments are presented in Figs. \ref{fig:shear_phantom_validation_nominal} and \ref{fig:shear_phantom_validation} where the difference between the experimentally measured stiffness ratios of lesions were compared against their nominal and simulated stiffnesses respectively.
 
 			\begin{figure}[!htb]
 				\centering
@@ -832,50 +835,27 @@
 						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
 						legend entries={Results, Ideal},
 						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
-						xmin=0, xmax=3.5,
-						ymin=0, ymax=3.5,
+						xmin=0, xmax=4,
+						ymin=0, ymax=4,
 						draw=black, text=black, fill=black]
-							\addplot table {assets/shear/data/shear_experiment_nominal.dat};
-							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (3.5, 3.5)};
+							\addplot+[
+								error bars/.cd,
+								y dir=both,
+								y explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[y error plus=upper, y error minus=lower] {assets/shear/data/shear_experiment_nominal.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Experimental validation of shear wave speed quantification model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases.}
+				\caption[Experimental validation of shear wave speed quantification model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases. Error bars represent the range of measurements acquired.}
 				\label{fig:shear_phantom_validation_nominal}
 			\end{figure}
 
-			The percent difference of the validation experiments is shown in Fig. \ref{fig:shear_phantom_validation_nominal_mse} where the percent difference was calculated according to equation \ref{equ:percent-error} where $Y_i$ and $\hat{Y}_i$ are the measured and expected values respectively. As expected, the difference between the experimentally-acquired and nominal stiffness ratios for the full range of stiffness ratios studied was relatively small with differences being on the order of \SI{4}{\percent} -- \SI{11}{\percent}.
-
-			\begin{equation}
-				\label{equ:percent-error}
-				\delta_\percent = \frac{Y_i - \hat{Y}_i}{\hat{Y}_i} \times \SI{100}{\percent}
-			\end{equation}
-
-			%Fig. \ref{fig:shear_phantom_validation} shows the relationship between the experimentally acquired lesion stiffness ratios and the simulated lesion stiffness ratios for pairs of parametrically identical lesions. For all but the stiffest of lesions, the 
-			\lipsum[1]
-
-			\begin{figure}[!htb]
-				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=2.5in,
-						width=\textwidth-\widthof{100}-1in,
-						major x tick style = transparent,
-						ybar=2*\pgflinewidth,
-						bar width=28pt,
-						ymajorgrids=true,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
-						ylabel={Percent Difference, $\delta_\percent$ (\percent)},
-						enlarge x limits=0.25,
-						xtick=data,
-						symbolic x coords={0.32, 0.56, 1.8, 3.2},
-						cycle list name=BarColourPlotCycle]
-						\addplot table {assets/shear/data/shear_experiment_nominal_pe.dat};
-					\end{axis}
-				\end{tikzpicture}
-				\caption[]{}
-				\label{fig:shear_phantom_validation_nominal_pe}
-			\end{figure}
+			Fig. \ref{fig:shear_phantom_validation_nominal} shows the general agreement between the nominal and experimentally acquired lesion stiffness ratios. Of note is the increasing amount of measurement error associated with increasing nominal stiffness ratios and reflects the general underestimation of stiff lesion stiffness that was seen in the characterization of nearly all stiff lesions in Section \ref{subsec:shear_results}. Further, the relatively large degree of error was due to the measurement of the shear wave speed within the lesion rather than variability in the shear wave speed of the surrounding tissue. Nonetheless, the experimentally-acquired values lay within error of the expected nominal stiffness ratios, so the experiment was considered to produce acceptable results to compare against the simulations. The results of this comparison are shown in Fig. \ref{fig:shear_phantom_validation} where the stiffness ratios acquired through simulation are compared against experimentally-acquired stiffness ratios of parametrically identical lesions.
 
 			\begin{figure}[!htb]
 				\centering
@@ -889,40 +869,31 @@
 						ylabel={Simulated Measured \\ Stiffness Ratio, $E_{sim,measured}$},
 						legend entries={Results, Ideal},
 						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
-						xmin=0, xmax=3.5,
-						ymin=0, ymax=3.5,
+						xmin=0, xmax=4,
+						ymin=0, ymax=4,
 						draw=black, text=black, fill=black]
-							\addplot table {assets/shear/data/shear_experiment.dat};
-							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (3.5, 3.5)};
+							\addplot+[
+								error bars/.cd,
+								x dir=both,
+								x explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[x error plus=upper, x error minus=lower] {assets/shear/data/shear_experiment.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental validation of shear wave speed quantification model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases.}
 				\label{fig:shear_phantom_validation}
 			\end{figure}
 
-			\begin{figure}[!htb]
-				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=2.5in,
-						width=\textwidth-\widthof{100}-1in,
-						major x tick style = transparent,
-						ybar=2*\pgflinewidth,
-						bar width=28pt,
-						ymajorgrids=true,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
-						ylabel={Percent Difference, $\delta_\percent$ (\si{\percent})},
-						enlarge x limits=0.25,
-						xtick=data,
-						symbolic x coords={0.32, 0.56, 1.8, 3.2},
-						cycle list name=BarColourPlotCycle]
-						\addplot table {assets/shear/data/shear_experiment_pe.dat};
-					\end{axis}
-				\end{tikzpicture}
-				\caption[]{}
-				\label{fig:shear_phantom_validation_pe}
-			\end{figure}
+			As expected, there is nearly a one-to-one correspondence between the experimentally measured lesion stiffness ratios and the simulated lesion stiffness ratios for the various lesions investigated. In all of the lesion cases studied, the simulated lesion stiffness ratio was slightly greater than the experimentally measured stiffness ratio. This suggests that the simulated models introduce a minor bias in the results, although as the correlation is linear this is may be readily accounted for. Another key observation is that the underestimated lesion stiffness ratio for stiff lesions that was seen in Fig. \ref{fig:shear_phantom_validation_nominal} correlates well with the results obtained experimentally.
 
 	\section{Conclusions}
-		
+		The results given in Section \ref{subsec:shear_results} represent a numerical characterization of the use of the ultrasound elastography technique of shear wave speed quantification toward the detection and monitoring of early and progressive deep tissue injuries. This work presents arguably the most useful technology for monitoring deep tissue injury progression as it provides quantitative measures of lesion stiffnesses as opposed to the qualitative measures provided by quasi-static elastography and acoustic radiation force impulse imaging.
+
+		The results presented here show that shear wave speed quantification is a viable tool for both detecting and monitoring deep tissue injuries, provided the injuries are in general greater than \SI{1}{\cm} in diameter and are closer to the surface of the skin than \SI{8}{\cm}. In order to provide the most accurate results, ARFI focal points should be located approximately \SI{1.25}{\cm} -- \SI{2.50}{\cm} away from the desired region of interest, allowing the shear waves to fully develop before they pass through the lesion for measurement. Blurring the lesions had no appreciable effect on the detection sensitivity whatsoever, however clusters of small lesions comprising a larger lesionous region did---reducing the area ratio of lesionous tissue to that of healthy tissue consistently resulted in lower detection sensitivities. To relate the findings from the simpler model geometries, a simulated lesion with MRI-acquired geometry was placed in a cross-sectional slice of human tissue with geometry obtained from the Visible Human project. The results of the numerical characterizations were consistent with those found using a simpler, spherical model. Finally, the entire simulation pipeline was validated using a tissue mimicking phantom and an ultrasound machine capable of performing shear wave speed quantification where physical lesions presented similar results to their simulated counterparts.
+
+		With a firm understanding of the parameters that affect deep tissue injury detection using shear wave speed quantification, future work may entail investigating the use of shear wave speed quantification in both animal and human subjects who are either at an elevated risk of developing deep tissue injuries or are known to be suffering from such injuries. These steps will be necessary before the technique may be used in a clinical setting---an eventuality that will hopefully result from this work.
