@@ -195,6 +195,137 @@
 		\subsection{Characterizing Acoustic Radiation Force Impulse Imaging}
 			%In order to fully understand the suitability of using ARFI imaging to detect and monitor deep tissue injuries, 5 general models of deep tissue injury lesions were modeled. Each general model was also investigated over a range of parameters in order to determine the relationship between the detection sensitivity and the various parameters that were studied. The investigated models included a model with hard boundaries
 
+			\begin{figure*}[!htb]
+				\centering
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
+
+						% the lesion
+						\draw[fill=lesionColour] (7, 6) circle(0.5);
+
+						% the lesion center marks
+						\draw (6.4, 6) -- (6.9, 6);
+						\draw (7.1, 6) -- (7.6, 6);
+						\draw (6.95, 6) -- (7.05, 6);
+						\draw (7, 5.4) -- (7, 5.9);
+						\draw (7, 6.1) -- (7, 6.6);
+						\draw (7, 5.95) -- (7, 6.05);
+
+						% the lesion radius
+						\draw[<-] (7.3536, 5.6464) -- (8, 5);
+						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+
+						% the lesion depth
+						\draw (6, 6) -- (6.5, 6);
+						\draw[<-] (6.25, 10) -- (6.25, 8.25);
+						\draw (6.25, 8) node{\scriptsize $d$};
+						\draw[->] (6.25, 7.75) -- (6.25, 6);
+
+						% the lesion offset
+						\draw (7, 5.5) -- (7, 5);
+						\draw[<-] (5, 5.25) -- (5.5, 5.25);
+						\draw[->] (6.5, 5.25) -- (7, 5.25);
+						\draw (6, 5.25) node{\scriptsize $d_{off}$};
+
+						% the centerline
+						%\draw (5, -0.1) -- (5, 4.5);
+						%\draw (5, 4.6) -- (5, 5.4);
+						%\draw (5, 5.5) -- (5, 10.1);
+						\draw (5, 0) -- (5, 1.9);
+						\draw (5, 1.95) -- (5, 2.05);
+						\draw (5, 2.1) -- (5, 3.9);
+						\draw (5, 3.95) -- (5, 4.05);
+						\draw (5, 4.1) -- (5, 5.9);
+						\draw (5, 5.95) -- (5, 6.05);
+						\draw (5, 6.1) -- (5, 7.9);
+						\draw (5, 7.95) -- (5, 8.05);
+						\draw(5, 8.1) -- (5, 10);
+
+						% the domain width
+						\draw (0, 10.1) -- (0, 10.5);
+						\draw[<-] (0, 10.25) -- (4.25, 10.25);
+						\draw (5, 10.25) node{\scriptsize \SI{10}{\cm}};
+						\draw[->] (5.75, 10.25) -- (10, 10.25);
+						\draw (10, 10.1) -- (10, 10.5);
+
+						% the domain depth
+						\draw (10.1, 0) -- (11, 0);
+						\draw[<-] (10.75, 0) -- (10.75, 4.75);
+						\draw (10.75, 5) node{\scriptsize \SI{10}{\cm}};
+						\draw[->] (10.75, 5.25) -- (10.75, 10);
+						\draw (10.1, 10) -- (11, 10);
+
+					\end{tikzpicture}
+					\label{fig:shear_schematic_single}
+				}
+				~
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
+
+						% the lesion
+						\draw (7, 6) node{\includegraphics[width=0.045\textwidth]{assets/shear/images/blurredLesion.png}};
+						\draw (7, 6) circle(0.5);
+
+						% the lesion radius
+						\draw[<-] (7.3536, 5.6464) -- (8, 5);
+						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+
+					\end{tikzpicture}
+					\label{fig:shear_schematic_blur}
+				}
+				
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
+
+						% the lesion
+						\draw (7, 6) node{\includegraphics[width=0.045\textwidth]{assets/shear/images/clusteredLesion.png}};
+						\draw (7, 6) circle(0.5);
+
+						% the lesion radius
+						\draw[<-] (7.3536, 5.6464) -- (8, 5);
+						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+
+						% blob size
+						\draw[<-] (6.9, 5.9) -- (6, 5) node[left]{\scriptsize $r_{bl}$};
+
+					\end{tikzpicture}
+					\label{fig:shear_schematic_clustered}
+				}
+				~
+				\subfloat[]{
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the human stuffz
+						\draw (5, 5) node{\includegraphics[width=0.45\textwidth]{assets/shear/images/humanSchematic.png}};
+
+						% the main domain area
+						\draw (0, 0) rectangle(10, 10);
+
+						% the depth
+						\draw (7.25, 4) -- (8, 4);
+						\draw (7.75, 7) node{\scriptsize $d$};
+						\draw[<-] (7.75, 10) -- (7.75, 7.25);
+						\draw[->] (7.75, 6.75) -- (7.75, 4);
+
+						% the size
+						\draw (5, 4.7) -- (5, 5.5);
+						\draw (7.25, 4.7) -- (7.25, 5.5);
+						\draw (6.125, 5.25) node{\scriptsize $\diameter S$};
+						\draw[<-] (5, 5.25) -- (5.75, 5.25);
+						\draw[->] (6.5, 5.25) -- (7.25, 5.25);
+
+					\end{tikzpicture}
+					\label{fig:shear_schematic_human}
+				}
+				\caption[Schematic of shear wave speed quantification-investigated lesions]{Schematics of the lesion models that were investigated using shear wave speed quantification showing \protect\subref{fig:shear_schematic_single} a spherical hard-boundaried lesion, \protect\subref{fig:shear_schematic_blur} a spherical blurred-boundary lesion, \protect\subref{fig:shear_schematic_clustered} a cluster of numerous small lesions composing a larger lesionous region, and \protect\subref{fig:shear_schematic_human} the geometry from an MRI-acquired deep tissue injury overlaid on a slice from the Visible Human Project such that the injury lesion was located immediately superior to an ischial tuberosity.}	
+				\label{fig:shear_schematics}
+			\end{figure*}
+
 			\begin{table}[!htb]
 				\centering
 				\caption[ARFI model investigated parameters]{Range of values of investigated parameters}
@@ -223,38 +354,45 @@
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=2in,
+							height=3in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							ylabel={Depth, $d$ (\si{\cm})},
-							axis on top,]
+							axis on top,
+							colormap name={RdBu},
+							colorbar, point meta min=-175, point meta max=175, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\kN\per\metre\cubed})},
+							draw=black, text=black, fill=black}]
 								\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/Fx158.png};
 						\end{axis}
 					\end{tikzpicture}
 					\label{fig:arfi_forces_fx}
-				}
+				}~
 				\subfloat[]{
 					\begin{tikzpicture}
 						\begin{axis}[
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=2in,
+							height=3in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
-							axis on top,]
+							axis on top,
+							colormap name={RdBu},
+							colorbar, point meta min=-175, point meta max=175, colorbar style={at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\kN\per\metre\cubed})},
+							draw=black, text=black, fill=black}]
 								\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{assets/shear/data/Fy158.png};
 						\end{axis}
 					\end{tikzpicture}
 					\label{fig:arfi_forces_fy}
 				}
+
 				\subfloat[]{
 					\begin{tikzpicture}
 						\begin{axis}[
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=2in,
+							height=3in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							axis on top,
@@ -472,6 +610,154 @@
 
 		\FloatBarrier
 		\subsection{Numerical Characterization}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/arfi/data/arfi_radius_r025.dat};
+						\addplot table {assets/arfi/data/arfi_radius_r050.dat};
+						\addplot table {assets/arfi/data/arfi_radius_r100.dat};
+						\addplot table {assets/arfi/data/arfi_radius_r125.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_radius}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$d = \SI{2}{\cm}$, $d = \SI{4}{\cm}$, $d = \SI{6}{\cm}$, $d = \SI{8}{\cm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/arfi/data/arfi_maxDisp_depth_d2.dat};
+						\addplot table {assets/arfi/data/arfi_maxDisp_depth_d4.dat};
+						\addplot table {assets/arfi/data/arfi_maxDisp_depth_d6.dat};
+						\addplot table {assets/arfi/data/arfi_maxDisp_depth_d8.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_depth}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$b_r = \SI{2.5}{\mm}$, $b_r = \SI{5.0}{\mm}$, $b_r = \SI{7.5}{\mm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/arfi/data/arfi_blur_radius_r25.dat};
+						\addplot table {assets/arfi/data/arfi_blur_radius_r50.dat};
+						\addplot table {assets/arfi/data/arfi_blur_radius_r75.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_blur}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$b_\rho = \SI{10}{\per\cm\squared}$, $b_\rho = \SI{20}{\per\cm\squared}$, $b_\rho = \SI{30}{\per\cm\squared}$, $b_\rho = \SI{40}{\per\cm\squared}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/arfi/data/arfi_cluster_dens_d10.dat};
+						\addplot table {assets/arfi/data/arfi_cluster_dens_d20.dat};
+						\addplot table {assets/arfi/data/arfi_cluster_dens_d30.dat};
+						\addplot table {assets/arfi/data/arfi_cluster_dens_d40.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_cluster_density}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$r_{bl} = \SI{0.5}{\mm}$, $r_{bl} = \SI{1.0}{\mm}$, $r_{bl} = \SI{1.5}{\mm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/arfi/data/arfi_cluster_radius_r05.dat};
+						\addplot table {assets/arfi/data/arfi_cluster_radius_r10.dat};
+						\addplot table {assets/arfi/data/arfi_cluster_radius_r15.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_cluster_radius}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						grid=major,
+						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
+						legend style={legend pos=south east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/arfi/data/arfi_human_radius_r025.dat};
+						\addplot table {assets/arfi/data/arfi_human_radius_r050.dat};
+						\addplot table {assets/arfi/data/arfi_human_radius_r100.dat};
+						\addplot table {assets/arfi/data/arfi_human_radius_r125.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_human_radius}
+			\end{figure}
 
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
