@@ -203,45 +203,25 @@
 						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
 
 						% the lesion
-						\draw[fill=lesionColour] (7, 6) circle(0.5);
+						\draw[fill=lesionColour] (5, 6) circle(0.5);
 
 						% the lesion center marks
-						\draw (6.4, 6) -- (6.9, 6);
-						\draw (7.1, 6) -- (7.6, 6);
-						\draw (6.95, 6) -- (7.05, 6);
-						\draw (7, 5.4) -- (7, 5.9);
-						\draw (7, 6.1) -- (7, 6.6);
-						\draw (7, 5.95) -- (7, 6.05);
+						\draw (4.4, 6) -- (4.9, 6);
+						\draw (5.1, 6) -- (5.6, 6);
+						\draw (4.95, 6) -- (5.05, 6);
+						\draw (5, 5.4) -- (5, 5.9);
+						\draw (5, 6.1) -- (5, 6.6);
+						\draw (5, 5.95) -- (5, 6.05);
 
 						% the lesion radius
-						\draw[<-] (7.3536, 5.6464) -- (8, 5);
-						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+						\draw[<-] (5.3536, 5.6464) -- (6, 5);
+						\draw (5.85, 5) node[right]{\scriptsize $\diameter S$};
 
 						% the lesion depth
-						\draw (6, 6) -- (6.5, 6);
-						\draw[<-] (6.25, 10) -- (6.25, 8.25);
-						\draw (6.25, 8) node{\scriptsize $d$};
-						\draw[->] (6.25, 7.75) -- (6.25, 6);
-
-						% the lesion offset
-						\draw (7, 5.5) -- (7, 5);
-						\draw[<-] (5, 5.25) -- (5.5, 5.25);
-						\draw[->] (6.5, 5.25) -- (7, 5.25);
-						\draw (6, 5.25) node{\scriptsize $d_{off}$};
-
-						% the centerline
-						%\draw (5, -0.1) -- (5, 4.5);
-						%\draw (5, 4.6) -- (5, 5.4);
-						%\draw (5, 5.5) -- (5, 10.1);
-						\draw (5, 0) -- (5, 1.9);
-						\draw (5, 1.95) -- (5, 2.05);
-						\draw (5, 2.1) -- (5, 3.9);
-						\draw (5, 3.95) -- (5, 4.05);
-						\draw (5, 4.1) -- (5, 5.9);
-						\draw (5, 5.95) -- (5, 6.05);
-						\draw (5, 6.1) -- (5, 7.9);
-						\draw (5, 7.95) -- (5, 8.05);
-						\draw(5, 8.1) -- (5, 10);
+						\draw (4, 6) -- (4.5, 6);
+						\draw[<-] (4.25, 10) -- (4.25, 8.25);
+						\draw (4.25, 8) node{\scriptsize $d$};
+						\draw[->] (4.25, 7.75) -- (4.25, 6);
 
 						% the domain width
 						\draw (0, 10.1) -- (0, 10.5);
@@ -258,7 +238,7 @@
 						\draw (10.1, 10) -- (11, 10);
 
 					\end{tikzpicture}
-					\label{fig:shear_schematic_single}
+					\label{fig:arfi_schematic_single}
 				}
 				~
 				\subfloat[]{
@@ -267,15 +247,15 @@
 						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
 
 						% the lesion
-						\draw (7, 6) node{\includegraphics[width=0.045\textwidth]{assets/shear/images/blurredLesion.png}};
-						\draw (7, 6) circle(0.5);
+						\draw (5, 6) node{\includegraphics[width=0.045\textwidth]{assets/arfi/images/blurredLesion.png}};
+						\draw (5, 6) circle(0.5);
 
 						% the lesion radius
-						\draw[<-] (7.3536, 5.6464) -- (8, 5);
-						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+						\draw[<-] (5.3536, 5.6464) -- (6, 5);
+						\draw (5.85, 5) node[right]{\scriptsize $\diameter S$};
 
 					\end{tikzpicture}
-					\label{fig:shear_schematic_blur}
+					\label{fig:arfi_schematic_blur}
 				}
 				
 				\subfloat[]{
@@ -284,46 +264,46 @@
 						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
 
 						% the lesion
-						\draw (7, 6) node{\includegraphics[width=0.045\textwidth]{assets/shear/images/clusteredLesion.png}};
-						\draw (7, 6) circle(0.5);
+						\draw (5, 6) node{\includegraphics[width=0.045\textwidth]{assets/arfi/images/clusteredLesion.png}};
+						\draw (5, 6) circle(0.5);
 
 						% the lesion radius
-						\draw[<-] (7.3536, 5.6464) -- (8, 5);
-						\draw (7.85, 5) node[right]{\scriptsize $\diameter S$};
+						\draw[<-] (5.3536, 5.6464) -- (6, 5);
+						\draw (5.85, 5) node[right]{\scriptsize $\diameter S$};
 
 						% blob size
-						\draw[<-] (6.9, 5.9) -- (6, 5) node[left]{\scriptsize $r_{bl}$};
+						\draw[<-] (4.9, 5.9) -- (4, 5) node[left]{\scriptsize $r_{bl}$};
 
 					\end{tikzpicture}
-					\label{fig:shear_schematic_clustered}
+					\label{fig:arfi_schematic_clustered}
 				}
 				~
 				\subfloat[]{
 					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
 						% the human stuffz
-						\draw (5, 5) node{\includegraphics[width=0.45\textwidth]{assets/shear/images/humanSchematic.png}};
+						\draw (5, 5) node{\includegraphics[width=0.45\textwidth]{assets/arfi/images/humanSchematic.png}};
 
 						% the main domain area
 						\draw (0, 0) rectangle(10, 10);
 
 						% the depth
-						\draw (7.25, 4) -- (8, 4);
-						\draw (7.75, 7) node{\scriptsize $d$};
-						\draw[<-] (7.75, 10) -- (7.75, 7.25);
-						\draw[->] (7.75, 6.75) -- (7.75, 4);
+						\draw (6, 4) -- (6.75, 4);
+						\draw (6.5, 7) node{\scriptsize $d$};
+						\draw[<-] (6.5, 10) -- (6.5, 7.25);
+						\draw[->] (6.5, 6.75) -- (6.5, 4);
 
 						% the size
-						\draw (5, 4.7) -- (5, 5.5);
-						\draw (7.25, 4.7) -- (7.25, 5.5);
-						\draw (6.125, 5.25) node{\scriptsize $\diameter S$};
-						\draw[<-] (5, 5.25) -- (5.75, 5.25);
-						\draw[->] (6.5, 5.25) -- (7.25, 5.25);
+						\draw (3.75, 4.7) -- (3.75, 5.5);
+						\draw (6.25, 4.7) -- (6.25, 5.5);
+						\draw (4.875, 5.25) node{\scriptsize $\diameter S$};
+						\draw[<-] (3.75, 5.25) -- (4.5, 5.25);
+						\draw[->] (5.25, 5.25) -- (6.25, 5.25);
 
 					\end{tikzpicture}
-					\label{fig:shear_schematic_human}
+					\label{fig:arfi_schematic_human}
 				}
-				\caption[Schematic of shear wave speed quantification-investigated lesions]{Schematics of the lesion models that were investigated using shear wave speed quantification showing \protect\subref{fig:shear_schematic_single} a spherical hard-boundaried lesion, \protect\subref{fig:shear_schematic_blur} a spherical blurred-boundary lesion, \protect\subref{fig:shear_schematic_clustered} a cluster of numerous small lesions composing a larger lesionous region, and \protect\subref{fig:shear_schematic_human} the geometry from an MRI-acquired deep tissue injury overlaid on a slice from the Visible Human Project such that the injury lesion was located immediately superior to an ischial tuberosity.}	
-				\label{fig:shear_schematics}
+				\caption[]{Schematics of the lesion models that were investigated using acoustic radiation force impulse imaging showing \protect\subref{fig:arfi_schematic_single} a spherical hard-boundaried lesion, \protect\subref{fig:arfi_schematic_blur} a spherical blurred-boundary lesion, \protect\subref{fig:arfi_schematic_clustered} a cluster of numerous small lesions composing a larger lesionous region, and \protect\subref{fig:arfi_schematic_human} the geometry from an MRI-acquired deep tissue injury overlaid on a slice from the Visible Human Project such that the injury lesion was located immediately superior to an ischial tuberosity.}	
+				\label{fig:arfi_schematics}
 			\end{figure*}
 
 			\begin{table}[!htb]
@@ -334,12 +314,25 @@
 					\toprule
 					Parameter & Symbol & Values \\
 					\midrule
+					ARFI probing frequency & $f$ & $[1, 2, 4, 6]$\,\si{\MHz} \\
+					Transducer width & $w_{trans}$ & $[4, 8, 10]$\,\si{\cm} \\
+					ARFI pulse cycles & $n_c$ & $[3, 100, 300, 500, 700]$ \\
+					ARFI source pressure & $P_{source}$ & $[4, 5, 6, 7, 8]$\,\si{\MPa} \\
+					Lesion depth & $d$ & $[1, 2, 3, 4, 5, 6, 7, 8, 9]$\,\si{\cm} \\
+					Lesion diameter & $\diameter S$ & $[1.0, 2.0]$\,\si{\cm} \\
+					Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ \\
+					Blurred lesion blur radius & $b_r$ & $[1.0, 2.5, 5.0, 7.5]$\,\si{\mm} \\
+					Clustered lesion density & $b_\rho$ & $[10, 20, 30, 40]$\,\si{\per\cm\squared} \\
+					Clustered lesion radius & $r_{bl}$ & $[0.5, 1.0, 1.5]$\,\si{\mm} \\
+					Visible human lesion width & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$\,\si{\cm} \\
+					Visible human lesion depth & $d$ & $[6.25, 6.75, 7.25]$\,\si{\cm} \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
 
+		\FloatBarrier
 		\subsection{Physical Phantom Validation}
-			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000 \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better}, ARFI images were acquired of lesions within the phantom. \note[KH]{More?}
+			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000 \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better} transducer, ARFI images were acquired of lesions within the phantom. \note[KH]{More?}
 
 	\section{Results}
 		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analyzed for a range of input parameters. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters listed in Table \ref{tab:arfi-parametervalues}. The results obtained through this methodology were then compared to ARFI images taken with a commercial ultrasound machine. \note[KH]{This is terrible.}
@@ -761,6 +754,70 @@
 
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
+						ylabel style={align=center},
+						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
+						legend entries={Results, Ideal},
+						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						xmin=0, xmax=4,
+						ymin=0, ymax=4,
+						draw=black, text=black, fill=black]
+							\addplot+[
+								error bars/.cd,
+								y dir=both,
+								y explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[y error plus=upper, y error minus=lower] {assets/arfi/data/arfi_experiment_nominal.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_phantom_validation_nominal}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
+						ylabel style={align=center},
+						ylabel={Simulated Measured \\ Stiffness Ratio, $E_{sim,measured}$},
+						legend entries={Results, Ideal},
+						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						xmin=0, xmax=4,
+						ymin=0, ymax=4,
+						draw=black, text=black, fill=black]
+							\addplot+[
+								error bars/.cd,
+								x dir=both,
+								x explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[x error plus=upper, x error minus=lower] {assets/arfi/data/arfi_experiment.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_phantom_validation}
+			\end{figure}
 
 	\section{Conclusion}
 

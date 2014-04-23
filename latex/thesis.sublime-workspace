@@ -39,15 +39,23 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 8375,
+				"buffer_size": 8663,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "chapters/conclusion.tex",
+			"file": "chapters/arfi.tex",
 			"settings":
 			{
-				"buffer_size": 323,
+				"buffer_size": 39022,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "appendices/sourcecode.tex",
+			"settings":
+			{
+				"buffer_size": 1224,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,42 +63,16 @@
 			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 58930,
+				"buffer_size": 65770,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Package Control Messages\n========================\n\nTheme - Spacegray:\n-----------------\n\n  Thanks for installing Spacegray!\n  \n  \n  How to activate\n  ===============\n  \n  Activate the UI theme and color scheme by modifying your user preferences file, which you can find using the menu item `Sublime Text -> Preferences -> Settings - User` (⌘+, on Mac).\n  \n  Spacegray comes in different flavors, based on Base16 color schemes. You can choose whichever flavor you like, but don't forget to change *both* color scheme and UI theme so they match.\n  \n  *Note: Don't forget to restart Sublime Text after activating the theme.*\n  \n  \n  Spacegray\n  ---------\n  \n  Default flavor based on Base16 Ocean Dark color scheme.\n  \n  *Example settings*\n  \n      {\n        \"theme\": \"Spacegray.sublime-theme\",\n        \"color_scheme\": \"Packages/Theme - Spacegray/base16-ocean.dark.tmTheme\"\n      }\n  \n  \n  Spacegray Light\n  ---------------\n  \n  Light variation based on Base16 Ocean Light color scheme.\n  \n  *Example settings*\n  \n      {\n        \"theme\": \"Spacegray Light.sublime-theme\",\n        \"color_scheme\": \"Packages/Theme - Spacegray/base16-ocean.light.tmTheme\"\n      }\n  \n  \n  Spacegray Eighties\n  ------------------\n  \n  A variation based on Base16 Eighties Dark color scheme.\n  \n  *Example settings*\n  \n      {\n        \"theme\": \"Spacegray Eighties.sublime-theme\",\n        \"color_scheme\": \"Packages/Theme - Spacegray/base16-eighties.dark.tmTheme\"\n      }\n  \n  \n  *Note: Don't forget to restart Sublime Text after activating the theme.*\n  \n",
+			"file": "assets/arfi/data/pulse_cycles.dat",
 			"settings":
 			{
-				"buffer_size": 1528,
-				"line_ending": "Windows",
-				"name": "Package Control Messages",
-				"scratch": true
-			}
-		},
-		{
-			"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 13677,
+				"buffer_size": 65,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "chapters/arfi.tex",
-			"settings":
-			{
-				"buffer_size": 27858,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "assets/quasistatic/drawings/schematic_blob.tex",
-			"settings":
-			{
-				"buffer_size": 889,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -202,17 +184,23 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_experiment_nominal.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blur",
+		"/C/Users/Kenton/Music/CD/Brandi Carlile - Bear Creek.cue",
+		"/C/Program Files (x86)/Dwarf Fortress/data/init/d_init.txt",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blob.tex",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blur",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz(busy)",
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/pgfplots.sty",
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/libs/tikzlibrarypgfplots.clickable.code.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/figs.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/arfi/intensity.m",
@@ -253,7 +241,6 @@
 		"/C/Users/Kenton/Programming/Portman/portman.json",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.aux",
 		"/C/Users/Kenton/AppData/Roaming/Vertcoin/vertcoin.conf",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.bbl",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_single.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_human.tex",
@@ -324,12 +311,7 @@
 		"/home/kenton/.config/sublime-text-2/Packages/User/LaTeXTools Preferences.sublime-settings",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_newtest.m",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/intensity2.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/intensity.m",
-		"/home/kenton/Kalk/Kalk/gtk-gui/gui.stetic",
-		"/home/kenton/Kalk/Kalk/gtk-gui/MainWindow.cs",
-		"/home/kenton/Kalk/Kalk/gtk-gui/generated.cs",
-		"/home/kenton/Kalk/Kalk/test-results/Kalk.csproj-Debug|x86-2014-01-13.xml"
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/intensity2.m"
 	],
 	"find":
 	{
@@ -351,6 +333,33 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"7.25",
+			"5",
+			"7.25",
+			"7.75",
+			"shear",
+			"7",
+			"6",
+			"shear",
+			"arfi_depth_o250_",
+			"shear",
+			"2in",
+			"shear",
+			"our.",
+			" our",
+			"our",
+			"3.5",
+			"error",
+			"Percent Error",
+			"percent error",
+			"E_\\percent",
+			"shear_phantom_validation_nominal_mse",
+			"Normalized Mean Squared Error",
+			"_nominal",
+			"0.6\\textwidth",
+			"colormap/jet",
+			"RdBu",
+			"includegraphics",
 			"sec:shear_results",
 			"2.5",
 			"0.5",
@@ -451,34 +460,7 @@
 			"(cm)",
 			"{MHz}",
 			"(mm)",
-			"{m/s}",
-			"\\si",
-			"tanter",
-			"ophir",
-			"bercoff",
-			"compression",
-			"convolvedBMode",
-			"tree",
-			"thick",
-			"2in",
-			"\\unit",
-			"{insets/",
-			"{elastograms/",
-			"{data/",
-			"IEEEPlotCycle",
-			"\\unit",
-			"\\includegraphics{insets/",
-			"{data/",
-			"IEEEPlotCycle",
-			"\\unit",
-			"IEEEPlotCycle",
-			"\\unit",
-			"IEEEPlotCycle",
-			"\\unit",
-			"IEEEPlotCycle",
-			"unit",
-			"\\%",
-			"unit"
+			"{m/s}"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -531,7 +513,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -539,19 +521,63 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 8375,
+						"buffer_size": 8663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3359,
-								3359
+								394,
+								394
 							]
 						],
 						"settings":
 						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
@@ -559,29 +585,73 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1346.0,
+						"translation.y": 238.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/conclusion.tex",
+					"file": "chapters/arfi.tex",
 					"settings":
 					{
-						"buffer_size": 323,
+						"buffer_size": 39022,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								323,
-								323
+								14837,
+								14837
 							]
 						],
 						"settings":
 						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
@@ -589,25 +659,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3720.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "chapters/shear.tex",
+					"file": "appendices/sourcecode.tex",
 					"settings":
 					{
-						"buffer_size": 58930,
+						"buffer_size": 1224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								57756,
-								57756
+								1042,
+								1042
 							]
 						],
 						"settings":
@@ -623,6 +693,79 @@
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "chapters/shear.tex",
+					"settings":
+					{
+						"buffer_size": 65770,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								57993,
+								57980
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
 							],
 							"incomplete_sync": null,
 							"remote_loading": false,
@@ -632,24 +775,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 16033.0,
+						"translation.y": 16630.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
+					"file": "assets/arfi/data/pulse_cycles.dat",
 					"settings":
 					{
-						"buffer_size": 1528,
+						"buffer_size": 65,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								24,
-								24
+								65,
+								65
 							]
 						],
 						"settings":
@@ -669,101 +813,7 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 13677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3651,
-								3622
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1246.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "chapters/arfi.tex",
-					"settings":
-					{
-						"buffer_size": 27858,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								20573,
-								20610
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 7246.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "assets/quasistatic/drawings/schematic_blob.tex",
-					"settings":
-					{
-						"buffer_size": 889,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								796,
-								796
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -838,6 +888,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 179.0,
+	"side_bar_width": 272.0,
 	"status_bar_visible": true
 }
