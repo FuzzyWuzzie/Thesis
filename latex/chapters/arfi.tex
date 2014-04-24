@@ -192,8 +192,9 @@
 				\end{align}
 			\end{subequations}
 
+		\FloatBarrier
 		\subsection{Characterizing Acoustic Radiation Force Impulse Imaging}
-			%In order to fully understand the suitability of using ARFI imaging to detect and monitor deep tissue injuries, 5 general models of deep tissue injury lesions were modeled. Each general model was also investigated over a range of parameters in order to determine the relationship between the detection sensitivity and the various parameters that were studied. The investigated models included a model with hard boundaries
+			In order to fully understand the suitability of using ARFI imaging to detect and monitor deep tissue injuries, 1 model of unlesioned tissue and 4 general models of deep tissue injury lesions were modeled. Each model was investigated over a range of parameters in order to determine the relationship between the detection sensitivity and the various parameters that were studied. The unlesioned model was used to investigate the general effects of acoustic radiation force impulse forces in soft tissue. The investigated lesionous models included a hard-boundaried spherical lesion embedded in a homogeneous soft tissue domain, a lesion with blurred boundaries that ``fades'' into the homogeneous soft tissue background, a cluster of small lesions which together comprise a greater lesionous region, and a lesion with MRI-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Schematics of the four investigated models are given in \ref{fig:arfi_schematics}.
 
 			\begin{figure*}[!htb]
 				\centering
@@ -302,43 +303,60 @@
 					\end{tikzpicture}
 					\label{fig:arfi_schematic_human}
 				}
-				\caption[]{Schematics of the lesion models that were investigated using acoustic radiation force impulse imaging showing \protect\subref{fig:arfi_schematic_single} a spherical hard-boundaried lesion, \protect\subref{fig:arfi_schematic_blur} a spherical blurred-boundary lesion, \protect\subref{fig:arfi_schematic_clustered} a cluster of numerous small lesions composing a larger lesionous region, and \protect\subref{fig:arfi_schematic_human} the geometry from an MRI-acquired deep tissue injury overlaid on a slice from the Visible Human Project such that the injury lesion was located immediately superior to an ischial tuberosity.}	
+				\caption[ARFI model schematics]{Schematics of the lesion models that were investigated using acoustic radiation force impulse imaging showing \protect\subref{fig:arfi_schematic_single} a spherical hard-boundaried lesion, \protect\subref{fig:arfi_schematic_blur} a spherical blurred-boundary lesion, \protect\subref{fig:arfi_schematic_clustered} a cluster of numerous small lesions composing a larger lesionous region, and \protect\subref{fig:arfi_schematic_human} the geometry from an MRI-acquired deep tissue injury overlaid on a slice from the Visible Human Project such that the injury lesion was located immediately superior to an ischial tuberosity.}	
 				\label{fig:arfi_schematics}
 			\end{figure*}
 
+			In order to characterize ARFI imaging, ranges of parameters pertinent to each investigated model were studied. The parameters relating to general soft tissue response to acoustic body loads included: the ARFI interrogation frequency used to excite the tissue with acoustic radiation force; the transducer width which applies the acoustic radiation force to the tissue; the number of pulse cycles (loading time) applied by the transducer; and the pressure applied by the transducer. The lesionous models investigated yet more parameters including: lesion depth; lesion diameter; lesion relative stiffness ratio; lesion blur radius; the number of tightly-packed lesions in a clustered lesion model; the radii of the individual tightly-packed lesions in a clustered lesion model; and the width (and overall size) of the MRI-acquired lesion in the Visible Human model. The range of values of these investigated parameters are listed in Table \ref{tab:arfi-parametervalues} \note[KH]{Mention parameters like B/A, density, etc}.
+
 			\begin{table}[!htb]
 				\centering
-				\caption[ARFI model investigated parameters]{Range of values of investigated parameters}
+				\caption[ARFI model investigated parameters]{Range of values of investigated parameters in the various ARFI models that were studied.}
 				\label{tab:arfi-parametervalues}
 				\begin{tabular}{lcc}
 					\toprule
 					Parameter & Symbol & Values \\
 					\midrule
-					ARFI probing frequency & $f$ & $[1, 2, 4, 6]$\,\si{\MHz} \\
+					ARFI interrogation frequency & $f$ & $[1, 2, 4, 6]$\,\si{\MHz} \\
 					Transducer width & $w_{trans}$ & $[4, 8, 10]$\,\si{\cm} \\
 					ARFI pulse cycles & $n_c$ & $[3, 100, 300, 500, 700]$ \\
 					ARFI source pressure & $P_{source}$ & $[4, 5, 6, 7, 8]$\,\si{\MPa} \\
 					Lesion depth & $d$ & $[1, 2, 3, 4, 5, 6, 7, 8, 9]$\,\si{\cm} \\
-					Lesion diameter & $\diameter S$ & $[1.0, 2.0]$\,\si{\cm} \\
+					Lesion diameter & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$\,\si{\cm} \\
 					Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ \\
 					Blurred lesion blur radius & $b_r$ & $[1.0, 2.5, 5.0, 7.5]$\,\si{\mm} \\
 					Clustered lesion density & $b_\rho$ & $[10, 20, 30, 40]$\,\si{\per\cm\squared} \\
 					Clustered lesion radius & $r_{bl}$ & $[0.5, 1.0, 1.5]$\,\si{\mm} \\
 					Visible human lesion width & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$\,\si{\cm} \\
-					Visible human lesion depth & $d$ & $[6.25, 6.75, 7.25]$\,\si{\cm} \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
 
+			In order to calculate the measured lesion stiffness ratios that are presented in Section \ref{subsec:arfi_numerical_characterization}, equation \ref{equ:arfi_erel_calculation} may be applied. Assuming a constant force applied to the both the lesionous region and the soft tissue reference point, the stiffness ratio of the lesion may be calculated as the ratio between the measured tissue deformation and the measured lesion deformation. As the acoustic radiation force impulse interrogation process is highly dynamic, the maximum induced deformation in the region of interest after application of the acoustic radiation force ceased was used in all characterizations.
+
+			\begin{subequations}
+				\label{equ:arfi_erel_calculation}
+				\begin{align}
+					\sigma &= E \varepsilon \\
+					\sigma_{lesion} &= \sigma_{tissue} \\
+					E_{lesion} \varepsilon_{lesion} &= E_{tissue} \varepsilon_{tissue} \\
+					E_{rel} = \frac{E_{lesion}}{E_{tissue}} &= \frac{\varepsilon_{tissue}}{\varepsilon_{lesion}} = \frac{\Delta L_{tissue}}{\Delta L_{lesion}}
+				\end{align}
+			\end{subequations}
+
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
-			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000 \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better} transducer, ARFI images were acquired of lesions within the phantom. \note[KH]{More?}
+			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000\textsuperscript{\texttrademark}\ \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better} transducer, ARFI images were acquired of lesions within the phantom. The stiffness ratios of these lesions according the acquired ARFI telemetry were then compared with their simulated counterparts in an effort to validate the work completed. The results of this characterization are presented in Section \ref{subsec:arfi_validation_results}.
 
 	\section{Results}
-		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analyzed for a range of input parameters. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters listed in Table \ref{tab:arfi-parametervalues}. The results obtained through this methodology were then compared to ARFI images taken with a commercial ultrasound machine. \note[KH]{This is terrible.}
+		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analysed for the range of input parameters give in Table \ref{tab:arfi-parametervalues}. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters that were investigated. The result of these characterizations are presented here.
 
 		\subsection{K-Space Pseudospectral Models of Acoustic Radiation Force}
 		\label{subsec:kspace_results}
+			In order to adequately simulate complete ARFI imaging sequences, the magnitude and distribution of acoustic radiation force impulses was simulated according to the procedure outlined in Sections \ref{subsec:kspace_model} and \ref{subsec:body_load_derivation}. By calculating the temporal average of the intensity distributions, the spatially-varying acoustic body load was obtained. A sample generated force distribution is depicted in Fig. \ref{fig:arfi_forces} for the case when a \SI{2}{\MHz} beam focussed at a depth of \SI{4}{\cm} was applied to the tissue for 300 pulse cycles, or \SI{150}{\us}.
+
+			As expected, the force distribution is strongly concentrated around the focal point, extending axially below the focal point as per typical b-mode ultrasound acoustic beams. The net effect of the force distribution depicted in Figs. \ref{fig:arfi_forces_fx} and \ref{fig:arfi_forces_fy} is to push the tissue deeper axially and towards the focal point laterally. This resulted in a peak acoustic radiation force of approximately \SI{175}{\kN\per\m\cubed} located at the focal point.
+
 			\begin{figure}[!htb]
 				\centering
 				\subfloat[]{
@@ -401,30 +419,7 @@
 				\label{fig:arfi_forces}
 			\end{figure}
 
-			\begin{figure}[!htb]
-				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=3in,
-						width=\textwidth-\widthof{100}-1in,
-						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
-						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\newton\per\metre\cubed})},
-						grid=major,
-						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
-						legend style={legend pos=north east,font=\small},
-						clip=true,
-						cycle list name=ColourPlotCycle,
-						draw=black, text=black, fill=black]
-						\addplot table {assets/arfi/data/depth_force_freq1.dat};
-						\addplot table {assets/arfi/data/depth_force_freq2.dat};
-						\addplot table {assets/arfi/data/depth_force_freq4.dat};
-						\addplot table {assets/arfi/data/depth_force_freq6.dat};
-					\end{axis}
-				\end{tikzpicture}
-				\caption[Lessening of ARFI with increasing depth and probing frequency]{Lessening of ARFI with increasing depth and probing frequency}
-				\label{fig:freq-depth-force}
-			\end{figure}
+			Since the k-space pseudospectral models employed to simulate acoustic radiation force impulse distributions included absorption and attenuation of the ultrasound waves according to the effects seen in real soft tissues, the depth at which the probe is focussed at becomes a critical parameter---the greater the focal depth, the more tissue that the ultrasound must pass through and therefore the more attenuated the signal becomes. This effect is less noticeable with lower frequency ultrasound waves as less energy is absorbed with decreases when the particle motion is limited. The resulting acoustic body force generated in the tissue at the focal point for a range of depths of interrogation frequencies is presented in Fig. \ref{fig:freq-depth-force}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -434,23 +429,26 @@
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
-						ylabel={Spatial-Peak Pulse-Average Intensity, $I_{SPPA.3}$ (\si{\watt\per\cm\squared})},
+						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})},
 						grid=major,
 						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
 						legend style={legend pos=north east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
-						\addplot table {assets/arfi/data/depth_isppa_freq1.dat};
-						\addplot table {assets/arfi/data/depth_isppa_freq2.dat};
-						\addplot table {assets/arfi/data/depth_isppa_freq4.dat};
-						\addplot table {assets/arfi/data/depth_isppa_freq6.dat};
-						%\addplot[mark=none,dashed,ultra thick] plot coordinates {(1, 190) (9, 190)};
+						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq1.dat};
+						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq2.dat};
+						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq4.dat};
+						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq6.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[$I_{SPPA.3}$ safety measures of ARFI pulses]{$I_{SPPA.3}$ safety measures of ARFI pulses}
-				\label{fig:freq-depth-isppa}
+				\caption[Effect of depth and interrogation frequency on magnitude of acoustic body forces]{Effect of depth and interrogation frequency on the magnitude of acoustic body forces developed in tissue. Increasing the interrogation frequency or the focal depth results in lesser body loads experienced by the tissue at the focal point, with the greatest loss of magnitude resulting from focal depth.}
+				\label{fig:freq-depth-force}
 			\end{figure}
+
+			As Fig. \ref{fig:freq-depth-force} shows, increasing focal depth and probing frequency drastically decreases the magnitude of the force at the focal point of the tissue. In general, forces that are greater in magnitude are ideal as the deflection in the tissue that they cause must be detectable by the same transducer that is applying the forces---if the resulting deflections are too low, the tracking waves sent by the transducer will not be able to distinguish the motion. For the Siemens ACUSON S2000\textsuperscript{\texttrademark}\ machine used in the validation of these studies, this lower limit is quoted as being $\sfrac{1}{100}$ of the applied wavelength, or approximately \SI{1.7}{\um} for a \SI{9}{\MHz} probing frequency \cite{} \note[KH]{Need citation for this (in the manual).
+
+			Since the forces developed in the tissue represent a transfer of energy, theoretically increasing the amount of energy input into the system should increase, or at least assist in greater amount of energy being transferred to the tissue. One way of increasing the amount of energy applied to the tissue by the transducer is to increase the size, or the ``aperture'' of the transducer---an aperture of \SI{8}{\cm} will use twice as many physical pulsing elements than an aperture of \SI{4}{\cm}. To study this, the magnitude of the body force at the focal point was studied in simulation as the aperture changed. The results of this study are shown in Fig. \ref{fig:trans-width-force}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -462,7 +460,7 @@
 						xlabel={ARFI Frequency, $f_{ARFI}$ (\si{\MHz})},
 						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\newton\per\metre\cubed})},
 						grid=major,
-						legend entries={$w_{trans} = \SI{4}{\cm}$, $w_{trans} = \SI{8}{\cm}$, $w_{trans} = \SI{10}{\cm}$},
+						legend entries={$a_{trans} = \SI{4}{\cm}$, $a_{trans} = \SI{8}{\cm}$, $a_{trans} = \SI{10}{\cm}$},
 						legend style={legend pos=north east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -472,9 +470,18 @@
 						\addplot table {assets/arfi/data/freq_force_width10.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Lack of transducer width effect on focal force]{Lack of transducer width effect on focal force}
+				\caption[Effect of transducer aperture on the magnitude of acoustic radiation force]{Effect of transducer aperture on the magnitude of developed acoustic radiation force at the focal depth of \SI{6}{\cm} for a range of ultrasound interrogation frequencies.}
 				\label{fig:trans-width-force}
 			\end{figure}
+
+			Surprisingly, there was little consistent effect of the transducer aperture size on the magnitude of the acoustic radiation force that was seen at the focal point. As expected, the greatest and least forces were developed with the lowest and highest frequencies studied, respectively, as per the results found in Fig. \ref{fig:freq-depth-force}. The greatest effect of the transducer aperture size occurred at a frequency of \SI{1}{\MHz}, where it is hypothesized that \note[KH]{hypothesize!}.
+
+			Another method of increasing the amount of energy transferred into the system is to increase the duration of time that the system is applying pressure to the tissue. In other words, increasing the number of pulse cycles (insonification time) should generate more energy until tissue is under quasi-steady-state insonification. To investigate this, the effect of the number of acoustic pulse cycles---related to the insonification time by equation \ref{equ:insonification_time}---was investigated, with the results shown in Fig. \ref{fig:pulse_cycles_force}.
+
+			\begin{equation}
+			\label{equ:insonification_time}
+				t_{inson} = \frac{n_c}{f_{applied}}
+			\end{equation}
 
 			\begin{figure}[!htb]
 				\centering
@@ -492,9 +499,13 @@
 						\addplot table {assets/arfi/data/pulse_cycles.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Lack of effect of pulse cycles on force at focal point]{Lack of effect of pulse cycles on force at focal point}
+				\caption[Magnitude of developed acoustic radiation force in relation to the number of applied pulse cycles]{Magnitude of the developed acoustic radiation force in relation to the number of applied pulse cycles in tissue at a focal depth of \SI{6}{\cm} using a transducer aperture of \SI{4}{\cm} and source pressure of \SI{3.35}{\MPa}.}
 				\label{fig:pulse_cycles_force}
 			\end{figure}
+
+			As expected, increasing the number of pulse cycles increased the magnitude of the acoustic radiation force seen at the focal point until the domain reached quasi-steady-state at approximately 300 pulses, or \SI{150}{\us} of insonification. At this point, since the calculation of the acoustic radiation force given in equation \ref{equ:radiation_force} relies on the \emph{average} intensity during the insonification time, increasing the number of pulse cycles has little to no effect on the resulting acoustic radiation force.
+
+			One further way of increasing the energy in the system and thereby increasing the magnitude of the acoustic radiation force at the focal point is to increase the amount of pressure applied by the individual transducer elements.  To investigate this technique, a range of acoustic pulsing element pressures were applied across a range of focal depths and the resulting acoustic radiation force at the focal point was monitored. The results of this study are shown in Fig. \ref{fig:pressure_force}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -520,6 +531,41 @@
 				\end{tikzpicture}
 				\caption[Strong dependence on source pressure of focal point force]{Strong dependence on source pressure of focal point force}
 				\label{fig:pressure_force}
+			\end{figure}
+
+			As Fig. \ref{fig:pressure_force} shows and as was expected, increasing the applied pressure results in greatly increasing the magnitude of the resultant acoustic radiation force developed in the tissue---doubling the applied pressure results in nearly quadrupling the magnitude of the acoustic radiation force at all depths. Note however that a critical measure of the safety of ultrasound is the cavitation pressure of the ultrasonic wave as it travels through the tissue. The safety of cavitation is described by the ``mechanical index'', $MI$, which is calculated according to equation \ref{equ:mechanical_index} \cite{hoskins10} where $P_r$ is the peak rarefaction pressure in the tissue and $f$ is the ultrasound frequency. While an $MI$ less than 0.7 generally means that no cavitation may occur, cavitation is largely only a concern in tissues where cavitation is real possibility---only tissues with embedded gas bodies may cavitate. Since deep tissue injuries are largely focussed around the sacrum and heels of tissue, the effects of cavitation in ARFI imaging are not largely relevant.
+
+			\begin{equation}
+			\label{equ:mechanical_index}
+				MI = \frac{P_r}{\sqrt{f}}
+			\end{equation}
+
+			Maximizing the forces developed in the tissue can be detrimental to that tissue's health and well-being. To investigate this, the spatial peak pulse average intensity ($I_{SPPA}$) of the acoustic body load simulations was calculated for the range of depths and frequencies investigated in Fig. \ref{fig:freq-depth-force} and is shown in Fig. \ref{fig:freq-depth-isppa}. Based on a maximum $I_{SPPA}$ exposure of \SI{933}{\W\per\cm\squared} \cite{hoskins10}, the use of ultrasound probes operating at or above \SI{1}{\MHz} and focussed at depths greater than \SI{3}{\cm} should be safe for use in examining deep tissue injuries which are generally well separated from the much more sensitive cardiovascular and fetal imaging.
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
+						ylabel={Spatial-Peak Pulse-Average Intensity, $I_{SPPA}$ (\si{\watt\per\cm\squared})},
+						grid=major,
+						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
+						legend style={legend pos=north east,font=\small},
+						clip=true,
+						cycle list name=ColourPlotCycle,
+						draw=black, text=black, fill=black]
+						\addplot table {assets/arfi/data/depth_isppa_freq1.dat};
+						\addplot table {assets/arfi/data/depth_isppa_freq2.dat};
+						\addplot table {assets/arfi/data/depth_isppa_freq4.dat};
+						\addplot table {assets/arfi/data/depth_isppa_freq6.dat};
+						%\addplot[mark=none,dashed,ultra thick] plot coordinates {(1, 190) (9, 190)};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[$I_{SPPA}$ safety measures of ARFI pulses]{The effect of depth and interrogation frequency on the spatial peak pulse average intensity, $I_{SPPA}$. $I_{SPPA}$ is a measure of the safety of high-intensity ultrasound applications, with $I_{SPPA}$ values below \SI{933}{\W\per\cm\squared} considered acceptable for non-cardiovascular and non-fetal imaging.}
+				\label{fig:freq-depth-isppa}
 			\end{figure}
 
 		\FloatBarrier
@@ -603,6 +649,7 @@
 
 		\FloatBarrier
 		\subsection{Numerical Characterization}
+		\label{subsec:arfi_numerical_characterization}
 
 			\begin{figure}[!htb]
 				\centering
@@ -754,6 +801,7 @@
 
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
+		\label{subsec:arfi_validation_results}
 
 			\begin{figure}[!htb]
 				\centering
