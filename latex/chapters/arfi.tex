@@ -194,6 +194,7 @@
 
 		\FloatBarrier
 		\subsection{Characterizing Acoustic Radiation Force Impulse Imaging}
+		\label{subsec:arfi_method_characterization}
 			In order to fully understand the suitability of using ARFI imaging to detect and monitor deep tissue injuries, 1 model of unlesioned tissue and 4 general models of deep tissue injury lesions were modeled. Each model was investigated over a range of parameters in order to determine the relationship between the detection sensitivity and the various parameters that were studied. The unlesioned model was used to investigate the general effects of acoustic radiation force impulse forces in soft tissue. The investigated lesionous models included a hard-boundaried spherical lesion embedded in a homogeneous soft tissue domain, a lesion with blurred boundaries that ``fades'' into the homogeneous soft tissue background, a cluster of small lesions which together comprise a greater lesionous region, and a lesion with MRI-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Schematics of the four investigated models are given in \ref{fig:arfi_schematics}.
 
 			\begin{figure*}[!htb]
@@ -365,7 +366,7 @@
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=3in,
+							height=2.5in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							ylabel={Depth, $d$ (\si{\cm})},
@@ -384,7 +385,7 @@
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=3in,
+							height=2.5in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							axis on top,
@@ -403,7 +404,7 @@
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=3in,
+							height=2.5in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							axis on top,
@@ -426,7 +427,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
 						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})},
@@ -436,17 +437,17 @@
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
-						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq1.dat};
-						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq2.dat};
-						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq4.dat};
-						\addplot table[y expr=\thisrow{depth}*1000] {assets/arfi/data/depth_force_freq6.dat};
+						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq1.dat};
+						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq2.dat};
+						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq4.dat};
+						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq6.dat};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Effect of depth and interrogation frequency on magnitude of acoustic body forces]{Effect of depth and interrogation frequency on the magnitude of acoustic body forces developed in tissue. Increasing the interrogation frequency or the focal depth results in lesser body loads experienced by the tissue at the focal point, with the greatest loss of magnitude resulting from focal depth.}
 				\label{fig:freq-depth-force}
 			\end{figure}
 
-			As Fig. \ref{fig:freq-depth-force} shows, increasing focal depth and probing frequency drastically decreases the magnitude of the force at the focal point of the tissue. In general, forces that are greater in magnitude are ideal as the deflection in the tissue that they cause must be detectable by the same transducer that is applying the forces---if the resulting deflections are too low, the tracking waves sent by the transducer will not be able to distinguish the motion. For the Siemens ACUSON S2000\textsuperscript{\texttrademark}\ machine used in the validation of these studies, this lower limit is quoted as being $\sfrac{1}{100}$ of the applied wavelength, or approximately \SI{1.7}{\um} for a \SI{9}{\MHz} probing frequency \cite{} \note[KH]{Need citation for this (in the manual).
+			As Fig. \ref{fig:freq-depth-force} shows, increasing focal depth and probing frequency drastically decreases the magnitude of the force at the focal point of the tissue. In general, forces that are greater in magnitude are ideal as the deflection in the tissue that they cause must be detectable by the same transducer that is applying the forces---if the resulting deflections are too low, the tracking waves sent by the transducer will not be able to distinguish the motion. For the Siemens ACUSON S2000\textsuperscript{\texttrademark}\ machine used in the validation of these studies, this lower limit is quoted as being $\sfrac{1}{100}$ of the applied wavelength, or approximately \SI{1.7}{\um} for a \SI{9}{\MHz} probing frequency \cite{} \note[KH]{Need citation for this (in the manual)}.
 
 			Since the forces developed in the tissue represent a transfer of energy, theoretically increasing the amount of energy input into the system should increase, or at least assist in greater amount of energy being transferred to the tissue. One way of increasing the amount of energy applied to the tissue by the transducer is to increase the size, or the ``aperture'' of the transducer---an aperture of \SI{8}{\cm} will use twice as many physical pulsing elements than an aperture of \SI{4}{\cm}. To study this, the magnitude of the body force at the focal point was studied in simulation as the aperture changed. The results of this study are shown in Fig. \ref{fig:trans-width-force}.
 
@@ -455,7 +456,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={ARFI Frequency, $f_{ARFI}$ (\si{\MHz})},
 						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\newton\per\metre\cubed})},
@@ -488,7 +489,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Pulse Cycles, $n_c$},
 						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\newton\per\metre\cubed})},
@@ -512,7 +513,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_f$ (\si{\cm})},
 						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})},
@@ -547,7 +548,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
 						ylabel={Spatial-Peak Pulse-Average Intensity, $I_{SPPA}$ (\si{\watt\per\cm\squared})},
@@ -570,15 +571,19 @@
 
 		\FloatBarrier
 		\subsection{Temporal Finite-Element Model of Soft Tissue Deformation}
+			As ARFI imaging relies upon the detection of soft tissue deformation in response to the transducer-applied acoustic radiation force, a key parameter of interest is the magnitude of the deformation generated in the tissue in response to the applied loads. To this end, the temporal finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} was used to determine the magnitude of the deformation caused by varying acoustic radiation force parameters.
+
+			Fig. \ref{fig:freq-depth-maxDisp} show the relationship between the maximum induced tissue displacement, $\left|v\right|_max$, generated by acoustic radiation forces in soft tissue for a range of focal depths and interrogation frequencies. As expected, significantly greater deformation is generated with shallower focal depths. There was little dependence of the magnitude of deformation on the interrogation frequency used, however, with the exception of the \SI{1}{\MHz} interrogation frequency which stood apart from the rest of the data. \note[KH]{Look into this, expound upon it}
+
 			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
-						ylabel={Maximum Induced Tissue Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
+						ylabel={Maximum Induced Tissue \\ Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
 						grid=major,
 						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
 						legend style={legend pos=north east,font=\small},
@@ -596,15 +601,17 @@
 				\label{fig:freq-depth-maxDisp}
 			\end{figure}
 
+			To reiterate the results seen in Fig. \ref{fig:pressure_force}, the maximum induced tissue displacement generated by the applied acoustic radiation force at various focal depths for various source pressures was investigated, the results of which are given in Fig. \ref{fig:pressure_maxDisp}. These results echo the results seen in Fig. \ref{fig:pressure_force}, where doubling the applied pressure resulted in approximately quadrupling the maximum displacement seen in the tissue across all focal depths as was expected.
+
 			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_f$ (\si{\cm})},
-						ylabel={Maximum Induced Tissue Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
+						ylabel={Maximum Induced Tissue \\ Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
 						grid=major,
 						legend entries={$P_{source} = \SI{4}{\MPa}$, $P_{source} = \SI{5}{\MPa}$, $P_{source} = \SI{6}{\MPa}$, $P_{source} = \SI{7}{\MPa}$, $P_{source} = \SI{8}{\MPa}$},
 						legend style={legend pos=north east,font=\small},
@@ -623,24 +630,26 @@
 				\label{fig:pressure_maxDisp}
 			\end{figure}
 
+			The results given in Fig, \ref{fig:pressure_maxDisp} were further investigating by examining the effect of the interrogation frequency on the maximum induced tissue displacement. The expectation was that increasing the interrogation frequency would greatly decrease the maximum displacement experienced in the tissue, however this result was only found for the lowest frequency investigated---that of \SI{1}{\MHz}. It is hypothesized that this unexpected behaviour was due to ? \note[KH]{Figure it out!}. As expected, increasing the pressure resulted in monotonic increases to the maximum deformation induced in the tissue.
+
 			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Probing Frequency, $f$ (\si{\MHz})},
-						ylabel={Maximum Induced Tissue Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
+						ylabel={Maximum Induced Tissue \\ Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
 						grid=major,
 						legend entries={$P_{source} = \SI{4}{\MPa}$, $P_{source} = \SI{6}{\MPa}$, $P_{source} = \SI{8}{\MPa}$},
 						legend style={legend pos=north east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
-						\addplot table[x expr=\thisrow{frequency}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/freq_maxDisp_p4.dat};
-						\addplot table[x expr=\thisrow{frequency}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/freq_maxDisp_p6.dat};
-						\addplot table[x expr=\thisrow{frequency}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/freq_maxDisp_p8.dat};
+						\addplot table[x expr=\thisrow{frequency}*1e-6, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/freq_maxDisp_p4.dat};
+						\addplot table[x expr=\thisrow{frequency}*1e-6, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/freq_maxDisp_p6.dat};
+						\addplot table[x expr=\thisrow{frequency}*1e-6, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/freq_maxDisp_p8.dat};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[]{}
@@ -648,8 +657,11 @@
 			\end{figure}
 
 		\FloatBarrier
-		\subsection{Numerical Characterization}
+		\subsection{Numerical Characterization of Acoustic Radiation Force Impulse Imaging}
 		\label{subsec:arfi_numerical_characterization}
+			Beyond understanding the general nature of acoustic radiation forces in soft tissue, the effects of these forces in the presence of deep tissue injuries must also be characterized for ARFI imaging to become a useful diagnostic tool for such injuries. In order to investigate the suitability of ARFI imaging for the detection of DTI, the procedure outlined in Section \ref{subsec:arfi_method_characterization} was carried out on a range of models with varying parameters of interest. The results of these characterizations are presented here.
+
+			In order to understand the effect of general lesion size on the detection sensitivity of ARFI imaging, hard-boundaried spherical lesions of various radii were placed in a soft tissue domain at a depth of \SI{4}{\cm} and insonated at \SI{2}{\MHz} with an aperture of \SI{4}{\cm} and pressure of \SI{3.35}{\MPa} for \SI{150}{\us}. The results of this characterization are presented in Fig. \ref{fig:arfi_radius}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -675,6 +687,8 @@
 				\caption[]{}
 				\label{fig:arfi_radius}
 			\end{figure}
+
+			As Fig. \ref{fig:arfi_radius} shows, ARFI imaging was able to detect the presence of both stiff and soft lesions of all sizes, albeit with rather poor detection sensitivity. Of special note is that the 
 
 			\begin{figure}[!htb]
 				\centering
@@ -808,7 +822,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
 						ylabel style={align=center},
@@ -840,7 +854,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
 						ylabel style={align=center},
