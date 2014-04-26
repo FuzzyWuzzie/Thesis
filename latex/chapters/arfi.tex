@@ -73,7 +73,7 @@
 				-p_{,i} + \mu_f v_{i,jj} + \rho b_i = \rho\left(\dot{v_i} + v_j v_{i,j}\right)
 			\end{equation}}
 
-			Using a perturbative expansion of equation \ref{equ:arfi_linear_momentum}, acoustic radiation force can be expressed as per equations \ref{equ:radiation_force_1} \cite{nyborg65}. In equations \ref{equ:radiation_force_1}, $\langle\rangle$ represents the time-average operator, $\vec{v_1}$ and $\vec{v_2}$ are the first and second order terms in the perturbative expansion of particle velocity, and $p_2$ is the second order pressure term in the perturbative expansion, while $\vec{F}$ represents the acoustic radiation force developed in the tissue.
+			Using a perturbative expansion of equation \ref{equ:arfi_linear_momentum}, acoustic radiation force can be expressed as per equations \ref{equ:radiation_force_1} \cite{nyborg65}. In equations \ref{equ:radiation_force_1}, $\langle\rangle$ represents the time-average operator, $\vec{v_1}$ and $\vec{v_2}$ are the first and second order terms in the perturbative expansion of particle velocity, $p_2$ is the second order pressure term in the perturbative expansion, while $\vec{F}$ represents the acoustic radiation force developed in the tissue.
 
 			\begin{equation}
 				\label{equ:arfi_linear_momentum}
@@ -430,17 +430,18 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
-						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})},
+						ylabel style={align=center},
+						ylabel={Body Force at Focal Point, \\ $F_{b,f}$ (\si{\kN\per\metre\cubed})},
 						grid=major,
 						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
 						legend style={legend pos=north east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
-						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq1.dat};
-						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq2.dat};
-						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq4.dat};
-						\addplot* table[y expr=\thisrow{depth}/1000] {assets/arfi/data/depth_force_freq6.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/depth_force_freq1.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/depth_force_freq2.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/depth_force_freq4.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/depth_force_freq6.dat};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Effect of depth and interrogation frequency on magnitude of acoustic body forces]{Effect of depth and interrogation frequency on the magnitude of acoustic body forces developed in tissue. Increasing the interrogation frequency or the focal depth results in lesser body loads experienced by the tissue at the focal point, with the greatest loss of magnitude resulting from focal depth.}
@@ -459,16 +460,17 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={ARFI Frequency, $f_{ARFI}$ (\si{\MHz})},
-						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\newton\per\metre\cubed})},
+						ylabel style={align=center},
+						ylabel={Body Force at Focal Point, \\ $F_{b,f}$ (\si{\kN\per\metre\cubed})},
 						grid=major,
 						legend entries={$a_{trans} = \SI{4}{\cm}$, $a_{trans} = \SI{8}{\cm}$, $a_{trans} = \SI{10}{\cm}$},
 						legend style={legend pos=north east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
-						\addplot table {assets/arfi/data/freq_force_width4.dat};
-						\addplot table {assets/arfi/data/freq_force_width8.dat};
-						\addplot table {assets/arfi/data/freq_force_width10.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/freq_force_width4.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/freq_force_width8.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/freq_force_width10.dat};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Effect of transducer aperture on the magnitude of acoustic radiation force]{Effect of transducer aperture on the magnitude of developed acoustic radiation force at the focal depth of \SI{6}{\cm} for a range of ultrasound interrogation frequencies.}
@@ -492,12 +494,13 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Pulse Cycles, $n_c$},
-						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\newton\per\metre\cubed})},
+						ylabel style={align=center},
+						ylabel={Body Force at Focal Point, \\ $F_{b,f}$ (\si{\kN\per\metre\cubed})},
 						grid=major,
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
-						\addplot table {assets/arfi/data/pulse_cycles.dat};
+						\addplot table[y expr=\thisrow{force}*1e-3] {assets/arfi/data/pulse_cycles.dat};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Magnitude of developed acoustic radiation force in relation to the number of applied pulse cycles]{Magnitude of the developed acoustic radiation force in relation to the number of applied pulse cycles in tissue at a focal depth of \SI{6}{\cm} using a transducer aperture of \SI{4}{\cm} and source pressure of \SI{3.35}{\MPa}.}
@@ -516,7 +519,8 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_f$ (\si{\cm})},
-						ylabel={Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})},
+						ylabel style={align=center},
+						ylabel={Body Force at Focal Point, \\ $F_{b,f}$ (\si{\kN\per\metre\cubed})},
 						grid=major,
 						legend entries={$P_{source} = \SI{4}{\MPa}$, $P_{source} = \SI{5}{\MPa}$, $P_{source} = \SI{6}{\MPa}$, $P_{source} = \SI{7}{\MPa}$, $P_{source} = \SI{8}{\MPa}$},
 						legend style={legend pos=north east,font=\small},
@@ -551,9 +555,10 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
-						ylabel={Spatial-Peak Pulse-Average Intensity, $I_{SPPA}$ (\si{\watt\per\cm\squared})},
+						ylabel style={align=center},
+						ylabel={Spatial-Peak Pulse-Average Intensity, \\ $I_{SPPA}$ (\si{\watt\per\cm\squared})},
 						grid=major,
-						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
+						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$, Acceptable limit},
 						legend style={legend pos=north east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -562,7 +567,7 @@
 						\addplot table {assets/arfi/data/depth_isppa_freq2.dat};
 						\addplot table {assets/arfi/data/depth_isppa_freq4.dat};
 						\addplot table {assets/arfi/data/depth_isppa_freq6.dat};
-						%\addplot[mark=none,dashed,ultra thick] plot coordinates {(1, 190) (9, 190)};
+						\addplot[mark=none,dashed,ultra thick] plot coordinates {(1, 933) (9, 933)};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[$I_{SPPA}$ safety measures of ARFI pulses]{The effect of depth and interrogation frequency on the spatial peak pulse average intensity, $I_{SPPA}$. $I_{SPPA}$ is a measure of the safety of high-intensity ultrasound applications, with $I_{SPPA}$ values below \SI{933}{\W\per\cm\squared} considered acceptable for non-cardiovascular and non-fetal imaging.}
@@ -571,9 +576,10 @@
 
 		\FloatBarrier
 		\subsection{Temporal Finite-Element Model of Soft Tissue Deformation}
+		\label{subsec:arfi_deformation_results}
 			As ARFI imaging relies upon the detection of soft tissue deformation in response to the transducer-applied acoustic radiation force, a key parameter of interest is the magnitude of the deformation generated in the tissue in response to the applied loads. To this end, the temporal finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} was used to determine the magnitude of the deformation caused by varying acoustic radiation force parameters.
 
-			Fig. \ref{fig:freq-depth-maxDisp} show the relationship between the maximum induced tissue displacement, $\left|v\right|_max$, generated by acoustic radiation forces in soft tissue for a range of focal depths and interrogation frequencies. As expected, significantly greater deformation is generated with shallower focal depths. There was little dependence of the magnitude of deformation on the interrogation frequency used, however, with the exception of the \SI{1}{\MHz} interrogation frequency which stood apart from the rest of the data. \note[KH]{Look into this, expound upon it}
+			Fig. \ref{fig:freq-depth-maxDisp} show the relationship between the maximum induced tissue displacement, $\left|v\right|_max$, generated by acoustic radiation forces in soft tissue for a range of focal depths and interrogation frequencies. As expected, significantly greater deformation is generated with shallower focal depths. Further, increases in the interrogation frequency generally resulted in lesser displacement induced in the tissue. The results obtained using a \SI{1}{\MHz} interrogation frequency stood apart from the higher frequencies investigated. This is likely due to the excess acoustic radiation force produced at such low frequencies shown in Figs. \ref{fig:freq-depth-force} and \ref{fig:freq-depth-isppa}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -583,6 +589,7 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
+						ylabel style={align=center},
 						ylabel={Maximum Induced Tissue \\ Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
 						grid=major,
 						legend entries={$f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
@@ -590,14 +597,13 @@
 						clip=true,
 						cycle list name=ColourPlotCycle,
 						draw=black, text=black, fill=black]
-						\addplot table {assets/arfi/data/depth_maxDisp_freq1.dat};
-						\addplot table {assets/arfi/data/depth_maxDisp_freq2.dat};
-						\addplot table {assets/arfi/data/depth_maxDisp_freq4.dat};
-						\addplot table {assets/arfi/data/depth_maxDisp_freq6.dat};
-						%\addplot[mark=none,dashed,ultra thick] plot coordinates {(1, 1.925) (9, 1.925)};
+						\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/depth_maxDisp_freq1.dat};
+						\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/depth_maxDisp_freq2.dat};
+						\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/depth_maxDisp_freq4.dat};
+						\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/depth_maxDisp_freq6.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Maximum tissue displacement generated by ARFI forces]{Maximum tissue displacement generated by ARFI forces for various ARFI excitation frequencies}
+				\caption[]{}
 				\label{fig:freq-depth-maxDisp}
 			\end{figure}
 
@@ -611,6 +617,7 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_f$ (\si{\cm})},
+						ylabel style={align=center},
 						ylabel={Maximum Induced Tissue \\ Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
 						grid=major,
 						legend entries={$P_{source} = \SI{4}{\MPa}$, $P_{source} = \SI{5}{\MPa}$, $P_{source} = \SI{6}{\MPa}$, $P_{source} = \SI{7}{\MPa}$, $P_{source} = \SI{8}{\MPa}$},
@@ -630,7 +637,7 @@
 				\label{fig:pressure_maxDisp}
 			\end{figure}
 
-			The results given in Fig, \ref{fig:pressure_maxDisp} were further investigating by examining the effect of the interrogation frequency on the maximum induced tissue displacement. The expectation was that increasing the interrogation frequency would greatly decrease the maximum displacement experienced in the tissue, however this result was only found for the lowest frequency investigated---that of \SI{1}{\MHz}. It is hypothesized that this unexpected behaviour was due to ? \note[KH]{Figure it out!}. As expected, increasing the pressure resulted in monotonic increases to the maximum deformation induced in the tissue.
+			The results given in Fig, \ref{fig:pressure_maxDisp} were further investigated by examining the effect of the interrogation frequency on the maximum induced tissue displacement. As expected, increasing the interrogation frequency resulted in decreases in the magnitude of deformation experienced by the tissue across all source pressures investigated. Further, increasing the amount of source pressure applied by the transducer into the tissue resulted in greater levels of tissue deformation. Of note is that the use of a \SI{1}{\MHz} interrogation frequency affected the magnitude of tissue deformation across the different source pressures much more than any of the higher interrogation frequencies studied, further echoing the results seen in Fig. \ref{fig:freq-depth-maxDisp}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -640,6 +647,7 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Probing Frequency, $f$ (\si{\MHz})},
+						ylabel style={align=center},
 						ylabel={Maximum Induced Tissue \\ Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})},
 						grid=major,
 						legend entries={$P_{source} = \SI{4}{\MPa}$, $P_{source} = \SI{6}{\MPa}$, $P_{source} = \SI{8}{\MPa}$},
@@ -671,7 +679,8 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						ylabel style={align=center},
+						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
 						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
 						legend style={legend pos=south east,font=\small},
@@ -688,7 +697,9 @@
 				\label{fig:arfi_radius}
 			\end{figure}
 
-			As Fig. \ref{fig:arfi_radius} shows, ARFI imaging was able to detect the presence of both stiff and soft lesions of all sizes, albeit with rather poor detection sensitivity. Of special note is that the 
+			As Fig. \ref{fig:arfi_radius} shows, ARFI imaging was able to detect the presence of both stiff and soft lesions of all sizes, however the technique both severely underestimated the stiffness of stiff lesions and overestimated the stiffness of ``soft'' lesions---leading to the observation that ARFI imaging has a relatively low detection sensitivity with regards to stiff deep tissue injury lesions. This may logically be explained by the scales of the acoustic radiation force and the resulting tissue deformations---when healthy tissue deforms by a couple \si{\um} due to applied loading, tissue that is 3 times as stiff will generally deform $\sfrac{1}{3}$ as much, leading to excessively small deformation magnitudes for stiff lesions. Fig. \ref{fig:arfi_radius} also shows that above lesion radii of approximately \SI{2.5}{\mm}, the lesions size does not have any appreciable effect on the detection sensitivity of the technique. Below this limit, however, lesions will be much more difficult to detect as the differences between them and the surrounding tissue are minimized.
+
+			In order to investigate the effect of lesion depth on detection sensitivity, the use of ARFI imaging to distinguish spherical hard-boundaried lesions with radii of \SI{10}{\mm} was investigated at a range of depths, with the results shown in Fig. \ref{fig:arfi_depth}. As Fig. \ref{fig:arfi_depth} shows, there is almost no dependence of the detection sensitivity on the depth of the lesion. However, it must be noted that the deformations resulting from acoustic radiation force impulses will be of such small magnitudes that they will not be detectable using current ultrasound technology. To understand the limitations of depth in ARFI imaging, please refer to Section \ref{subsec:arfi_deformation_results}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -698,7 +709,8 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						ylabel style={align=center},
+						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
 						legend entries={$d = \SI{2}{\cm}$, $d = \SI{4}{\cm}$, $d = \SI{6}{\cm}$, $d = \SI{8}{\cm}$},
 						legend style={legend pos=south east,font=\small},
@@ -715,6 +727,8 @@
 				\label{fig:arfi_depth}
 			\end{figure}
 
+			Since the aforementioned hard-boundaried, spherical lesion cases represent simplifications of reality designed to obtain a general understanding of the ARFI technique, models representing more complicated geometry were also studied. Fig. \ref{fig:arfi_blur} shows the simulated lesion stiffness ratios for a set of lesions with radii of \SI{10}{\mm} at a depth of \SI{4}{\cm} with blurred boundaries as described in Section \ref{subsec:arfi_method_characterization}. As Fig. \ref{fig:arfi_blur}, there is no reliance of the detection sensitivity on the blur radius of the lesion, with the results shown repeating the results seen in Figs. \ref{fig:arfi_radius} and \ref{fig:arfi_depth}. This lack of sensitivity on the degree of edge blurring presents a significant advantage over quasi-static elastography 
+
 			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
@@ -723,7 +737,8 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						ylabel style={align=center},
+						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
 						legend entries={$b_r = \SI{2.5}{\mm}$, $b_r = \SI{5.0}{\mm}$, $b_r = \SI{7.5}{\mm}$},
 						legend style={legend pos=south east,font=\small},
@@ -747,7 +762,8 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						ylabel style={align=center},
+						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
 						legend entries={$b_\rho = \SI{10}{\per\cm\squared}$, $b_\rho = \SI{20}{\per\cm\squared}$, $b_\rho = \SI{30}{\per\cm\squared}$, $b_\rho = \SI{40}{\per\cm\squared}$},
 						legend style={legend pos=south east,font=\small},
@@ -772,7 +788,8 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						ylabel style={align=center},
+						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
 						legend entries={$r_{bl} = \SI{0.5}{\mm}$, $r_{bl} = \SI{1.0}{\mm}$, $r_{bl} = \SI{1.5}{\mm}$},
 						legend style={legend pos=south east,font=\small},
@@ -796,7 +813,8 @@
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={True Stiffness Ratio, $E_{rel,true}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+						ylabel style={align=center},
+						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
 						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
 						legend style={legend pos=south east,font=\small},
