@@ -44,18 +44,26 @@
 			}
 		},
 		{
-			"file": "chapters/arfi.tex",
+			"file": "chapters/quasi-static.tex",
 			"settings":
 			{
-				"buffer_size": 39022,
+				"buffer_size": 73004,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "appendices/sourcecode.tex",
+			"file": "chapters/arfi.tex",
 			"settings":
 			{
-				"buffer_size": 1224,
+				"buffer_size": 69325,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/Kenton/AppData/Local/Introversion/Prison Architect/preferences.txt",
+			"settings":
+			{
+				"buffer_size": 719,
 				"line_ending": "Windows"
 			}
 		},
@@ -63,16 +71,16 @@
 			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 65770,
+				"buffer_size": 65430,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "assets/arfi/data/pulse_cycles.dat",
+			"file": "chapters/litreview.tex",
 			"settings":
 			{
-				"buffer_size": 65,
-				"line_ending": "Unix"
+				"buffer_size": 33899,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -184,6 +192,13 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kenton/Documents/Rainmeter/Skins/Serenity/Group2/Drive3/Drive3.ini",
+		"/C/Users/Kenton/AppData/Local/Temp/1-index.html",
+		"/D/Movies/Thor The Dark World (2013) [1080p]/Thor.The.Dark.World.2013.1080p.BluRay.x264.YIFY.srt",
+		"/D/Movies/Thor The Dark World (2013) [1080p]/Thor.The.Dark.World.2013.1080p.BluRay.x264.YIFY.en.srt",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/pulse_cycles.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_experiment_nominal.dat",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
@@ -193,10 +208,8 @@
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blob.tex",
-		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blur",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz(busy)",
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/pgfplots.sty",
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/libs/tikzlibrarypgfplots.clickable.code.tex",
@@ -306,12 +319,7 @@
 		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/abstract.tex",
 		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/titlepage.tex",
 		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/processing.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_viscoelastic.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/findRelaxationTime.m",
-		"/home/kenton/.config/sublime-text-2/Packages/User/LaTeXTools Preferences.sublime-settings",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_newtest.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/intensity2.m"
+		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_viscoelastic.m"
 	],
 	"find":
 	{
@@ -333,6 +341,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ideal",
+			"r_{lesion}",
+			"shear",
+			"#Drive3#",
+			"Drive2",
+			"ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},",
+			"ylabel={Maximum Induced Tissue Displacement, $\\left|v\\right|_{max}$ (\\si{\\micro\\metre})},",
+			"ylabel={Body Force at \\\\ Focal Point, $F_{b,f}$ (\\si{\\kN\\per\\metre\\cubed})},",
+			"[y expr=\\thisrow{depth}/1000]",
+			"\\percent ",
+			" \\\\ ",
+			"*",
+			"shear",
 			"7.25",
 			"5",
 			"7.25",
@@ -447,20 +468,7 @@
 			"vargheese09",
 			"meunier95",
 			"brusseau08",
-			",",
-			".5",
-			"fill",
-			"dedication",
-			"images/elastogram",
-			"_bw",
-			"cm^{-2}",
-			"\\%",
-			"{cm}",
-			"{mm}",
-			"(cm)",
-			"{MHz}",
-			"(mm)",
-			"{m/s}"
+			","
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -468,6 +476,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\\percent\\ ",
 			"subsec:shear_results",
 			"	",
 			"_colour",
@@ -513,7 +522,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -528,8 +537,8 @@
 						"selection":
 						[
 							[
-								394,
-								394
+								3646,
+								1406
 							]
 						],
 						"settings":
@@ -585,25 +594,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 238.0,
+						"translation.y": 834.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/arfi.tex",
+					"file": "chapters/quasi-static.tex",
 					"settings":
 					{
-						"buffer_size": 39022,
+						"buffer_size": 73004,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14837,
-								14837
+								33489,
+								33372
 							]
 						],
 						"settings":
@@ -659,66 +668,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3720.0,
+						"translation.y": 7324.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "appendices/sourcecode.tex",
+					"file": "chapters/arfi.tex",
 					"settings":
 					{
-						"buffer_size": 1224,
+						"buffer_size": 69325,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1042,
-								1042
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close"
-							],
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "chapters/shear.tex",
-					"settings":
-					{
-						"buffer_size": 65770,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								57993,
-								57980
+								67623,
+								67579
 							]
 						],
 						"settings":
@@ -775,25 +743,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 16630.0,
+						"translation.y": 19598.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "assets/arfi/data/pulse_cycles.dat",
+					"buffer": 3,
+					"file": "/C/Users/Kenton/AppData/Local/Introversion/Prison Architect/preferences.txt",
 					"settings":
 					{
-						"buffer_size": 65,
+						"buffer_size": 719,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								65,
-								65
+								0,
+								0
 							]
 						],
 						"settings":
@@ -801,6 +769,26 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -808,7 +796,19 @@
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
-								"bh_unmatched_close"
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
 							],
 							"incomplete_sync": null,
 							"remote_loading": false,
@@ -817,6 +817,155 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "chapters/shear.tex",
+					"settings":
+					{
+						"buffer_size": 65430,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11575,
+								11618
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"spell_check": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6066.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "chapters/litreview.tex",
+					"settings":
+					{
+						"buffer_size": 33899,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13067,
+								12165
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1836.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

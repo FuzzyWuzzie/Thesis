@@ -347,9 +347,11 @@
 
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
-			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000\textsuperscript{\texttrademark}\ \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better} transducer, ARFI images were acquired of lesions within the phantom. The stiffness ratios of these lesions according the acquired ARFI telemetry were then compared with their simulated counterparts in an effort to validate the work completed. The results of this characterization are presented in Section \ref{subsec:arfi_validation_results}.
+		\label{subsec:arfi_physical_phantom}
+			The same CIRS Elasticity QA Phantom model 049 that was used in the quasi-static studies described in Chapter \ref{chap:quasi-static} was used to experimentally validate a subset of the ARFI simulations described here. Using a Siemens ACUSON S2000\textsuperscript{\texttrademark}\ \note[KH]{Correct naming / registered marks / etc?} portable ultrasound machine with a Siemens 9L4 \note[KH]{Describe probe better} transducer, ARFI images were acquired of lesions within the phantom. The stiffness ratios of these lesions according the acquired ARFI telemetry were then compared with their simulated counterparts in an effort to validate the work completed. The results of this characterization are presented in Section \ref{subsec:arfi_validation_results}. \note[KH]{Mention number of trials (10)}
 
 	\section{Results}
+	\label{sec:arfi_results}
 		Using the k-space pseudospectral model of ultrasound acoustics described in Section \ref{subsec:kspace_model}, acoustic radiation force distributions were acquired and analysed for the range of input parameters give in Table \ref{tab:arfi-parametervalues}. These force distributions were then fed into the time-domain finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} to examine the difference in relationships between the true and measured tissue stiffness ratios due to the various lesion and transducer parameters that were investigated. The result of these characterizations are presented here.
 
 		\subsection{K-Space Pseudospectral Models of Acoustic Radiation Force}
@@ -603,7 +605,7 @@
 						\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/depth_maxDisp_freq6.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[]{}
+				\caption[ARFI-induced deformation at various depths and interrogation frequencies]{Magnitude of deformation resulting from ARFI interrogation at various focal depths and interrogation frequencies with a transducer aperture of \SI{4}{\cm} and source pressure of \SI{3.35}{\MPa}.}
 				\label{fig:freq-depth-maxDisp}
 			\end{figure}
 
@@ -633,11 +635,11 @@
 						%\addplot[mark=none,dashed,ultra thick] plot coordinates {(3, 1.925) (9, 1.925)};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[]{}
+				\caption[ARFI-induced deformation at various depths and source pressures]{Magnitude of deformation resulting from ARFI interrogation at various focal depths and source pressures at an interrogation frequency of \SI{2}{\MHz} with a transducer aperture of \SI{4}{\cm} and source pressure of \SI{3.35}{\MPa}.}
 				\label{fig:pressure_maxDisp}
 			\end{figure}
 
-			The results given in Fig, \ref{fig:pressure_maxDisp} were further investigated by examining the effect of the interrogation frequency on the maximum induced tissue displacement. As expected, increasing the interrogation frequency resulted in decreases in the magnitude of deformation experienced by the tissue across all source pressures investigated. Further, increasing the amount of source pressure applied by the transducer into the tissue resulted in greater levels of tissue deformation. Of note is that the use of a \SI{1}{\MHz} interrogation frequency affected the magnitude of tissue deformation across the different source pressures much more than any of the higher interrogation frequencies studied, further echoing the results seen in Fig. \ref{fig:freq-depth-maxDisp}.
+			The results given in Fig. \ref{fig:pressure_maxDisp} were further investigated by examining the effect of the interrogation frequency on the maximum induced tissue displacement. As expected, increasing the interrogation frequency resulted in decreases in the magnitude of deformation experienced by the tissue across all source pressures investigated. Further, increasing the amount of source pressure applied by the transducer into the tissue resulted in greater levels of tissue deformation. Of note is that the use of a \SI{1}{\MHz} interrogation frequency affected the magnitude of tissue deformation across the different source pressures much more than any of the higher interrogation frequencies studied, further echoing the results seen in Fig. \ref{fig:freq-depth-maxDisp}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -660,7 +662,7 @@
 						\addplot table[x expr=\thisrow{frequency}*1e-6, y expr=\thisrow{maxDisp}*1e6] {assets/arfi/data/freq_maxDisp_p8.dat};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[]{}
+				\caption[ARFI-induced deformation across various interrogation frequencies and source pressures]{Magnitude of deformation resulting from ARFI interrogation at various interrogation frequencies and source pressures at a depth of \SI{6}{\cm} with a transducer aperture of \SI{4}{\cm} and source pressure of \SI{3.35}{\MPa}.}
 				\label{fig:freq_pressure_maxDisp}
 			\end{figure}
 
@@ -669,7 +671,7 @@
 		\label{subsec:arfi_numerical_characterization}
 			Beyond understanding the general nature of acoustic radiation forces in soft tissue, the effects of these forces in the presence of deep tissue injuries must also be characterized for ARFI imaging to become a useful diagnostic tool for such injuries. In order to investigate the suitability of ARFI imaging for the detection of DTI, the procedure outlined in Section \ref{subsec:arfi_method_characterization} was carried out on a range of models with varying parameters of interest. The results of these characterizations are presented here.
 
-			In order to understand the effect of general lesion size on the detection sensitivity of ARFI imaging, hard-boundaried spherical lesions of various radii were placed in a soft tissue domain at a depth of \SI{4}{\cm} and insonated at \SI{2}{\MHz} with an aperture of \SI{4}{\cm} and pressure of \SI{3.35}{\MPa} for \SI{150}{\us}. The results of this characterization are presented in Fig. \ref{fig:arfi_radius}.
+			In order to understand the effect of general lesion size on the detection sensitivity of ARFI imaging, hard-boundaried spherical lesions of various radii were placed in a soft tissue domain at a depth of \SI{4}{\cm} and insonated at \SI{2}{\MHz} with an aperture of \SI{4}{\cm} and pressure of \SI{3.35}{\MPa} for \SI{150}{\us} (300 pulse cycles). The results of this characterization are presented in Fig. \ref{fig:arfi_radius}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -697,7 +699,40 @@
 				\label{fig:arfi_radius}
 			\end{figure}
 
-			As Fig. \ref{fig:arfi_radius} shows, ARFI imaging was able to detect the presence of both stiff and soft lesions of all sizes, however the technique both severely underestimated the stiffness of stiff lesions and overestimated the stiffness of ``soft'' lesions---leading to the observation that ARFI imaging has a relatively low detection sensitivity with regards to stiff deep tissue injury lesions. This may logically be explained by the scales of the acoustic radiation force and the resulting tissue deformations---when healthy tissue deforms by a couple \si{\um} due to applied loading, tissue that is 3 times as stiff will generally deform $\sfrac{1}{3}$ as much, leading to excessively small deformation magnitudes for stiff lesions. Fig. \ref{fig:arfi_radius} also shows that above lesion radii of approximately \SI{2.5}{\mm}, the lesions size does not have any appreciable effect on the detection sensitivity of the technique. Below this limit, however, lesions will be much more difficult to detect as the differences between them and the surrounding tissue are minimized.
+			As Fig. \ref{fig:arfi_radius} shows, ARFI imaging was able to detect the presence of both stiff and soft lesions of all sizes, however the technique both severely underestimated the stiffness of stiff lesions and overestimated the stiffness of ``soft'' lesions---leading to the observation that ARFI imaging has a relatively low detection sensitivity with regards to both stiff and soft deep tissue injury lesions. Fig. \ref{fig:arfi_radius} also shows that above lesion radii of approximately \SI{2.5}{\mm}, the lesions size does not have any appreciable effect on the detection sensitivity of the technique. Below this limit, however, lesions will be much more difficult to detect as the differences between them and the surrounding tissue are minimized.
+
+			To further corroborate these results, the mean-squared error associated with the various lesion radii was calculated according to equation \ref{equ:mean-squared-error} where $\hat{Y}_i$ are the true lesion stiffness ratios and $Y_i$ are the measured lesion stiffness ratios. The results of this calculation with regards to lesion radius are given in Fig. \ref{fig:arfi_radius_mse}. Figure \ref{fig:arfi_radius_mse} explicitly depicts a greater degree of error for lesions with radii of \SI{2.5}{\mm}, with only marginal improvements in measurement error resulting from increasing the lesion radius beyond \SI{5.0}{\mm}.
+
+			\begin{equation}
+				\label{equ:mean-squared-error}
+				MSE = \frac{1}{n}\sum_{i=1}^n \left(\hat{Y}_i - Y_i\right)^2
+			\end{equation}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Lesion Radius, $r$ (\si{\mm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table[x expr=\thisrow{radius}*1000] {assets/arfi/data/arfi_radius_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_radius_mse}
+			\end{figure}
+
+			%This may logically be explained by the scales of the acoustic radiation force and the resulting tissue deformations---when healthy tissue deforms by a couple \si{\um} due to applied loading, tissue that is 3 times as stiff will generally deform $\sfrac{1}{3}$ as much, leading to excessively small deformation magnitudes for stiff lesions.
 
 			In order to investigate the effect of lesion depth on detection sensitivity, the use of ARFI imaging to distinguish spherical hard-boundaried lesions with radii of \SI{10}{\mm} was investigated at a range of depths, with the results shown in Fig. \ref{fig:arfi_depth}. As Fig. \ref{fig:arfi_depth} shows, there is almost no dependence of the detection sensitivity on the depth of the lesion. However, it must be noted that the deformations resulting from acoustic radiation force impulses will be of such small magnitudes that they will not be detectable using current ultrasound technology. To understand the limitations of depth in ARFI imaging, please refer to Section \ref{subsec:arfi_deformation_results}.
 
@@ -727,7 +762,33 @@
 				\label{fig:arfi_depth}
 			\end{figure}
 
-			Since the aforementioned hard-boundaried, spherical lesion cases represent simplifications of reality designed to obtain a general understanding of the ARFI technique, models representing more complicated geometry were also studied. Fig. \ref{fig:arfi_blur} shows the simulated lesion stiffness ratios for a set of lesions with radii of \SI{10}{\mm} at a depth of \SI{4}{\cm} with blurred boundaries as described in Section \ref{subsec:arfi_method_characterization}. As Fig. \ref{fig:arfi_blur}, there is no reliance of the detection sensitivity on the blur radius of the lesion, with the results shown repeating the results seen in Figs. \ref{fig:arfi_radius} and \ref{fig:arfi_depth}. This lack of sensitivity on the degree of edge blurring presents a significant advantage over quasi-static elastography 
+			Fig. \ref{fig:arfi_depth_mse} portrays the mean-squared-error of the measured lesion stiffness across the various depths examined. Although the variance in error between the different depths is not substantial, both very shallow---lesions at a depth of \SI{2}{\cm} or less---and very deep---lesions at a depth of \SI{8}{\cm} or more---were found to have the greatest measurement error. \note[KH]{Why?}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Lesion Depth, $d$ (\si{\cm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table[x expr=\thisrow{depth}*100] {assets/arfi/data/arfi_depth_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_depth_mse}
+			\end{figure}
+
+			Since the aforementioned hard-boundaried, spherical lesion cases represent simplifications of reality designed to obtain a general understanding of the ARFI technique, models representing more complicated geometry were also studied. Fig. \ref{fig:arfi_blur} shows the simulated lesion stiffness ratios for a set of lesions with radii of \SI{10}{\mm} at a depth of \SI{4}{\cm} with blurred boundaries as described in Section \ref{subsec:arfi_method_characterization}. As Fig. \ref{fig:arfi_blur} shows, there is no reliance of the detection sensitivity on the blur radius of the lesion, with the results shown repeating the results seen in Figs. \ref{fig:arfi_radius} and \ref{fig:arfi_depth}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -753,6 +814,34 @@
 				\caption[]{}
 				\label{fig:arfi_blur}
 			\end{figure}
+
+			The mean-squared error shown in Fig. \ref{fig:arfi_blur_mse} further supports this conclusion, with the error between different blur radii differing by just over \SI{1}{\percent}. This lack of sensitivity on the degree of lesion blurring presents a significant advantage over quasi-static elastography as it allows even lesions without well-defined boundaries to be detected.
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Lesion Blur Radius, $b_r$ (\si{\mm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table[x expr=\thisrow{blur}*1000] {assets/arfi/data/arfi_blur_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_blur_mse}
+			\end{figure}
+
+			It may also be possible that a diseased region of tissue is not a singular, continuous lesionous region, but rather an amalgamation of numerous small lesions or damaged tissue which collectively compose a larger lesionous region. To investigate the effect such a phenomenon would have on the detection sensitivity of ARFI imaging, the density and size of numerous small, clustered lesions were varied in models and the resulting measured stiffness ratios were investigated. Fig. \ref{fig:arfi_cluster_density} shows the characterization of the lesion cluster density---how many lesions are present per unit area---for densities ranging from \SI{10}{\per\cm\squared} to \SI{40}{\per\cm\squared} with small lesions of radius \SI{1.0}{\mm}. The centre of the lesionous regions were located at a depth of \SI{4}{\cm} in an overall region with a radius of \SI{10}{\mm}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -780,6 +869,34 @@
 				\label{fig:arfi_cluster_density}
 			\end{figure}
 
+			As Fig. \ref{fig:arfi_cluster_density} shows, increasing the cluster density results in monotonically increasing the detection sensitivity of the ARFI technique. This is as expected, as increasing the cluster density increases the total area contributing to the modified tissue stiffness in the region, which in turn allows the ARFI technique to more readily distinguish the lesion. These results are further shown in by the mean-squared error shown in Fig. \ref{fig:arfi_cluster_density_mse} which shows the decrease in error attributed to increases in lesion cluster densities.
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Lesion Cluster Density, $b_\rho$ (\si{\per\cm\squared})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table {assets/arfi/data/arfi_cluster_dens_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_cluster_density_mse}
+			\end{figure}
+
+			Another method to alter the ratio of damaged to healthy tissue within the lesionous region is to alter the size of the individual lesions that comprise that region. This characterization was carried out using small lesions with radii ranging from \SI{0.5}{\mm} to \SI{1.5}{\mm} at a cluster density of \SI{30}{\per\cm\squared}, with the results given in Fig. \ref{fig:arfi_cluster_radius}.
+
 			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
@@ -805,6 +922,34 @@
 				\label{fig:arfi_cluster_radius}
 			\end{figure}
 
+			As Fig, \ref{fig:arfi_cluster_radius} shows, decreasing the individual lesion radii in the clustered model substantially decreased the detection sensitivity of the ARFI technique, again echoing the previous results where decreasing the ratio of damaged to healthy tissue in the lesionous region results in lesser detection sensitivity. This is confirmed by examining the mean-squared error of the results, which shows monotonically decreasing errors for monotonically increasing individual lesion radii.
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Clustered Lesion Radius, $r_{bl}$ (\si{\mm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table[x expr=\thisrow{radius}*1000] {assets/arfi/data/arfi_cluster_radius_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_cluster_radius_mse}
+			\end{figure}
+
+			While the aforementioned studies investigated generally spherical lesionous regions, this is unlikely to be the case in a real soft tissue domain. To further investigate ARFI imaging, a model utilizing complicated geometry arising from the combination of the MRI-acquired geometry of a deep tissue injury with the anatomical distribution of fat, muscle, and bone obtained from the Visible Human project \cite{visiblehuman} was created as described in Section \ref{subsec:arfi_method_characterization}. To investigate the effect of lesion size in this model, the lesion size, $\diameter S_{lesion}$, was varied between \SI{2.5}{\mm} and \SI{12.5} with the lesion being placed at a depth of \SI{6}{\cm}. The results of this characterization are shown in Fig. \ref{fig:arfi_human_radius}.
+
 			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
@@ -816,7 +961,7 @@
 						ylabel style={align=center},
 						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
-						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
+						legend entries={$\diameter S_{lesion} = \SI{5}{\mm}$, $\diameter S_{lesion} = \SI{10}{\mm}$, $\diameter S_{lesion} = \SI{20}{\mm}$, $\diameter S_{lesion} = \SI{25}{\mm}$},
 						legend style={legend pos=south east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -831,9 +976,36 @@
 				\label{fig:arfi_human_radius}
 			\end{figure}
 
+			As Fig. \ref{fig:arfi_human_radius} shows, decreasing the lesion width in the Visible Human model resulted in a decreased detection sensitivity which was echoed by the mean-square error of the results shown in Fig. \ref{fig:arfi_human_radius_mse}. The detection sensitivity decreases with half-widths less than \SI{10}{\mm} in the Visible Human model as opposed to radii of \SI{5}{\mm} as found with the spherical lesion embedded in general soft tissue seen in Fig. \ref{fig:arfi_radius}. Although the reason for this is not immediately clear, possible differences lay in the depth at which the lesions were imaged at: the Visible Human model placed the lesion at a depth of \SI{6}{\cm} so as to have it lay immediately superior to the ischial tuberosity while the results for the spherical lesion were taken at a depth of \SI{4}{\cm}. Further, comparing the half-width of the Visible Human lesion to the radius of the spherical lesion may introduce errors as the overall area of lesionous tissue were different.
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=2.5in,
+						width=\textwidth-\widthof{100}-1in,
+						major x tick style = transparent,
+						ybar=2*\pgflinewidth,
+						bar width=28pt,
+						ymajorgrids=true,
+						xlabel={Lesion Size, $\diameter S_{lesion}$ (\si{\mm})},
+						ylabel={Mean Squared Error},
+						enlarge x limits=0.25,
+						ymin=0,
+						xtick=data,
+						cycle list name=BarColourPlotCycle]
+						\addplot table[x expr=\thisrow{radius}*1000] {assets/arfi/data/arfi_human_radius_mse.dat};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[]{}
+				\label{fig:arfi_human_radius_mse}
+			\end{figure}
+
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
 		\label{subsec:arfi_validation_results}
+			In order to determine if the results presented in Section \ref{subsec:arfi_numerical_characterization} represent valid simulations, validation experiments were carried out on a physical tissue mimicking phantom as described in Section \ref{subsec:arfi_physical_phantom}. Fig. \ref{fig:arfi_phantom_validation_nominal} shows the result of these experiments.
 
 			\begin{figure}[!htb]
 				\centering
@@ -863,9 +1035,13 @@
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[]{}
+				\caption[Experimental ARFI model results]{Relation between nominally reported strain ratios of the tissue mimicking phantom and experimentally measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm}. Error bars represent the range of measurements acquired.}
 				\label{fig:arfi_phantom_validation_nominal}
 			\end{figure}
+
+			As the results seen in Fig. \ref{fig:arfi_phantom_validation_nominal} show, ARFI imaging was found experimentally to significantly underestimate the stiffness of the stiffest lesions investigated---lesions with nominal stiffnesses of 3.2. For all other lesions investigated, ARFI imaging was shown to overestimate the lesion stiffness \note[KH]{More}.
+
+			Fig. \ref{fig:arfi_phantom_validation} compares the experimentally-acquired lesion stiffness ratios against measured stiffness ratios arising from parametrically identical simulated lesions. As Fig. \ref{fig:arfi_phantom_validation} shows, although the experimentally measured stiffness ratios align well with the simulated stiffness ratios for relatively soft lesions ($E_{rel} < 1$), the simulated ARFI procedure was found to underestimate the stiffness of the stiff lesions that were investigated ($E_{rel} > 1$). The exact cause of this disparity is unclear \note[KH]{???}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -895,10 +1071,11 @@
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[]{}
+				\caption[Experimental validation of ARFI imaging model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm}.}
 				\label{fig:arfi_phantom_validation}
 			\end{figure}
 
 	\section{Conclusion}
+		The results presented in Section \ref{sec:arfi_results} represent a numerical characterization of the use of acoustic radiation force impulse imaging for the detection of deep tissue injuries.
 
 \bibcomplete{references}

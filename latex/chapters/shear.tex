@@ -486,14 +486,7 @@
 				\label{fig:erel_radius_mse}
 			\end{figure}
 
-			To further corroborate these results, the mean-squared error associated with the various lesion radii was calculated according to equation \ref{equ:mean-squared-error} where $\hat{Y}_i$ are the true lesion stiffness ratios and $Y_i$ are the measured lesion stiffness ratios. The results of this calculation are given in Fig. \ref{fig:erel_radius_mse}.
-
-			\begin{equation}
-				\label{equ:mean-squared-error}
-				MSE = \frac{1}{n}\sum_{i=1}^n \left(\hat{Y}_i - Y_i\right)^2
-			\end{equation}
-
-			In Fig. \ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions is significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \SI{12.5}{\mm}) presented greater error than lesions with radii of \SI{10.0}{\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\times$ basal stiffness) lesion with a radius of \SI{12.5}{\mm} seen in Fig. \ref{fig:erel_radius}. The exact cause of this error is unknown. \note[KH]{Elaborate?}.
+			To further investigate these results, the mean-squared error associated with varying lesion size was calculated as per equation \ref{equ:mean-squared-error} with the results presented in Fig. \ref{fig:erel_radius_mse}. In Fig. \ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions is significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \SI{12.5}{\mm}) presented greater error than lesions with radii of \SI{10.0}{\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\times$ basal stiffness) lesion with a radius of \SI{12.5}{\mm} seen in Fig. \ref{fig:erel_radius}. The exact cause of this error is unknown. \note[KH]{Elaborate?}.
 
 			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. The largest exception to this generalization is for very stiff lesions for which the ARFI load is focused the farthest away from the lesion. It is hypothesized that the measured stiffness ratio of these lesions is underestimated because by the time the shear wave reaches the relatively far-away lesion, it's energy has substantially dissipated, disallowing the wave to remain fully cohesive and speed up appropriately.
 
@@ -849,7 +842,7 @@
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Experimental validation of shear wave speed quantification model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases. Error bars represent the range of measurements acquired.}
+				\caption[Experimental shear wave speed quantification results]{Relation between nominally reported strain ratios of the tissue mimicking phantom and experimentally measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases. Error bars represent the range of measurements acquired.}
 				\label{fig:shear_phantom_validation_nominal}
 			\end{figure}
 

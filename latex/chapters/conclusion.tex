@@ -1,17 +1,99 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
-	Pressure ulcers are an incredible problem facing the health of society today. They arise most often as complications in the elderly and those with spinal cord injuries \cite{allman95} and present 
-	\comment{%\lipsum[1]
-	\section{Clinical Need for DTI Detection}
-		%\lipsum[1]
-	\section{USE Provides Potential Diagnosis Capability}
-		%\lipsum[1]
+	Pressure ulcers are an incredible problem facing the health of society today. They arise most often as complications in the elderly and those with spinal cord injuries \cite{allman95} and present
+
+	\section{Comparisons Between Methods}
+		\subsubsection{Simulated Lesions}
+			
+
+		\subsubsection{Experimental Validations}
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
+						ylabel style={align=center},
+						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
+						legend entries={Quasi-Static, ARFI, Shear, Ideal},
+						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						xmin=0, xmax=4,
+						ymin=0, ymax=4,
+						draw=black, text=black, fill=black]
+							\addplot table {assets/quasistatic/data/validation_nominal.dat};
+							\addplot+[
+								error bars/.cd,
+								y dir=both,
+								y explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[y error plus=upper, y error minus=lower] {assets/arfi/data/arfi_experiment_nominal.dat};
+							\addplot+[
+								error bars/.cd,
+								y dir=both,
+								y explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[y error plus=upper, y error minus=lower] {assets/shear/data/shear_experiment_nominal.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Experimental results of the three methodologies investigated]{Experimental results of the three methodologies investigated. ARFI imaging consistently overestimated the stiffness of the lesion compared to both quasi-static and shear wave speed quantification, which generally underestimated the stiffness of lesions.}
+				\label{fig:compare_nominal_experiments}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=3in,
+						width=\textwidth-\widthof{100}-1in,
+						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
+						ylabel style={align=center},
+						ylabel={Simulated Measured \\ Stiffness Ratio, $E_{sim,measured}$},
+						legend entries={Results, Ideal},
+						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						xmin=0, xmax=4,
+						ymin=0, ymax=4,
+						draw=black, text=black, fill=black]
+							\addplot table {assets/quasistatic/data/validation.dat};
+							\addplot+[
+								error bars/.cd,
+								x dir=both,
+								x explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[x error plus=upper, x error minus=lower] {assets/arfi/data/arfi_experiment.dat};
+							\addplot+[
+								error bars/.cd,
+								x dir=both,
+								x explicit,
+								error bar style={ultra thick},
+								error mark options={
+									rotate=90,
+									mark size=8pt,
+									ultra thick
+								}] table[x error plus=upper, x error minus=lower] {assets/shear/data/shear_experiment.dat};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+					\end{axis}
+				\end{tikzpicture}
+				\caption[Experimental validation of the simulation results across all three methodologies investigated]{Experimental validation of the simulation results across all three methodologies investigated. The quasi-static ultrasound elastography and shear wave speed quantification simulations most closely matched the results seen experimentally.}
+				\label{fig:compare_experiments}
+			\end{figure}
+
 	\section{Future Work}
-		%\lipsum[1]
-		\subsection{Animal Studies?}
-			%\lipsum[1]
-		\subsection{Human Studies?}
-			%\lipsum[1]
-	}
 
 \bibcomplete{references}

@@ -179,6 +179,17 @@ fill=pc9\\%
 	bibliography = {References}
 }
 
+% strip URLs from the references
+\DeclareSourcemap{
+  \maps{
+    \map{
+      \step[fieldsource=url,
+            match=\regexp{.*},
+            fieldset=url, null]
+    }
+  }
+}
+
 % remove empty pages after \chapter commands
 \let\cleardoublepage\clearpage
 
