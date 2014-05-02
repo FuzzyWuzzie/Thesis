@@ -1,12 +1,16 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
-	Pressure ulcers are an incredible problem facing the health of society today. They arise most often as complications in the elderly and those with spinal cord injuries \cite{allman95} and present
+	Pressure ulcers and deep tissue injuries are an incredible problem facing the health of society today. They arise most often as complications in the elderly and those with spinal cord injuries and present an extremely significant burden on both the health care system and individual patients alike. Deep tissue injuries are somewhat more insidious than pressure ulcers due to how they form---deep tissue injuries begin at the bone-muscle interface deep within tissue and aren't readily noticeable on the surface of the skin until they have broken through as late-stage pressure ulcers. Although DTI prevention and mitigation strategies do exist, their efficacy is highly variable and the treatments are largely untargeted blanket programs which may not adequately treat the needs of patients with formative DTI and may waste money on those without issue. Without a proper clinical diagnostic capability, the incidence of pressure ulcers and DTI has remained largely unchanged for decades. Currently, the only tool capable of detecting formative deep tissue injuries in their early stages---before they tunnel to the surface---is $\mathrm{T}_2^*$-weighted MRI which images oxygen content (or lack thereof) as a proxy for tissue health. While MRI may be effective in research settings, it is hardly suitable for large-scale clinical adoption due to the excessive monetary and temporal costs as well as it's lack of mobility and lack of ability to image people with critical medical implants such as pacemakers.
+
+	Ultrasound elastography is a relatively new imaging modality that has shown some promise toward the detection of early deep tissue injuries by imaging the stiffness changes that tissue undergoes beginning immediately after an injury has occurred---injured tissue shows 1.6-fold to 3.3-fold stiffening after the initial injury and after becoming necrotic shows stiffness below that of healthy tissue. There are three main technologies relating to ultrasound elastography: quasi-static elastography, acoustic radiation force impulse imaging, and shear wave speed quantification. Quasi-static ultrasound elastography is a technique whereby the deflection and deformation of acoustic scatterers embedded throughout soft tissue are tracked between externally-applied pre- and post- compression states. Regions of tissue which deform less than their surroundings are mechanically stiffer than their surroundings and may represent a formative deep tissue injury. Acoustic radiation force impulse imaging operates on much the same principle as this, however the externally-induced tissue deformation is generated through the application of acoustic radiation forces stemming from specialized pulses emitted from the ultrasound transducer itself. By generating tissue deformation in this manner, the repeatability and inter-operator reliability of diagnostic scans may be improved due to the automatic and computer-controlled nature of the acoustic radiation forces. While quasi-static ultrasound elastography and acoustic radiation force impulse imaging provide only qualitative measures of tissue stiffness relative to it's surroundings, shear-wave speed quantification can provide quantitative measures of tissue elasticity through the direct computation of a region of tissue's shear modulus by it's measured velocity and an assumed tissue density. Shear-wave speed quantification tracks the velocity of shear waves generated using an acoustic radiation force as they pass through both diseased and healthy tissue using regular ultrasound tracking beams sampled at extremely high frequencies. Through these methods, it is expected that a clinical tool may be developed for not only detecting the early onset of deep tissue injuries but also for tracking their progress over time. The work completed here represents the first step in that goal and numerically characterized the use of all three techniques toward the detection of both early and late-stage deep tissue injuries.
 
 	\section{Comparisons Between Methods}
 		\subsubsection{Simulated Lesions}
-			
+
 
 		\subsubsection{Experimental Validations}
+			In the experiments that were performed with each of the three elastography modalities on a tissue mimicking phantom, all three methodologies were able to distinguish both hard and soft lesions with some degree of accuracy. However, the stiffest lesions that were examined---those with a nominal stiffness ratio of 3.2---presented the greatest error and variation in the results as seen in Fig. \ref{fig:compare_nominal_experiments}. In these experiments, both ARFI imaging and shear wave speed quantification score similarly, although the variation in the shear results was much greater than the variation in the ARFI experiments.
+
 			\begin{figure}[!htb]
 				\centering
 				\begin{tikzpicture}
@@ -49,6 +53,8 @@
 				\caption[Experimental results of the three methodologies investigated]{Experimental results of the three methodologies investigated. ARFI imaging consistently overestimated the stiffness of the lesion compared to both quasi-static and shear wave speed quantification, which generally underestimated the stiffness of lesions.}
 				\label{fig:compare_nominal_experiments}
 			\end{figure}
+
+			Between 
 
 			\begin{figure}[!htb]
 				\centering
@@ -94,6 +100,6 @@
 				\label{fig:compare_experiments}
 			\end{figure}
 
-	\section{Future Work}
+	\section{Recommendations and Future Work}
 
 \bibcomplete{references}
