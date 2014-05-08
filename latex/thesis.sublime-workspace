@@ -39,31 +39,15 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 8663,
+				"buffer_size": 9147,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "chapters/quasi-static.tex",
+			"file": "chapters/conclusion.tex",
 			"settings":
 			{
-				"buffer_size": 73004,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chapters/arfi.tex",
-			"settings":
-			{
-				"buffer_size": 69325,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Kenton/AppData/Local/Introversion/Prison Architect/preferences.txt",
-			"settings":
-			{
-				"buffer_size": 719,
+				"buffer_size": 32780,
 				"line_ending": "Windows"
 			}
 		},
@@ -71,15 +55,7 @@
 			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 65430,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "chapters/litreview.tex",
-			"settings":
-			{
-				"buffer_size": 33899,
+				"buffer_size": 67079,
 				"line_ending": "Windows"
 			}
 		}
@@ -87,9 +63,13 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 58.0,
 		"selected_items":
 		[
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
 			[
 				"disa",
 				"Package Control: Disable Package"
@@ -137,10 +117,6 @@
 			[
 				"latextool",
 				"LaTeXTools: Reconfigure and migrate settings"
-			],
-			[
-				"word",
-				"Word Wrap: Toggle"
 			],
 			[
 				"origa",
@@ -192,21 +168,37 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/mine local.bat",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/conclusions/conclusion_radius.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/data/circular_size_20.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r125.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r100.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r050.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r025.dat",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/blowstamp.bat",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/acknowledgements.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/data/validation_nominal.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_experiment_nominal.dat",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kenton/AppData/Local/Introversion/Prison Architect/preferences.txt",
 		"/C/Users/Kenton/Documents/Rainmeter/Skins/Serenity/Group2/Drive3/Drive3.ini",
 		"/C/Users/Kenton/AppData/Local/Temp/1-index.html",
 		"/D/Movies/Thor The Dark World (2013) [1080p]/Thor.The.Dark.World.2013.1080p.BluRay.x264.YIFY.srt",
 		"/D/Movies/Thor The Dark World (2013) [1080p]/Thor.The.Dark.World.2013.1080p.BluRay.x264.YIFY.en.srt",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/pulse_cycles.dat",
 		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_experiment_nominal.dat",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
 		"/C/Users/Kenton/Music/CD/Brandi Carlile - Bear Creek.cue",
 		"/C/Program Files (x86)/Dwarf Fortress/data/init/d_init.txt",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blob.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blur",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
@@ -214,7 +206,6 @@
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/pgfplots.sty",
 		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/libs/tikzlibrarypgfplots.clickable.code.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/figs.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/arfi/intensity.m",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/quasi2d/convolvedBMode.m",
@@ -242,10 +233,8 @@
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/MonCrypto VTC.bat",
 		"/E/Backup Jan 4 2014/Downloads/Windows_8.1_Pro_X64_Activated_Final/Install Keys.txt",
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Surly P2Pool VTC.bat",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
-		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.sublime-workspace",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.blg",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/abstract.tex",
@@ -306,20 +295,7 @@
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_human.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_colocated.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_single.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/frontback/toc.tex",
-		"/home/kenton/Google Drive/School/USEbrella/Publications/Kenton IEEE Quasi-Static Paper Rewrite/QuasiStaticCharacterisation.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/appendices/sourcecode.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/chapters/shear.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/chapters/conclusion.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/chapters/arfi.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/chapters/litreview.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/chapters/introduction.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/toc.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/acknowledgements.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/abstract.tex",
-		"/media/kenton/data/Google Drive/School/Thesis/latex/frontback/titlepage.tex",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/processing.m",
-		"/home/kenton/Google Drive/School/USEbrella/Programs/ARFI/relaxation_viscoelastic.m"
+		"/home/kenton/Google Drive/School/Thesis/latex/frontback/toc.tex"
 	],
 	"find":
 	{
@@ -341,6 +317,37 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			",",
+			"height=3in",
+			"radii",
+			"\\SI{10}{\\mm}",
+			"spherical",
+			"height=3in",
+			"blurred",
+			"difference",
+			"conclusionCluster",
+			"_cluster",
+			"_blur",
+			"conclusionBlur",
+			"blur",
+			"Blur",
+			"PD",
+			"conclusionRadius",
+			"_radius",
+			"error",
+			"-",
+			"4",
+			"Ideal",
+			"    ",
+			"={",
+			"\n		string type,",
+			"	",
+			"tableA",
+			"index",
+			"$T_2$-weighted",
+			"_nominal",
+			"shear",
+			"appendix",
 			"ideal",
 			"r_{lesion}",
 			"shear",
@@ -437,38 +444,7 @@
 			"0.0275",
 			"0.02565",
 			"0.0175",
-			"0.0175)",
-			"0.0075",
-			"0.015",
-			"Shear-wave speed measured stiffness ratio at a depth of \\SI{3}{\\cm}",
-			"0.0075",
-			"3.125",
-			"161",
-			"1",
-			"0",
-			"Shear-wave speed measured stiffness ratio at a depth of \\SI{3}{\\cm}",
-			"3",
-			"Shear-wave speed measured stiffness ratio",
-			"3",
-			"cm",
-			"Lack of transducer width effect on focal force",
-			"arfi",
-			"1",
-			"190",
-			"$I_{SPPA.3}$ safety measures of ARFI pulses",
-			"isppa",
-			"nightin",
-			"Lessening of ARFI with increasing depth and probing frequency",
-			"force",
-			"_force",
-			"Lack of effect of pulse cycles on force at focal point",
-			"Lack of transducer width effect on focal force",
-			"si",
-			"1",
-			"vargheese09",
-			"meunier95",
-			"brusseau08",
-			","
+			"0.0175)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -476,6 +452,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"height=2.5in",
+			"	",
+			"    ",
 			"\\percent\\ ",
 			"subsec:shear_results",
 			"	",
@@ -522,7 +501,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -530,15 +509,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 8663,
+						"buffer_size": 9147,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3646,
-								1406
+								2282,
+								2282
 							]
 						],
 						"settings":
@@ -594,25 +573,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 834.0,
+						"translation.y": 1122.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/quasi-static.tex",
+					"file": "chapters/conclusion.tex",
 					"settings":
 					{
-						"buffer_size": 73004,
+						"buffer_size": 32780,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								33489,
-								33372
+								32754,
+								32754
 							]
 						],
 						"settings":
@@ -663,253 +642,31 @@
 							],
 							"incomplete_sync": null,
 							"remote_loading": false,
+							"spell_check": true,
 							"synced": false,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7324.0,
+						"translation.y": 7294.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "chapters/arfi.tex",
-					"settings":
-					{
-						"buffer_size": 69325,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								67623,
-								67579
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"spell_check": true,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 19598.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/Kenton/AppData/Local/Introversion/Prison Architect/preferences.txt",
-					"settings":
-					{
-						"buffer_size": 719,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "chapters/shear.tex",
 					"settings":
 					{
-						"buffer_size": 65430,
+						"buffer_size": 67079,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11575,
-								11618
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"spell_check": true,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 6066.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "chapters/litreview.tex",
-					"settings":
-					{
-						"buffer_size": 33899,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13067,
-								12165
+								58780,
+								58780
 							]
 						],
 						"settings":
@@ -965,7 +722,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1836.0,
+						"translation.y": 16588.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

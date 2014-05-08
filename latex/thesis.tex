@@ -14,7 +14,8 @@
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage[caption=false,font=footnotesize,format=hang]{subfig}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.5}
+\pgfplotsset{compat=newest}
+\usepackage{pgfplotstable}
 \usetikzlibrary{plotmarks,arrows}
 \tikzset{>=latex}
 %\usepgfplotslibrary{colorbrewer}
@@ -35,6 +36,19 @@
 \usepackage[T1]{fontenc}
 \usepackage[titletoc]{appendix}
 \usepackage[section]{placeins}
+
+\pgfkeys{/pgf/number format/.cd,fixed,precision=2}
+
+\pgfplotstableset{%
+	every head row/.style={
+		before row={%
+			\toprule
+			\ensuremath{r_{lesion}} & \multicolumn{4}{c}{\ensuremath{E_{nom}}} \\
+		},
+		after row=\midrule
+	},
+	every last row/.style={after row=\bottomrule}
+}
 
 % add a "DRAFT" watermark to everything
 %\usepackage{draftwatermark}

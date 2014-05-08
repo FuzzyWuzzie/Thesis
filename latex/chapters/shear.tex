@@ -780,6 +780,34 @@
 						\addplot table {assets/shear/data/shear_human_radius_r125.dat};
 					\end{axis}
 				\end{tikzpicture}
+
+				%\pgfplotstabletranspose[columns=esr, numeric type]{\transA}{assets/shear/data/shear_human_radius_r025.dat}
+				%\pgfplotstabletranspose[columns=esr, numeric type]{\transB}{assets/shear/data/shear_human_radius_r050.dat}
+				%\pgfplotstabletranspose[columns=esr, numeric type]{\transC}{assets/shear/data/shear_human_radius_r100.dat}
+				%\pgfplotstabletranspose[columns=esr, numeric type]{\transD}{assets/shear/data/shear_human_radius_r125.dat}
+				%\pgfplotstablevertcat{\renderedTable}{\transA}
+				%\pgfplotstablevertcat{\renderedTable}{\transB}
+				%\pgfplotstablevertcat{\renderedTable}{\transC}
+				%\pgfplotstablevertcat{\renderedTable}{\transD}
+				%\pgfplotstabletypeset[
+				%	columns/colnames/.style={
+				%		numeric type,
+				%		column name={(mm)},
+				%		column type=r
+				%	},
+				%	columns/0/.style={
+				%		column name={0.32}
+				%	},
+				%	columns/1/.style={
+				%		column name={0.56}
+				%	},
+				%	columns/2/.style={
+				%		column name={1.80}
+				%	},
+				%	columns/3/.style={
+				%		column name={3.20}
+				%	}
+				%]\renderedTable
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii in a visible human model]{Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii for MRI-acquired lesion geometry in a Visible Human model with an offset of \SI{1.25}{\cm} at a depth of \SI{6}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
 				\label{fig:erel_human_radius}
 			\end{figure}
@@ -819,7 +847,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
 						ylabel style={align=center},
@@ -853,7 +881,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=3in,
+						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
 						ylabel style={align=center},
