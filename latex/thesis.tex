@@ -36,19 +36,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[titletoc]{appendix}
 \usepackage[section]{placeins}
-
-\pgfkeys{/pgf/number format/.cd,fixed,precision=2}
-
-\pgfplotstableset{%
-	every head row/.style={
-		before row={%
-			\toprule
-			\ensuremath{r_{lesion}} & \multicolumn{4}{c}{\ensuremath{E_{nom}}} \\
-		},
-		after row=\midrule
-	},
-	every last row/.style={after row=\bottomrule}
-}
+\usepackage{xparse}
+\usepackage{etoolbox}
+\usepackage{ifthen}
 
 % add a "DRAFT" watermark to everything
 %\usepackage{draftwatermark}
@@ -180,6 +170,73 @@ fill=pc9\\%
 	title=\lstname                     % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 
+% array access for parameters
+\newcounter{paramListTotal}\newcounter{paramListCtr}%
+\NewDocumentCommand{\paramVal}{o}{%
+  \setcounter{paramListTotal}{0}\setcounter{paramListCtr}{-1}%
+  \renewcommand*{\do}[1]{\stepcounter{paramListTotal}}%
+  \expandafter\docsvlist\expandafter{\paramVals}%
+  \IfNoValueTF{#1}
+    {\paramVals}% \paramVal
+    {% \paramVal[<index>]
+     \renewcommand*{\do}[1]{\stepcounter{paramListCtr}\ifnum\value{paramListCtr}=#1\relax##1\fi}%
+     \expandafter\docsvlist\expandafter{\paramVals}}%
+}
+
+% for showing a graph's data in the graph
+\newcommand{\fourLegendMarksA}{\raisebox{2pt}{\tikz{\draw[pc1,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=*,mark size=3pt,mark options={color=pc1}] plot coordinates {(2.5mm,0)};}}}
+\newcommand{\fourLegendMarksB}{\raisebox{2pt}{\tikz{\draw[pc2,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=square*,mark size=3pt,mark options={color=pc2}] plot coordinates {(2.5mm,0)};}}}
+\newcommand{\fourLegendMarksC}{\raisebox{2pt}{\tikz{\draw[pc3,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=diamond*,mark size=3pt,mark options={color=pc3}] plot coordinates {(2.5mm,0)};}}}
+\newcommand{\fourLegendMarksD}{\raisebox{2pt}{\tikz{\draw[pc4,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=pentagon*,mark size=3pt,mark options={color=pc4}] plot coordinates {(2.5mm,0)};}}}
+\newcommand{\characterizationDataTable}[7]{
+	\def\paramVals{\fourLegendMarksA,\fourLegendMarksB,\fourLegendMarksC,\fourLegendMarksD}
+	\pgfplotstabletranspose[columns={esr}, string type]{\renderedTable}{#4}
+	\ifthenelse{\equal{#5}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transB}{#5}\pgfplotstablevertcat{\renderedTable}{\transB}}
+	\ifthenelse{\equal{#6}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transC}{#6}\pgfplotstablevertcat{\renderedTable}{\transC}}
+	\ifthenelse{\equal{#7}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transD}{#7}\pgfplotstablevertcat{\renderedTable}{\transD}}
+	\pgfplotstablecreatecol[
+		create col/assign/.code={%
+			\edef\entry{\paramVal[\pgfplotstablerow]}%
+			\pgfkeyslet{/pgfplots/table/create col/next content}\entry
+	}]
+	{param}\renderedTable
+	\pgfplotstabletypeset[
+		columns={param,0,1,2,3},
+		columns/param/.style={
+			string type,
+			column name={#1},
+			column type=c
+		},
+		columns/0/.style={
+			numeric type,
+			column name={{0.32}},
+			fixed,fixed zerofill,precision=2
+		},
+		columns/1/.style={
+			numeric type,
+			column name={0.56},
+			fixed,fixed zerofill,precision=2
+		},
+		columns/2/.style={
+			numeric type,
+			column name={1.80},
+			fixed,fixed zerofill,precision=2
+		},
+		columns/3/.style={
+			numeric type,
+			column name={3.20},
+			fixed,fixed zerofill,precision=2
+		},
+		every head row/.style={
+			before row={%
+				 & \multicolumn{4}{c}{\ensuremath{E_{nom}}} \\
+				\cmidrule{2-5}
+			},
+			after row=\midrule
+		},
+	]\renderedTable
+}
+
 % align subfloats to the top of the float
 %\captionsetup[subfloat]{position=top}
 
@@ -295,8 +352,16 @@ fill=pc9\\%
 }{}{}
 \setcounter{page}{1}}
 
+\makeatletter
+\addtocontents{toc}{\let\protect\l@chapter\protect\l@section}
+\makeatother
 \begin{appendices}
+\makeatletter
+\def\chaptermark#1{\markboth{\MakeUppercase{\@chapapp. \  #1}}{}}
+\def\thechapter{}
+\makeatother
 %\input{appendices/datatables}
+%\note[KH]{Add appendix for data tables?}
 \input{appendices/sourcecode}
 \end{appendices}
 

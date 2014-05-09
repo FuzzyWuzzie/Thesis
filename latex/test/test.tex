@@ -1,180 +1,100 @@
 \documentclass{article}
 
 \usepackage{booktabs}
-\usepackage{pgfplots}
 \usepackage{pgfplotstable}
+\pgfplotsset{compat=1.10}
+\usetikzlibrary{plotmarks,arrows}
+\tikzset{>=latex}
 \usepackage{siunitx}
+\usepackage{xparse}% http://ctan.org/pkg/xparse
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\usepackage{ifthen}
 
-\newcommand{\percent}{\%}
+\newcounter{listtotal}\newcounter{listcntr}%
+\NewDocumentCommand{\paramVal}{o}{%
+  \setcounter{listtotal}{0}\setcounter{listcntr}{-1}%
+  \renewcommand*{\do}[1]{\stepcounter{listtotal}}%
+  \expandafter\docsvlist\expandafter{\paramVals}%
+  \IfNoValueTF{#1}
+    {\paramVals}% \paramVal
+    {% \paramVal[<index>]
+     \renewcommand*{\do}[1]{\stepcounter{listcntr}\ifnum\value{listcntr}=#1\relax##1\fi}%
+     \expandafter\docsvlist\expandafter{\paramVals}}%
+}
 
-% set up colours for plots
-% these are based on mapping colours that should photocopy in black and white well
 \definecolor{pc1}{HTML}{8DD3C7}
 \definecolor{pc2}{HTML}{FDB462}
 \definecolor{pc3}{HTML}{FB8072}
 \definecolor{pc4}{HTML}{80B1D3}
-\definecolor{pc5}{HTML}{B3DE69}
-\definecolor{pc6}{HTML}{BEBADA}
-\definecolor{pc7}{HTML}{FCCDE5}
-\definecolor{pc8}{HTML}{D9D9D9}
-\definecolor{pc9}{HTML}{FFFFB3}
-\pgfplotscreateplotcyclelist{ColourPlotCycle}{%
-solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=*\\%
-solid,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square*\\%
-solid,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
-solid,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
-solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
-dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
-dashed,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
-dashed,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond*\\%
-dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
-}
-\pgfplotscreateplotcyclelist{SmoothColourPlotCycle}{%
-solid,ultra thick,pc1\\%
-solid,ultra thick,pc2\\%
-solid,ultra thick,pc3\\%
-solid,ultra thick,pc4\\%
-solid,ultra thick,pc5\\%
-dashed,ultra thick,pc6\\%
-dashed,ultra thick,pc7\\%
-dashed,ultra thick,pc8\\%
-dashed,ultra thick,pc9\\%
-}
-\pgfplotscreateplotcyclelist{BarColourPlotCycle}{%
-fill=pc1\\%
-fill=pc2\\%
-fill=pc3\\%
-fill=pc4\\%
-fill=pc5\\%
-fill=pc6\\%
-fill=pc7\\%
-fill=pc8\\%
-fill=pc9\\%
+
+\newcommand{\fourLegendMarksA}{\raisebox{2pt}{\tikz{\draw[pc1,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=*,mark size=3pt,mark options={color=pc1}] plot coordinates {(2.5mm,0)};}}}
+\newcommand{\fourLegendMarksB}{\raisebox{2pt}{\tikz{\draw[pc2,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=square*,mark size=3pt,mark options={color=pc2}] plot coordinates {(2.5mm,0)};}}}
+\newcommand{\fourLegendMarksC}{\raisebox{2pt}{\tikz{\draw[pc3,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=diamond*,mark size=3pt,mark options={color=pc3}] plot coordinates {(2.5mm,0)};}}}
+\newcommand{\fourLegendMarksD}{\raisebox{2pt}{\tikz{\draw[pc4,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=pentagon*,mark size=3pt,mark options={color=pc4}] plot coordinates {(2.5mm,0)};}}}
+
+\newcommand{\characterizationDataTable}[7]{
+	\def\paramVals{\fourLegendMarksA,\fourLegendMarksB,\fourLegendMarksC,\fourLegendMarksD}
+	\pgfplotstabletranspose[columns={esr}, string type]{\renderedTable}{#4}
+	\ifthenelse{\equal{#5}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transB}{#5}\pgfplotstablevertcat{\renderedTable}{\transB}}
+	\ifthenelse{\equal{#6}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transC}{#6}\pgfplotstablevertcat{\renderedTable}{\transC}}
+	\ifthenelse{\equal{#7}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transD}{#7}\pgfplotstablevertcat{\renderedTable}{\transD}}
+	\pgfplotstablecreatecol[
+		create col/assign/.code={%
+			\edef\entry{\paramVal[\pgfplotstablerow]}%
+			\pgfkeyslet{/pgfplots/table/create col/next content}\entry
+	}]
+	{param}\renderedTable
+	\pgfplotstabletypeset[
+		columns={param,0,1,2,3},
+		columns/param/.style={
+			string type,
+			column name={#1},
+			column type=c
+		},
+		columns/0/.style={
+			numeric type,
+			column name={{0.32}},
+			fixed,fixed zerofill,precision=2
+		},
+		columns/1/.style={
+			numeric type,
+			column name={0.56},
+			fixed,fixed zerofill,precision=2
+		},
+		columns/2/.style={
+			numeric type,
+			column name={1.80},
+			fixed,fixed zerofill,precision=2
+		},
+		columns/3/.style={
+			numeric type,
+			column name={3.20},
+			fixed,fixed zerofill,precision=2
+		},
+		every head row/.style={
+			before row={%
+				 & \multicolumn{4}{c}{\ensuremath{E_{nom}}} \\
+				\cmidrule{2-5}
+			},
+			after row=\midrule
+		},
+	]\renderedTable
 }
 
 \begin{document}
 
-\pgfkeys{/pgf/number format/.cd,fixed,precision=2}
+\characterizationDataTable%
+	{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}%
+	{../assets/shear/data/shear_radius_r025.dat}%
+	{../assets/shear/data/shear_radius_r050.dat}%
+	{../assets/shear/data/shear_radius_r100.dat}%
+	{../assets/shear/data/shear_radius_r125.dat}
 
-\pgfplotstableset{%
-	every head row/.style={
-		before row={%
-			\toprule
-			\ensuremath{r_{lesion}} & \multicolumn{4}{c}{\ensuremath{E_{nom}}} \\
-		},
-		after row=\midrule
-	},
-	every last row/.style={after row=\bottomrule}
-}
-
-\pgfplotstabletypeset[
-	numeric type,
-	columns/(mm)/.style={
-		column type=r
-	}
-]{
-	(mm)  0.32 0.56 1.80 3.20
-	5  0.98 1.03 1.26 1.47
-	10 0.84 0.95 1.44 1.74
-	15 0.05 0.65 1.86 2.57
-	20 0.03 0.52 2.13 3.19
-}
-
-%\vspace{0.5in}
-%
-%\pgfplotstableread{
-%	sr   esr
-%	0.32 0.98
-%	0.56 1.03
-%	1.8  1.26
-%	3.2  1.47
-%}\rowA
-%
-%\pgfplotstableread{
-%	sr   esr
-%	0.32 0.84
-%	0.56 0.95
-%	1.8  1.44
-%	3.2  1.74
-%}\rowB
-%
-%\pgfplotstableread{
-%	sr   esr
-%	0.32 0.05
-%	0.56 0.65
-%	1.8  1.86
-%	3.2  2.57
-%}\rowC
-%
-%\pgfplotstableread{
-%	sr   esr
-%	0.32 0.03
-%	0.56 0.52
-%	1.8  2.13
-%	3.2  3.19
-%}\rowD
-%
-%\pgfplotstabletranspose[columns=esr, numeric type]{\transA}{\rowA}
-%\pgfplotstabletranspose[columns=esr, numeric type]{\transB}{\rowB}
-%\pgfplotstabletranspose[columns=esr, numeric type]{\transC}{\rowC}
-%\pgfplotstabletranspose[columns=esr, numeric type]{\transD}{\rowD}
-%\pgfplotstablevertcat{\renderedTable}{\transA}
-%\pgfplotstablevertcat{\renderedTable}{\transB}
-%\pgfplotstablevertcat{\renderedTable}{\transC}
-%\pgfplotstablevertcat{\renderedTable}{\transD}
-%\pgfplotstabletypeset[
-%	columns/colnames/.style={
-%		numeric type,
-%		column name={(mm)},
-%		column type=r
-%	},
-%	columns/0/.style={
-%		column name={0.32}
-%	},
-%	columns/1/.style={
-%		column name={0.56}
-%	},
-%	columns/2/.style={
-%		column name={1.80}
-%	},
-%	columns/3/.style={
-%		column name={3.20}
-%	}
-%]\renderedTable
-%
-%\vspace{0.5in}
-%
-%\pgfplotstabletranspose[numeric type]{\transTable}{../assets/shear/data/shear_human_radius.dat}
-%\pgfplotstabletypeset\transTable
-
-			\begin{figure}[!htb]
-				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=2.5in,
-						width=\textwidth-\widthof{100}-1in,
-						major x tick style = transparent,
-						ybar=2*\pgflinewidth,
-						legend entries={Quasi-Static, ARFI, Shear},
-						legend style={legend pos=north east,font=\small},
-						bar width=14pt,
-						ymajorgrids=true,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
-						ylabel={Percent Error (\si{\percent})},
-						enlarge x limits=0.25,
-						symbolic x coords={0.32, 0.56, 1.8, 3.2},
-						xticklabels={0.32, 0.56, 1.80, 3.20},
-						xtick=data,
-						cycle list name=BarColourPlotCycle]
-						\pgfplotstableread{../assets/conclusions/conclusion_radius.dat}{\conclusionRadius}
-						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionRadius};
-						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionRadius};
-						\addplot table[x={trueSR}, y={shearPD}] {\conclusionRadius};
-					\end{axis}
-				\end{tikzpicture}
-				\caption[Percent difference for a spherical lesion across the three investigated modalities]{Percent difference for a spherical lesion with radius of \SI{10}{\mm} at a depth of \SI{4}{\cm} across the three investigated modalities.}
-				\label{fig:conclusions_radius_pd}
-			\end{figure}
+\characterizationDataTable%
+	{$\Delta_{off}$}{cm}{0.00,1.25,2.50,3.75}%
+	{../assets/shear/data/shear_doff_d4_o000.dat}%
+	{../assets/shear/data/shear_doff_d4_o125.dat}%
+	{../assets/shear/data/shear_doff_d4_o250.dat}%
+	{}
 
 \end{document}

@@ -39,15 +39,49 @@
 			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 9147,
+				"buffer_size": 9187,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "chapters/conclusion.tex",
+			"contents": "Searching 656 files for \"\\note\" (case sensitive)\n\nC:\\Users\\Kenton\\Documents\\Thesis\\latex\\chapters\\arfi.tex:\n  458  			\\end{figure}\n  459  \n  460: 			Surprisingly, there was little consistent effect of the transducer aperture size on the magnitude of the acoustic radiation force that was seen at the focal point. As expected, the greatest and least forces were developed with the lowest and highest frequencies studied, respectively, as per the results found in Fig. \\ref{fig:freq-depth-force}. The greatest effect of the transducer aperture size occurred at a frequency of \\SI{1}{\\MHz}, where it is hypothesized that \\note[KH]{hypothesize!}.\n  461  \n  462  			Another method of increasing the amount of energy transferred into the system is to increase the duration of time that the system is applying pressure to the tissue. In other words, increasing the number of pulse cycles (insonification time) should generate more energy until tissue is under quasi-steady-state insonification. To investigate this, the effect of the number of acoustic pulse cycles---related to the insonification time by equation \\ref{equ:insonification_time}---was investigated, with the results shown in Fig. \\ref{fig:pulse_cycles_force}.\n  ...\n  741  			\\end{figure}\n  742  \n  743: 			Fig. \\ref{fig:arfi_depth_mse} portrays the mean-squared-error of the measured lesion stiffness across the various depths examined. Although the variance in error between the different depths is not substantial, both very shallow---lesions at a depth of \\SI{2}{\\cm} or less---and very deep---lesions at a depth of \\SI{8}{\\cm} or more---were found to have the greatest measurement error. \\note[KH]{Why?}\n  744  \n  745  			\\begin{figure}[!htb]\n  ...\n 1018  			\\end{figure}\n 1019  \n 1020: 			As the results seen in Fig. \\ref{fig:arfi_phantom_validation_nominal} show, ARFI imaging was found experimentally to significantly underestimate the stiffness of the stiffest lesions investigated---lesions with nominal stiffnesses of 3.2. For all other lesions investigated, ARFI imaging was shown to overestimate the lesion stiffness \\note[KH]{More}.\n 1021  \n 1022: 			Fig. \\ref{fig:arfi_phantom_validation} compares the experimentally-acquired lesion stiffness ratios against measured stiffness ratios arising from parametrically identical simulated lesions. As Fig. \\ref{fig:arfi_phantom_validation} shows, although the experimentally measured stiffness ratios align well with the simulated stiffness ratios for relatively soft lesions ($E_{rel} < 1$), the simulated ARFI procedure was found to underestimate the stiffness of the stiff lesions that were investigated ($E_{rel} > 1$). The exact cause of this disparity is unclear \\note[KH]{???}.\n 1023  \n 1024  			\\begin{figure}[!htb]\n\nC:\\Users\\Kenton\\Documents\\Thesis\\latex\\chapters\\litreview.tex:\n    4  \n    5  	\\section{Deep Tissue Injuries}\n    6: 		Pressure ulcers, commonly referred to as ``bedsores'', are an extraordinarily large problem facing the health care system today. At least \\SI{11}[\\$]{billion} is spent in the United States of America alone treating approximately 500,000 injuries annually \\cite{beckrich99,russo08} while only a minute fraction of that is spent toward pressure ulcer research \\cite{zanca03}. Compared to hospital stays for all other conditions, patients with at least a secondary diagnosis of a pressure ulcer were more often discharged to a long-term care facility and more likely resulted in death \\cite{russo08}. These injuries place an extremely significant burden on the people who suffer from them---pressure ulcers were found to have a profound impact on people's lives including: altering their physical, social, and financial status; changing their body image; losing independence and control; and subjecting them to the grieving process \\cite{langemo00,baharestani94}. These debilitating wounds are often suffered by people with limited mobility such as those undergoing lengthy surgical procedures, the elderly, and those with spinal cord injuries (SCI) \\cite{allman95}---approximately \\SI{80}{\\percent} of people with spinal cord injuries (SCI) will develop at least one pressure ulcer during their lifetime \\cite{salzberg96} and approximately \\SI{19}{\\percent} of elderly patients in long-term care facilities will develop one \\cite{freitas11}\\note[KH]{I already mentioned this in the introduction, verbatim. Where should it go?}. Pressure ulcers exist throughout the entire health-care system and are often formed when undergoing hospitalization \\cite{aronovitch99}. These injuries have a tendency to become chronic, non-healing wounds and many patients die from complications related to them \\cite{jaul10}. Further, patients who have developed at least one pressure ulcer in their life are at a significantly greater risk of developing a second one \\cite{niazi97}. \n    7  \n    8  		Pressure ulcers generally form over bone prominences with approximately \\SI{64}{\\percent} occurring over the ischial tuberosities, trochanter, or sacrum \\cite{garber03} and typically start at the surface of the skin and progress deep in the tissue. Deep tissue injuries---currently defined as a type of pressure ulcer---form in the same regions are pressure ulcers but generally form at the bone-muscle interface deep in the tissue \\cite{kanno09}. In general, these injuries are characterized by a some manner of tissue loss through necrosis of the tissue, though there is currently some debate on the exact nature of these wounds as well as the accuracy of the clinical descriptions attributed to them by the National Pressure Ulcer Advisory Panel (NPUAP).\n\nC:\\Users\\Kenton\\Documents\\Thesis\\latex\\chapters\\quasi-static.tex:\n  535  			Fig. \\ref{fig:blur_radius_characterization} shows that there is very little dependence on the lesion detection sensitivity for stiff lesions (lesions with a stiffness ratio $\\geq 1.0$). However, for soft lesions, the tissue strain estimation algorithm seems to over-estimate the stiffness of the lesions.\n  536  \n  537: 			\\note[KH]{Reason?}\n  538  \n  539  			Similar to how lesions may have ``blurred boundaries'' rather that hard ones, so too may lesion composition not be homogeneous. In order to study the effect of heterogeneous regions of injured tissue, the detection sensitivity of a set of numerous small lesions located within close proximity to each other so as to form a large, heterogeneous area of diseased tissue was examined. Fig. \\ref{fig:blob_density_characterization} shows the results for this model for varying numbers of \\SI{2}{\\mm} diameter lesions in a \\SI{2.5}{\\cm} diameter circle located at a depth of \\SI{10}{\\cm} with a probing frequency of \\SI{4}{\\MHz} and \\SI{5}{\\percent} applied strain. Fig. \\ref{fig:blob_radius_characterization} further explores this model by investigating the case where there are 30 small lesions per square \\SI{}{\\cm} with individual lesions ranging in diameter from \\SI{0.5}{\\mm} to \\SI{1.5}{\\mm}.\n\nC:\\Users\\Kenton\\Documents\\Thesis\\latex\\chapters\\shear.tex:\n  487  			\\end{figure}\n  488  \n  489: 			To further investigate these results, the mean-squared error associated with varying lesion size was calculated as per equation \\ref{equ:mean-squared-error} with the results presented in Fig. \\ref{fig:erel_radius_mse}. In Fig. \\ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions is significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \\SI{12.5}{\\mm}) presented greater error than lesions with radii of \\SI{10.0}{\\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\\times$ basal stiffness) lesion with a radius of \\SI{12.5}{\\mm} seen in Fig. \\ref{fig:erel_radius}. The exact cause of this error is unknown. \\note[KH]{Elaborate?}.\n  490  \n  491  			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \\ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. The largest exception to this generalization is for very stiff lesions for which the ARFI load is focused the farthest away from the lesion. It is hypothesized that the measured stiffness ratio of these lesions is underestimated because by the time the shear wave reaches the relatively far-away lesion, it's energy has substantially dissipated, disallowing the wave to remain fully cohesive and speed up appropriately.\n\nC:\\Users\\Kenton\\Documents\\Thesis\\latex\\frontback\\nomenclature.tex:\n    1  \\chapter*{Nomenclature}\n    2: 	\\section*{Mathematical Symbols\\note[KH]{I'm going to have to clean up these symbols.. a lot get re-used for different purposes}}\n    3  		\\begin{longtable}[l]{ll}\n    4  			Symbol & Meaning \\\\\n\nC:\\Users\\Kenton\\Documents\\Thesis\\latex\\trackchanges.sty:\n   49  %%     \\change[editor]{text to remove}{text to add}\n   50  %%     \\annote[editor]{text to annotate}{note}\n   51: %%     \\note[editor]{note}\n   52  %%  \n   53  %%   In all cases 'editor' is optional.\n   ..\n  640  \n  641  %%\n  642: %% --------------- Define frontend command: \\note\n  643: %%                 usage: \\note[Editor]{note text}\n  644: \\newcommand{\\note}[2][]{%\n  645    \\if@trackchanges%\n  646      \\trackingstart{#1}%\n\n12 matches across 6 files\n",
 			"settings":
 			{
-				"buffer_size": 32780,
+				"buffer_size": 9603,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "chapters/introduction.tex",
+			"settings":
+			{
+				"buffer_size": 8936,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/litreview.tex",
+			"settings":
+			{
+				"buffer_size": 39018,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/quasi-static.tex",
+			"settings":
+			{
+				"buffer_size": 73418,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/arfi.tex",
+			"settings":
+			{
+				"buffer_size": 78749,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,7 +89,50 @@
 			"file": "chapters/shear.tex",
 			"settings":
 			{
-				"buffer_size": 67079,
+				"buffer_size": 67215,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/conclusion.tex",
+			"settings":
+			{
+				"buffer_size": 33949,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "appendices/sourcecode.tex",
+			"settings":
+			{
+				"buffer_size": 1139,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test/test2.tex",
+			"settings":
+			{
+				"buffer_size": 1426,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "appendices/datatables.tex",
+			"settings":
+			{
+				"buffer_size": 164,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\\documentclass{article}\n\n\\usepackage{booktabs}\n\\usepackage{pgfplotstable}\n\\pgfplotsset{compat=1.10}\n\\usepackage{siunitx}\n\n\\begin{document}\n\n\\pgfkeys{/pgf/number format/.cd,fixed,precision=2}\n\n\\pgfplotstableset{%\n	every head row/.style={\n		before row={%\n			\\toprule\n			\\ensuremath{r_{lesion}} & \\multicolumn{4}{c}{\\ensuremath{E_{nom}}} \\\\\n		},\n		after row=\\midrule\n	},\n	every last row/.style={after row=\\bottomrule}\n}\n\n%\\pgfplotstabletypeset[\n%	numeric type,\n%	columns/(mm)/.style={\n%		column type=r\n%	}\n%]{\n%	(mm)  0.32 0.56 1.80 3.20\n%	5  0.98 1.03 1.26 1.47\n%	10 0.84 0.95 1.44 1.74\n%	15 0.05 0.65 1.86 2.57\n%	20 0.03 0.52 2.13 3.19\n%}\n\n%\\vspace{0.5in}\n%\n%\\pgfplotstableread{\n%	sr   esr\n%	0.32 0.98\n%	0.56 1.03\n%	1.8  1.26\n%	3.2  1.47\n%}\\rowA\n%\n%\\pgfplotstableread{\n%	sr   esr\n%	0.32 0.84\n%	0.56 0.95\n%	1.8  1.44\n%	3.2  1.74\n%}\\rowB\n%\n%\\pgfplotstableread{\n%	sr   esr\n%	0.32 0.05\n%	0.56 0.65\n%	1.8  1.86\n%	3.2  2.57\n%}\\rowC\n%\n%\\pgfplotstableread{\n%	sr   esr\n%	0.32 0.03\n%	0.56 0.52\n%	1.8  2.13\n%	3.2  3.19\n%}\\rowD\n%\n%\\pgfplotstabletranspose[columns=esr, numeric type]{\\transA}{\\rowA}\n%\\pgfplotstabletranspose[columns=esr, numeric type]{\\transB}{\\rowB}\n%\\pgfplotstabletranspose[columns=esr, numeric type]{\\transC}{\\rowC}\n%\\pgfplotstabletranspose[columns=esr, numeric type]{\\transD}{\\rowD}\n%\\pgfplotstablevertcat{\\renderedTable}{\\transA}\n%\\pgfplotstablevertcat{\\renderedTable}{\\transB}\n%\\pgfplotstablevertcat{\\renderedTable}{\\transC}\n%\\pgfplotstablevertcat{\\renderedTable}{\\transD}\n%\\pgfplotstabletypeset[\n%	columns/colnames/.style={\n%		numeric type,\n%		column name={(mm)},\n%		column type=r\n%	},\n%	columns/0/.style={\n%		column name={0.32}\n%	},\n%	columns/1/.style={\n%		column name={0.56}\n%	},\n%	columns/2/.style={\n%		column name={1.80}\n%	},\n%	columns/3/.style={\n%		column name={3.20}\n%	}\n%]\\renderedTable\n%\n%\\vspace{0.5in}\n%\n%\\pgfplotstabletranspose[numeric type]{\\transTable}{../assets/shear/data/shear_human_radius.dat}\n%\\pgfplotstabletypeset\\transTable\n\n\\pgfplotstabletranspose[columns={esr}, string type]{\\transA}{../assets/shear/data/shear_radius_r025.dat}\n\\pgfplotstablecreatecol[\n	create col/assign/.code={%\n		\\pgfkeylet{\\pgfplots/table/create col/next content}\n}]{new}\\transA\n\\pgfplotstabletypeset[\n	columns/colnames/.style={\n		string type,\n		column name={(mm)},\n		column type=r\n	},\n	columns/0/.style={\n		column name={0.32}\n	},\n	columns/1/.style={\n		column name={0.56}\n	},\n	columns/2/.style={\n		column name={1.80}\n	},\n	columns/3/.style={\n		column name={3.20}\n	}\n]\\transA\n\n\\end{document}",
+			"file": "test/test.tex",
+			"file_size": 2493,
+			"file_write_time": 130440806213747124,
+			"settings":
+			{
+				"buffer_size": 2492,
 				"line_ending": "Windows"
 			}
 		}
@@ -63,9 +140,17 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 58.0,
+		"height": 334.0,
 		"selected_items":
 		[
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"word",
 				"Word Wrap: Toggle"
@@ -77,10 +162,6 @@
 			[
 				"git gutt",
 				"GitGutter: Show Comparing Against"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"git gu",
@@ -168,12 +249,19 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test2.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test2.aux",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/abstract.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.aux",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.bbl",
+		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/references.bib",
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/mine local.bat",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/test/test.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/conclusions/conclusion_radius.dat",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/data/circular_size_20.dat",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius.dat",
@@ -213,7 +301,6 @@
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/shear/isoLineShearLesion.m",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/quasi2d/StrainLine.m",
 		"/C/Users/Kenton/Documents/Thesis/latex/dictionary.txt",
-		"/C/Users/Kenton/Documents/Thesis/latex/chapters/references.bib",
 		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_lateral_i158_isoline.dat",
 		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Get-Vert.bat",
@@ -237,13 +324,10 @@
 		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.sublime-workspace",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.blg",
-		"/C/Users/Kenton/Documents/Thesis/latex/frontback/abstract.tex",
-		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
 		"/C/Users/Kenton/Downloads/FuzzyWuzzie (1).bib",
 		"/C/Users/Kenton/Programming/Portman/portman.json",
 		"/C/Users/Kenton/Documents/Thesis/latex/thesis.aux",
 		"/C/Users/Kenton/AppData/Roaming/Vertcoin/vertcoin.conf",
-		"/C/Users/Kenton/Documents/Thesis/latex/thesis.bbl",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_single.tex",
 		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_human.tex",
 		"/C/Users/Kenton/Documents/USEbrella/Publications/IEEE Quasi-Staztic Paper ReReWrite/QuasiStaticCharacterisation.tex",
@@ -292,10 +376,7 @@
 		"/home/kenton/Google Drive/School/Thesis/latex/appendices/sourcecode.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_blob.tex",
 		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_blur.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_human.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_colocated.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_single.tex",
-		"/home/kenton/Google Drive/School/Thesis/latex/frontback/toc.tex"
+		"/home/kenton/Google Drive/School/Thesis/latex/drawings/schematic_human.tex"
 	],
 	"find":
 	{
@@ -303,9 +384,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"C:\\Users\\Kenton\\Documents\\Thesis\\latex",
 			"C:\\texlive\\2013\\",
 			"C:\\texlive\\2013\\texmf-dist\\tex\\latex",
 			"C:\\Users\\Kenton\\Documents\\Thesis\\latex",
@@ -314,9 +396,36 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"numeric",
+			"columns=esr, ",
+			"	sr   esr",
+			"string",
+			", string type",
+			"\n		string type,",
+			"numeric",
+			"table",
+			"\\,\\",
+			"\\,\\si{",
+			"\\note",
+			"\\sfrac{1}{100}",
+			"\\note",
+			"-- \\\\",
+			"} \\\\",
+			"\\,\\si{",
+			"\\si{",
+			"\\sfrac",
+			"\\note",
+			"analyzing",
+			"\\SI{}{cm^2}",
+			"mri-acquired",
+			"I_{sppa}",
+			"I_{spta}",
+			"pseudospectral",
+			"lst:",
+			"\\note",
 			",",
 			"height=3in",
 			"radii",
@@ -417,34 +526,7 @@
 			"greenyellow",
 			"colormap",
 			"sec:temporal_fea_arfi",
-			"1",
-			"0.038",
-			"parametervalues",
-			"equation",
-			"{m}",
-			"subequations",
-			"depth",
-			"6",
-			"Strong dependence on source pressure of focal point force",
-			"focal_force",
-			"%",
-			"xStart",
-			"I2",
-			"x",
-			"xStart",
-			"    ",
-			"3in",
-			"Strong dependence on source pressure of focal point force",
-			",2",
-			"0.75",
-			"erel_doff_mse_d3",
-			"1.5",
-			"1.50",
-			"\\thisrow{t}*100",
-			"0.0275",
-			"0.02565",
-			"0.0175",
-			"0.0175)"
+			"1"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -452,6 +534,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"analysing",
+			"MRI-acquired",
+			"I_{SPPA}",
+			"I_{SPTA}",
+			"pseudo-spectral",
 			"height=2.5in",
 			"	",
 			"    ",
@@ -501,7 +588,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 11,
 			"sheets":
 			[
 				{
@@ -509,15 +596,15 @@
 					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 9147,
+						"buffer_size": 9187,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2282,
-								2282
+								9054,
+								9054
 							]
 						],
 						"settings":
@@ -573,25 +660,157 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1122.0,
+						"translation.y": 4527.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "chapters/conclusion.tex",
 					"settings":
 					{
-						"buffer_size": 32780,
+						"buffer_size": 9603,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										618,
+										623
+									],
+									[
+										1652,
+										1657
+									],
+									[
+										2089,
+										2094
+									],
+									[
+										2686,
+										2691
+									],
+									[
+										4299,
+										4304
+									],
+									[
+										5999,
+										6004
+									],
+									[
+										7802,
+										7807
+									],
+									[
+										8919,
+										8924
+									],
+									[
+										9267,
+										9272
+									],
+									[
+										9421,
+										9426
+									],
+									[
+										9460,
+										9465
+									],
+									[
+										9504,
+										9509
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"detect_indentation": false,
+							"incomplete_sync": null,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "chapters/introduction.tex",
+					"settings":
+					{
+						"buffer_size": 8936,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32754,
-								32754
+								8771,
+								8771
 							]
 						],
 						"settings":
@@ -648,25 +867,473 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7294.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "chapters/shear.tex",
+					"buffer": 3,
+					"file": "chapters/litreview.tex",
 					"settings":
 					{
-						"buffer_size": 67079,
+						"buffer_size": 39018,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								58780,
-								58780
+								21249,
+								21249
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"spell_check": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3050.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "chapters/quasi-static.tex",
+					"settings":
+					{
+						"buffer_size": 73418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14979,
+								14979
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"spell_check": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2820.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "chapters/arfi.tex",
+					"settings":
+					{
+						"buffer_size": 78749,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								57516,
+								57521
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"spell_check": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 15875.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "chapters/shear.tex",
+					"settings":
+					{
+						"buffer_size": 67215,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31354,
+								31371
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"spell_check": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8750.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "chapters/conclusion.tex",
+					"settings":
+					{
+						"buffer_size": 33949,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17740,
+								17751
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"spell_check": true,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7497.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "appendices/sourcecode.tex",
+					"settings":
+					{
+						"buffer_size": 1139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								45,
+								45
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "test/test2.tex",
+					"settings":
+					{
+						"buffer_size": 1426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								372,
+								342
 							]
 						],
 						"settings":
@@ -722,7 +1389,154 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 16588.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "appendices/datatables.tex",
+					"settings":
+					{
+						"buffer_size": 164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								69,
+								69
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "test/test.tex",
+					"settings":
+					{
+						"buffer_size": 2492,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2166,
+								2166
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1602.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

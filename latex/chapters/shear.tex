@@ -5,7 +5,7 @@
 
 	\section{Method}
 	\label{sec:shear_method}
-		In order to investigate the sensitivity and applicability of shear wave speed quantification for the early detection of deep tissue injuries, a combination of k-space pseudospectral models of acoustic wave propagation and time-domain finite-element models of tissue deformation were employed. The theory and procedure behind both the generalized acoustic simulations using k-space pseudospectral models and time-dependent solid mechanics finite-element models used here were presented in Chapter \ref{chap:arfi}. As an alternative to monitoring the dynamic response of tissue at the focal point as in ARFI imaging, shear wave speed quantification tracks the velocity of shear waves which radiate laterally outward from the focal point of an ARFI load. If the focal point is positioned such that the generated shear waves propagate through a lesionous region and the speed of the generated shear wave is monitored, the stiffness of that region may be calculated.
+		In order to investigate the sensitivity and applicability of shear wave speed quantification for the early detection of deep tissue injuries, a combination of k-space pseudo-spectral models of acoustic wave propagation and time-domain finite-element models of tissue deformation were employed. The theory and procedure behind both the generalized acoustic simulations using k-space pseudo-spectral models and time-dependent solid mechanics finite-element models used here were presented in Chapter \ref{chap:arfi}. As an alternative to monitoring the dynamic response of tissue at the focal point as in ARFI imaging, shear wave speed quantification tracks the velocity of shear waves which radiate laterally outward from the focal point of an ARFI load. If the focal point is positioned such that the generated shear waves propagate through a lesionous region and the speed of the generated shear wave is monitored, the stiffness of that region may be calculated.
 
 		\subsection{Shear Wave Speed}
 			The foundation of shear wave speed quantification with regards to detecting lesionous regions lies in the quantifiable relationship between shear wave speeds and tissue stiffness. This relationship between shear wave speed and tissue stiffness is derived here, assuming a linear elastic, isotropic material. Soft tissue is generally considered a viscoelastic material and as such modifications to the linear elastic wave speed are taken into account.
@@ -70,7 +70,7 @@
 				c_T = \sqrt{\frac{\mu}{\rho}}
 			\end{equation}
 
-			While the above equation holds for linear elastic materials, soft tissues in the human body are generally considered viscoelastic \note[KH]{Add citation}. In the case of viscoelastic tissues, complex Lam\'{e} parameters must be used, such that the shear wave speed is represented by equation \ref{equ:shear_wave_speed_complex} \note[KH]{Add citation}. Note that viscoelastic shear wave speeds of viscoelastic tissues are generally acquired through empirical measurements rather than any sort of mathematical derivation \note[KH]{Add citation}.
+			While the above equation holds for linear elastic materials, soft tissues in the human body are generally considered viscoelastic \cite{gras13,wang13}. In the case of viscoelastic tissues, complex Lam\'{e} parameters must be used, such that the shear wave speed is represented by equation \ref{equ:shear_wave_speed_complex} \cite{amador12}. Note that viscoelastic shear wave speeds of viscoelastic tissues are generally acquired through empirical measurements rather than any sort of mathematical derivation \cite{then07,madsen83}.
 
 			\begin{equation}
 				\label{equ:shear_wave_speed_complex}
@@ -79,7 +79,7 @@
 
 		\subsection{Model Set Up}
 		\label{subsec:model_setup}
-			In order to study the feasibility of using shear wave speed quantification to detect and monitor deep tissue injuries, a collection of deep tissue injury models were investigated including: spherical lesions with hard and soft boundaries, clusters of small lesions that make up a larger lesionous region, and a lesion with mri-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Each model investigated numerous parameters relating to the detection of lesions including ARFI focal depth, ARFI interrogation frequency, lesion size, distance of the focal point from the lesion (lesion offset), lesion blur radius, clustered lesion density, the size of individual lesions in the clustered lesion model, and the size and altitude of the lesion in the Visible Human model. The range of parameters investigated for each model are summarized in Table \ref{tab:shear-parametervalues}.
+			In order to study the feasibility of using shear wave speed quantification to detect and monitor deep tissue injuries, a collection of deep tissue injury models were investigated including: spherical lesions with hard and soft boundaries, clusters of small lesions that make up a larger lesionous region, and a lesion with MRI-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Each model investigated numerous parameters relating to the detection of lesions including ARFI focal depth, ARFI interrogation frequency, lesion size, distance of the focal point from the lesion (lesion offset), lesion blur radius, clustered lesion density, the size of individual lesions in the clustered lesion model, and the size and altitude of the lesion in the Visible Human model. The range of parameters investigated for each model are summarized in Table \ref{tab:shear-parametervalues}.
 
 			Figs. \ref{fig:shear_schematics} portray the schematics of the lesion models investigated. Note that shear wave speed quantification typically applies the acoustic radiation force impulse to a location of tissue adjacent to the desired region such that the shear waves are fully developed by the time they reach the investigated region.
 
@@ -238,7 +238,7 @@
 
 		\subsection{Model Validation}
 		\label{subsec:shear_model_validation}
-			In order to validate the results presented in Section \ref{subsec:shear_results}, a subset of the results were compared with experimental results obtained with a physical tissue mimicking phantom. The phantom used was the same CIRS Elasticity QA Phantom model 049 that was used in Chapter \ref{chap:quasi-static}. The phantom models both stiff and soft lesions at two different depths and lesion sizes. The material properties of the phantom are listed in Table \ref{tab:phantomproperties}. Both tissue and lesion shear wave speeds were acquired using a Siemens AG ACUSON S2000\textsuperscript{\texttrademark} ultrasound system running the Virtual Touch\textsuperscript{\texttrademark} Quantification software suite with a Siemens 9L4 transducer. Measures of relative lesion stiffness were calculated as per equations \ref{equ:shear_stiffness_ratio} in an identical fashion to the simulated lesion cases.
+			In order to validate the results presented in Section \ref{subsec:shear_results}, a subset of the results were compared with experimental results obtained with a physical tissue mimicking phantom. The phantom used was the same CIRS Elasticity QA Phantom model 049 that was used in Chapter \ref{chap:quasi-static}. The phantom models both stiff and soft lesions at two different depths and lesion sizes. The material properties of the phantom are listed in Table \ref{tab:phantomproperties}. Both tissue and lesion shear wave speeds were acquired using a Siemens AG ACUSON S2000\textsuperscript{\texttrademark} ultrasound system running the Virtual Touch\textsuperscript{\texttrademark} Quantification software suite with a Siemens 9L4 transducer. Measures of relative lesion stiffness were calculated as per equations \ref{equ:shear_stiffness_ratio} in an identical fashion to the simulated lesion cases and experiments were carried out over 10 trials for each investigated nominal lesion stiffness ratio.
 
 	\section{Results and Discussion}
 	\label{subsec:shear_results}
@@ -296,7 +296,7 @@
 				\end{align}
 			\end{subequations}
 
-			In order to determine the velocity of generated shear waves, the ARFI load-induced displacement of the soft tissue must be tracked through time along a line passing through the focal point radiating laterally outward in the finite-element model of tissue deformation. A sample result of tissue displacement through time and along such a line is presented in Fig. \ref{fig:lateral_wave_i158} where the wave can be readily visualized through time, noting that the wave travels ever further from the centerline.
+			In order to determine the velocity of generated shear waves, the ARFI load-induced displacement of the soft tissue must be tracked through time along a line passing through the focal point radiating laterally outward in the finite-element model of tissue deformation. A sample result of tissue displacement through time and along such a line is presented in Fig. \ref{fig:lateral_wave_i158} where the wave can be readily visualized through time, noting that the wave travels ever further from the centreline.
 
 			\begin{figure}[!htb]
 				\centering
@@ -345,7 +345,7 @@
 							\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{assets/shear/data/lateralCut158.png};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Sample continuous surface plot of shear wave induced displacement]{Continous surface plot of the shear wave induced axial displacement tracked through both time and distance from the transducer centerline. The sharp transition from negative to positive displacement marks the location of shear wave in time at any given location.}
+				\caption[Sample continuous surface plot of shear wave induced displacement]{Continuous surface plot of the shear wave induced axial displacement tracked through both time and distance from the transducer centreline. The sharp transition from negative to positive displacement marks the location of shear wave in time at any given location.}
 				\label{fig:lateral_cut_i158}
 			\end{figure}
 
@@ -376,7 +376,7 @@
 				\label{fig:lateral_cut_i158_imgsc_isoline}
 			\end{figure}
 
-			Fig. \ref{fig:lateral_cut_i158_isoline} represents the extracted contour line. This contour line now represents a position-time trace of the shear wave, from which the velocity of the wave may be calculated by differentiating the position of the wave with respect to time as per equation \ref{equ:shear_speed_differentiation}. Care must be taken when numerically differentiating, as numerical errors are greatly amplified by differentiation. To combat this, a moving window average filter with a kernel of \SI{5}{\mm} was applied to the position-time curve before center-difference differentiation was used to result in the shear wave speed graph given in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}.
+			Fig. \ref{fig:lateral_cut_i158_isoline} represents the extracted contour line. This contour line now represents a position-time trace of the shear wave, from which the velocity of the wave may be calculated by differentiating the position of the wave with respect to time as per equation \ref{equ:shear_speed_differentiation}. Care must be taken when numerically differentiating, as numerical errors are greatly amplified by differentiation. To combat this, a moving window average filter with a kernel of \SI{5}{\mm} was applied to the position-time curve before centre-difference differentiation was used to result in the shear wave speed graph given in Fig. \ref{fig:lateral_cut_i158_shear_wave_speed}. Sample source code used to extract and generate the shear wave speed plot is given in listing \ref{lst:isoLineShearLesion} in Appendix \ref{app:source_code}.
 
 			\begin{equation}
 				\label{equ:shear_speed_differentiation}
@@ -437,6 +437,12 @@
 
 			\begin{figure}[!htb]
 				\centering
+				\characterizationDataTable%
+					{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}%
+					{assets/shear/data/shear_radius_r025.dat}%
+					{assets/shear/data/shear_radius_r050.dat}%
+					{assets/shear/data/shear_radius_r100.dat}%
+					{assets/shear/data/shear_radius_r125.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
@@ -492,6 +498,12 @@
 
 			\begin{figure}[!htb]
 				\centering
+				\characterizationDataTable%
+					{$\Delta_{off}$}{cm}{0.00,1.25,2.50,3.75}%
+					{assets/shear/data/shear_doff_d4_o000.dat}%
+					{assets/shear/data/shear_doff_d4_o125.dat}%
+					{assets/shear/data/shear_doff_d4_o250.dat}%
+					{assets/shear/data/shear_doff_d4_o375.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
@@ -545,6 +557,12 @@
 
 			\begin{figure}[!htb]
 				\centering
+				\characterizationDataTable%
+					{$d$}{cm}{2,4,6,8}%
+					{assets/shear/data/shear_depth_o250_d2.dat}%
+					{assets/shear/data/shear_depth_o250_d4.dat}%
+					{assets/shear/data/shear_depth_o250_d6.dat}%
+					{assets/shear/data/shear_depth_o250_d8.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
@@ -594,12 +612,18 @@
 				\label{fig:erel_depth_mse_o250}
 			\end{figure}
 
-			Since deep tissue injury lesions are unlikely to be perfectly round and hard-boundaried, three different models of lesion geometry were investigated---namely, lesions with blurred boundaries that ``fade'' into the surrounding tissue, clusters of small lesions that together make up a larger lesions region, and a lesion with mri-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Although the spherical hard-boundaried lesions may not represent all the intricacies of real deep tissue injuries, the general trends that result from analysing them may improve the general understanding of lesion detection behaviour.
+			Since deep tissue injury lesions are unlikely to be perfectly round and hard-boundaried, three different models of lesion geometry were investigated---namely, lesions with blurred boundaries that ``fade'' into the surrounding tissue, clusters of small lesions that together make up a larger lesions region, and a lesion with MRI-acquired geometry \cite{solis13} embedded in geometry obtained from a Visible Human slice \cite{visiblehuman}. Although the spherical hard-boundaried lesions may not represent all the intricacies of real deep tissue injuries, the general trends that result from analysing them may improve the general understanding of lesion detection behaviour.
 
 			In order to investigate the effect of blurring lesions into the background tissue, hard-boundaried spherical lesions were blurred with varying blur radii as described in Section \ref{subsec:model_setup}. The results of this characterization are presented in Fig. \ref{fig:erel_blur}. As can be seen in Fig. \ref{fig:erel_blur}, the effect of blur radii on lesion detection ability is negligible as noted by how the detection curves of the lesions with varying blur radii are largely coincident.
 
 			\begin{figure}[!htb]
 				\centering
+				\characterizationDataTable%
+					{$b_r$}{mm}{2.5,5.0,7.5}%
+					{assets/shear/data/shear_blur_r25.dat}%
+					{assets/shear/data/shear_blur_r50.dat}%
+					{assets/shear/data/shear_blur_r75.dat}%
+					{}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
@@ -650,12 +674,18 @@
 				\label{fig:erel_blur_mse}
 			\end{figure}
 
-			Beyond having boundaries that ``fade'' into the background tissue, deep tissue injury lesions may in fact be heterogeneous in nature with a large number of small lesions clustered together to form a larger lesionous region. To investigate this phenomenon, the effect of small clustered lesion density and individual radii were investigated using shear wave speed quantification. The effect of clustered lesion density was investigated as outlined in Section \ref{subsec:model_setup}, the results of which are shown in Fig. \ref{fig:erel_cluster_density}. \note[KH]{Add graph of shear wave speed along focal line for clustered lesions to show lack of ability to detect individual small lesions?}
+			Beyond having boundaries that ``fade'' into the background tissue, deep tissue injury lesions may in fact be heterogeneous in nature with a large number of small lesions clustered together to form a larger lesionous region. To investigate this phenomenon, the effect of small clustered lesion density and individual radii were investigated using shear wave speed quantification. The effect of clustered lesion density was investigated as outlined in Section \ref{subsec:model_setup}, the results of which are shown in Fig. \ref{fig:erel_cluster_density}.
 
 			As Fig. \ref{fig:erel_cluster_density} shows, decreasing the cluster density generally results in a decreasing detection sensitivity with the least dense clusters both underestimating the stiffness of stiff lesions and overestimating the stiffness of soft lesions. This behaviour is somewhat expected---as the density of clustered lesions decreases, so too does the mean true stiffness of the lesionous region that is inspected due to the greater ratio of ``healthy'' tissue to lesionous tissue.
 
 			\begin{figure}[!htb]
 				\centering
+				\characterizationDataTable%
+					{$b_\rho$}{\si{\per\cm\squared}}{10,20,30,40}%
+					{assets/shear/data/shear_cluster_dens_d10.dat}%
+					{assets/shear/data/shear_cluster_dens_d20.dat}%
+					{assets/shear/data/shear_cluster_dens_d30.dat}%
+					{assets/shear/data/shear_cluster_dens_d40.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
@@ -709,6 +739,12 @@
 
 			\begin{figure}[!htb]
 				\centering
+				\characterizationDataTable%
+					{$r_{bl}$}{mm}{0.5,1.0,1.5}%
+					{assets/shear/data/shear_cluster_dens_d10.dat}%
+					{assets/shear/data/shear_cluster_dens_d20.dat}%
+					{assets/shear/data/shear_cluster_dens_d30.dat}%
+					{}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
@@ -761,6 +797,12 @@
 
 			\begin{figure}[!htb]
 				\centering
+				\characterizationDataTable%
+					{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}%
+					{assets/shear/data/shear_human_radius_r025.dat}%
+					{assets/shear/data/shear_human_radius_r050.dat}%
+					{assets/shear/data/shear_human_radius_r100.dat}%
+					{assets/shear/data/shear_human_radius_r125.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
@@ -780,34 +822,6 @@
 						\addplot table {assets/shear/data/shear_human_radius_r125.dat};
 					\end{axis}
 				\end{tikzpicture}
-
-				%\pgfplotstabletranspose[columns=esr, numeric type]{\transA}{assets/shear/data/shear_human_radius_r025.dat}
-				%\pgfplotstabletranspose[columns=esr, numeric type]{\transB}{assets/shear/data/shear_human_radius_r050.dat}
-				%\pgfplotstabletranspose[columns=esr, numeric type]{\transC}{assets/shear/data/shear_human_radius_r100.dat}
-				%\pgfplotstabletranspose[columns=esr, numeric type]{\transD}{assets/shear/data/shear_human_radius_r125.dat}
-				%\pgfplotstablevertcat{\renderedTable}{\transA}
-				%\pgfplotstablevertcat{\renderedTable}{\transB}
-				%\pgfplotstablevertcat{\renderedTable}{\transC}
-				%\pgfplotstablevertcat{\renderedTable}{\transD}
-				%\pgfplotstabletypeset[
-				%	columns/colnames/.style={
-				%		numeric type,
-				%		column name={(mm)},
-				%		column type=r
-				%	},
-				%	columns/0/.style={
-				%		column name={0.32}
-				%	},
-				%	columns/1/.style={
-				%		column name={0.56}
-				%	},
-				%	columns/2/.style={
-				%		column name={1.80}
-				%	},
-				%	columns/3/.style={
-				%		column name={3.20}
-				%	}
-				%]\renderedTable
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii in a visible human model]{Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii for MRI-acquired lesion geometry in a Visible Human model with an offset of \SI{1.25}{\cm} at a depth of \SI{6}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
 				\label{fig:erel_human_radius}
 			\end{figure}
@@ -916,3 +930,5 @@
 		The results presented here show that shear wave speed quantification is a viable tool for both detecting and monitoring deep tissue injuries, provided the injuries are in general greater than \SI{1}{\cm} in diameter and are closer to the surface of the skin than \SI{8}{\cm}. In order to provide the most accurate results, ARFI focal points should be located approximately \SI{1.25}{\cm} -- \SI{2.50}{\cm} away from the desired region of interest, allowing the shear waves to fully develop before they pass through the lesion for measurement. Blurring the lesions had no appreciable effect on the detection sensitivity whatsoever, however clusters of small lesions comprising a larger lesionous region did---reducing the area ratio of lesionous tissue to that of healthy tissue consistently resulted in lower detection sensitivities. To relate the findings from the simpler model geometries, a simulated lesion with MRI-acquired geometry was placed in a cross-sectional slice of human tissue with geometry obtained from the Visible Human project. The results of the numerical characterizations were consistent with those found using a simpler, spherical model. Finally, the entire simulation pipeline was validated using a tissue mimicking phantom and an ultrasound machine capable of performing shear wave speed quantification where physical lesions presented similar results to their simulated counterparts.
 
 		With a firm understanding of the parameters that affect deep tissue injury detection using shear wave speed quantification, future work may entail investigating the use of shear wave speed quantification in both animal and human subjects who are either at an elevated risk of developing deep tissue injuries or are known to be suffering from such injuries. These steps will be necessary before the technique may be used in a clinical setting---an eventuality that will hopefully result from this work.
+
+\bibcomplete{references}
