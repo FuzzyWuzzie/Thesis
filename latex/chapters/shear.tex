@@ -218,18 +218,18 @@
 				\centering
 				\caption[Shear wave speed quantification model investigated parameters]{Range of values of investigated parameters}
 				\label{tab:shear-parametervalues}
-				\begin{tabular}{lcc}
+				\begin{tabular}{lccs[table-unit-alignment = left]}
 					\toprule
-					Parameter & Symbol & Values \\
+					Parameter & Symbol & Values & Units \\
 					\midrule
-					Lesion depth & $d$ & $[1, 2, 3, 4, 5, 6, 7, 8, 9]$\,\si{\cm} \\
-					Lesion diameter & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$\,\si{\cm} \\
-					Lesion offset & $d_{off}$ & $[0.00, 1.25, 2.50, 3.75]$\,\si{\cm} \\
-					Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ \\
-					Blurred lesion blur radius & $b_r$ & $[1.0, 2.5, 5.0, 7.5]$\,\si{\mm} \\
-					Clustered lesion density & $b_\rho$ & $[10, 20, 30, 40]$\,\si{\per\cm\squared} \\
-					Clustered lesion radius & $r_{bl}$ & $[0.5, 1.0, 1.5]$\,\si{\mm} \\
-					Visible human lesion width & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$\,\si{\cm} \\
+					Lesion depth & $d$ & \numlist{1;2;3;4;5;6;7;8;9} & \si{\cm} \\
+					Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
+					Lesion offset & $d_{off}$ & \numlist{0.00;1.25;2.50;3.75} & \si{\cm} \\
+					Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & \\
+					Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \si{\mm} \\
+					Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \si{\per\cm\squared} \\
+					Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \si{\mm} \\
+					Visible human lesion width & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
@@ -437,18 +437,12 @@
 
 			\begin{figure}[!htb]
 				\centering
-				\characterizationDataTable%
-					{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}%
-					{assets/shear/data/shear_radius_r025.dat}%
-					{assets/shear/data/shear_radius_r050.dat}%
-					{assets/shear/data/shear_radius_r100.dat}%
-					{assets/shear/data/shear_radius_r125.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
@@ -460,6 +454,7 @@
 						\addplot table {assets/shear/data/shear_radius_r050.dat};
 						\addplot table {assets/shear/data/shear_radius_r100.dat};
 						\addplot table {assets/shear/data/shear_radius_r125.dat};
+						\node (c) at (axis cs:1.75,3.6) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radius]{Numerical characterization of the shear wave speed measured stiffness ratios acquired with varying lesion radii for a hard-boundaried lesion at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -492,24 +487,18 @@
 				\label{fig:erel_radius_mse}
 			\end{figure}
 
-			To further investigate these results, the mean-squared error associated with varying lesion size was calculated as per equation \ref{equ:mean-squared-error} with the results presented in Fig. \ref{fig:erel_radius_mse}. In Fig. \ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions is significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \SI{12.5}{\mm}) presented greater error than lesions with radii of \SI{10.0}{\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\times$ basal stiffness) lesion with a radius of \SI{12.5}{\mm} seen in Fig. \ref{fig:erel_radius}. The exact cause of this error is unknown. \note[KH]{Elaborate?}.
+			To further investigate these results, the mean-squared error associated with varying lesion size was calculated as per equation \ref{equ:mean-squared-error} with the results presented in Fig. \ref{fig:erel_radius_mse}. In Fig. \ref{fig:erel_radius_mse}, it is clear to see that the error associated with small lesions was significantly greater than with larger lesions. Interestingly, the largest lesions tested (with radii of \SI{12.5}{\mm}) presented greater error than lesions with radii of \SI{10.0}{\mm}. This increase in error may be largely attributed to the over-estimation of the lesion stiffness ratio for a stiff (3.2 $\times$ basal stiffness) lesion with a radius of \SI{12.5}{\mm} seen in Fig. \ref{fig:erel_radius}.
 
 			One of the key parameters used in shear wave speed quantification is the distance between the focal point of the acoustic radiation force and the lesion itself. In order to adequately generate fully-formed shear waves within the lesion, the focal point of acoustic radiation force should be located adjacent to the lesion. As can be seen in Fig. \ref{fig:erel_doff_d4}, regardless of the lesion offset distance, shear wave speed quantification is able to differentiate lesions from the tissue with reasonable accuracy. The largest exception to this generalization is for very stiff lesions for which the ARFI load is focused the farthest away from the lesion. It is hypothesized that the measured stiffness ratio of these lesions is underestimated because by the time the shear wave reaches the relatively far-away lesion, it's energy has substantially dissipated, disallowing the wave to remain fully cohesive and speed up appropriately.
 
 			\begin{figure}[!htb]
 				\centering
-				\characterizationDataTable%
-					{$\Delta_{off}$}{cm}{0.00,1.25,2.50,3.75}%
-					{assets/shear/data/shear_doff_d4_o000.dat}%
-					{assets/shear/data/shear_doff_d4_o125.dat}%
-					{assets/shear/data/shear_doff_d4_o250.dat}%
-					{assets/shear/data/shear_doff_d4_o375.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$\Delta_{off} = \SI{0.00}{\cm}$, $\Delta_{off} = \SI{1.25}{\cm}$, $\Delta_{off} = \SI{2.50}{\cm}$, $\Delta_{off} = \SI{3.75}{\cm}$},
@@ -521,6 +510,7 @@
 						\addplot table {assets/shear/data/shear_doff_d4_o125.dat};
 						\addplot table {assets/shear/data/shear_doff_d4_o250.dat};
 						\addplot table {assets/shear/data/shear_doff_d4_o375.dat};
+						\node (c) at (axis cs:0.5,3) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion offsets]{Numerical characterization of the shear wave speed measured stiffness ratios acquired with varying lesion offsets for a hard-boundaried \SI{0.5}{cm} radius lesion at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}. The greatest error between the true and measured stiffness ratios occurred at the highest stiffness ratio of $3.2$, with the large lesion offset underestimating the stiffness ratio and the negated lesion offset overestimating the stiffness ratio.}
@@ -557,18 +547,12 @@
 
 			\begin{figure}[!htb]
 				\centering
-				\characterizationDataTable%
-					{$d$}{cm}{2,4,6,8}%
-					{assets/shear/data/shear_depth_o250_d2.dat}%
-					{assets/shear/data/shear_depth_o250_d4.dat}%
-					{assets/shear/data/shear_depth_o250_d6.dat}%
-					{assets/shear/data/shear_depth_o250_d8.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$d = \SI{2}{\cm}$, $d = \SI{4}{\cm}$, $d = \SI{6}{\cm}$, $d = \SI{8}{\cm}$},
@@ -580,6 +564,7 @@
 						\addplot table {assets/shear/data/shear_depth_o250_d4.dat};
 						\addplot table {assets/shear/data/shear_depth_o250_d6.dat};
 						\addplot table {assets/shear/data/shear_depth_o250_d8.dat};
+						\node (c) at (axis cs:0.5,3) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion depth]{Numerical characterization of the shear wave speed measured stiffness ratios acquired with varying lesion and focal point depths for a hard-boundaried \SI{0.5}{cm} radius lesion with an offset of \SI{2.50}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -618,18 +603,12 @@
 
 			\begin{figure}[!htb]
 				\centering
-				\characterizationDataTable%
-					{$b_r$}{mm}{2.5,5.0,7.5}%
-					{assets/shear/data/shear_blur_r25.dat}%
-					{assets/shear/data/shear_blur_r50.dat}%
-					{assets/shear/data/shear_blur_r75.dat}%
-					{}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$b_r = \SI{2.5}{\mm}$, $b_r = \SI{5.0}{\mm}$, $b_r = \SI{7.5}{\mm}$},
@@ -640,6 +619,7 @@
 						\addplot table {assets/shear/data/shear_blur_r25.dat};
 						\addplot table {assets/shear/data/shear_blur_r50.dat};
 						\addplot table {assets/shear/data/shear_blur_r75.dat};
+						\node (c) at (axis cs:0.5,2.5) {\includegraphics{assets/quasistatic/insets/inset_blur.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with blurred lesions]{Numerical characterization of the shear wave speed measured stiffness ratios acquired with varying lesion and focal point depths for a blurred \SI{1.0}{cm} radius lesion with an offset of \SI{1.25}{\cm} at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -680,18 +660,12 @@
 
 			\begin{figure}[!htb]
 				\centering
-				\characterizationDataTable%
-					{$b_\rho$}{\si{\per\cm\squared}}{10,20,30,40}%
-					{assets/shear/data/shear_cluster_dens_d10.dat}%
-					{assets/shear/data/shear_cluster_dens_d20.dat}%
-					{assets/shear/data/shear_cluster_dens_d30.dat}%
-					{assets/shear/data/shear_cluster_dens_d40.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$b_\rho = \SI{10}{\per\cm\squared}$, $b_\rho = \SI{20}{\per\cm\squared}$, $b_\rho = \SI{30}{\per\cm\squared}$, $b_\rho = \SI{40}{\per\cm\squared}$},
@@ -703,6 +677,7 @@
 						\addplot table {assets/shear/data/shear_cluster_dens_d20.dat};
 						\addplot table {assets/shear/data/shear_cluster_dens_d30.dat};
 						\addplot table {assets/shear/data/shear_cluster_dens_d40.dat};
+						\node (c) at (axis cs:0.5,2) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with clustered lesions]{Numerical characterization of the shear wave speed measured stiffness ratios acquired with varying cluster densities for clustered \SI{1}{\mm} radius lesions within a \SI{1.0}{cm} radius with an offset of \SI{1.25}{\cm} at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -739,18 +714,12 @@
 
 			\begin{figure}[!htb]
 				\centering
-				\characterizationDataTable%
-					{$r_{bl}$}{mm}{0.5,1.0,1.5}%
-					{assets/shear/data/shear_cluster_dens_d10.dat}%
-					{assets/shear/data/shear_cluster_dens_d20.dat}%
-					{assets/shear/data/shear_cluster_dens_d30.dat}%
-					{}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$r_{bl} = \SI{0.5}{\mm}$, $r_{bl} = \SI{1.0}{\mm}$, $r_{bl} = \SI{1.5}{\mm}$},
@@ -761,6 +730,7 @@
 						\addplot table {assets/shear/data/shear_cluster_radius_r05.dat};
 						\addplot table {assets/shear/data/shear_cluster_radius_r10.dat};
 						\addplot table {assets/shear/data/shear_cluster_radius_r15.dat};
+						\node (c) at (axis cs:0.5,2) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with clustered lesions]{Numerical characterization of the shear wave speed measured stiffness ratios acquired with varying clustered lesion radii for clustered lesions with a density of \SI{30}{\per\cm\squared} within a \SI{1.0}{cm} radius with an offset of \SI{1.25}{\cm} at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -797,18 +767,12 @@
 
 			\begin{figure}[!htb]
 				\centering
-				\characterizationDataTable%
-					{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}%
-					{assets/shear/data/shear_human_radius_r025.dat}%
-					{assets/shear/data/shear_human_radius_r050.dat}%
-					{assets/shear/data/shear_human_radius_r100.dat}%
-					{assets/shear/data/shear_human_radius_r125.dat}
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={$r_{lesion} = \SI{2.5}{\mm}$, $r_{lesion} = \SI{5.0}{\mm}$, $r_{lesion} = \SI{10.0}{\mm}$, $r_{lesion} = \SI{12.5}{\mm}$},
@@ -820,6 +784,8 @@
 						\addplot table {assets/shear/data/shear_human_radius_r050.dat};
 						\addplot table {assets/shear/data/shear_human_radius_r100.dat};
 						\addplot table {assets/shear/data/shear_human_radius_r125.dat};
+						\node (c) at (axis cs:0.5,2.25) {\includegraphics[width=0.072\columnwidth]{assets/quasistatic/insets/human.png}};
+						\node (rect) at (axis cs:0.5,2.25) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii in a visible human model]{Numerical characterization of shear wave speed measured stiffness ratio with changing lesion radii for MRI-acquired lesion geometry in a Visible Human model with an offset of \SI{1.25}{\cm} at a depth of \SI{6}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -852,6 +818,8 @@
 				\label{fig:erel_human_radius_mse}
 			\end{figure}
 
+			Numerical values for the characterization plots presented here are given in Section \ref{appsec:dt_shear} of Appendix \ref{app:data_tables}.
+
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
 			In order to examine the validity of the simulations presented in Section \ref{subsec:model_setup} and the results presented in Section \ref{subsec:shear_results}, experiments using a physical tissue mimicking phantom and an ultrasound machine were performed as described in Section \ref{subsec:shear_model_validation}. The results of these experiments are presented in Figs. \ref{fig:shear_phantom_validation_nominal} and \ref{fig:shear_phantom_validation} where the difference between the experimentally measured stiffness ratios of lesions were compared against their nominal and simulated stiffnesses respectively.
@@ -863,7 +831,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
 						legend entries={Results, Ideal},
@@ -882,6 +850,7 @@
 									ultra thick
 								}] table[y error plus=upper, y error minus=lower] {assets/shear/data/shear_experiment_nominal.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+							\node (c) at (axis cs:0.5,3) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental shear wave speed quantification results]{Relation between nominally reported strain ratios of the tissue mimicking phantom and experimentally measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases. Error bars represent the range of measurements acquired.}
@@ -916,6 +885,7 @@
 									ultra thick
 								}] table[x error plus=upper, x error minus=lower] {assets/shear/data/shear_experiment.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+							\node (c) at (axis cs:0.5,3) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental validation of shear wave speed quantification model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm} showing general agreement between simulated and experimental cases.}

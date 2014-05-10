@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\usepackage{booktabs}
+\usepackage{pgfplotstable}
+\usepackage{siunitx}
+
+\begin{document}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:trans-width-force}}
+			\pgfplotstableread{../assets/arfi/data/freq_force_width4.dat}\renderTable
+			\pgfplotstableread{../assets/arfi/data/freq_force_width8.dat}\partB
+			\pgfplotstableread{../assets/arfi/data/freq_force_width10.dat}\partC
+			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/freq/.style={
+					string type,
+					column name={$f$ (MHz)},
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed,round-integer-to-decimal]}
+				},
+				columns/force/.style={
+					column name={$w_{active} = \SI{4}{\cm}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partB/.style={
+					column name={$w_{active} = \SI{8}{\cm}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partC/.style={
+					column name={$w_{active} = \SI{10}{\cm}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						\multicolumn{1}{c}{Frequency,} & \multicolumn{3}{c}{Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})} \\
+						\cmidrule{2-4}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+\end{document}

@@ -19,18 +19,18 @@
 				\toprule
 				Parameter & Symbol & Values & Units \\
 				\midrule
-				Lesion depth & $d$ & $[3.5, 6.5, 8.5, 10.0]$ & \si{\cm} \\
-				Lesion altitude & $h$ & $[1.25, 2.50, 3.75]$ & \si{\cm} \\
-				Lesion diameter & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$ & \si{\cm} \\
-				Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ & - \\
-				Ultrasound frequency & $f$ & $[2, 4, 8]$ & \si{\MHz} \\
-				Transducer-applied strain & $\varepsilon_{app}$ & $[2.5, 5.0, 10.0]$ & \si{\percent} \\
-				Co-located separation distance & $\delta_{sep}$ & $[1.25, 1.50, 1.75, 2.00]$ & \si{\cm} \\
-				Blurred lesion blur radius & $b_r$ & $[1.0, 2.5, 5.0, 7.5]$ & \si{\mm} \\
-				Clustered lesion density & $b_\rho$ & $[10, 20, 30, 40]$ & \si{\per\cm\squared} \\
-				Clustered lesion radius & $r_{bl}$ & $[0.5, 1.0, 1.5]$ & \si{\mm} \\
-				Visible human lesion width & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$ & \si{\cm} \\
-				Visible human lesion depth & $d$ & $[6.25, 6.75, 7.25]$ & \si{\cm} \\
+				Lesion depth & $d$ & \numlist{3.5;6.5;8.5;10.0} & \si{\cm} \\
+				Lesion altitude & $h$ & \numlist{1.25;2.50;3.75} & \si{\cm} \\
+				Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
+				Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & - \\
+				Ultrasound frequency & $f$ & \numlist{2;4;8} & \si{\MHz} \\
+				Transducer-applied strain & $\varepsilon_{app}$ & \numlist{2.5;5.0;10.0} & \si{\percent} \\
+				Co-located separation distance & $\delta_{sep}$ & \numlist{1.25;1.50;1.75;2.00} & \si{\cm} \\
+				Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \si{\mm} \\
+				Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \si{\per\cm\squared} \\
+				Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \si{\mm} \\
+				Visible human lesion width & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
+				Visible human lesion depth & $d$ & \numlist{6.25;6.75;7.25} & \si{\cm} \\
 				\bottomrule
 			\end{tabular}
 		\end{table}
@@ -81,7 +81,8 @@
 						xlabel={Lateral (\si{\mm})},
 						ylabel={Axial (\si{\mm})},
 						y dir=reverse,
-						draw=black, text=black, fill=black
+						draw=black, text=black, fill=black,
+						xtick={-1,-0.5,0,0.5,1}
 						]
 							\addplot graphics[xmin=-1.15,xmax=1.15,ymin=0,ymax=1.54]{assets/quasistatic/images/psf.png};
 						\end{axis}
@@ -119,16 +120,16 @@
 				\centering
 				\caption{CIRS Phantom Model Mechanical Properties}
 				\label{tab:phantomproperties}
-				\begin{tabular}{lcs[table-unit-alignment = left]}
+				\begin{tabular}{lccs[table-unit-alignment = left]}
 					\toprule
-					Property & Value & Units \\
+					Property & Symbol & Value & Units \\
 					\midrule
-					Nominal basal stiffness & 25 & \si{\kPa} \\
-					Lesion stiffness &  $[8, 14, 45, 80]$ & \si{\kPa} \\
-					Speed of sound & 1540 & \si{\metre\per\second} \\
-					Acoustic attenuation & 0.5 & \si{\decibel\per\cm\per\MHz} \\
-					Lesion diameter & $[10, 20]$ & \si{\mm} \\
-					Lesion depth & $[15, 35]$ & \si{\mm} \\
+					Nominal basal elastic modulus & $E$ & 25 & \si{\kPa} \\
+					Lesion elastic modulus & $E$ & \numlist{8;14;45;80} & \si{\kPa} \\
+					Speed of sound & $c_0$ & 1540 & \si{\metre\per\second} \\
+					Acoustic attenuation & $\alpha$ & 0.5 & \si{\decibel\per\cm\per\MHz} \\
+					Lesion diameter & $\diameter S$ & \numlist{10;20} & \si{\mm} \\
+					Lesion depth & $d$ & \numlist{15;35} & \si{\mm} \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
@@ -310,7 +311,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$\diameter S = \SI{0.5}{\cm}$, $\diameter S = \SI{1.0}{\cm}$, $\diameter S = \SI{2.0}{\cm}$, $\diameter S = \SI{2.5}{\cm}$},
@@ -340,7 +341,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$d = \SI{3.5}{\cm}$, $d = \SI{6.5}{\cm}$, $d = \SI{8.5}{\cm}$, $d = \SI{10}{\cm}$},
@@ -370,7 +371,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$h = \SI{1.25}{\cm}$, $h = \SI{2.50}{\cm}$, $h = \SI{3.75}{\cm}$},
@@ -399,7 +400,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{8}{\MHz}$},
@@ -428,7 +429,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$\varepsilon_{app} = \SI{2.5}{\percent}$, $\varepsilon_{app} = \SI{5.0}{\percent}$, $\varepsilon_{app} = \SI{10.0}{\percent}$},
@@ -457,7 +458,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$\delta_{sep} = \SI{1.25}{\cm}$, $\delta_{sep} = \SI{1.50}{\cm}$, $\delta_{sep} = \SI{1.75}{\cm}$, $\delta_{sep} = \SI{2.00}{\cm}$},
@@ -512,7 +513,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$b_r = \SI{1.0}{\mm}$, $b_r = \SI{2.5}{\mm}$, $b_r = \SI{5.0}{\mm}$, $b_r = \SI{7.5}{\mm}$},
@@ -532,9 +533,7 @@
 				\label{fig:blur_radius_characterization}
 			\end{figure}
 
-			Fig. \ref{fig:blur_radius_characterization} shows that there is very little dependence on the lesion detection sensitivity for stiff lesions (lesions with a stiffness ratio $\geq 1.0$). However, for soft lesions, the tissue strain estimation algorithm seems to over-estimate the stiffness of the lesions.
-
-			\note[KH]{Reason?}
+			Fig. \ref{fig:blur_radius_characterization} shows that there is relatively little dependence of the lesion detection sensitivity on the lesion blur radius. No matter the blur radius, quasi-static elastography substantially overestimated the stiffness of stiff lesions and underestimated the stiffness of soft lesions. This technique was unable to discern differences in lesion stiffness due to blur radius for the least stiff lesions---lesions with a nominal stiffness ratio of 0.32. Further, quasi-static elastography was generally unable to detect unstiff lesions ($E_{nom} \leq 1$) whatsoever.
 
 			Similar to how lesions may have ``blurred boundaries'' rather that hard ones, so too may lesion composition not be homogeneous. In order to study the effect of heterogeneous regions of injured tissue, the detection sensitivity of a set of numerous small lesions located within close proximity to each other so as to form a large, heterogeneous area of diseased tissue was examined. Fig. \ref{fig:blob_density_characterization} shows the results for this model for varying numbers of \SI{2}{\mm} diameter lesions in a \SI{2.5}{\cm} diameter circle located at a depth of \SI{10}{\cm} with a probing frequency of \SI{4}{\MHz} and \SI{5}{\percent} applied strain. Fig. \ref{fig:blob_radius_characterization} further explores this model by investigating the case where there are 30 small lesions per square \SI{}{\cm} with individual lesions ranging in diameter from \SI{0.5}{\mm} to \SI{1.5}{\mm}.
 
@@ -545,7 +544,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$b_\rho = \SI{10}{\per\cm\squared}$, $b_\rho = \SI{20}{\per\cm\squared}$, $b_\rho = \SI{30}{\per\cm\squared}$, $b_\rho = \SI{40}{\per\cm\squared}$},
@@ -618,10 +617,10 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
-						legend entries={$r_{bl} = \SI{0.5}{\mm}$, $r_{bl} = \SI{1.0}{\mm}$, $r_{bl} = \SI{2.0}{\mm}$, $r_{bl} = \SI{2.5}{\mm}$},
+						legend entries={$r_{bl} = \SI{0.5}{\mm}$, $r_{bl} = \SI{1.0}{\mm}$, $r_{bl} = \SI{1.5}{\mm}$},
 						legend style={legend pos=north west,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -649,7 +648,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$\diameter S = \SI{0.5}{\cm}$, $\diameter S = \SI{1.0}{\cm}$, $\diameter S = \SI{2.0}{\cm}$, $\diameter S = \SI{2.5}{\cm}$},
@@ -703,7 +702,7 @@
 						scale only axis,
 						height=3in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Lesion Stiffness Ratio, $E_{true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Lesion Stiffness Ratio, $E_{meas}$},
 						grid=major,
 						legend entries={$d = \SI{6.25}{\cm}$, $d = \SI{6.75}{\cm}$, $d = \SI{7.25}{\cm}$},
@@ -718,11 +717,13 @@
 							\node [anchor=south](rect) at (axis cs:3.2,0.64) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
-				\caption[Quasi-static characterization of lesion depth in a Visible Human model]{Characterization of lesion depth in a Visible Human-MRI model for lesions with a width of \SI{2.5}{\cm} interrogated with a \SI{4}{\MHz} probing frequency and \SI{5}{\percent} applied strain. Deeper lesions (closer to the bony promience) are have slightly over-estimated lesion stiffness ratios as opposed to more superficial lesions while detection sensitivity is not affected by lesion depth.}
+				\caption[Quasi-static characterization of lesion depth in a Visible Human model]{Characterization of lesion depth in a Visible Human-MRI model for lesions with a width of \SI{2.5}{\cm} interrogated with a \SI{4}{\MHz} probing frequency and \SI{5}{\percent} applied strain. Deeper lesions (closer to the bony prominence) are have slightly over-estimated lesion stiffness ratios as opposed to more superficial lesions while detection sensitivity is not affected by lesion depth.}
 				\label{fig:human_depth_characterization}
 			\end{figure}
 
 			In Fig. \ref{fig:human_depth_characterization}, there is little to no dependence of the detection sensitivity on the lesion depth in the Visible Human-MRI model with all depth curves displaying the same profile. However, deeper lesions (lesions closer to the bony prominence) have stiffnesses that are over-estimated with respect to their superficial counterparts. This is hypothesized to be due to the increased strain field present in all of the soft tissue located immediately superior to the bony prominence, but should not pose a serious problem for imaging lesions of this nature.
+
+			Numerical values for the characterization plots presented here are given in Section \ref{appsec:dt_quasi} of Appendix \ref{app:data_tables}.
 
 		\subsection{Physical Phantom Validation}
 			In order to ensure that the models presented here represented physical realities, a small subset of the cases studied were modelled in a physical phantom, specifically for three lesions with stiffness ratios of 0.56, 1.80, and 3.20 with a diameter of \SI{2.0}{\cm} and at a depth of \SI{3.5}{\cm}, interrogated at \SI{8}{\MHz} with approximately \SI{5}{\percent} applied strain. The results of this study are summarized in Fig. \ref{fig:phantom_validation}.

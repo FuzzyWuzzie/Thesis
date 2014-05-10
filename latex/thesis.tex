@@ -39,6 +39,7 @@
 \usepackage{xparse}
 \usepackage{etoolbox}
 \usepackage{ifthen}
+\usepackage{multicol}
 
 % add a "DRAFT" watermark to everything
 %\usepackage{draftwatermark}
@@ -53,6 +54,8 @@
 	%fraction=nice
 	%fraction=sfrac
 	%per-mode=symbol,
+	list-separator = {, },
+	list-final-separator = {, },
 }
 %\newcommand{\usd}[1]{\SI{#1}[\$\ensuremath{\,}]{}}
 \newcommand{\percent}{\%}
@@ -188,53 +191,60 @@ fill=pc9\\%
 \newcommand{\fourLegendMarksB}{\raisebox{2pt}{\tikz{\draw[pc2,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=square*,mark size=3pt,mark options={color=pc2}] plot coordinates {(2.5mm,0)};}}}
 \newcommand{\fourLegendMarksC}{\raisebox{2pt}{\tikz{\draw[pc3,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=diamond*,mark size=3pt,mark options={color=pc3}] plot coordinates {(2.5mm,0)};}}}
 \newcommand{\fourLegendMarksD}{\raisebox{2pt}{\tikz{\draw[pc4,solid,ultra thick](0,0) -- (5mm,0); \draw[mark=pentagon*,mark size=3pt,mark options={color=pc4}] plot coordinates {(2.5mm,0)};}}}
-\newcommand{\characterizationDataTable}[7]{
-	\def\paramVals{\fourLegendMarksA,\fourLegendMarksB,\fourLegendMarksC,\fourLegendMarksD}
-	\pgfplotstabletranspose[columns={esr}, string type]{\renderedTable}{#4}
-	\ifthenelse{\equal{#5}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transB}{#5}\pgfplotstablevertcat{\renderedTable}{\transB}}
-	\ifthenelse{\equal{#6}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transC}{#6}\pgfplotstablevertcat{\renderedTable}{\transC}}
-	\ifthenelse{\equal{#7}{}}{}{\pgfplotstabletranspose[columns={esr}, string type]{\transD}{#7}\pgfplotstablevertcat{\renderedTable}{\transD}}
+\newcommand{\characterizationDataTable}[9]{
+	%\def\paramVals{\fourLegendMarksA,\fourLegendMarksB,\fourLegendMarksC,\fourLegendMarksD}
+	\def\paramVals{#3}
+	\pgfplotstabletranspose[columns={#5}, string type]{\renderedTable}{#6}
+	\ifthenelse{\equal{#7}{}}{}{\pgfplotstabletranspose[columns={#5}, string type]{\transB}{#7}\pgfplotstablevertcat{\renderedTable}{\transB}}
+	\ifthenelse{\equal{#8}{}}{}{\pgfplotstabletranspose[columns={#5}, string type]{\transC}{#8}\pgfplotstablevertcat{\renderedTable}{\transC}}
+	\ifthenelse{\equal{#9}{}}{}{\pgfplotstabletranspose[columns={#5}, string type]{\transD}{#9}\pgfplotstablevertcat{\renderedTable}{\transD}}
 	\pgfplotstablecreatecol[
 		create col/assign/.code={%
 			\edef\entry{\paramVal[\pgfplotstablerow]}%
 			\pgfkeyslet{/pgfplots/table/create col/next content}\entry
 	}]
 	{param}\renderedTable
-	\pgfplotstabletypeset[
-		columns={param,0,1,2,3},
-		columns/param/.style={
-			string type,
-			column name={#1},
-			column type=c
-		},
-		columns/0/.style={
-			numeric type,
-			column name={{0.32}},
-			fixed,fixed zerofill,precision=2
-		},
-		columns/1/.style={
-			numeric type,
-			column name={0.56},
-			fixed,fixed zerofill,precision=2
-		},
-		columns/2/.style={
-			numeric type,
-			column name={1.80},
-			fixed,fixed zerofill,precision=2
-		},
-		columns/3/.style={
-			numeric type,
-			column name={3.20},
-			fixed,fixed zerofill,precision=2
-		},
-		every head row/.style={
-			before row={%
-				 & \multicolumn{4}{c}{\ensuremath{E_{nom}}} \\
-				\cmidrule{2-5}
+	\begin{table}[H]
+		\centering
+		\caption[]{Data for Fig. \protect\ref{#4}}
+		\pgfplotstabletypeset[
+			columns={param,0,1,2,3},
+			columns/param/.style={
+				string type,
+				column name={(#2)},
+				column type=c
 			},
-			after row=\midrule
-		},
-	]\renderedTable
+			columns/0/.style={
+				numeric type,
+				column name={{0.32}},
+				fixed,fixed zerofill,precision=2
+			},
+			columns/1/.style={
+				numeric type,
+				column name={0.56},
+				fixed,fixed zerofill,precision=2
+			},
+			columns/2/.style={
+				numeric type,
+				column name={1.80},
+				fixed,fixed zerofill,precision=2
+			},
+			columns/3/.style={
+				numeric type,
+				column name={3.20},
+				fixed,fixed zerofill,precision=2
+			},
+			every head row/.style={
+				before row={%
+					\toprule
+					#1 & \multicolumn{4}{c}{\ensuremath{E_{nom}}} \\
+					\cmidrule{2-5}
+				},
+				after row=\midrule
+			},
+			every last row/.style={after row=\bottomrule}
+		]\renderedTable
+	\end{table}
 }
 
 % align subfloats to the top of the float
@@ -345,23 +355,9 @@ fill=pc9\\%
 
 %% APPENDICES %%
 \appendix
-\comment{\pretocmd{\chapter}{%
-  \clearpage
-  \pagenumbering{arabic}%
-  \renewcommand*{\thepage}{\thechapter-\arabic{page}}%
-}{}{}
-\setcounter{page}{1}}
 
-\makeatletter
-\addtocontents{toc}{\let\protect\l@chapter\protect\l@section}
-\makeatother
 \begin{appendices}
-\makeatletter
-\def\chaptermark#1{\markboth{\MakeUppercase{\@chapapp. \  #1}}{}}
-\def\thechapter{}
-\makeatother
-%\input{appendices/datatables}
-%\note[KH]{Add appendix for data tables?}
+\input{appendices/datatables}
 \input{appendices/sourcecode}
 \end{appendices}
 

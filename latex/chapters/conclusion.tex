@@ -19,7 +19,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={Quasi-Static, ARFI, Shear, Ideal},
@@ -33,6 +33,7 @@
 						\addplot table {assets/arfi/data/arfi_radius_r100.dat};
 						\addplot table {assets/shear/data/shear_radius_r100.dat};
 						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+						\node (c) at (axis cs:3,0.75) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Detection sensitivities of hard-boundaried spherical lesions using the three investigated imaging modalities]{Detection sensitivities of hard-boundaried spherical lesions with radii of \SI{10}{\mm} at a depth of \SI{4}{\cm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
@@ -82,7 +83,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={Quasi-Static, ARFI, Shear, Ideal},
@@ -96,6 +97,7 @@
 						\addplot table[x={trueSR}, y={arfiSR}] {\conclusionBlur};
 						\addplot table[x={trueSR}, y={shearSR}] {\conclusionBlur};
 						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+						\node (c) at (axis cs:3,0.75) {\includegraphics{assets/quasistatic/insets/inset_blur.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Detection sensitivities of blurred-boundary spherical lesions using the three investigated imaging modalities]{Detection sensitivities of blurred-boundary spherical lesions with radii of \SI{10}{\mm} with blur radii of \SI{7.5}{\mm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
@@ -143,7 +145,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={Quasi-Static, ARFI, Shear, Ideal},
@@ -157,6 +159,7 @@
 						\addplot table[x={trueSR}, y={arfiSR}] {\conclusionCluster};
 						\addplot table[x={trueSR}, y={shearSR}] {\conclusionCluster};
 						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+						\node (c) at (axis cs:3,0.75) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Detection sensitivities of clustered lesions using the three investigated imaging modalities]{Detection sensitivities of clustered lesions with a cluster density of \SI{20}{\per\cm\squared} and individual radii of \SI{1}{\mm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
@@ -204,7 +207,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
 						grid=major,
 						legend entries={Quasi-Static, ARFI, Shear, Ideal},
@@ -218,6 +221,8 @@
 						\addplot table[x={trueSR}, y={arfiSR}] {\conclusionHuman};
 						\addplot table[x={trueSR}, y={shearSR}] {\conclusionHuman};
 						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+						\node (c) at (axis cs:1.5,2.75) {\includegraphics[width=0.072\columnwidth]{assets/quasistatic/insets/human.png}};
+						\node (rect) at (axis cs:1.5,2.75) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Detection sensitivities of MRI-acquired Visible Human lesions using the three investigated imaging modalities]{Detection sensitivities of MRI-acquired Visible Human lesions with a width of \SI{20}{\mm} at a depth of \SI{6}{\cm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
@@ -296,6 +301,7 @@
 									ultra thick
 								}] table[y error plus=upper, y error minus=lower] {assets/shear/data/shear_experiment_nominal.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental results of the three methodologies investigated]{Experimental results of the three methodologies investigated. ARFI imaging consistently overestimated the stiffness of the lesion compared to both quasi-static and shear wave speed quantification, which generally underestimated the stiffness of lesions.}
@@ -341,7 +347,7 @@
 									ultra thick
 								}] table[x error plus=upper, x error minus=lower] {assets/shear/data/shear_experiment.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental validation of the simulation results across all three methodologies investigated]{Experimental validation of the simulation results across all three methodologies investigated. The quasi-static ultrasound elastography and shear wave speed quantification simulations most closely matched the results seen experimentally.}

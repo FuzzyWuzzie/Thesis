@@ -16,13 +16,13 @@
 			\begin{subequations}
 				\label{equ:arfi_gov}
 				\begin{align}
-					\frac{\partial \vec{u}}{\partial t} &= - \frac{1}{\rho_0} \nabla p \label{equ:arfi_gov_p1} \\
-					\frac{\partial p}{\partial t} &= -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{u} - \vec{u} \cdot \nabla \rho_0 \label{equ:arfi_gov_p2} \\
-					p &= c_0^2 \left(\rho + \vec{d} \cdot \nabla \rho_0 + \frac{B}{2A} \frac{\rho^2}{\rho_0} - \mathbf{L}\rho \right) \label{equ:arfi_gov_p3}
+					\frac{\partial \vec{v}}{\partial t} &= - \frac{1}{\rho_0} \nabla p \label{equ:arfi_gov_p1} \\
+					\frac{\partial p}{\partial t} &= -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{v} - \vec{v} \cdot \nabla \rho_0 \label{equ:arfi_gov_p2} \\
+					p &= c_0^2 \left(\rho + \vec{u} \cdot \nabla \rho_0 + \frac{B}{2A} \frac{\rho^2}{\rho_0} - \mathbf{L}\rho \right) \label{equ:arfi_gov_p3}
 				\end{align}
 			\end{subequations}
 
-			In equations \ref{equ:arfi_gov}, $\vec{u}$ is the acoustic particle velocity, $p$ is the acoustic pressure, $\rho$ is the acoustic density, $\rho_0$ is the equilibrium density, $c_0$ is the acoustic sound speed, $\vec{d}$ is the acoustic particle displacement, and $\sfrac{B}{A}$ is a nonlinearity parameter which models alterations to the sound speed \cite{beyer08}.
+			In equations \ref{equ:arfi_gov}, $\vec{v}$ is the acoustic particle velocity, $p$ is the acoustic pressure, $\rho$ is the acoustic density, $\rho_0$ is the equilibrium density, $c_0$ is the acoustic sound speed, $\vec{u}$ is the acoustic particle displacement, and $\sfrac{B}{A}$ is a nonlinearity parameter which models alterations to the sound speed \cite{beyer08}.
 
 			\begin{equation}
 				\label{equ:wave_equation}
@@ -43,7 +43,7 @@
 
 			\begin{equation}
 				\label{equ:arfi_gov_p2_source}
-				\frac{\partial p}{\partial t} = -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{u} - \vec{u} \cdot \nabla \rho_0 + S_M
+				\frac{\partial p}{\partial t} = -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{v} - \vec{v} \cdot \nabla \rho_0 + S_M
 			\end{equation}
 
 			The k-Wave MATLAB\textsuperscript{\textregistered} toolbox version 1.0 was used to solve for the time-variant intensities resulting from simulated acoustic radiation force impulses applied to heterogeneous soft tissue using equations \ref{equ:arfi_gov_p1}, \ref{equ:arfi_gov_p2_source}, and \ref{equ:arfi_gov_p3} with the acoustic properties listed in Table \ref{tab:kspace_properties}. Sample source code for performing these simulations using the k-Wave toolbox is given in listing \ref{lst:intensity} in Appendix \ref{app:source_code}.
@@ -296,17 +296,17 @@
 					\toprule
 					Parameter & Symbol & Values & {Units} \\
 					\midrule
-					ARFI interrogation frequency & $f$ & $[1, 2, 4, 6]$ & \MHz \\
-					Transducer width & $w_{trans}$ & $[4, 8, 10]$ & \cm \\
-					ARFI pulse cycles & $n_c$ & $[3, 100, 300, 500, 700]$ & - \\
-					ARFI source pressure & $P_{source}$ & $[4, 5, 6, 7, 8]$ & \MPa \\
-					Lesion depth & $d$ & $[1, 2, 3, 4, 5, 6, 7, 8, 9]$ & \cm \\
-					Lesion diameter & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$ & \cm \\
-					Lesion stiffness ratio & $E_{rel}$ & $[0.32, 0.56, 1.80, 3.20]$ & - \\
-					Blurred lesion blur radius & $b_r$ & $[1.0, 2.5, 5.0, 7.5]$ & \mm \\
-					Clustered lesion density & $b_\rho$ & $[10, 20, 30, 40]$ & \per\cm\squared \\
-					Clustered lesion radius & $r_{bl}$ & $[0.5, 1.0, 1.5]$ & \mm \\
-					Visible human lesion width & $\diameter S$ & $[0.5, 1.0, 2.0, 2.5]$ & \cm \\
+					ARFI interrogation frequency & $f$ & \numlist{1;2;4;6} & \MHz \\
+					Transducer width & $w_{trans}$ & \numlist{4;8;10} & \cm \\
+					ARFI pulse cycles & $n_c$ & \numlist{3;100;300;500;700} & - \\
+					ARFI source pressure & $P_{source}$ & \numlist{4;5;6;7;8} & \MPa \\
+					Lesion depth & $d$ & \numlist{1;2;3;4;5;6;7;8;9} & \cm \\
+					Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \cm \\
+					Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & - \\
+					Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \mm \\
+					Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \per\cm\squared \\
+					Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \mm \\
+					Visible human lesion width & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \cm \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
@@ -439,11 +439,11 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={ARFI Frequency, $f_{ARFI}$ (\si{\MHz})},
+						xlabel={ARFI Interrogation Frequency, $f_{ARFI}$ (\si{\MHz})},
 						ylabel style={align=center},
 						ylabel={Body Force at Focal Point, \\ $F_{b,f}$ (\si{\kN\per\metre\cubed})},
 						grid=major,
-						legend entries={$a_{trans} = \SI{4}{\cm}$, $a_{trans} = \SI{8}{\cm}$, $a_{trans} = \SI{10}{\cm}$},
+						legend entries={$w_{trans} = \SI{4}{\cm}$, $w_{trans} = \SI{8}{\cm}$, $w_{trans} = \SI{10}{\cm}$},
 						legend style={legend pos=north east,font=\small},
 						clip=true,
 						cycle list name=ColourPlotCycle,
@@ -457,7 +457,7 @@
 				\label{fig:trans-width-force}
 			\end{figure}
 
-			Surprisingly, there was little consistent effect of the transducer aperture size on the magnitude of the acoustic radiation force that was seen at the focal point. As expected, the greatest and least forces were developed with the lowest and highest frequencies studied, respectively, as per the results found in Fig. \ref{fig:freq-depth-force}. The greatest effect of the transducer aperture size occurred at a frequency of \SI{1}{\MHz}, where it is hypothesized that \note[KH]{hypothesize!}.
+			Surprisingly, there was little consistent effect of the transducer aperture size on the magnitude of the acoustic radiation force that was seen at the focal point. As expected, the greatest and least forces were developed with the lowest and highest frequencies studied, respectively, as per the results found in Fig. \ref{fig:freq-depth-force}. The greatest effect of the transducer aperture size occurred at a frequency of \SI{1}{\MHz} while the least effect of the transducer aperture size occurred at a frequency of \SI{4}{\MHz} which correlate to the greatest and least amount of energy input into the system respectively.
 
 			Another method of increasing the amount of energy transferred into the system is to increase the duration of time that the system is applying pressure to the tissue. In other words, increasing the number of pulse cycles (insonification time) should generate more energy until tissue is under quasi-steady-state insonification. To investigate this, the effect of the number of acoustic pulse cycles---related to the insonification time by equation \ref{equ:insonification_time}---was investigated, with the results shown in Fig. \ref{fig:pulse_cycles_force}.
 
@@ -559,7 +559,7 @@
 		\label{subsec:arfi_deformation_results}
 			As ARFI imaging relies upon the detection of soft tissue deformation in response to the transducer-applied acoustic radiation force, a key parameter of interest is the magnitude of the deformation generated in the tissue in response to the applied loads. To this end, the temporal finite-element model of soft tissue deformation described in Section \ref{subsec:temporal_fea_arfi} was used to determine the magnitude of the deformation caused by varying acoustic radiation force parameters.
 
-			Fig. \ref{fig:freq-depth-maxDisp} show the relationship between the maximum induced tissue displacement, $\left| v \right|_max$, generated by acoustic radiation forces in soft tissue for a range of focal depths and interrogation frequencies. As expected, significantly greater deformation is generated with shallower focal depths. Further, increases in the interrogation frequency generally resulted in lesser displacement induced in the tissue. The results obtained using a \SI{1}{\MHz} interrogation frequency stood apart from the higher frequencies investigated. This is likely due to the excess acoustic radiation force produced at such low frequencies shown in Figs. \ref{fig:freq-depth-force} and \ref{fig:freq-depth-isppa}.
+			Fig. \ref{fig:freq-depth-maxDisp} show the relationship between the maximum induced tissue displacement, $\left| v \right|_{max}$, generated by acoustic radiation forces in soft tissue for a range of focal depths and interrogation frequencies. As expected, significantly greater deformation is generated with shallower focal depths. Further, increases in the interrogation frequency generally resulted in lesser displacement induced in the tissue. The results obtained using a \SI{1}{\MHz} interrogation frequency stood apart from the higher frequencies investigated. This is likely due to the excess acoustic radiation force produced at such low frequencies shown in Figs. \ref{fig:freq-depth-force} and \ref{fig:freq-depth-isppa}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -658,7 +658,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
@@ -671,6 +671,7 @@
 						\addplot table {assets/arfi/data/arfi_radius_r050.dat};
 						\addplot table {assets/arfi/data/arfi_radius_r100.dat};
 						\addplot table {assets/arfi/data/arfi_radius_r125.dat};
+						\node (c) at (axis cs:0.5,1.6) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of ARFI imaging-acquired stiffness ratio with changing lesion radius]{Numerical characterization of the ARFI imaging-acquired stiffness ratios acquired with varying lesion radii for a hard-boundaried lesion at a depth of \SI{4}{\cm} using an ARFI probing frequency of \SI{2}{\MHz}.}
@@ -721,7 +722,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
@@ -734,13 +735,14 @@
 						\addplot table {assets/arfi/data/arfi_maxDisp_depth_d4.dat};
 						\addplot table {assets/arfi/data/arfi_maxDisp_depth_d6.dat};
 						\addplot table {assets/arfi/data/arfi_maxDisp_depth_d8.dat};
+						\node (c) at (axis cs:0.5,1.6) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of ARFI imaging-acquired stiffness ratio with changing lesion depth]{Numerical characterization of the ARFI imaging-acquired stiffness ratios acquired with varying lesion and focal point depths for a hard-boundaried \SI{0.5}{cm} radius lesion using an ARFI probing frequency of \SI{2}{\MHz}.}
 				\label{fig:arfi_depth}
 			\end{figure}
 
-			Fig. \ref{fig:arfi_depth_mse} portrays the mean-squared-error of the measured lesion stiffness across the various depths examined. Although the variance in error between the different depths is not substantial, both very shallow---lesions at a depth of \SI{2}{\cm} or less---and very deep---lesions at a depth of \SI{8}{\cm} or more---were found to have the greatest measurement error. \note[KH]{Why?}
+			Fig. \ref{fig:arfi_depth_mse} portrays the mean-squared-error of the measured lesion stiffness across the various depths examined. Although the variance in error between the different depths is not substantial, both very shallow---lesions at a depth of \SI{2}{\cm} or less---and very deep---lesions at a depth of \SI{8}{\cm} or more---were found to have the greatest measurement error. In shallow tissue, this increase in error may be due to an inability to appropriately focus the acoustic radiation force so close to the transducer whereas in deep tissue, the increase in error is likely due to the reduced magnitude of radiation force present due to the relatively large amount of tissue absorption.
 
 			\begin{figure}[!htb]
 				\centering
@@ -775,7 +777,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
@@ -787,6 +789,7 @@
 						\addplot table {assets/arfi/data/arfi_blur_radius_r25.dat};
 						\addplot table {assets/arfi/data/arfi_blur_radius_r50.dat};
 						\addplot table {assets/arfi/data/arfi_blur_radius_r75.dat};
+						\node (c) at (axis cs:0.5,1.6) {\includegraphics{assets/quasistatic/insets/inset_blur.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of ARFI imaging-acquired stiffness ratio with blurred lesions]{Numerical characterization of the ARFI imaging-acquired stiffness ratios acquired with varying lesion and focal point depths for a blurred \SI{1.0}{cm} radius lesion at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -828,7 +831,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
@@ -841,6 +844,7 @@
 						\addplot table {assets/arfi/data/arfi_cluster_dens_d20.dat};
 						\addplot table {assets/arfi/data/arfi_cluster_dens_d30.dat};
 						\addplot table {assets/arfi/data/arfi_cluster_dens_d40.dat};
+						\node (c) at (axis cs:0.5,1.6) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of ARFI imaging-acquired stiffness ratio with clustered lesions]{Numerical characterization of the ARFI imaging-acquired stiffness ratios acquired with varying cluster densities for clustered \SI{1}{\mm} radius lesions within a \SI{1.0}{cm} radius at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -882,7 +886,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
@@ -894,6 +898,7 @@
 						\addplot table {assets/arfi/data/arfi_cluster_radius_r05.dat};
 						\addplot table {assets/arfi/data/arfi_cluster_radius_r10.dat};
 						\addplot table {assets/arfi/data/arfi_cluster_radius_r15.dat};
+						\node (c) at (axis cs:0.5,1.6) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of ARFI imaging-acquired stiffness ratio with clustered lesions]{Numerical characterization of the ARFI imaging-acquired stiffness ratios acquired with varying clustered lesion radii for clustered lesions with a density of \SI{30}{\per\cm\squared} within a \SI{1.0}{cm} radius at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -935,7 +940,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={True Stiffness Ratio, $E_{rel,true}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Measured Stiffness Ratio, \\ $E_{rel,measured}$},
 						grid=major,
@@ -948,6 +953,8 @@
 						\addplot table {assets/arfi/data/arfi_human_radius_r050.dat};
 						\addplot table {assets/arfi/data/arfi_human_radius_r100.dat};
 						\addplot table {assets/arfi/data/arfi_human_radius_r125.dat};
+						\node (c) at (axis cs:0.5,1.5) {\includegraphics[width=0.072\columnwidth]{assets/quasistatic/insets/human.png}};
+						\node (rect) at (axis cs:0.5,1.5) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Numerical characterization of ARFI imaging-acquired stiffness ratio with changing lesion radii in a visible human model]{Numerical characterization of ARFI imaging-acquired stiffness ratio with changing lesion radii for MRI-acquired lesion geometry in a Visible Human model at a depth of \SI{6}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -980,6 +987,8 @@
 				\label{fig:arfi_human_radius_mse}
 			\end{figure}
 
+			Numerical values for the characterization plots presented here are given in Section \ref{appsec:dt_arfi} of Appendix \ref{app:data_tables}.
+
 		\FloatBarrier
 		\subsection{Physical Phantom Validation}
 		\label{subsec:arfi_validation_results}
@@ -992,7 +1001,7 @@
 						scale only axis,
 						height=2.5in,
 						width=\textwidth-\widthof{100}-1in,
-						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
+						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
 						ylabel style={align=center},
 						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
 						legend entries={Results, Ideal},
@@ -1011,15 +1020,16 @@
 									ultra thick
 								}] table[y error plus=upper, y error minus=lower] {assets/arfi/data/arfi_experiment_nominal.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+							\node (c) at (axis cs:0.5,3) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental ARFI model results]{Relation between nominally reported strain ratios of the tissue mimicking phantom and experimentally measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm}. Error bars represent the range of measurements acquired.}
 				\label{fig:arfi_phantom_validation_nominal}
 			\end{figure}
 
-			As the results seen in Fig. \ref{fig:arfi_phantom_validation_nominal} show, ARFI imaging was found experimentally to significantly underestimate the stiffness of the stiffest lesions investigated---lesions with nominal stiffnesses of 3.2. For all other lesions investigated, ARFI imaging was shown to overestimate the lesion stiffness \note[KH]{More}.
+			As the results seen in Fig. \ref{fig:arfi_phantom_validation_nominal} show, ARFI imaging was found experimentally to significantly underestimate the stiffness of the stiffest lesions investigated---lesions with nominal stiffnesses of 3.2. For all other lesions investigated, ARFI imaging was shown to overestimate the lesion stiffness slightly. Although it is possible that the true stiffness ratio of the lesions in the phantom do not perfectly align with the manufacturer-reported nominal values, it is also possible that the acoustic radiation force developed by the ARFI transducer was not enough to substantially deform the stiffest of lesions, leading to the stiffness being underestimated.
 
-			Fig. \ref{fig:arfi_phantom_validation} compares the experimentally-acquired lesion stiffness ratios against measured stiffness ratios arising from parametrically identical simulated lesions. As Fig. \ref{fig:arfi_phantom_validation} shows, although the experimentally measured stiffness ratios align well with the simulated stiffness ratios for relatively soft lesions ($E_{rel} < 1$), the simulated ARFI procedure was found to underestimate the stiffness of the stiff lesions that were investigated ($E_{rel} > 1$). The exact cause of this disparity is unclear \note[KH]{???}.
+			Fig. \ref{fig:arfi_phantom_validation} compares the experimentally-acquired lesion stiffness ratios against measured stiffness ratios arising from parametrically identical simulated lesions. As Fig. \ref{fig:arfi_phantom_validation} shows, although the experimentally measured stiffness ratios align well with the simulated stiffness ratios for relatively soft lesions ($E_{rel} < 1$), the simulated ARFI procedure was found to underestimate the stiffness of the stiff lesions that were investigated ($E_{rel} > 1$). The exact cause of this disparity is unclear and future work must be done in order to remedy this in the simulations that were performed in order to accurately understand ARFI imaging.
 
 			\begin{figure}[!htb]
 				\centering
@@ -1047,6 +1057,7 @@
 									ultra thick
 								}] table[x error plus=upper, x error minus=lower] {assets/arfi/data/arfi_experiment.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+							\node (c) at (axis cs:0.5,3) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental validation of ARFI imaging model results]{Relation between simulated measured strain ratios and experimental measured strain ratios for a lesion at a depth of \SI{3.5}{\cm} and diameter of \SI{2.0}{\cm}.}

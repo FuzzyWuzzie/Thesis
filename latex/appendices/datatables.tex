@@ -1,4 +1,576 @@
 \chapter{Data Tables}
+\label{app:data_tables}
+	\renewcommand{\arraystretch}{0.5}
+
 	\section{Quasi-Static Ultrasound Elastography}
+	\label{appsec:dt_quasi}
+		\begin{multicols}{2}
+			\characterizationDataTable%
+				{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}{fig:size_characterization}{strainRatio}%
+				{assets/quasistatic/data/circular_size_05.dat}%
+				{assets/quasistatic/data/circular_size_10.dat}%
+				{assets/quasistatic/data/circular_size_20.dat}%
+				{assets/quasistatic/data/circular_size_25.dat}
+
+			\characterizationDataTable%
+				{$d$}{cm}{3.5,6.5,8.5,10.0}{fig:depth_characterization}{strainRatio}%
+				{assets/quasistatic/data/circular_depth_035.dat}%
+				{assets/quasistatic/data/circular_depth_065.dat}%
+				{assets/quasistatic/data/circular_depth_085.dat}%
+				{assets/quasistatic/data/circular_depth_100.dat}
+
+			\characterizationDataTable%
+				{$h$}{cm}{1.25,2.50,3.75}{fig:bottomsep_characterization}{strainRatio}%
+				{assets/quasistatic/data/circular_bottomsep_000.dat}%
+				{assets/quasistatic/data/circular_bottomsep_125.dat}%
+				{assets/quasistatic/data/circular_bottomsep_250.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$f$}{MHz}{2,4,8}{fig:freq_characterization}{strainRatio}%
+				{assets/quasistatic/data/circular_frequency_2.dat}%
+				{assets/quasistatic/data/circular_frequency_4.dat}%
+				{assets/quasistatic/data/circular_frequency_8.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$\varepsilon_{app}$}{\percent}{2.5,5.0,10.0}{fig:strain_characterization}{strainRatio}%
+				{assets/quasistatic/data/circular_strain_025.dat}%
+				{assets/quasistatic/data/circular_strain_050.dat}%
+				{assets/quasistatic/data/circular_strain_100.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$\delta_{sep}$}{cm}{1.25,1.50,1.75,2.00}{fig:separation_characterization}{strainRatio}%
+				{assets/quasistatic/data/separation_0125.dat}%
+				{assets/quasistatic/data/separation_0150.dat}%
+				{assets/quasistatic/data/separation_0175.dat}%
+				{assets/quasistatic/data/separation_0200.dat}
+
+			\characterizationDataTable%
+				{$b_r$}{mm}{1.0,2.5,5.0,7.5}{fig:blur_radius_characterization}{strainRatio}%
+				{assets/quasistatic/data/blur_radius_01.dat}%
+				{assets/quasistatic/data/blur_radius_25.dat}%
+				{assets/quasistatic/data/blur_radius_50.dat}%
+				{assets/quasistatic/data/blur_radius_75.dat}
+
+			\characterizationDataTable%
+				{$b_\rho$}{\si{\per\cm\squared}}{10,20,30,40}{fig:blob_density_characterization}{strainRatio}%
+				{assets/quasistatic/data/blob_density_10.dat}%
+				{assets/quasistatic/data/blob_density_20.dat}%
+				{assets/quasistatic/data/blob_density_30.dat}%
+				{assets/quasistatic/data/blob_density_40.dat}
+
+			\characterizationDataTable%
+				{$r_{bl}$}{mm}{0.5,1.0,1.5}{fig:blob_radius_characterization}{strainRatio}%
+				{assets/quasistatic/data/blob_radius_05.dat}%
+				{assets/quasistatic/data/blob_radius_10.dat}%
+				{assets/quasistatic/data/blob_radius_15.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$\diameter S_{lesion}$}{cm}{0.5,1.0,2.0,2.5}{fig:human_size_characterization}{strainRatio}%
+				{assets/quasistatic/data/human_size_05.dat}%
+				{assets/quasistatic/data/human_size_10.dat}%
+				{assets/quasistatic/data/human_size_20.dat}%
+				{assets/quasistatic/data/human_size_25.dat}
+
+			\characterizationDataTable%
+				{$d$}{cm}{6.5,6.75,7.25}{fig:human_depth_characterization}{strainRatio}%
+				{assets/quasistatic/data/human_bottom_sep_625.dat}%
+				{assets/quasistatic/data/human_bottom_sep_675.dat}%
+				{assets/quasistatic/data/human_bottom_sep_725.dat}%
+				{}
+		\end{multicols}
+
 	\section{Acoustic Radiation Force Impulse Imaging}
+	\label{appsec:dt_arfi}
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:freq-depth-force}}
+			\pgfplotstableread{assets/arfi/data/depth_force_freq1.dat}\freqA
+			\pgfplotstableread{assets/arfi/data/depth_force_freq2.dat}\freqB
+			\pgfplotstableread{assets/arfi/data/depth_force_freq4.dat}\freqC
+			\pgfplotstableread{assets/arfi/data/depth_force_freq6.dat}\freqD
+			\pgfplotstablecreatecol[copy column from table={\freqB}{[index] 1}] {forceB} {\freqA}
+			\pgfplotstablecreatecol[copy column from table={\freqC}{[index] 1}] {forceC} {\freqA}
+			\pgfplotstablecreatecol[copy column from table={\freqD}{[index] 1}] {forceD} {\freqA}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/depth/.style={
+					numeric type,
+					column name={$d_f$ (cm)}
+				},
+				columns/force/.style={
+					column name={f = $\SI{1}{\MHz}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/forceB/.style={
+					column name={f = $\SI{2}{\MHz}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/forceC/.style={
+					column name={f = $\SI{4}{\MHz}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/forceD/.style={
+					column name={f = $\SI{6}{\MHz}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						Depth, & \multicolumn{4}{c}{Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})} \\
+						\cmidrule{2-5}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\freqA}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:trans-width-force}}
+			\pgfplotstableread{assets/arfi/data/freq_force_width4.dat}\renderTable
+			\pgfplotstableread{assets/arfi/data/freq_force_width8.dat}\partB
+			\pgfplotstableread{assets/arfi/data/freq_force_width10.dat}\partC
+			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/freq/.style={
+					string type,
+					column name={$f$ (MHz)},
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed,round-integer-to-decimal]}
+				},
+				columns/force/.style={
+					column name={$w_{active} = \SI{4}{\cm}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partB/.style={
+					column name={$w_{active} = \SI{8}{\cm}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partC/.style={
+					column name={$w_{active} = \SI{10}{\cm}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						\multicolumn{1}{c}{Frequency,} & \multicolumn{3}{c}{Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})} \\
+						\cmidrule{2-4}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:pulse_cycles_force}}
+			\pgfplotstableread{assets/arfi/data/pulse_cycles.dat}\renderTable
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/cycles/.style={
+					string type,
+					column name={},
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/force/.style={
+					column name={(\si{\kN\per\metre\cubed})},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						$n_c$ & $F_{b,f}$ \\
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:trans-width-force}}
+			\pgfplotstableread{assets/arfi/data/focal_force_depth_p4.dat}\renderTable
+			\pgfplotstableread{assets/arfi/data/focal_force_depth_p5.dat}\partB
+			\pgfplotstableread{assets/arfi/data/focal_force_depth_p6.dat}\partC
+			\pgfplotstableread{assets/arfi/data/focal_force_depth_p7.dat}\partD
+			\pgfplotstableread{assets/arfi/data/focal_force_depth_p8.dat}\partE
+			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partD}{[index] 1}] {partD} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partE}{[index] 1}] {partE} {\renderTable}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/depth/.style={
+					numeric type,
+					preproc/expr={100*##1},
+					column name={$d_f$ (cm)}
+				},
+				columns/force/.style={
+					column name={$P = \SI{4}{\MPa}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partB/.style={
+					column name={$P = \SI{5}{\MPa}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partC/.style={
+					column name={$P = \SI{6}{\MPa}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partD/.style={
+					column name={$P = \SI{7}{\MPa}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				columns/partE/.style={
+					column name={$P = \SI{8}{\MPa}$},
+					preproc/expr={0.001*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						Depth, & \multicolumn{5}{c}{Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})} \\
+						\cmidrule{2-6}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:freq-depth-isppa}}
+			\pgfplotstableread{assets/arfi/data/depth_isppa_freq1.dat}\renderTable
+			\pgfplotstableread{assets/arfi/data/depth_isppa_freq2.dat}\partB
+			\pgfplotstableread{assets/arfi/data/depth_isppa_freq4.dat}\partC
+			\pgfplotstableread{assets/arfi/data/depth_isppa_freq6.dat}\partD
+			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partD}{[index] 1}] {partD} {\renderTable}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/depth/.style={
+					numeric type,
+					column name={$d_f$ (cm)}
+				},
+				columns/isppa/.style={
+					column name={$f = \SI{1}{\MHz}$},
+					string type,
+					column type={S[round-mode=places,round-precision=0,scientific-notation=fixed]}
+				},
+				columns/partB/.style={
+					column name={$f = \SI{2}{\MHz}$},
+					string type,
+					column type={S[round-mode=places,round-precision=0,scientific-notation=fixed]}
+				},
+				columns/partC/.style={
+					column name={$f = \SI{4}{\MHz}$},
+					string type,
+					column type={S[round-mode=places,round-precision=0,scientific-notation=fixed]}
+				},
+				columns/partD/.style={
+					column name={$f = \SI{6}{\MHz}$},
+					string type,
+					column type={S[round-mode=places,round-precision=0,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						Depth, & \multicolumn{4}{c}{Spatial-Peak Pulse-Average Intensity, $I_{SPPA}$ (\si{\watt\per\cm\squared})} \\
+						\cmidrule{2-5}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:freq-depth-maxDisp}}
+			\pgfplotstableread{assets/arfi/data/depth_maxDisp_freq1.dat}\renderTable
+			\pgfplotstableread{assets/arfi/data/depth_maxDisp_freq2.dat}\partB
+			\pgfplotstableread{assets/arfi/data/depth_maxDisp_freq4.dat}\partC
+			\pgfplotstableread{assets/arfi/data/depth_maxDisp_freq6.dat}\partD
+			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partD}{[index] 1}] {partD} {\renderTable}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/depth/.style={
+					numeric type,
+					preproc/expr={100*##1},
+					column name={$d_f$ (cm)}
+				},
+				columns/maxDisp/.style={
+					column name={$f = \SI{1}{\MHz}$},
+					string type,
+					preproc/expr={1000000*##1},
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partB/.style={
+					column name={$f = \SI{2}{\MHz}$},
+					string type,
+					preproc/expr={1000000*##1},
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partC/.style={
+					column name={$f = \SI{4}{\MHz}$},
+					string type,
+					preproc/expr={1000000*##1},
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partD/.style={
+					column name={$f = \SI{6}{\MHz}$},
+					string type,
+					preproc/expr={1000000*##1},
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						Depth, & \multicolumn{4}{c}{Maximum Induced Tissue Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})} \\
+						\cmidrule{2-5}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:pressure_maxDisp}}
+			\pgfplotstableread{assets/arfi/data/maxDisp_depth_p4.dat}\renderTable
+			\pgfplotstableread{assets/arfi/data/maxDisp_depth_p5.dat}\partB
+			\pgfplotstableread{assets/arfi/data/maxDisp_depth_p6.dat}\partC
+			\pgfplotstableread{assets/arfi/data/maxDisp_depth_p7.dat}\partD
+			\pgfplotstableread{assets/arfi/data/maxDisp_depth_p8.dat}\partE
+			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partD}{[index] 1}] {partD} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partE}{[index] 1}] {partE} {\renderTable}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/depth/.style={
+					numeric type,
+					preproc/expr={100*##1},
+					column name={$d_f$ (cm)}
+				},
+				columns/maxDisp/.style={
+					column name={$P = \SI{4}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partB/.style={
+					column name={$P = \SI{5}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partC/.style={
+					column name={$P = \SI{6}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partD/.style={
+					column name={$P = \SI{7}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partE/.style={
+					column name={$P = \SI{8}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						Depth, & \multicolumn{5}{c}{Maximum Induced Tissue Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})} \\
+						\cmidrule{2-6}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+		\begin{table}[H]
+			\centering
+			\caption[]{Data for Fig. \protect\ref{fig:freq_pressure_maxDisp}}
+			\pgfplotstableread{assets/arfi/data/freq_maxDisp_p4.dat}\renderTable
+			\pgfplotstableread{assets/arfi/data/freq_maxDisp_p6.dat}\partB
+			\pgfplotstableread{assets/arfi/data/freq_maxDisp_p8.dat}\partC
+			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
+			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
+			\pgfplotstabletypeset[
+				multicolumn names,
+				columns/frequency/.style={
+					numeric type,
+					preproc/expr={0.000001*##1},
+					column name={$f$ (\si{\MHz})}
+				},
+				columns/maxDisp/.style={
+					column name={$P = \SI{4}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partB/.style={
+					column name={$P = \SI{6}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				columns/partC/.style={
+					column name={$P = \SI{8}{\MPa}$},
+					preproc/expr={1000000*##1},
+					string type,
+					column type={S[round-mode=places,round-precision=2,scientific-notation=fixed]}
+				},
+				every head row/.style={
+					before row={%
+						\toprule
+						Frequency, & \multicolumn{3}{c}{Maximum Induced Tissue Displacement, $\left|v\right|_{max}$ (\si{\micro\metre})} \\
+						\cmidrule{2-4}
+					},
+					after row=\midrule
+				},
+				every last row/.style={after row=\bottomrule}
+			]{\renderTable}
+		\end{table}
+
+		\begin{multicols}{2}
+			\characterizationDataTable%
+				{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}{fig:arfi_radius}{esr}%
+				{assets/arfi/data/arfi_radius_r025.dat}%
+				{assets/arfi/data/arfi_radius_r050.dat}%
+				{assets/arfi/data/arfi_radius_r100.dat}%
+				{assets/arfi/data/arfi_radius_r125.dat}
+
+			\characterizationDataTable%
+				{$d$}{cm}{2,4,6,8}{fig:arfi_depth}{esr}%
+				{assets/arfi/data/arfi_maxDisp_depth_d2.dat}%
+				{assets/arfi/data/arfi_maxDisp_depth_d4.dat}%
+				{assets/arfi/data/arfi_maxDisp_depth_d6.dat}%
+				{assets/arfi/data/arfi_maxDisp_depth_d8.dat}
+
+			\characterizationDataTable%
+				{$b_r$}{mm}{2.5,5.0,7.5}{fig:arfi_blur}{esr}%
+				{assets/arfi/data/arfi_blur_radius_r25.dat}%
+				{assets/arfi/data/arfi_blur_radius_r50.dat}%
+				{assets/arfi/data/arfi_blur_radius_r75.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$b_\rho$}{\si{\per\cm\squared}}{10,20,30,40}{fig:arfi_cluster_density}{esr}%
+				{assets/arfi/data/arfi_cluster_dens_d10.dat}%
+				{assets/arfi/data/arfi_cluster_dens_d20.dat}%
+				{assets/arfi/data/arfi_cluster_dens_d30.dat}%
+				{assets/arfi/data/arfi_cluster_dens_d40.dat}
+
+			\characterizationDataTable%
+				{$r_{bl}$}{mm}{0.5,1.0,1.5}{fig:arfi_cluster_radius}{esr}%
+				{assets/arfi/data/arfi_cluster_radius_r05.dat}%
+				{assets/arfi/data/arfi_cluster_radius_r10.dat}%
+				{assets/arfi/data/arfi_cluster_radius_r15.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$\diameter S_{lesion}$}{cm}{0.5,1.0,2.0,2.5}{fig:arfi_human_radius}{esr}%
+				{assets/arfi/data/arfi_human_radius_r025.dat}%
+				{assets/arfi/data/arfi_human_radius_r050.dat}%
+				{assets/arfi/data/arfi_human_radius_r100.dat}%
+				{assets/arfi/data/arfi_human_radius_r125.dat}
+		\end{multicols}
+
 	\section{Shear Wave Speed Quantification}
+	\label{appsec:dt_shear}
+		\begin{multicols}{2}
+			\characterizationDataTable%
+				{$r_{lesion}$}{mm}{2.5,5.0,10.0,12.5}{fig:erel_radius}{esr}%
+				{assets/shear/data/shear_radius_r025.dat}%
+				{assets/shear/data/shear_radius_r050.dat}%
+				{assets/shear/data/shear_radius_r100.dat}%
+				{assets/shear/data/shear_radius_r125.dat}
+
+			\characterizationDataTable%
+				{$\Delta_{off}$}{cm}{0.00,1.25,2.50,3.75}{fig:erel_doff_d4}{esr}%
+				{assets/shear/data/shear_doff_d4_o000.dat}%
+				{assets/shear/data/shear_doff_d4_o125.dat}%
+				{assets/shear/data/shear_doff_d4_o250.dat}%
+				{assets/shear/data/shear_doff_d4_o375.dat}
+
+			\characterizationDataTable%
+				{$d$}{cm}{2,4,6,8}{fig:erel_depth_o250}{esr}%
+				{assets/shear/data/shear_depth_o250_d2.dat}%
+				{assets/shear/data/shear_depth_o250_d4.dat}%
+				{assets/shear/data/shear_depth_o250_d6.dat}%
+				{assets/shear/data/shear_depth_o250_d8.dat}
+
+			\characterizationDataTable%
+				{$b_r$}{mm}{2.5,5.0,7.5}{fig:erel_blur}{esr}%
+				{assets/shear/data/shear_blur_r25.dat}%
+				{assets/shear/data/shear_blur_r50.dat}%
+				{assets/shear/data/shear_blur_r75.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$b_\rho$}{\si{\per\cm\squared}}{10,20,30,40}{fig:erel_cluster_density}{esr}%
+				{assets/shear/data/shear_cluster_dens_d10.dat}%
+				{assets/shear/data/shear_cluster_dens_d20.dat}%
+				{assets/shear/data/shear_cluster_dens_d30.dat}%
+				{assets/shear/data/shear_cluster_dens_d40.dat}
+
+			\characterizationDataTable%
+				{$r_{bl}$}{mm}{0.5,1.0,1.5}{fig:erel_cluster_radius}{esr}%
+				{assets/shear/data/shear_cluster_dens_d10.dat}%
+				{assets/shear/data/shear_cluster_dens_d20.dat}%
+				{assets/shear/data/shear_cluster_dens_d30.dat}%
+				{}
+
+			\characterizationDataTable%
+				{$\diameter S_{lesion}$}{cm}{0.5,1.0,2.0,2.5}{fig:erel_human_radius}{esr}%
+				{assets/shear/data/shear_human_radius_r025.dat}%
+				{assets/shear/data/shear_human_radius_r050.dat}%
+				{assets/shear/data/shear_human_radius_r100.dat}%
+				{assets/shear/data/shear_human_radius_r125.dat}
+		\end{multicols}
