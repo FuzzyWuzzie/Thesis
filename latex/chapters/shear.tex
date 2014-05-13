@@ -8,7 +8,7 @@
 		In order to investigate the sensitivity and applicability of shear wave speed quantification for the early detection of deep tissue injuries, a combination of k-space pseudo-spectral models of acoustic wave propagation and time-domain finite-element models of tissue deformation were employed. The theory and procedure behind both the generalized acoustic simulations using k-space pseudo-spectral models and time-dependent solid mechanics finite-element models used here were presented in Chapter \ref{chap:arfi}. As an alternative to monitoring the dynamic response of tissue at the focal point as in ARFI imaging, shear wave speed quantification tracks the velocity of shear waves which radiate laterally outward from the focal point of an ARFI load. If the focal point is positioned such that the generated shear waves propagate through a lesionous region and the speed of the generated shear wave is monitored, the stiffness of that region may be calculated.
 
 		\subsection{Shear Wave Speed}
-			The foundation of shear wave speed quantification with regards to detecting lesionous regions lies in the quantifiable relationship between shear wave speeds and tissue stiffness. This relationship between shear wave speed and tissue stiffness is derived here, assuming a linear elastic, isotropic material. Soft tissue is generally considered a viscoelastic material and as such modifications to the linear elastic wave speed are taken into account.
+			The foundation of shear wave speed quantification with regards to detecting lesionous regions lies in the quantifiable relationship between shear wave speed and tissue stiffness. This relationship is derived here, assuming a linear elastic, isotropic material. Soft tissue is generally considered a viscoelastic material and as such modifications to the linear elastic wave speed are taken into account.
 
 			Equation \ref{equ:shear_constitutive} represents the constitutive equation of a linear elastic material where the strain tensor is defined as per equation \ref{equ:shear_strain_tensor} such that equation \ref{equ:shear_constitutive_complete} holds true.
 
@@ -461,7 +461,7 @@
 				\label{fig:erel_radius}
 			\end{figure}
 
-			As can be seen in Fig. \ref{fig:erel_radius}, small lesions with radii $\leq \SI{5.0}{\mm}$ are nearly impossible to detect---large changes in the true lesion stiffness ratio represent very minute changes in the measured lesion stiffness ratio for these small lesions. Conversely, large lesions are much easier to detect, portraying a nearly one-to-one or better mapping between the true and measured lesion stiffness ratios. This suggests that the large the lesion is, the more readily it may be detected while smaller lesions are more difficult to detect with a lower limit of the lesion radius approaching \SI{5.0}{\mm}.
+			As can be seen in Fig. \ref{fig:erel_radius}, small lesions with radii $\leq \SI{5.0}{\mm}$ are nearly impossible to detect---large changes in the true lesion stiffness ratio represent very minute changes in the measured lesion stiffness ratio for these small lesions. Conversely, large lesions are much easier to detect, portraying a nearly one-to-one or better mapping between the true and measured lesion stiffness ratios. This suggests that the larger a lesion is, the more readily it may be detected while smaller lesions are more difficult to detect with a lower limit of the lesion radius approaching \SI{5.0}{\mm}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -571,7 +571,7 @@
 				\label{fig:erel_depth_o250}
 			\end{figure}
 
-			As Fig. \ref{fig:erel_depth_o250} shows, there is little dependence of shear wave speed quantifications detection sensitivity for shallow to medium-depth lesions---lesions placed at a depth of \SI{2}{\cm} -- \SI{6}{\cm} presented approximately equal detection curves. Of note in Fig. \ref{fig:erel_depth_o250} is that deep lesions---lesions at a depth of \SI{8}{\cm} or more---are difficult to detect as the method is not very sensitive these deeper lesions---both underestimating the stiffness of deep stiff lesions and overestimating the stiffness of deep soft lesions. The large error involved with attempting to measure the stiffness of deep lesions can be seen in Fig. \ref{fig:erel_depth_mse_o250} where the mean squared error for the various depths examined was calculated. In Fig. \ref{fig:erel_depth_mse_o250}, the \SI{8}{\cm} deep lesions present a significantly greater amount of error than their shallower counterparts. Also of note is that the shallowest lesions investigated---lesions at a depth of \SI{2}{\cm}---presented with greater error than the mid-depth lesions. The source of this error largely lies in the overestimation of the stiff lesion stiffness seen in Fig. \ref{fig:erel_depth_o250} which may be due to numerical errors in the models and calculations.
+			As Fig. \ref{fig:erel_depth_o250} shows, there is little dependence of shear wave speed quantifications detection sensitivity for shallow to medium-depth lesions---lesions placed at a depth of \SI{2}{\cm} -- \SI{6}{\cm} presented approximately equal detection curves. Of note in Fig. \ref{fig:erel_depth_o250} is that deep lesions---lesions at a depth of \SI{8}{\cm} or more---are difficult to detect as the method is not very sensitive to these deeper lesions---both underestimating the stiffness of deep stiff lesions and overestimating the stiffness of deep soft lesions. The large error involved with attempting to measure the stiffness of deep lesions can be seen in Fig. \ref{fig:erel_depth_mse_o250} where the mean squared error for the various depths examined was calculated. In Fig. \ref{fig:erel_depth_mse_o250}, the \SI{8}{\cm} deep lesions present a significantly greater amount of error than their shallower counterparts. Also of note is that the shallowest lesions investigated---lesions at a depth of \SI{2}{\cm}---presented with greater error than the mid-depth lesions. The source of this error largely lies in the overestimation of the stiff lesion stiffness seen in Fig. \ref{fig:erel_depth_o250} which may be due to numerical errors in the models and calculations.
 
 			\begin{figure}[!htb]
 				\centering
@@ -626,7 +626,7 @@
 				\label{fig:erel_blur}
 			\end{figure}
 
-			This lack of reliance of detection sensitivity on blur radius is further portrayed by the mean squared error of the results, calculated in Fig. \ref{fig:erel_blur_mse}. While there are some minor differences in the error between the various blur radii---chiefly between blur radii of \SI{2.5}{\mm} and \SI{5.0}{\mm}---the scale of these differences lie within the range of numerical error and noise and so is not significant.
+			This lack of reliance of detection sensitivity on blur radius is further portrayed by the mean squared error of the results, calculated in Fig. \ref{fig:erel_blur_mse}. While there are some minor differences in the error between the various blur radii---chiefly between blur radii of \SI{2.5}{\mm} and \SI{5.0}{\mm}---the scale of these differences lie within the range of numerical error and noise and so are not significant.
 
 			The fact that detection sensitivity does not decrease with increasing blur radii in shear wave speed quantification makes shear wave speed quantification a desirable tool for detecting deep tissue injury lesions as it means that even imperfect, newly-forming lesions can still be readily detected and monitored.
 
@@ -684,7 +684,7 @@
 				\label{fig:erel_cluster_density}
 			\end{figure}
 
-			This generalization is further portrayed in by the mean squared error which is shown in Fig. \ref{fig:erel_cluster_density_mse}. In Fig. \ref{fig:erel_cluster_density_mse}, increasing cluster density results in monotonically decreasing error.
+			This generalization is further portrayed by the mean squared error which is shown in Fig. \ref{fig:erel_cluster_density_mse}. In Fig. \ref{fig:erel_cluster_density_mse}, increasing cluster density results in monotonically decreasing error.
 
 			\begin{figure}[!htb]
 				\centering
@@ -892,7 +892,7 @@
 				\label{fig:shear_phantom_validation}
 			\end{figure}
 
-			As expected, there is nearly a one-to-one correspondence between the experimentally measured lesion stiffness ratios and the simulated lesion stiffness ratios for the various lesions investigated. In all of the lesion cases studied, the simulated lesion stiffness ratio was slightly greater than the experimentally measured stiffness ratio. This suggests that the simulated models introduce a minor bias in the results, although as the correlation is linear this is may be readily accounted for. Another key observation is that the underestimated lesion stiffness ratio for stiff lesions that was seen in Fig. \ref{fig:shear_phantom_validation_nominal} correlates well with the results obtained experimentally.
+			As expected, there is nearly a one-to-one correspondence between the experimentally measured lesion stiffness ratios and the simulated lesion stiffness ratios for the various lesions investigated. In all of the lesion cases studied, the simulated lesion stiffness ratio was slightly greater than the experimentally measured stiffness ratio. This suggests that the simulated models introduce a minor bias in the results, although as the correlation is linear this may be readily accounted for. Another key observation is that the underestimated lesion stiffness ratio for stiff lesions that was seen in Fig. \ref{fig:shear_phantom_validation_nominal} correlates well with the results obtained experimentally.
 
 	\section{Conclusions}
 		The results given in Section \ref{subsec:shear_results} represent a numerical characterization of the use of the ultrasound elastography technique of shear wave speed quantification toward the detection and monitoring of early and progressive deep tissue injuries. This work presents arguably the most useful technology for monitoring deep tissue injury progression as it provides quantitative measures of lesion stiffnesses as opposed to the qualitative measures provided by quasi-static elastography and acoustic radiation force impulse imaging.
