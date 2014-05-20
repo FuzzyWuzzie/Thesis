@@ -14,33 +14,12 @@
 
 			\begin{figure}[!htb]
 				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=2.5in,
-						width=\textwidth-\widthof{100}-1in,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
-						grid=major,
-						legend entries={Quasi-Static, ARFI, Shear, Ideal},
-						legend style={legend pos=north west,font=\small},
-						clip=true,
-						cycle list name=ColourPlotCycle,
-						draw=black, text=black, fill=black,
-						xmin=0, xmax=3.5,
-						ymin=0, ymax=3.5]
-						\addplot table {assets/quasistatic/data/circular_size_20.dat};
-						\addplot table {assets/arfi/data/arfi_radius_r100.dat};
-						\addplot table {assets/shear/data/shear_radius_r100.dat};
-						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:3,0.75) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
-					\end{axis}
-				\end{tikzpicture}
+				\characterizationPic{\comparisonPlots{conclusion_radius}}{\comparisonLegend}{spherical}{3.125,0}
 				\caption[Detection sensitivities of hard-boundaried spherical lesions using the three investigated imaging modalities]{Detection sensitivities of hard-boundaried spherical lesions with radii of \SI{10}{\mm} at a depth of \SI{4}{\cm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
 				\label{fig:conclusion_radius}
 			\end{figure}
 
-			To further examine the error introduced by the various detection modalities, the percent difference between the expected true values of lesion stiffness and the measured lesion stiffness for the results seen in Fig. \ref{fig:conclusion_radius} are shown in Fig. \ref{fig:conclusions_radius_pd}. Fig. \ref{fig:conclusions_radius_pd} shows that in across all lesion stiffnesses, shear wave speed quantification results in the least amount of error between the true and measured lesion stiffness. Errors across all the modalities were greatest for the softest lesions---those with stiffness ratios of 0.32. Errors involved with ARFI imaging were slightly greater than for quasi-static imaging across the remaining investigated stiffness ratios. It is likely however that the slight increase in error associated with ARFI imaging may be worth the added benefit of increased reliability and repeatability. Beyond this, shear wave speed quantification is certainly recommended for detecting lesions if at all possible not only due to its nature of fully quantifying tissue stiffness rather than simply estimating it but also due to it's superior accuracy over quasi-static elastography and ARFI imaging.
+			To further examine the error introduced by the various detection modalities, the percent difference between the expected true values of lesion stiffness and the measured lesion stiffness for the results seen in Fig. \ref{fig:conclusion_radius} are shown in Fig. \ref{fig:conclusions_radius_pd}. Fig. \ref{fig:conclusions_radius_pd} shows that in across all lesion stiffnesses, shear wave speed quantification results in the least amount of error between the true and measured lesion stiffness. Errors across all the modalities were greatest for the least stiff lesions---those with stiffness ratios of 0.32. Errors involved with ARFI imaging were slightly greater than for quasi-static imaging across the remaining investigated stiffness ratios. It is likely however that the slight increase in error associated with ARFI imaging may be worth the added benefit of increased reliability and repeatability. Beyond this, shear wave speed quantification is certainly recommended for detecting lesions if at all possible not only due to its nature of fully quantifying tissue stiffness rather than simply estimating it but also due to it's superior accuracy over quasi-static elastography and ARFI imaging.
 
 			\begin{figure}[!htb]
 				\centering
@@ -55,7 +34,7 @@
 						legend style={legend pos=north east,font=\small},
 						bar width=14pt,
 						ymajorgrids=true,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
+						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
 						ylabel={Percent Error (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
@@ -73,38 +52,16 @@
 				\label{fig:conclusions_radius_pd}
 			\end{figure}
 
-			Since it is highly unlikely that real-world lesions will present as perfectly spherical, hard-boundaried lesions, different lesion geometries were studied. One such case is where a lesion will not have rigidly defined boundaries and may ``fade'' into the background healthy tissue. To investigate this, lesions with blurred boundaries that fade into the background were studied using all three elastography modalities. The characterization curves of a lesion with a radius of \SI{10}{\mm} which was blurred using a kernel blur radius of \SI{7.5}{\mm} across the three modalities are given in Fig. \ref{fig:conclusion_blur}. As expected, shear wave speed quantification again revealed itself to produce the most accurate results with a nearly one-to-one mapping between true and measured lesion stiffness. Quasi-static elastography and ARFI imaging paralleled each other however quasi-static elastography was generally unable to distinguish soft blurred lesions against the background, making ARFI imaging much more preferable than quasi-static elastography when examining late-stage DTI.
+			Since it is highly unlikely that real-world lesions will present as perfectly spherical, hard-boundaried lesions, different lesion geometries were studied. One such case is where a lesion will not have rigidly defined boundaries and may ``fade'' into the background healthy tissue. To investigate this, lesions with blurred boundaries that fade into the background were studied using all three elastography modalities. The characterization curves of a lesion with a radius of \SI{10}{\mm} which was blurred using a kernel blur radius of \SI{7.5}{\mm} across the three modalities are given in Fig. \ref{fig:conclusion_blur}. As expected, shear wave speed quantification again revealed itself to produce the most accurate results with a nearly one-to-one mapping between true and measured lesion stiffness. Quasi-static elastography and ARFI imaging paralleled each other however quasi-static elastography was generally unable to distinguish unstiff blurred lesions against the background, making ARFI imaging much more preferable than quasi-static elastography when examining late-stage DTI.
 
-			\pgfplotstableread{assets/conclusions/conclusion_blur.dat}{\conclusionBlur}
 			\begin{figure}[!htb]
 				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=2.5in,
-						width=\textwidth-\widthof{100}-1in,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
-						grid=major,
-						legend entries={Quasi-Static, ARFI, Shear, Ideal},
-						legend style={legend pos=north west,font=\small},
-						clip=true,
-						cycle list name=ColourPlotCycle,
-						draw=black, text=black, fill=black,
-						xmin=0, xmax=3.5,
-						ymin=0, ymax=3.5]
-						\addplot table[x={trueSR}, y={quasiSR}] {\conclusionBlur};
-						\addplot table[x={trueSR}, y={arfiSR}] {\conclusionBlur};
-						\addplot table[x={trueSR}, y={shearSR}] {\conclusionBlur};
-						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:3,0.75) {\includegraphics{assets/quasistatic/insets/inset_blur.pdf}};
-					\end{axis}
-				\end{tikzpicture}
+				\characterizationPic{\comparisonPlots{conclusion_blur}}{\comparisonLegend}{blurred}{3.125,0}
 				\caption[Detection sensitivities of blurred-boundary spherical lesions using the three investigated imaging modalities]{Detection sensitivities of blurred-boundary spherical lesions with radii of \SI{10}{\mm} with blur radii of \SI{7.5}{\mm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
 				\label{fig:conclusion_blur}
 			\end{figure}
 
-			Again as expected, shear wave speed quantification resulted in substantially less error for characterizing all stages of deep tissue injuries than both quasi-static elastography and ARFI imaging as Fig. \ref{fig:conclusions_blur_pd} shows. Once again, the softest lesions that were investigated---those with a relative stiffness ratio of 0.32---were the most difficult to detect accurately and presented with the greatest amount of error. Of further note is that although quasi-static elastography was worse at accurately detecting soft deep tissue injury lesions than ARFI imaging, quasi-static elastography portrayed less error when detecting stiff (early) deep tissue injury lesions. This suggests that quasi-static elastography is not well suited for detecting soft lesions and that the more reliable ARFI imaging should be used where possible if shear wave speed quantification cannot be used.
+			Again as expected, shear wave speed quantification resulted in substantially less error for characterizing all stages of deep tissue injuries than both quasi-static elastography and ARFI imaging as Fig. \ref{fig:conclusions_blur_pd} shows. Once again, the least stiff lesions that were investigated---those with a relative stiffness ratio of 0.32---were the most difficult to detect accurately and presented with the greatest amount of error. Of further note is that although quasi-static elastography was worse at accurately detecting unstiff deep tissue injury lesions than ARFI imaging, quasi-static elastography portrayed less error when detecting stiff (early) deep tissue injury lesions. This suggests that quasi-static elastography is not well suited for detecting unstiff lesions and that the more reliable ARFI imaging should be used where possible if shear wave speed quantification cannot be used.
 
 			\begin{figure}[!htb]
 				\centering
@@ -119,13 +76,14 @@
 						legend style={legend pos=north east,font=\small},
 						bar width=14pt,
 						ymajorgrids=true,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
+						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
 						ylabel={Percent Error (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
 						xticklabels={0.32, 0.56, 1.80, 3.20},
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
+						\pgfplotstableread{assets/conclusions/conclusion_blur.dat}{\conclusionBlur};
 						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionBlur};
 						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionBlur};
 						\addplot table[x={trueSR}, y={shearPD}] {\conclusionBlur};
@@ -135,38 +93,16 @@
 				\label{fig:conclusions_blur_pd}
 			\end{figure}
 
-			Since lesionous regions may not be completely homogeneous regions of injured tissue, a model comprising numerous small lesions clustered together to form a greater lesionous region was developed. Fig. \ref{fig:conclusion_cluster} shows a cross-section of the characterization curves for this model when small lesions with radii of \SI{1}{\mm} were clustered with a density of \SI{20}{\per\cm\squared}. Although none of the investigated modalities were able to distinguish individual lesions in the various cluster models, all were able to differentiate the lesionous region as a whole. Once again, shear wave speed quantification proved to be the most accurate method with it's characterization curves coming the closest to a one-to-one mapping of true to measured stiffnesses. Of note in this case, however, is that even shear wave speed quantification was still substantially less sensitive to lesions than an ideal case---all investigated modalities both over-estimated the stiffness of soft lesions and under-estimated the stiffness of stiff lesions.
+			Since lesionous regions may not be completely homogeneous regions of injured tissue, a model comprising numerous small lesions clustered together to form a greater lesionous region was developed. Fig. \ref{fig:conclusion_cluster} shows a cross-section of the characterization curves for this model when small lesions with radii of \SI{1}{\mm} were clustered with a density of \SI{20}{\per\cm\squared}. Although none of the investigated modalities were able to distinguish individual lesions in the various cluster models, all were able to differentiate the lesionous region as a whole. Once again, shear wave speed quantification proved to be the most accurate method with it's characterization curves coming the closest to a one-to-one mapping of true to measured stiffnesses. Of note in this case, however, is that even shear wave speed quantification was still substantially less sensitive to lesions than an ideal case---all investigated modalities both over-estimated the stiffness of unstiff lesions and under-estimated the stiffness of stiff lesions.
 
-			\pgfplotstableread{assets/conclusions/conclusion_cluster.dat}{\conclusionCluster}
 			\begin{figure}[!htb]
 				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=2.5in,
-						width=\textwidth-\widthof{100}-1in,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
-						grid=major,
-						legend entries={Quasi-Static, ARFI, Shear, Ideal},
-						legend style={legend pos=north west,font=\small},
-						clip=true,
-						cycle list name=ColourPlotCycle,
-						draw=black, text=black, fill=black,
-						xmin=0, xmax=3.5,
-						ymin=0, ymax=3.5]
-						\addplot table[x={trueSR}, y={quasiSR}] {\conclusionCluster};
-						\addplot table[x={trueSR}, y={arfiSR}] {\conclusionCluster};
-						\addplot table[x={trueSR}, y={shearSR}] {\conclusionCluster};
-						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:3,0.75) {\includegraphics{assets/quasistatic/insets/inset_blob.pdf}};
-					\end{axis}
-				\end{tikzpicture}
+				\characterizationPic{\comparisonPlots{conclusion_cluster}}{\comparisonLegend}{clustered}{3.125,0.5}
 				\caption[Detection sensitivities of clustered lesions using the three investigated imaging modalities]{Detection sensitivities of clustered lesions with a cluster density of \SI{20}{\per\cm\squared} and individual radii of \SI{1}{\mm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
 				\label{fig:conclusion_cluster}
 			\end{figure}
 
-			The lesser detection sensitivity with all investigated imaging modalities that was portrayed in Fig. \ref{fig:conclusion_cluster} results in a greater amount of error across all imaging modalities and lesion stiffness ratios as seen in Fig. \ref{fig:conclusions_cluster_pd}. For all but the softest of lesions, ARFI imaging had the greatest amount of error when attempting to detect these lesionous clusters, while shear wave speed quantification continued to generally produce the least amount of error. The overall increased error in this model is somewhat expected however, due to the nature of how the models were constructed and evaluated. In the clustered lesion models, only a portion of the lesionous region actually contains ``injured'' tissue---averaging out the true stiffness over the entire lesionous area would result in a less pronounced stiffness for that region, rather than the ``spikes'' that are seen in the clustered model. This means that if such a lesionous region were to exist, the severity of the injury may not be adequately represented by \emph{any} of the three imaging modalities. Further work should be done to examine this problem further and investigate any alternative technologies which may be able to adequately granularize clusters of small lesions.
+			The lesser detection sensitivity with all investigated imaging modalities that was portrayed in Fig. \ref{fig:conclusion_cluster} results in a greater amount of error across all imaging modalities and lesion stiffness ratios as seen in Fig. \ref{fig:conclusions_cluster_pd}. For all but the least stiff of lesions, ARFI imaging had the greatest amount of error when attempting to detect these lesionous clusters, while shear wave speed quantification continued to generally produce the least amount of error. The overall increased error in this model is somewhat expected however, due to the nature of how the models were constructed and evaluated. In the clustered lesion models, only a portion of the lesionous region actually contains ``injured'' tissue---averaging out the true stiffness over the entire lesionous area would result in a less pronounced stiffness for that region, rather than the ``spikes'' that are seen in the clustered model. This means that if such a lesionous region were to exist, the severity of the injury may not be adequately represented by \emph{any} of the three imaging modalities. Further work should be done to examine this problem further and investigate any alternative technologies which may be able to adequately granularize clusters of small lesions.
 
 			\begin{figure}[!htb]
 				\centering
@@ -181,13 +117,14 @@
 						legend style={legend pos=north east,font=\small},
 						bar width=14pt,
 						ymajorgrids=true,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
+						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
 						ylabel={Percent Error (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
 						xticklabels={0.32, 0.56, 1.80, 3.20},
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
+						\pgfplotstableread{assets/conclusions/conclusion_cluster.dat}{\conclusionCluster};
 						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionCluster};
 						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionCluster};
 						\addplot table[x={trueSR}, y={shearPD}] {\conclusionCluster};
@@ -197,39 +134,16 @@
 				\label{fig:conclusions_cluster_pd}
 			\end{figure}
 
-			The final major model to be evaluated across quasi-static elastography, ARFI imaging, and shear wave speed quantification was the use of geometry obtained from MRI scans of real deep tissue injuries in pigs which were then placed in a background of tissue with geometry obtained from the Visible Human project. The purpose of these models was to place the various simulation techniques in the context of detecting ``real-world'' deep tissue injury lesions. The characterization curves of the three investigated modalities for a lesion with a width of \SI{20}{\mm} located at a depth of \SI{6}{\cm} are given in Fig. \ref{fig:conclusion_human}. A lesion depth of \SI{6}{\cm} was chosen in these models as in the Visible Human tissue domain this depth placed the lesion to sit immediately superior to the ischial tuberosity---a boney prominence often associated with deep tissue injuries. As Fig. \ref{fig:conclusion_human} shows, shear wave speed quantification once again presented the most ideal detection sensitivity of the three modalities. Both quasi-static elastography and ARFI imaging were much less sensitive to lesions in this model, with soft lesions being almost impossible to detect using quasi-static elastography. A key differentiation in this Visible Human model from the hard-boundaried spherical model studied previously is that shear wave speed quantification grossly underestimated the stiffness of both the softest and stiffest lesions examined.
+			The final major model to be evaluated across quasi-static elastography, ARFI imaging, and shear wave speed quantification was the use of geometry obtained from MRI scans of real deep tissue injuries in pigs which were then placed in a background of tissue with geometry obtained from the Visible Human project. The purpose of these models was to place the various simulation techniques in the context of detecting ``real-world'' deep tissue injury lesions. The characterization curves of the three investigated modalities for a lesion with a width of \SI{20}{\mm} located at a depth of \SI{6}{\cm} are given in Fig. \ref{fig:conclusion_human}. A lesion depth of \SI{6}{\cm} was chosen in these models as in the Visible Human tissue domain this depth placed the lesion to sit immediately superior to the ischial tuberosity---a boney prominence often associated with deep tissue injuries. As Fig. \ref{fig:conclusion_human} shows, shear wave speed quantification once again presented the most ideal detection sensitivity of the three modalities. Both quasi-static elastography and ARFI imaging were much less sensitive to lesions in this model, with unstiff lesions being almost impossible to detect using quasi-static elastography. A key differentiation in this Visible Human model from the hard-boundaried spherical model studied previously is that shear wave speed quantification grossly underestimated the stiffness of both the least stiff and stiffest lesions examined.
 
-			\pgfplotstableread{assets/conclusions/conclusion_human.dat}{\conclusionHuman}
 			\begin{figure}[!htb]
 				\centering
-				\begin{tikzpicture}
-					\begin{axis}[
-						scale only axis,
-						height=2.5in,
-						width=\textwidth-\widthof{100}-1in,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
-						ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
-						grid=major,
-						legend entries={Quasi-Static, ARFI, Shear, Ideal},
-						legend style={legend pos=north west,font=\small},
-						clip=true,
-						cycle list name=ColourPlotCycle,
-						draw=black, text=black, fill=black,
-						xmin=0, xmax=3.5,
-						ymin=0, ymax=3.5]
-						\addplot table[x={trueSR}, y={quasiSR}] {\conclusionHuman};
-						\addplot table[x={trueSR}, y={arfiSR}] {\conclusionHuman};
-						\addplot table[x={trueSR}, y={shearSR}] {\conclusionHuman};
-						\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:1.5,2.75) {\includegraphics[width=0.072\columnwidth]{assets/quasistatic/insets/human.png}};
-						\node (rect) at (axis cs:1.5,2.75) [draw,minimum width=0.072\columnwidth,minimum height=0.18\columnwidth]{};
-					\end{axis}
-				\end{tikzpicture}
+				\characterizationPic{\comparisonPlots{conclusion_human}}{\comparisonLegend}{human}{3.125,-0.1}
 				\caption[Detection sensitivities of MRI-acquired Visible Human lesions using the three investigated imaging modalities]{Detection sensitivities of MRI-acquired Visible Human lesions with a width of \SI{20}{\mm} at a depth of \SI{6}{\cm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
 				\label{fig:conclusion_human}
 			\end{figure}
 
-			As Fig. \ref{fig:conclusions_human_pd} shows, the error for shear wave speed quantification is much greater for both very soft ($E_{nom} = 0.32$) and very stiff ($E_{nom} = 3.20$) lesions---the error for soft lesions even surpasses that of ARFI imaging for the first time. For all other nominal stiffness ratios, shear wave speed quantification once again outperformed both quasi-static elastography and ARFI imaging. Although the use of more complicated geometry in the Visible Human project decreased the accuracy of shear wave speed quantification, it was once again the most sensitive and accurate of the investigated imaging modalities, suggesting it be used for quantifying deep tissue injuries if at all possible.
+			As Fig. \ref{fig:conclusions_human_pd} shows, the error for shear wave speed quantification is much greater for both very unstiff ($E_{rel,nom} = 0.32$) and very stiff ($E_{rel,nom} = 3.20$) lesions---the error for unstiff lesions even surpasses that of ARFI imaging for the first time. For all other nominal stiffness ratios, shear wave speed quantification once again outperformed both quasi-static elastography and ARFI imaging. Although the use of more complicated geometry in the Visible Human project decreased the accuracy of shear wave speed quantification, it was once again the most sensitive and accurate of the investigated imaging modalities, suggesting it be used for quantifying deep tissue injuries if at all possible.
 
 			\begin{figure}[!htb]
 				\centering
@@ -244,13 +158,14 @@
 						legend style={legend pos=north east,font=\small},
 						bar width=14pt,
 						ymajorgrids=true,
-						xlabel={Nominal Stiffness Ratio, $E_{nom}$},
+						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
 						ylabel={Percent Error (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
 						xticklabels={0.32, 0.56, 1.80, 3.20},
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
+						\pgfplotstableread{assets/conclusions/conclusion_human.dat}{\conclusionHuman}
 						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionHuman};
 						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionHuman};
 						\addplot table[x={trueSR}, y={shearPD}] {\conclusionHuman};
@@ -262,7 +177,7 @@
 
 		\FloatBarrier
 		\subsubsection{Experimental Validations}
-			In the experiments that were performed with each of the three elastography modalities on a tissue mimicking phantom, all three methodologies were able to distinguish both hard and soft lesions with some degree of accuracy. However, the stiffest lesions that were examined---those with a nominal stiffness ratio of 3.2---presented the greatest error and variation in the results as seen in Fig. \ref{fig:compare_nominal_experiments}. In these experiments, both ARFI imaging and shear wave speed quantification score similarly, although the variation in the shear results was much greater than the variation in the ARFI experiments. Both ARFI imaging and shear wave speed quantification showed relatively similar detection sensitivities with the major difference between the two being that ARFI imaging consistently over-estimated lesion stiffness as compared to shear wave speed quantification. Shear wave speed quantification was found to be the most accurate for ``soft'' lesions, while ARFI imaging performed marginally better with stiff lesions. Quasi-static elastography generally displayed the worst results, echoing what was seen in Section \ref{subsubsec:conclusion_simulated_lesions}.
+			In the experiments that were performed with each of the three elastography modalities on a tissue mimicking phantom, all three methodologies were able to distinguish both hard and unstiff lesions with some degree of accuracy. However, the stiffest lesions that were examined---those with a nominal stiffness ratio of 3.2---presented the greatest error and variation in the results as seen in Fig. \ref{fig:compare_nominal_experiments}. In these experiments, both ARFI imaging and shear wave speed quantification score similarly, although the variation in the shear results was much greater than the variation in the ARFI experiments. Both ARFI imaging and shear wave speed quantification showed relatively similar detection sensitivities with the major difference between the two being that ARFI imaging consistently over-estimated lesion stiffness as compared to shear wave speed quantification. Shear wave speed quantification was found to be the most accurate for unstiff lesions, while ARFI imaging performed marginally better with stiff lesions. Quasi-static elastography generally displayed the worst results, echoing what was seen in Section \ref{subsubsec:conclusion_simulated_lesions}.
 
 			\begin{figure}[!htb]
 				\centering
@@ -301,7 +216,7 @@
 									ultra thick
 								}] table[y error plus=upper, y error minus=lower] {assets/shear/data/shear_experiment_nominal.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
+						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/insets/spherical.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental results of the three methodologies investigated]{Experimental results of the three methodologies investigated. ARFI imaging consistently overestimated the stiffness of the lesion compared to both quasi-static and shear wave speed quantification, which generally underestimated the stiffness of lesions.}
@@ -347,7 +262,7 @@
 									ultra thick
 								}] table[x error plus=upper, x error minus=lower] {assets/shear/data/shear_experiment.dat};
 							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/quasistatic/insets/inset_single.pdf}};
+						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/insets/spherical.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental validation of the simulation results across all three methodologies investigated]{Experimental validation of the simulation results across all three methodologies investigated. The quasi-static ultrasound elastography and shear wave speed quantification simulations most closely matched the results seen experimentally.}

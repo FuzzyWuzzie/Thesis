@@ -1,0 +1,34 @@
+\documentclass[tikz]{standalone}
+\usepackage{wasysym}
+\usepackage{SIunits}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{plotmarks,arrows}
+\tikzset{>=latex}
+
+%\definecolor{tissueColour}{RGB}{251,185,130}
+%\definecolor{lesionColour}{RGB}{175,50,53}
+%\definecolor{fatColour}{RGB}{240,236,182}
+%\definecolor{boneColour}{RGB}{200,200,200}
+
+\definecolor{tissueColour}{RGB}{255,255,255}
+\definecolor{lesionColour}{RGB}{0,0,0}
+\definecolor{fatColour}{RGB}{0,0,0}
+\definecolor{boneColour}{RGB}{0,0,0}
+
+\begin{document}
+	\begin{tikzpicture}[x=0.0507\textwidth, y=0.0507\textwidth]
+		% the main domain area
+		\draw[draw=black, fill=tissueColour] (0, 0) rectangle(2, 3);
+
+		% the lesion
+		\draw[fill=lesionColour] (0.5, 1.5) circle(0.25);
+		\draw[fill=lesionColour] (1.5, 1.5) circle(0.25);
+
+		% the text
+		\draw (0.5, 1.75) -- (0.5, 2.25);
+		\draw (1.5, 1.75) -- (1.5, 2.25);
+		\draw[<->] (0.5, 2) -- (1.5, 2);
+		\draw (1, 2) node[above]{$\delta_{sep}$};
+	\end{tikzpicture}
+\end{document}

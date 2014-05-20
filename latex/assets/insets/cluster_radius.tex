@@ -1,0 +1,31 @@
+\documentclass[tikz]{standalone}
+\usepackage{wasysym}
+\usepackage{SIunits}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{plotmarks,arrows}
+\tikzset{>=latex}
+
+%\definecolor{tissueColour}{RGB}{251,185,130}
+%\definecolor{lesionColour}{RGB}{175,50,53}
+%\definecolor{fatColour}{RGB}{240,236,182}
+%\definecolor{boneColour}{RGB}{200,200,200}
+
+\definecolor{tissueColour}{RGB}{255,255,255}
+\definecolor{lesionColour}{RGB}{0,0,0}
+\definecolor{fatColour}{RGB}{0,0,0}
+\definecolor{boneColour}{RGB}{0,0,0}
+
+\begin{document}
+	\begin{tikzpicture}[x=0.0507\textwidth, y=0.0507\textwidth]
+		% the main domain area
+		\draw[draw=black, fill=tissueColour] (0, 0) rectangle(2, 3);
+
+		% the lesion
+		\draw (1, 1.5) node{\includegraphics[width=0.0507\textwidth]{blob.png}};
+
+		% the text
+		\draw (1, 2.5) node{$r_{bl}$};
+		\draw [->] (1, 2.3) -- (1, 1.9);
+	\end{tikzpicture}
+\end{document}

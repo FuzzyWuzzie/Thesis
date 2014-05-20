@@ -1,0 +1,41 @@
+\documentclass[tikz]{standalone}
+\usepackage{wasysym}
+\usepackage{SIunits}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{plotmarks,arrows}
+\tikzset{>=latex}
+
+%\definecolor{tissueColour}{RGB}{251,185,130}
+%\definecolor{lesionColour}{RGB}{175,50,53}
+%\definecolor{fatColour}{RGB}{240,236,182}
+%\definecolor{boneColour}{RGB}{200,200,200}
+
+\definecolor{tissueColour}{RGB}{255,255,255}
+\definecolor{lesionColour}{RGB}{0,0,0}
+\definecolor{fatColour}{RGB}{0,0,0}
+\definecolor{boneColour}{RGB}{0,0,0}
+
+\begin{document}
+	\begin{tikzpicture}[x=0.0507\textwidth, y=0.0507\textwidth]
+		% the main domain area
+		\draw[draw=black, fill=tissueColour] (0, 0) rectangle(2, 2.5);
+
+		% the lesion
+		\draw[fill=lesionColour] (1, 1.5) circle(0.5);
+
+		% the text
+		\draw[->] (0.1, 3) -- (0.1, 2.5);
+		\draw[->] (0.3, 3) -- (0.3, 2.5);
+		\draw[->] (0.5, 3) -- (0.5, 2.5);
+		\draw[->] (0.7, 3) -- (0.7, 2.5);
+		\draw[->] (0.9, 3) -- (0.9, 2.5);
+		\draw[->] (1.1, 3) -- (1.1, 2.5);
+		\draw[->] (1.3, 3) -- (1.3, 2.5);
+		\draw[->] (1.5, 3) -- (1.5, 2.5);
+		\draw[->] (1.7, 3) -- (1.7, 2.5);
+		\draw[->] (1.9, 3) -- (1.9, 2.5);
+		\draw (0, 3) -- (2, 3);
+		\draw(1, 2.25) node{$\varepsilon_{app}$};
+	\end{tikzpicture}
+\end{document}

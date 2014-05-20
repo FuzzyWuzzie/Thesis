@@ -1,54 +1,202 @@
 \documentclass{article}
 
+\usepackage[top=1in, bottom=1in, left=1.5in, right=1.5in, letterpaper]{geometry}
 \usepackage{booktabs}
 \usepackage{pgfplotstable}
+\pgfplotsset{compat=newest}
 \usepackage{siunitx}
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{wasysym}
+
+\definecolor{pc1}{HTML}{8DD3C7}
+\definecolor{pc2}{HTML}{FDB462}
+\definecolor{pc3}{HTML}{FB8072}
+\definecolor{pc4}{HTML}{80B1D3}
+\definecolor{pc5}{HTML}{B3DE69}
+\definecolor{pc6}{HTML}{BEBADA}
+\definecolor{pc7}{HTML}{FCCDE5}
+\definecolor{pc8}{HTML}{D9D9D9}
+\definecolor{pc9}{HTML}{FFFFB3}
+\pgfplotscreateplotcyclelist{ColourPlotCycle}{%
+only marks,solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=o\\%
+only marks,solid,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square\\%
+only marks,solid,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
+only marks,solid,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
+only marks,solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
+only marks,dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
+only marks,dashed,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
+only marks,dashed,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond\\%
+only marks,dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon\\%
+}
+\pgfplotscreateplotcyclelist{ColourPlotRegressionCycle}{%
+only marks,solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=o\\%
+solid,ultra thick,pc1\\%
+only marks,solid,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square\\%
+solid,ultra thick,pc2\\%
+only marks,solid,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
+solid,ultra thick,pc3\\%
+only marks,solid,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
+solid,ultra thick,pc4\\%
+only marks,solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
+solid,ultra thick,pc5\\%
+only marks,solid,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
+dashed,ultra thick,pc6\\%
+only marks,solid,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
+dashed,ultra thick,pc7\\%
+only marks,solid,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond\\%
+dashed,ultra thick,pc8\\%
+only marks,solid,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon\\%
+dashed,ultra thick,pc9\\%
+}
+
+\newcommand{\drawLegendMarks}[1]{
+	\addlegendimage{empty legend}
+	\addlegendimage{solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=o}
+	\ifnum#1>1
+		\addlegendimage{solid,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square}
+	\fi
+	\ifnum#1>2
+		\addlegendimage{solid,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*}
+	\fi
+	\ifnum#1>3
+		\addlegendimage{solid,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*}
+	\fi
+	\ifnum#1>4
+		\addlegendimage{solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*}
+	\fi
+	\ifnum#1>5
+		\addlegendimage{dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*}
+	\fi
+	\ifnum#1>6
+		\addlegendimage{dashed,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*}
+	\fi
+	\ifnum#1>7
+		\addlegendimage{dashed,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond}
+	\fi
+	\ifnum#1>8
+		\addlegendimage{dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon}
+	\fi
+}
+
+\DeclareDocumentCommand\characterizationPlots{ m g g g g }{%
+	\addplot+[forget plot] table{../assets/#1}; \pgfplotsset{cycle list shift=1};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=strainRatio}}] {../assets/#1}; \pgfplotsset{cycle list shift=2};%
+	\xdef\slopeA{\pgfplotstableregressiona}; \xdef\interA{\pgfplotstableregressionb};%
+	\IfNoValueF {#2} {%
+		\addplot+[forget plot] table{../assets/#2}; \pgfplotsset{cycle list shift=3};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=strainRatio}}] {../assets/#2}; \pgfplotsset{cycle list shift=4};%
+		\xdef\slopeB{\pgfplotstableregressiona}; \xdef\interB{\pgfplotstableregressionb};%
+	}%
+	\IfNoValueF {#3} {%
+		\addplot+[forget plot] table{../assets/#3}; \pgfplotsset{cycle list shift=5};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=strainRatio}}] {../assets/#3}; \pgfplotsset{cycle list shift=6};%
+		\xdef\slopeC{\pgfplotstableregressiona}; \xdef\interC{\pgfplotstableregressionb};%
+	}%
+	\IfNoValueF {#4} {%
+		\addplot+[forget plot] table{../assets/#4}; \pgfplotsset{cycle list shift=7};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=strainRatio}}] {../assets/#4}; \pgfplotsset{cycle list shift=8};%
+		\xdef\slopeD{\pgfplotstableregressiona}; \xdef\interD{\pgfplotstableregressionb};%
+	}%
+	\IfNoValueF {#5} {%
+		\addplot+[forget plot] table{../assets/#5}; \pgfplotsset{cycle list shift=9};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=strainRatio}}] {../assets/#5}; \pgfplotsset{cycle list shift=10};%
+		\xdef\slopeD{\pgfplotstableregressiona}; \xdef\interD{\pgfplotstableregressionb};%
+	}%
+}
+
+
+\DeclareDocumentCommand\comparisonPlots{ m }{%
+	\pgfplotstableread{../assets/conclusions/#1.dat}{\tableData};%
+	\addplot+[forget plot] table[x={trueSR}, y={quasiSR}] {\tableData}; \pgfplotsset{cycle list shift=1};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=quasiSR}}] {\tableData}; \pgfplotsset{cycle list shift=2};%
+	\xdef\slopeA{\pgfplotstableregressiona}; \xdef\interA{\pgfplotstableregressionb};%
+	\addplot+[forget plot] table[x={trueSR}, y={arfiSR}] {\tableData}; \pgfplotsset{cycle list shift=3};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=arfiSR}}] {\tableData}; \pgfplotsset{cycle list shift=4};%
+	\xdef\slopeB{\pgfplotstableregressiona}; \xdef\interB{\pgfplotstableregressionb};%
+	\addplot+[forget plot] table[x={trueSR}, y={shearSR}] {\tableData}; \pgfplotsset{cycle list shift=5};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=shearSR}}] {\tableData}; \pgfplotsset{cycle list shift=6};%
+	\xdef\slopeC{\pgfplotstableregressiona}; \xdef\interC{\pgfplotstableregressionb};%
+}%
+
+\DeclareDocumentCommand\characterizationLegend{ m m m g g g g}{%
+	\drawLegendMarks{\IfNoValueTF{#7}{\IfNoValueTF{#6}{\IfNoValueTF{#5}{\IfNoValueTF{#4}{1}{2}}{3}}{4}}{5}};%
+	\addlegendentry{\textbf{#1}};%
+	\addlegendentry{$#2 = #3$, $E_{meas} = \pgfmathprintnumber{\slopeA} E_{nom} \pgfmathprintnumber[print sign]{\interA}$};%
+	\IfNoValueF {#4} { \addlegendentry{$#2 = #4$, $E_{meas} = \pgfmathprintnumber{\slopeB} E_{nom} \pgfmathprintnumber[print sign]{\interB}$}; }%
+	\IfNoValueF {#5} { \addlegendentry{$#2 = #5$, $E_{meas} = \pgfmathprintnumber{\slopeC} E_{nom} \pgfmathprintnumber[print sign]{\interC}$}; }%
+	\IfNoValueF {#6} { \addlegendentry{$#2 = #6$, $E_{meas} = \pgfmathprintnumber{\slopeD} E_{nom} \pgfmathprintnumber[print sign]{\interD}$}; }%
+	\IfNoValueF {#7} { \addlegendentry{$#2 = #7$, $E_{meas} = \pgfmathprintnumber{\slopeE} E_{nom} \pgfmathprintnumber[print sign]{\interE}$}; }%
+}
+
+\DeclareDocumentCommand\comparisonLegend{g}{%
+	\drawLegendMarks{3};%
+	\addlegendentry{\textbf{Modality}};%
+	\addlegendentry{Quasi-Static, $E_{meas} = \pgfmathprintnumber{\slopeA} E_{nom} \pgfmathprintnumber[print sign]{\interA}$};%
+	\addlegendentry{ARFI, $E_{meas} = \pgfmathprintnumber{\slopeB} E_{nom} \pgfmathprintnumber[print sign]{\interB}$};%
+	\addlegendentry{Shear, $E_{meas} = \pgfmathprintnumber{\slopeC} E_{nom} \pgfmathprintnumber[print sign]{\interC}$};%
+}
+
+\DeclareDocumentCommand\characterizationPic{ m m m m G{north west} g }{%
+	\begin{tikzpicture}%
+		\begin{axis}[%
+			scale only axis,%
+			height=3in,%
+			width=\textwidth-\widthof{100}-1in,%
+			xlabel={Nominal Stiffness Ratio, $E_{nom}$},%
+			ylabel style={align=center},%
+			ylabel={Measured Lesion Stiffness \\ Ratio, $E_{meas}$},%
+			grid=major,%
+			\IfNoValueF {#6} { #6, }%
+			xmin=0, xmax=3.5,
+			legend style={legend pos=#5,font=\small,nodes={right}},%
+			clip=true,%
+			cycle list name=ColourPlotRegressionCycle,%
+			draw=black, text=black, fill=black]%
+			#1%
+			#2%
+			\node [anchor=south](c) at (axis cs:#4) {\includegraphics{../assets/insets/#3.pdf}};%
+		\end{axis}%
+	\end{tikzpicture}%
+}
+
+% set up colours for schematics
+\definecolor{tissueColour}{RGB}{251,185,130}
+\definecolor{lesionColour}{RGB}{175,50,53}
+\definecolor{fatColour}{RGB}{240,236,182}
+\definecolor{boneColour}{RGB}{200,200,200}
 
 \begin{document}
 
-		\begin{table}[H]
-			\centering
-			\caption[]{Data for Fig. \protect\ref{fig:trans-width-force}}
-			\pgfplotstableread{../assets/arfi/data/freq_force_width4.dat}\renderTable
-			\pgfplotstableread{../assets/arfi/data/freq_force_width8.dat}\partB
-			\pgfplotstableread{../assets/arfi/data/freq_force_width10.dat}\partC
-			\pgfplotstablecreatecol[copy column from table={\partB}{[index] 1}] {partB} {\renderTable}
-			\pgfplotstablecreatecol[copy column from table={\partC}{[index] 1}] {partC} {\renderTable}
-			\pgfplotstabletypeset[
-				multicolumn names,
-				columns/freq/.style={
-					string type,
-					column name={$f$ (MHz)},
-					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed,round-integer-to-decimal]}
-				},
-				columns/force/.style={
-					column name={$w_{active} = \SI{4}{\cm}$},
-					preproc/expr={0.001*##1},
-					string type,
-					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
-				},
-				columns/partB/.style={
-					column name={$w_{active} = \SI{8}{\cm}$},
-					preproc/expr={0.001*##1},
-					string type,
-					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
-				},
-				columns/partC/.style={
-					column name={$w_{active} = \SI{10}{\cm}$},
-					preproc/expr={0.001*##1},
-					string type,
-					column type={S[round-mode=places,round-precision=1,scientific-notation=fixed]}
-				},
-				every head row/.style={
-					before row={%
-						\toprule
-						\multicolumn{1}{c}{Frequency,} & \multicolumn{3}{c}{Body Force at Focal Point, $F_{b,f}$ (\si{\kN\per\metre\cubed})} \\
-						\cmidrule{2-4}
-					},
-					after row=\midrule
-				},
-				every last row/.style={after row=\bottomrule}
-			]{\renderTable}
-		\end{table}
+			\begin{figure}[!htb]
+				\centering
+				\characterizationPic{\comparisonPlots{conclusion_radius}}{\comparisonLegend}{spherical}{3.125,0}
+				%\begin{tikzpicture}
+				%	\begin{axis}[
+				%		scale only axis,
+				%		height=2.5in,
+				%		width=\textwidth-\widthof{100}-1in,
+				%		xlabel={Nominal Stiffness Ratio, $E_{nom}$},
+				%		ylabel={Measured Stiffness Ratio, $E_{rel,measured}$},
+				%		grid=major,
+				%		legend entries={Quasi-Static, ARFI, Shear, Ideal},
+				%		legend style={legend pos=north west,font=\small},
+				%		clip=true,
+				%		cycle list name=ColourPlotCycle,
+				%		draw=black, text=black, fill=black,
+				%		xmin=0, xmax=3.5,
+				%		ymin=0, ymax=3.5]
+				%		\pgfplotstableread{../assets/conclusions/conclusion_radius.dat}{\conclusionRadius}
+				%		\addplot table[x={trueSR}, y={quasiSR}] {\conclusionRadius};
+				%		\addplot table[x={trueSR}, y={arfiSR}] {\conclusionRadius};
+				%		\addplot table[x={trueSR}, y={shearSR}] {\conclusionRadius};
+				%		\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
+				%		\node (c) at (axis cs:3,0.75) {\includegraphics{../assets/insets/spherical.pdf}};
+				%	\end{axis}
+				%\end{tikzpicture}
+				%\characterizationPic{\comparisonPlots{circular_size_20.dat}{arfi_radius_r100.dat}{shear_radius_r100.dat}}{\comparisonLegend}{spherical}{3.125,0}{north west}{ymin=0,ymax=3.5,xmin=0,xmax=3.5}
+				\caption[Detection sensitivities of hard-boundaried spherical lesions using the three investigated imaging modalities]{Detection sensitivities of hard-boundaried spherical lesions with radii of \SI{10}{\mm} at a depth of \SI{4}{\cm} using quasi-static elastography, ARFI imaging, and shear wave speed quantification.}
+				\label{fig:conclusion_radius}
+			\end{figure}
 
 \end{document}
