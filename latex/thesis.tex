@@ -95,34 +95,34 @@
 %dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon*\\%
 %}
 \pgfplotscreateplotcyclelist{ColourPlotCycle}{%
-only marks,solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=o\\%
-only marks,dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square\\%
-only marks,dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
-only marks,dashdotted,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
-only marks,solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
-only marks,dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
-only marks,dotted,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
-only marks,dashdotted,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond\\%
-only marks,solid,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon\\%
+only marks,mark options=solid,solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=o\\%
+only marks,mark options=solid,dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square\\%
+only marks,mark options=solid,dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
+only marks,mark options=solid,dashdotted,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
+only marks,mark options=solid,dash pattern=on 4pt off 1pt on 4pt off 4pt,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
+only marks,mark options=solid,solid,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
+only marks,mark options=solid,dashed,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
+only marks,mark options=solid,dotted,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond\\%
+only marks,mark options=solid,dashdotted,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon\\%
 }
 \pgfplotscreateplotcyclelist{ColourPlotRegressionCycle}{%
-only marks,solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=o\\%
+only marks,solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=o\\%
 solid,ultra thick,pc1\\%
-only marks,dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square\\%
+only marks,dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square\\%
 dashed,ultra thick,pc2\\%
-only marks,dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
+only marks,dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*\\%
 dotted,ultra thick,pc3\\%
-only marks,dashdotted,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
+only marks,dashdotted,ultra thick,pc4,every mark/.append style={fill=pc4},mark options=solid,mark=pentagon*\\%
 dashdotted,ultra thick,pc4\\%
-only marks,solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
-solid,ultra thick,pc5\\%
-only marks,dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
-dashed,ultra thick,pc6\\%
-only marks,dotted,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
-dotted,ultra thick,pc7\\%
-only marks,dashdotted,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond\\%
-dashdotted,ultra thick,pc8\\%
-only marks,solid,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon\\%
+only marks,dash pattern=on 4pt off 1pt on 4pt off 4pt,ultra thick,pc5,every mark/.append style={fill=pc5},mark options=solid,mark=triangle*\\%
+dash pattern=on 4pt off 1pt on 4pt off 4pt,ultra thick,pc5\\%
+only marks,solid,ultra thick,pc6,every mark/.append style={fill=pc6},mark options=solid,mark=*\\%
+solid,ultra thick,pc6\\%
+only marks,dashed,ultra thick,pc7,every mark/.append style={fill=pc7},mark options=solid,mark=square*\\%
+dashed,ultra thick,pc7\\%
+only marks,dotted,ultra thick,pc8,every mark/.append style={fill=pc8},mark options=solid,mark=diamond\\%
+dotted,ultra thick,pc8\\%
+only marks,dashed,ultra thick,pc9,every mark/.append style={fill=pc9},mark options=solid,mark=pentagon\\%
 solid,ultra thick,pc9\\%
 }
 \pgfplotscreateplotcyclelist{SmoothColourPlotCycle}{%
@@ -130,11 +130,11 @@ solid,ultra thick,pc1\\%
 dashed,ultra thick,pc2\\%
 dotted,ultra thick,pc3\\%
 dashdotted,ultra thick,pc4\\%
-solid,ultra thick,pc5\\%
-dashed,ultra thick,pc6\\%
-dotted,ultra thick,pc7\\%
-dashdotted,ultra thick,pc8\\%
-solid,ultra thick,pc9\\%
+dash pattern=on 4pt off 1pt on 4pt off 4pt,ultra thick,pc5\\%
+solid,ultra thick,pc6\\%
+dashed,ultra thick,pc7\\%
+dotted,ultra thick,pc8\\%
+dashdotted,ultra thick,pc9\\%
 }
 \pgfplotscreateplotcyclelist{BarColourPlotCycle}{%
 fill=pc1\\%
@@ -181,30 +181,30 @@ fill=pc9\\%
 % for drawing legends with regressions
 \newcommand{\drawLegendMarks}[1]{
 	\addlegendimage{empty legend}
-	\addlegendimage{solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark=o}
+	\addlegendimage{solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=o}
 	\ifnum#1>1
-		\addlegendimage{dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark=square}
+		\addlegendimage{dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square}
 	\fi
 	\ifnum#1>2
-		\addlegendimage{dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark=diamond*}
+		\addlegendimage{dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*}
 	\fi
 	\ifnum#1>3
-		\addlegendimage{dashdotted,ultra thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*}
+		\addlegendimage{dashdotted,ultra thick,pc4,every mark/.append style={fill=pc4},mark options=solid,mark=pentagon*}
 	\fi
 	\ifnum#1>4
-		\addlegendimage{solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark=triangle*}
+		\addlegendimage{solid,ultra thick,pc5,every mark/.append style={fill=pc5},mark options=solid,mark=triangle*}
 	\fi
 	\ifnum#1>5
-		\addlegendimage{dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark=*}
+		\addlegendimage{dashed,ultra thick,pc6,every mark/.append style={fill=pc6},mark options=solid,mark=*}
 	\fi
 	\ifnum#1>6
-		\addlegendimage{dotted,ultra thick,pc7,every mark/.append style={fill=pc7},mark=square*}
+		\addlegendimage{dotted,ultra thick,pc7,every mark/.append style={fill=pc7},mark options=solid,mark=square*}
 	\fi
 	\ifnum#1>7
-		\addlegendimage{dashdotted,ultra thick,pc8,every mark/.append style={fill=pc8},mark=diamond}
+		\addlegendimage{dashdotted,ultra thick,pc8,every mark/.append style={fill=pc8},mark options=solid,mark=diamond}
 	\fi
 	\ifnum#1>8
-		\addlegendimage{solid,ultra thick,pc9,every mark/.append style={fill=pc9},mark=pentagon}
+		\addlegendimage{solid,ultra thick,pc9,every mark/.append style={fill=pc9},mark options=solid,mark=pentagon}
 	\fi
 }
 
@@ -250,7 +250,7 @@ fill=pc9\\%
 \DeclareDocumentCommand\characterizationLegend{ m m m g g g g}{%
 	\drawLegendMarks{\IfNoValueTF{#7}{\IfNoValueTF{#6}{\IfNoValueTF{#5}{\IfNoValueTF{#4}{1}{2}}{3}}{4}}{5}};%
 	\addlegendentry{\textbf{#1}};%
-	\addlegendentry{$#2 = #3$, $E_{rel,meas} = \pgfmathprintnumber{\slopeA} E_{rel,nom} \pgfmathprintnumber[print sign]{\interA}$};%
+	\addlegendentry{$#2 = #3$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeA} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interA}$};%
 	\IfNoValueF {#4} { \addlegendentry{$#2 = #4$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeB} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interB}$}; }%
 	\IfNoValueF {#5} { \addlegendentry{$#2 = #5$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeC} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interC}$}; }%
 	\IfNoValueF {#6} { \addlegendentry{$#2 = #6$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeD} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interD}$}; }%

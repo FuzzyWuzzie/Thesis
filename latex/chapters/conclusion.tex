@@ -30,22 +30,24 @@
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
-						legend entries={Quasi-Static, ARFI, Shear},
-						legend style={legend pos=north east,font=\small},
+						legend entries={\textbf{Imaging Modality}, Quasi-Static, ARFI, Shear},
+						legend style={legend pos=north east,font=\small,nodes={right}},
 						bar width=14pt,
 						ymajorgrids=true,
 						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
-						ylabel={Percent Error (\si{\percent})},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
 						xticklabels={0.32, 0.56, 1.80, 3.20},
 						xtick=data,
 						ymin=0,
 						cycle list name=BarColourPlotCycle]
+						\addlegendimage{empty legend}
 						\pgfplotstableread{assets/conclusions/conclusion_radius.dat}{\conclusionRadius}
 						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionRadius};
 						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionRadius};
 						\addplot table[x={trueSR}, y={shearPD}] {\conclusionRadius};
+						\node[anchor=north] (c) at (axis cs:0.56,200) {\includegraphics{assets/insets/spherical.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Percent error of measured stiffness ratios for spherical lesions across the three investigated modalities]{Percent error of measured stiffness ratios for spherical lesions with radii of \SI{10}{\mm} at a depth of \SI{4}{\cm} across the three investigated modalities.}
@@ -72,21 +74,24 @@
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
-						legend entries={Quasi-Static, ARFI, Shear},
-						legend style={legend pos=north east,font=\small},
+						legend entries={\textbf{Imaging Modality}, Quasi-Static, ARFI, Shear},
+						legend style={legend pos=north east,font=\small,nodes={right}},
 						bar width=14pt,
 						ymajorgrids=true,
 						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
-						ylabel={Percent Error (\si{\percent})},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
 						xticklabels={0.32, 0.56, 1.80, 3.20},
 						xtick=data,
+						ymin=0,
 						cycle list name=BarColourPlotCycle]
 						\pgfplotstableread{assets/conclusions/conclusion_blur.dat}{\conclusionBlur};
+						\addlegendimage{empty legend}
 						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionBlur};
 						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionBlur};
 						\addplot table[x={trueSR}, y={shearPD}] {\conclusionBlur};
+						\node[anchor=north] (c) at (axis cs:0.56,200) {\includegraphics{assets/insets/blurred.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Percent error of measured stiffness ratios for blurred lesions across the three investigated modalities]{Percent error of measured stiffness ratios for blurred lesions with radii of \SI{10}{\mm} and blur radii of \SI{7.5}{\mm} across the three investigated modalities.}
@@ -113,21 +118,23 @@
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
-						legend entries={Quasi-Static, ARFI, Shear},
-						legend style={legend pos=north east,font=\small},
+						legend entries={\textbf{Imaging Modality}, Quasi-Static, ARFI, Shear},
+						legend style={legend pos=north east,font=\small,nodes={right}},
 						bar width=14pt,
 						ymajorgrids=true,
 						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
-						ylabel={Percent Error (\si{\percent})},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
 						xticklabels={0.32, 0.56, 1.80, 3.20},
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
 						\pgfplotstableread{assets/conclusions/conclusion_cluster.dat}{\conclusionCluster};
+						\addlegendimage{empty legend}
 						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionCluster};
 						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionCluster};
 						\addplot table[x={trueSR}, y={shearPD}] {\conclusionCluster};
+						\node[anchor=north] (c) at (axis cs:0.56,175) {\includegraphics{assets/insets/clustered.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Percent error of measured stiffness ratios for clustered lesions across the three investigated modalities]{Percent error of measured stiffness ratios for clustered lesions with a cluster density of \SI{20}{\per\cm\squared} and individual radii of \SI{1}{\mm} across the three investigated modalities.}
@@ -154,21 +161,24 @@
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
-						legend entries={Quasi-Static, ARFI, Shear},
-						legend style={legend pos=north east,font=\small},
+						legend entries={\textbf{Imaging Modality}, Quasi-Static, ARFI, Shear},
+						legend style={legend pos=north east,font=\small,nodes={right}},
 						bar width=14pt,
 						ymajorgrids=true,
 						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
-						ylabel={Percent Error (\si{\percent})},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
 						enlarge x limits=0.25,
 						symbolic x coords={0.32, 0.56, 1.8, 3.2},
 						xticklabels={0.32, 0.56, 1.80, 3.20},
 						xtick=data,
+						ymin=0,
 						cycle list name=BarColourPlotCycle]
 						\pgfplotstableread{assets/conclusions/conclusion_human.dat}{\conclusionHuman}
+						\addlegendimage{empty legend}
 						\addplot table[x={trueSR}, y={quasiPD}] {\conclusionHuman};
 						\addplot table[x={trueSR}, y={arfiPD}] {\conclusionHuman};
 						\addplot table[x={trueSR}, y={shearPD}] {\conclusionHuman};
+						\node[anchor=north] (c) at (axis cs:0.56,175) {\includegraphics{assets/insets/human.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Percent error of measured stiffness ratios for MRI-acquired Visible Human lesions across the three investigated modalities]{Percent error of measured stiffness ratios for MRI-acquired Visible Human lesions with a width of \SI{20}{\mm} at a depth of \SI{6}{\cm} across the three investigated modalities.}
@@ -189,13 +199,19 @@
 						xlabel={Nominal Stiffness Ratio, $E_{nominal}$},
 						ylabel style={align=center},
 						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
-						legend entries={Quasi-Static, ARFI, Shear, Ideal},
-						legend style={legend pos=north west,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						legend entries={\textbf{Imaging Modality}, Quasi-Static, ARFI, Shear, Ideal Mapping},
+						legend style={legend pos=north west,font=\small,nodes={right}},grid=major,clip=true,cycle list name=ColourPlotCycle,
 						xmin=0, xmax=4,
-						ymin=0, ymax=4,
+						ymin=0, ymax=5,
 						draw=black, text=black, fill=black]
-							\addplot table {assets/quasistatic/data/validation_nominal.dat};
+							\addlegendimage{empty legend}
+							\addlegendimage{solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=o}
+							\addlegendimage{dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square}
+							\addlegendimage{dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*}
+
+							\addplot+[forget plot] table {assets/quasistatic/data/validation_nominal.dat}; \pgfplotsset{cycle list shift=1};
 							\addplot+[
+								forget plot,
 								error bars/.cd,
 								y dir=both,
 								y explicit,
@@ -204,8 +220,9 @@
 									rotate=90,
 									mark size=8pt,
 									ultra thick
-								}] table[y error plus=upper, y error minus=lower] {assets/arfi/data/arfi_experiment_nominal.dat};
+								}] table[y error plus=upper, y error minus=lower] {assets/arfi/data/arfi_experiment_nominal.dat}; \pgfplotsset{cycle list shift=2};
 							\addplot+[
+								forget plot,
 								error bars/.cd,
 								y dir=both,
 								y explicit,
@@ -214,9 +231,9 @@
 									rotate=90,
 									mark size=8pt,
 									ultra thick
-								}] table[y error plus=upper, y error minus=lower] {assets/shear/data/shear_experiment_nominal.dat};
-							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/insets/spherical.pdf}};
+								}] table[y error plus=upper, y error minus=lower] {assets/shear/data/shear_experiment_nominal.dat}; \pgfplotsset{cycle list shift=3};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (5, 5)};
+						\node[anchor=south east] at (axis cs:4,0) {\includegraphics{assets/insets/spherical.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental results of the three methodologies investigated]{Experimental results of the three methodologies investigated. ARFI imaging consistently overestimated the stiffness of the lesion compared to both quasi-static and shear wave speed quantification, which generally underestimated the stiffness of lesions.}
@@ -235,13 +252,19 @@
 						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
 						ylabel style={align=center},
 						ylabel={Simulated Measured \\ Stiffness Ratio, $E_{sim,measured}$},
-						legend entries={Quasi-Static, ARFI, Shear, Ideal},
-						legend style={legend pos=north west,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
+						legend entries={\textbf{Imaging Modality}, Quasi-Static, ARFI, Shear, Ideal Mapping},
+						legend style={legend pos=north west,font=\small,nodes={right}},grid=major,clip=true,cycle list name=ColourPlotCycle,
 						xmin=0, xmax=4,
-						ymin=0, ymax=4,
+						ymin=0, ymax=5,
 						draw=black, text=black, fill=black]
-							\addplot table {assets/quasistatic/data/validation.dat};
+							\addlegendimage{empty legend}
+							\addlegendimage{solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=o}
+							\addlegendimage{dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square}
+							\addlegendimage{dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*}
+
+							\addplot+[forget plot] table {assets/quasistatic/data/validation.dat}; \pgfplotsset{cycle list shift=1};
 							\addplot+[
+								forget plot,
 								error bars/.cd,
 								x dir=both,
 								x explicit,
@@ -249,9 +272,11 @@
 								error mark options={
 									rotate=90,
 									mark size=8pt,
-									ultra thick
-								}] table[x error plus=upper, x error minus=lower] {assets/arfi/data/arfi_experiment.dat};
+									ultra thick,
+									solid
+								}] table[x error plus=upper, x error minus=lower] {assets/arfi/data/arfi_experiment.dat}; \pgfplotsset{cycle list shift=2};
 							\addplot+[
+								forget plot,
 								error bars/.cd,
 								x dir=both,
 								x explicit,
@@ -259,10 +284,11 @@
 								error mark options={
 									rotate=90,
 									mark size=8pt,
-									ultra thick
-								}] table[x error plus=upper, x error minus=lower] {assets/shear/data/shear_experiment.dat};
-							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (4, 4)};
-						\node (c) at (axis cs:3.5,0.75) {\includegraphics{assets/insets/spherical.pdf}};
+									ultra thick,
+									solid
+								}] table[x error plus=upper, x error minus=lower] {assets/shear/data/shear_experiment.dat}; \pgfplotsset{cycle list shift=3};
+							\addplot[mark=none,dashed,ultra thick] plot coordinates {(0, 0) (5, 5)};
+						\node[anchor=south east] at (axis cs:4,0) {\includegraphics{assets/insets/spherical.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Experimental validation of the simulation results across all three methodologies investigated]{Experimental validation of the simulation results across all three methodologies investigated. The quasi-static ultrasound elastography and shear wave speed quantification simulations most closely matched the results seen experimentally.}

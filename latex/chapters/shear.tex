@@ -369,7 +369,7 @@
 							\draw[ultra thick, draw=black, dashed] (axis cs:0,1.75) -- (axis cs:17.5,1.75);
 							\node[right] at (axis cs:15,1.25) {Lesion};
 							\draw[ultra thick, ->, draw=black] (axis cs:25.65,2.75) -- (axis cs:25.65,3.7755102040816);
-							\node[below] at (axis cs:25.65,2.75) {Iso-line};
+							\node[below] at (axis cs:25.65,2.75) {Contour line};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[Sample continuous surface plot of shear wave induced axial displacement highlighting the shear wave location in time]{Continuous surface plot of shear wave induced axial displacement highlighting a mean contour line representing the shear wave location as time progresses. By inspection, the slope of the contour line is greater within the lesionous region than outside of it, suggesting that the lesion is stiffer than the surrounding tissue.}
@@ -797,7 +797,7 @@
 						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
 						ylabel style={align=center},
 						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
-						legend entries={Results, Ideal},
+						legend entries={Experimental Results, Ideal Unary Mapping},
 						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
 						xmin=0, xmax=4,
 						ymin=0, ymax=4,
@@ -832,7 +832,7 @@
 						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
 						ylabel style={align=center},
 						ylabel={Simulated Measured \\ Stiffness Ratio, $E_{sim,measured}$},
-						legend entries={Results, Ideal},
+						legend entries={Experimental Results, Ideal Unary Mapping},
 						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
 						xmin=0, xmax=4,
 						ymin=0, ymax=4,

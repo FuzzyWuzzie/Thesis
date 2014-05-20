@@ -46,7 +46,7 @@
 				\frac{\partial p}{\partial t} = -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{v} - \vec{v} \cdot \nabla \rho_0 + S_M
 			\end{equation}
 
-			The k-Wave MATLAB\textsuperscript{\textregistered} toolbox version 1.0 was used to solve for the time-variant intensities resulting from simulated acoustic radiation force impulses applied to heterogeneous soft tissue using equations \ref{equ:arfi_gov_p1}, \ref{equ:arfi_gov_p2_source}, and \ref{equ:arfi_gov_p3} with the acoustic properties listed in Table \ref{tab:kspace_properties}. Sample source code for performing these simulations using the k-Wave toolbox is given in listing \ref{lst:intensity} in Appendix \ref{app:source_code}.
+			The k-Wave MATLAB\textsuperscript{\textregistered}\ toolbox version 1.0 was used to solve for the time-variant intensities resulting from simulated acoustic radiation force impulses applied to heterogeneous soft tissue using equations \ref{equ:arfi_gov_p1}, \ref{equ:arfi_gov_p2_source}, and \ref{equ:arfi_gov_p3} with the acoustic properties listed in Table \ref{tab:kspace_properties}. Sample source code for performing these simulations using the k-Wave toolbox is given in listing \ref{lst:intensity} in Appendix \ref{app:source_code}.
 
 			\begin{table}[!htb]
 				\centering
@@ -1021,7 +1021,7 @@
 						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
 						ylabel style={align=center},
 						ylabel={Experimentally Measured \\ Stiffness Ratio, $E_{exp,measured}$},
-						legend entries={Results, Ideal},
+						legend entries={Experimental Results, Ideal Unary Mapping},
 						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
 						xmin=0, xmax=4,
 						ymin=0, ymax=4,
@@ -1058,7 +1058,7 @@
 						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
 						ylabel style={align=center},
 						ylabel={Simulated Measured \\ Stiffness Ratio, $E_{sim,measured}$},
-						legend entries={Results, Ideal},
+						legend entries={Experimental Results, Ideal Unary Mapping},
 						legend style={legend pos=south east,font=\small},grid=major,clip=true,cycle list name=ColourPlotCycle,
 						xmin=0, xmax=4,
 						ymin=0, ymax=4,

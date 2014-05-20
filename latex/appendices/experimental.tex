@@ -3,13 +3,28 @@
 	\doublespacing
 	Each of the protocols detailed here were carried out on a Siemens ACUSON S2000\textsuperscript{\texttrademark}\ portable ultrasound machine with a Siemens 9L4 transducer on a CIRS Elasticity QA Phantom model 049 as shown in Fig. \ref{fig:experimental_photo}.
 
+ 	\singlespacing
 	\begin{figure*}[!htb]
 		\centering
+		\begin{tikzpicture}
+			\node at (0, 0) {\includegraphics[width=\textwidth]{assets/experimental_setup.png}};
+
+			% the phantom
+			\draw[pc1,->,ultra thick] (-0.5, 1) -- (-1,-0.9);
+			\draw (-0.5, 1) node[above,text width=1in,align=center,fill=white,rounded corners=3pt,draw=pc1,ultra thick]{\color{black}\footnotesize CIRS Elasticity QA Phantom model 049};
+
+			% the probe
+			\draw[pc2,->,ultra thick] (-2, -3.15) -- (0, -1.3);
+			\draw (-2, -3.15) node[below,text width=1in,align=center,fill=white,rounded corners=3pt,draw=pc2,ultra thick]{\color{black}\footnotesize 9L4 Transducer};
+
+			% the ultrasound machine
+			\draw[pc3,->,ultra thick] (-0.5, 4) -- (2.5, 2.5);
+			\draw (-0.5, 4) node[left,text width=1.5in,align=center,fill=white,rounded corners=3pt,draw=pc3,ultra thick]{\color{black}\footnotesize Siemens ACUSON S2000\textsuperscript{\texttrademark}\ portable ultrasound machine};
+		\end{tikzpicture}
 		\caption[]{Experimental setup showing the ultrasound machine, probe, and phantom model.}
 		\label{fig:experimental_photo}
 	\end{figure*}
 
- 	\singlespacing
 	\section{Quasi-Static Ultrasound Elastography}
 		\label{appsec:experimental_quasistatic}
 		\begin{enumerate}
@@ -27,7 +42,7 @@
 			\item \label{itqs:save_second_image} Save the current screen
 			\item Repeat steps \ref{itqs:position_transducer} -- \ref{itqs:save_second_image} until all desired images have been acquired
 			\item Export the images to ``USB in PC format''
-			\item Import the images to a MATLAB
+			\item Import the images into MATLAB\textsuperscript{\textregistered}
 			\begin{enumerate}
 				\item Crop the images so only the imaged domain is visible
 			\end{enumerate}
@@ -54,7 +69,7 @@
 			\item \label{itar:unfreeze} Wait for the cooling process to complete then press the ``Freeze'' button to unfreeze the image
 			\item Repeat steps \ref{itar:position_transducer} -- \ref{itar:unfreeze} until all desired images have been acquired
 			\item Export the images to ``USB in PC format''
-			\item Import the images to a MATLAB
+			\item Import the images into MATLAB\textsuperscript{\textregistered}
 			\item Calculate the stiffness ratios by comparing the mean brightness of the elastograms inside the lesion to the mean brightness of the elastograms in an identical area located superior to the lesion
 		\end{enumerate}
 
