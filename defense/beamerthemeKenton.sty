@@ -1,0 +1,91 @@
+\usepackage{tikz, datetime, textpos}
+\usepackage[none]{hyphenat}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\definecolor{KentonRed}{RGB}{230,37,52}
+\definecolor{KentonBlack}{RGB}{43,40,40}
+\definecolor{KentonBlue}{RGB}{22,190,207}
+\definecolor{KentonWhite}{RGB}{255,255,243}
+\definecolor{KentonGrey}{RGB}{107,110,108}
+
+\setsansfont{Source Sans Pro}
+
+\setbeamercolor{itemize item}{fg=KentonBlue}
+\setbeamercolor{enumerate item}{fg=KentonBlue}
+\setbeamercolor{alerted text}{fg=KentonBlue}
+\setbeamercolor{section in toc}{fg=KentonBlack}
+
+\setbeamerfont{itemize/enumerate body}{size=\large}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\small}
+
+\setbeamertemplate{itemize item}{
+	\tikz{
+		\draw[fill=KentonBlue,draw=none] (0, 0) rectangle(0.1, 0.1);
+		\draw[fill=KentonBlue,draw=none] (0.1, 0.1) rectangle(0.2, 0.2);
+		\draw[fill=KentonBlue,draw=none] (0, 0.2) rectangle(0.1, 0.3);
+	}
+}
+\setbeamertemplate{itemize subitem}{
+	\tikz{
+		\draw[fill=KentonRed,draw=none] (0, 0) rectangle(0.075, 0.075);
+		\draw[fill=KentonRed,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+		\draw[fill=KentonRed,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+	}
+}
+
+\setbeamertemplate{background}{
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		\ifnum\thepage>2\relax % Not the title page nor the contents page
+			% the background
+			\fill[color=KentonWhite] (0,0) rectangle(12.8cm,9.6cm);
+
+			% bottom information
+			\node[anchor=south west] at(0cm,0cm) {\color{KentonGrey}\tiny\insertsection};
+			\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertframenumber};
+
+			% title bar
+			\fill[color=KentonRed] (0, 8.6cm) rectangle(12.8cm,9.6cm);
+			%\node[anchor=north,text width=11.8cm,inner xsep=0.5cm,inner ysep=0.25cm] at (6.4cm,9.6cm) {\color{KentonWhite}\huge\textbf{\insertsectionhead: \insertframetitle}};
+			\node[anchor=north,text width=11.8cm,inner xsep=0.5cm,inner ysep=0.25cm] at (6.4cm,9.6cm) {\color{KentonWhite}\huge\textbf{\insertframetitle}};
+		\else
+			\ifnum\thepage>1\relax % contents page
+				% the background
+				\fill[color=KentonWhite] (0,0) rectangle(12.8cm,9.6cm);
+
+				% title bar
+				\fill[color=KentonRed] (0, 8.6cm) rectangle(12.8cm,9.6cm);
+				\node[anchor=north,text width=11.8cm,inner xsep=0.5cm,inner ysep=0.25cm] at (6.4cm,9.6cm) {\color{KentonWhite}\huge\textbf{\insertframetitle}};
+			\else % Title page
+				% draw fills
+				\fill[color=KentonWhite] (0,0) rectangle(12.8cm,9.6cm);
+				\fill[color=KentonRed] (0, 4cm) rectangle(12.8cm, 9.6cm);
+
+				% draw the actual text
+				\node[anchor=south,text width=11.8cm,inner xsep=0.5cm] at (6.4cm,4cm) {\color{KentonWhite}\Huge\textbf{\inserttitle}};
+				\node[anchor=north east,text width=11.8cm,align=right] at (12.3cm,4cm) {\color{KentonBlack}\tiny\insertsubtitle};
+
+				\node[above] at(6.4cm,2.25cm) {\color{KentonBlue}\tiny by};
+				\node at (6.4cm,2cm) {\color{KentonBlack}\LARGE\insertauthor};
+
+				\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertdate};
+			\fi
+		\fi
+	\end{tikzpicture}
+}
+
+% custom draw the title page above
+\setbeamertemplate{title page}{}
+
+% disable navigation
+\setbeamertemplate{navigation symbols}{}
+
+% again, manually draw the frame title above
+\setbeamertemplate{frametitle}{}
+
+% disable "Figure:" in the captions
+\setbeamertemplate{caption}{\tiny\insertcaption}
+\setbeamertemplate{caption label separator}{}
