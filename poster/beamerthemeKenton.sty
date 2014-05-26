@@ -1,0 +1,88 @@
+\usepackage{tikz, datetime, textpos}
+\usepackage[none]{hyphenat}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\definecolor{KentonRed}{RGB}{230,37,52}
+\definecolor{KentonBlack}{RGB}{43,40,40}
+\definecolor{KentonBlue}{RGB}{22,190,207}
+\definecolor{KentonWhite}{RGB}{255,255,243}
+\definecolor{KentonGrey}{RGB}{107,110,108}
+
+\setsansfont{Arial}
+\setmainfont{Times New Roman}
+
+\setbeamercolor{itemize item}{fg=KentonBlue}
+\setbeamercolor{enumerate item}{fg=KentonBlue}
+\setbeamercolor{alerted text}{fg=KentonBlue}
+\setbeamercolor{section in toc}{fg=KentonBlack}
+
+\setbeamerfont{itemize/enumerate body}{size=\large}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\small}
+
+\setbeamertemplate{itemize item}{
+	\tikz{
+		\draw[fill=KentonBlue,draw=none] (0, 0) rectangle(0.1, 0.1);
+		\draw[fill=KentonBlue,draw=none] (0.1, 0.1) rectangle(0.2, 0.2);
+		\draw[fill=KentonBlue,draw=none] (0, 0.2) rectangle(0.1, 0.3);
+	}
+}
+\setbeamertemplate{itemize subitem}{
+	\tikz{
+		\draw[fill=KentonRed,draw=none] (0, 0) rectangle(0.075, 0.075);
+		\draw[fill=KentonRed,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+		\draw[fill=KentonRed,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+	}
+}
+
+\setbeamertemplate{background}{
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+		% draw fills
+		\fill[color=white] (0,0) rectangle(\paperwidth,\paperheight);
+		% width=59.412,height=84.098
+		\draw[draw=KentonBlack, fill=KentonBlack, line width=2pt] (3.98cm,73.428cm) rectangle(55.46cm,80.148cm);
+
+		% the title
+		\node[text width=51.48cm,align=center] at (29.72cm,76.788cm) {\color{KentonWhite}\fontsize{60}{60}\selectfont\textbf{\inserttitle}};
+
+		% the titleblock table
+		\draw[draw=KentonBlack, fill=KentonGrey, line width=2pt] (3.98cm,69.25cm) rectangle(55.48cm,73.428cm);
+		\node[anchor=north west] at (3.98cm,73.428cm) {\fontsize{36}{36}\selectfont Name};
+		\node[anchor=north west] at (17.5cm,73.428cm) {\fontsize{36}{36}\selectfont Degree};
+		\node[anchor=north west] at (23cm,73.428cm) {\fontsize{36}{36}\selectfont Year};
+		\node[anchor=north west] at (27.75cm,73.428cm) {\fontsize{36}{36}\selectfont Supervisors};
+		\draw[draw=KentonBlack, line width=2pt] (3.98cm,71.5cm) -- (55.46cm,71.5cm);
+		\node[anchor=north west] at (3.98cm,71.5cm) {\fontsize{48}{48}\selectfont\rmfamily Kenton Hamaluik};
+		\node[anchor=north west] at (17.5cm,71.5cm) {\fontsize{48}{48}\selectfont\rmfamily M.Sc.};
+		\node[anchor=north west] at (23cm,71.5cm) {\fontsize{48}{48}\selectfont\rmfamily 2014};
+		\node[anchor=north west] at (27.75cm,71.5cm) {\fontsize{48}{48}\selectfont\rmfamily Dr. W. Moussa \& Dr. M. Ferguson-Pell};
+		\draw[draw=KentonBlack, line width=2pt] (17.5cm,69.25cm) -- (17.5cm,73.428cm);
+		\draw[draw=KentonBlack, line width=2pt] (23cm,69.25cm) -- (23cm,73.428cm);
+		\draw[draw=KentonBlack, line width=2pt] (27.75cm,69.25cm) -- (27.75cm,73.428cm);
+
+		% the body background
+		\draw[draw=KentonBlack, fill=KentonWhite, line width=2pt] (3.98cm,7.698cm) rectangle(55.48cm,69.25cm);
+
+		% the bottom logo area
+		\draw[fill=KentonBlack,draw=KentonBlack, line width=2pt] (3.98cm,3.878cm) rectangle (55.48cm,11.658cm);
+		\node[anchor=west] at(8.26cm,7.768cm) {\includegraphics[width=16.71cm]{logo/UA-1C-TINT-REVERSE.png}};
+		\node[anchor=west,text width=24.05cm] at(30.54cm,7.768cm) {\fontsize{66}{79.2}\selectfont\rmfamily\color{KentonWhite} Department of \\ Mechanical Engineering};
+
+	\end{tikzpicture}
+}
+
+% custom draw the title page above
+\setbeamertemplate{title page}{}
+
+% disable navigation
+\setbeamertemplate{navigation symbols}{}
+
+% again, manually draw the frame title above
+\setbeamertemplate{frametitle}{}
+
+% disable "Figure:" in the captions
+\setbeamertemplate{caption}{\tiny\insertcaption}
+\setbeamertemplate{caption label separator}{}
