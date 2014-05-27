@@ -1,8 +1,17 @@
 \usepackage{tikz, datetime, textpos}
+\usetikzlibrary{calc}
 \usepackage[none]{hyphenat}
-
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
+
+\newcounter{showProgressBar}
+\setcounter{showProgressBar}{1}
+\newcounter{showSlideNumbers}
+\setcounter{showSliderNumbers}{1}
+\newcounter{showSlideTotal}
+\setcounter{showSlideTotal}{1}
+\newcounter{showBackButton}
+\setcounter{showBackButton}{0}
 
 \definecolor{KentonRed}{RGB}{230,37,52}
 \definecolor{KentonBlack}{RGB}{43,40,40}
@@ -10,7 +19,7 @@
 \definecolor{KentonWhite}{RGB}{255,255,243}
 \definecolor{KentonGrey}{RGB}{107,110,108}
 
-\setsansfont{Source Sans Pro}
+%\setsansfont{Source Sans Pro}
 
 \setbeamercolor{itemize item}{fg=KentonBlue}
 \setbeamercolor{enumerate item}{fg=KentonBlue}
@@ -36,16 +45,59 @@
 	}
 }
 
+\makeatletter
+\def\progressbar@progressbar{} % the progress bar
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbwidth %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+\progressbar@pbwidth=12.8cm
+
 \setbeamertemplate{background}{
+	% deal with progress bar stuff
+	\progressbar@tmpcounta=\insertframenumber
+	\progressbar@tmpcountb=\inserttotalframenumber
+	\progressbar@tmpdim=\progressbar@pbwidth
+	\multiply\progressbar@tmpdim by \progressbar@tmpcounta
+	\divide\progressbar@tmpdim by \progressbar@tmpcountb
+
 	\begin{tikzpicture}
 		\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
 		\ifnum\thepage>2\relax % Not the title page nor the contents page
 			% the background
 			\fill[color=KentonWhite] (0,0) rectangle(12.8cm,9.6cm);
 
-			% bottom information
-			\node[anchor=south west] at(0cm,0cm) {\color{KentonGrey}\tiny\insertsection};
-			\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertframenumber};
+			% if we're showing a progress bar, show it
+			\ifnum \value{showProgressBar}>0\relax%
+				% the the progress bar icon in the middle of the screen
+				\draw[fill=KentonGrey,draw=none] (0cm,0cm) rectangle(12.8cm,0.25cm);
+				\draw[fill=KentonRed,draw=none] (0cm,0cm) rectangle(\progressbar@tmpdim,0.25cm);
+
+				% bottom information
+				\node[anchor=south west] at(0cm,0.25cm) {\color{KentonGrey}\tiny\insertsection};
+				\ifnum \value{showSlideNumbers}>0\relax%
+					\ifnum \value{showSlideTotal}>0\relax%
+						\node[anchor=south east] at(12.8cm,0.25cm) {\color{KentonGrey}\tiny\insertframenumber/\inserttotalframenumber};
+					\else
+						\node[anchor=south east] at(12.8cm,0.25cm) {\color{KentonGrey}\tiny\insertframenumber};
+					\fi
+				\fi
+			\else
+				% bottom information
+				\node[anchor=south west] at(0cm,0cm) {\color{KentonGrey}\tiny\insertsection};
+				\ifnum \value{showSlideNumbers}>0\relax%
+					\ifnum \value{showSlideTotal}>0\relax%
+						\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertframenumber/\inserttotalframenumber};
+					\else
+						\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertframenumber};
+					\fi
+				\else
+					\ifnum \value{showBackButton}>0\relax%
+						\node[anchor=south east] at (12.8cm,0cm) {\color{KentonGrey}\tiny\Acrobatmenu{GoBack}{Return}};
+					\fi
+				\fi
+			\fi
 
 			% title bar
 			\fill[color=KentonRed] (0, 8.6cm) rectangle(12.8cm,9.6cm);
@@ -68,7 +120,7 @@
 				\node[anchor=south,text width=11.8cm,inner xsep=0.5cm] at (6.4cm,4cm) {\color{KentonWhite}\Huge\textbf{\inserttitle}};
 				\node[anchor=north east,text width=11.8cm,align=right] at (12.3cm,4cm) {\color{KentonBlack}\tiny\insertsubtitle};
 
-				\node[above] at(6.4cm,2.25cm) {\color{KentonBlue}\tiny by};
+				\node[above] at(6.4cm,2.25cm) {\color{KentonBlack}\tiny by};
 				\node at (6.4cm,2cm) {\color{KentonBlack}\LARGE\insertauthor};
 
 				\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertdate};
@@ -76,6 +128,7 @@
 		\fi
 	\end{tikzpicture}
 }
+\makeatother
 
 % custom draw the title page above
 \setbeamertemplate{title page}{}

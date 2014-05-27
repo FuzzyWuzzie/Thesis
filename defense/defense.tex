@@ -1,6 +1,7 @@
 %!TEX program = xelatex
 \documentclass{beamer}
 
+\usepackage{appendixnumberbeamer}
 \usepackage[caption=false]{subfig}
 
 \usetheme{Kenton}
@@ -10,6 +11,8 @@
 \author{Kenton David Hamaluik}
 \institute{University of Alberta}
 \date{June 23, 2014}
+
+\setcounter{showSlideNumbers}{1}
 
 \begin{document}
 
@@ -49,15 +52,15 @@
 				\column{0.55\textwidth}
 					\begin{figure}
 						\centering
-						\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/normal.png}}
-
-						\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/stage1.png}}
-						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage2.png}}
-						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage3.png}}
-
-						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage4.png}}
-						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/unstageable.png}}
-						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/suspectedDTI.png}}
+						%\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/normal.png}}
+%
+						%\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/stage1.png}}
+						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage2.png}}
+						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage3.png}}
+%
+						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage4.png}}
+						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/unstageable.png}}
+						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/suspectedDTI.png}}
 
 						\caption{\copyright\ National Pressure Ulcer Advisory Panel, used with permission.}
 					\end{figure}
@@ -129,6 +132,26 @@
 		\end{frame}
 		\begin{frame}
 			\frametitle{Recommendations}
+		\end{frame}
+
+	\appendix
+	\section{Additional Slides}
+	\setcounter{showProgressBar}{0}
+	\setcounter{showSlideNumbers}{0}
+	\setcounter{showBackButton}{0}
+
+		\begin{frame}
+			\frametitle{Additional Slides}
+			\begin{itemize}
+				\item \hyperlink{backup1}{backup 1}
+			\end{itemize}
+		\end{frame}
+
+		\begin{frame}[label=backup1]
+			\frametitle{backup1}
+			\begin{itemize}
+				\item herp
+			\end{itemize}
 		\end{frame}
 
 \end{document}
