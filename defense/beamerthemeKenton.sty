@@ -7,11 +7,9 @@
 \newcounter{showProgressBar}
 \setcounter{showProgressBar}{1}
 \newcounter{showSlideNumbers}
-\setcounter{showSliderNumbers}{1}
+\setcounter{showSlideNumbers}{1}
 \newcounter{showSlideTotal}
 \setcounter{showSlideTotal}{1}
-\newcounter{showBackButton}
-\setcounter{showBackButton}{0}
 
 \definecolor{KentonRed}{RGB}{230,37,52}
 \definecolor{KentonBlack}{RGB}{43,40,40}
@@ -19,7 +17,9 @@
 \definecolor{KentonWhite}{RGB}{255,255,243}
 \definecolor{KentonGrey}{RGB}{107,110,108}
 
-%\setsansfont{Source Sans Pro}
+\setmainfont{Source Serif Pro}
+\setsansfont{Source Sans Pro}
+\setmonofont{Source Code Pro}
 
 \setbeamercolor{itemize item}{fg=KentonBlue}
 \setbeamercolor{enumerate item}{fg=KentonBlue}
@@ -91,10 +91,6 @@
 						\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertframenumber/\inserttotalframenumber};
 					\else
 						\node[anchor=south east] at(12.8cm,0cm) {\color{KentonGrey}\tiny\insertframenumber};
-					\fi
-				\else
-					\ifnum \value{showBackButton}>0\relax%
-						\node[anchor=south east] at (12.8cm,0cm) {\color{KentonGrey}\tiny\Acrobatmenu{GoBack}{Return}};
 					\fi
 				\fi
 			\fi

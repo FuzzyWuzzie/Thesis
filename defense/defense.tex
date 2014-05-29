@@ -1,6 +1,9 @@
 %!TEX program = xelatex
 \documentclass{beamer}
 
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{rotating}
 \usepackage{appendixnumberbeamer}
 \usepackage[caption=false]{subfig}
 
@@ -11,6 +14,10 @@
 \author{Kenton David Hamaluik}
 \institute{University of Alberta}
 \date{June 23, 2014}
+
+\newcommand{\rotHead}[1]{\begin{rotate}{60}#1\end{rotate}}
+\newcommand{\cmark}{\color{KentonBlue}\ding{51}}
+\newcommand{\xmark}{\color{KentonRed}\ding{55}}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -52,15 +59,15 @@
 				\column{0.55\textwidth}
 					\begin{figure}
 						\centering
-						%\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/normal.png}}
-%
-						%\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/stage1.png}}
-						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage2.png}}
-						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage3.png}}
-%
-						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage4.png}}
-						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/unstageable.png}}
-						%\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/suspectedDTI.png}}
+						\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/normal.png}}
+
+						\subfloat{\includegraphics[width=0.33\textwidth]{assets/npuap/stage1.png}}
+						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage2.png}}
+						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage3.png}}
+
+						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/stage4.png}}
+						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/unstageable.png}}
+						\subfloat{\includegraphics[width=0.33\textwidth]{../latex/assets/npuap/suspectedDTI.png}}
 
 						\caption{\copyright\ National Pressure Ulcer Advisory Panel, used with permission.}
 					\end{figure}
@@ -105,10 +112,23 @@
 		\end{frame}
 
 		\begin{frame}
-			\frametitle{What?}
+			\frametitle{Filling the Gaps}
+			\begin{center}
+				\vspace{1cm}
+				\begin{tabular}{r|ccccccccccc}
+					& \rotHead{DTI} & \rotHead{B-Mode} & \rotHead{QS USE} & \rotHead{ARFI} & \rotHead{Shear} & \rotHead{FEM} & \rotHead{Phantom} & \rotHead{Animals} & \rotHead{Humans} & \rotHead{Characterization} & \rotHead{Clinical} \\
+					\hline
+					PU Risk scales & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \cmark \\
+					T$_2^*$ MRI & \cmark & --- & --- & --- & --- & \cmark & \cmark & \cmark& \cmark & \xmark & \xmark \\
+					Aoi et al. & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \emph{\textbf{*}} \\
+					Deprez et al. & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark \\
+					This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark & \cmark \\
+				\end{tabular}
+			\end{center}
 		\end{frame}
+
 		\begin{frame}
-			\frametitle{The Status Quo}
+			\frametitle{What?}
 		\end{frame}
 
 	\section[QS USE]{Quasi-Static Ultrasound Elastography}
@@ -138,7 +158,6 @@
 	\section{Additional Slides}
 	\setcounter{showProgressBar}{0}
 	\setcounter{showSlideNumbers}{0}
-	\setcounter{showBackButton}{0}
 
 		\begin{frame}
 			\frametitle{Additional Slides}
