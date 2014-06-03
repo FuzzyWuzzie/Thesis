@@ -1,0 +1,692 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"dom",
+				"domainDepth-focalDepth"
+			],
+			[
+				"down",
+				"downloadedBytes"
+			],
+			[
+				"error",
+				"error_message"
+			],
+			[
+				"update",
+				"updateStatus"
+			],
+			[
+				"set_",
+				"set_timeout"
+			],
+			[
+				"chu",
+				"chunk_report"
+			],
+			[
+				"chunk",
+				"chunk_read"
+			],
+			[
+				"ch",
+				"chunk_size"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "defense.tex",
+			"settings":
+			{
+				"buffer_size": 5974,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"command_palette":
+	{
+		"height": 265.0,
+		"selected_items":
+		[
+			[
+				"pastry",
+				"Text Pastry: Menu"
+			],
+			[
+				"pastr",
+				"Text Pastry: Command Line"
+			],
+			[
+				"pasty",
+				"Text Pastry: Command Line"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"git gutt",
+				"GitGutter: Show Comparing Against"
+			],
+			[
+				"git gu",
+				"GitGutter: Compare Against Commit"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"github",
+				"Github: Open File"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"past",
+				"Text Pastry: Command Line"
+			],
+			[
+				"orig des",
+				"Origami: Destroy Current Pane"
+			],
+			[
+				"latextool",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"origa",
+				"Origami: Create Pane on the Right"
+			],
+			[
+				"matl",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"thes",
+				"Thesaurus search"
+			],
+			[
+				"thesu",
+				"Thesaurus search"
+			],
+			[
+				"anno",
+				"Snippet: annote"
+			],
+			[
+				"pane",
+				"Origami: Create Pane on the Right"
+			],
+			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Kenton/Documents/Thesis/defense/defense.tex",
+		"/C/Users/Kenton/Documents/Thesis/defense/beamerthemeExecushares.sty",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test4.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/introduction.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/arfi_radius_mse.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/arfi_human_radius_mse.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_radius_mse.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test3.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/conclusion.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/spherical.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/blurred.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/clustered.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/human_width.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/human.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_mse.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/offset.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/colocated_separation.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/number_cycles.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/human_depth.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/source_pressure.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/spherical_radius.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/human_depth.synctex.gz",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/spherical_size.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/nolesion_frequency.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/transducer_width.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/spherical_frequency.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/litreview.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/cluster_radius.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/cluster_density.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/blur_radius.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/insets/inset_human.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/spherical_depth.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/insets/inset_colocated.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/spherical_strain.tex",
+		"/C/Users/Kenton/Documents/Untitled-1.svg",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/insets/spherical_altitude.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/insets/inset_single.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/nomenclature.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/appendices/datatables.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/shear.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/quasi-static.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/appendices/sourcecode.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/freq_force_width4.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test3.pdf",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/depth_isppa_freq1.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/focal_force_depth_p5.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/focal_force_depth_p4.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/arfi/data/pulse_cycles.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.sublime-workspace",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/acknowledgements.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test2.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/test/test2.aux",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/abstract.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/arfi.aux",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.bbl",
+		"/C/Users/Kenton/Documents/Thesis/latex/references.bib",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/references.bib",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/mine local.bat",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/dedication.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/conclusions/conclusion_radius.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/data/circular_size_20.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r125.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r100.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r050.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_human_radius_r025.dat",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/blowstamp.bat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/data/validation_nominal.dat",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_experiment_nominal.dat",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Kenton/AppData/Local/Introversion/Prison Architect/preferences.txt",
+		"/C/Users/Kenton/Documents/Rainmeter/Skins/Serenity/Group2/Drive3/Drive3.ini",
+		"/C/Users/Kenton/AppData/Local/Temp/1-index.html",
+		"/D/Movies/Thor The Dark World (2013) [1080p]/Thor.The.Dark.World.2013.1080p.BluRay.x264.YIFY.srt",
+		"/D/Movies/Thor The Dark World (2013) [1080p]/Thor.The.Dark.World.2013.1080p.BluRay.x264.YIFY.en.srt",
+		"/C/Users/Kenton/Music/CD/Brandi Carlile - Bear Creek.cue",
+		"/C/Program Files (x86)/Dwarf Fortress/data/init/d_init.txt",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blob.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/quasistatic/drawings/schematic_blur",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/preface.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz(busy)",
+		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/pgfplots.sty",
+		"/C/texlive/2013/texmf-dist/tex/latex/pgfplots/libs/tikzlibrarypgfplots.clickable.code.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/chapters/figs.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/arfi/intensity.m",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/quasi2d/convolvedBMode.m",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.synctex.gz",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/shear/isoLineShearLesion.m",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/sourcecode/quasi2d/StrainLine.m",
+		"/C/Users/Kenton/Documents/Thesis/latex/dictionary.txt",
+		"/C/Users/Kenton/Documents/Thesis/latex/assets/shear/data/shear_lateral_i158_isoline.dat",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Get-Vert.bat",
+		"/C/Users/Kenton/Downloads/Urist McSlyrDVS's Optimize Plan V1 (1).0",
+		"/C/Users/Kenton/Documents/USEbrella/Publications/IEEE Quasi-Static Final/QuasiStaticCharacterisation.tex",
+		"/C/Users/Kenton/Downloads/Map Maker/GFXiNXS_Map_Maker.txt",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_ref_cite_completions.py",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeXTools/latex_cite_completions.py",
+		"/E/Backup Jan 4 2014/Downloads/COMSOL Multiphysics 4.3 with Update 2/COMSOL43/install.txt",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/User/LaTeXTools.sublime-settings",
+		"/C/Users/Kenton/AppData/Roaming/MathWorks/MATLAB/R2013a/javaclasspath.txt",
+		"/C/ProgramData/MySQL/MySQL Server 5.6/my.ini",
+		"/C/Program Files/MySQL/MySQL Server 5.6/my-default.ini",
+		"/C/Users/Kenton/Transfer/usebrella.sql",
+		"/C/Users/Kenton/Downloads/cudaminer-2014-02-09/passwds.txt",
+		"/C/Users/Kenton/Documents/mining activity.csv",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/MonCrypto VTC.bat",
+		"/E/Backup Jan 4 2014/Downloads/Windows_8.1_Pro_X64_Activated_Final/Install Keys.txt",
+		"/C/Users/Kenton/Downloads/Cuda Manager V1.2 x64/Cuda Manager x64/Miners/Surly P2Pool VTC.bat",
+		"/C/Users/Kenton/Documents/Thesis/latex/frontback/titlepage.tex",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/LaTeX Word Count/LaTeXWordCount.sublime-settings",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.blg",
+		"/C/Users/Kenton/Downloads/FuzzyWuzzie (1).bib",
+		"/C/Users/Kenton/Programming/Portman/portman.json",
+		"/C/Users/Kenton/Documents/Thesis/latex/thesis.aux",
+		"/C/Users/Kenton/AppData/Roaming/Vertcoin/vertcoin.conf",
+		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_single.tex",
+		"/C/Users/Kenton/Documents/Thesis/latex/drawings/schematic_human.tex",
+		"/C/Users/Kenton/Documents/USEbrella/Publications/IEEE Quasi-Staztic Paper ReReWrite/QuasiStaticCharacterisation.tex",
+		"/C/Users/Kenton/Documents/USEbrella/Presentations/SMART Talk November 26/smart_liz_kenton.tex",
+		"/C/Users/Kenton/Pictures/Diagram1.tex",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Thesaurus/thesaurus.py",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).dic",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).txt",
+		"/C/Users/Kenton/AppData/Roaming/Sublime Text 2/Packages/Dictionaries/English (Canadian).aff"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open files>",
+			"C:\\Users\\Kenton\\Documents\\Thesis\\latex",
+			"C:\\texlive\\2013\\",
+			"C:\\texlive\\2013\\texmf-dist\\tex\\latex",
+			"C:\\Users\\Kenton\\Documents\\Thesis\\latex",
+			"C:\\Users\\Kenton\\Documents\\Thesis\\latex\\chapters"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"  ",
+			"    ",
+			"   ",
+			"  ",
+			"subsub",
+			"  ",
+			"pgfmathprintnumber",
+			"\\end{multicols}",
+			"\\begin{multicols}",
+			"scriptsize",
+			"black",
+			"acuson",
+			"(-2, -3)",
+			"red",
+			"cyan",
+			"CIRS",
+			"Percent Error, \\varepsilon_p",
+			"4",
+			"4.5",
+			"Experimental Modality",
+			"\\varepsilon_p",
+			"Percent Error (\\si{\\percent})",
+			" Results",
+			"Results",
+			"ColourPlotLineCycle",
+			"matlab",
+			"Results, Ideal",
+			"dashdotted",
+			"dotted",
+			"dashed",
+			",mark=",
+			"dashdotted",
+			"dotted",
+			"dashed",
+			"solid",
+			"dashed",
+			"solid",
+			"\\diameter S",
+			"L",
+			"\\mu",
+			"\\lambda",
+			"\\mu_f",
+			"\\mu",
+			"lambda",
+			"wavelength",
+			"\\varepsilon_{rel,measured}",
+			"E_{nom}",
+			"E_{meas}",
+			"/media/kenton/data/Google Drive/School/USEbrella/Programs/",
+			"/media/kenton/data/School/USEbrella/Programs/QuasiRedo/",
+			"save_image",
+			"	\n",
+			"../",
+			"conclusionRadius",
+			"assets",
+			"symbol",
+			"symbolic",
+			",xmin=0,xmax=3.5",
+			"xmax",
+			"strainRatio",
+			"quasistatic",
+			"#2",
+			"#4",
+			"#5",
+			"#6",
+			"#7",
+			"#4",
+			"$,",
+			"$#2 = ",
+			"\\per\\cm\\squared",
+			"\\mm",
+			"cm",
+			"mm",
+			"{3.125,0.6}",
+			"{3.125,0.5}",
+			"per\\cm\\squared",
+			"\\mm",
+			"cm",
+			"mm",
+			"symbolic",
+			"0.8",
+			"85",
+			"1.6",
+			"1.5",
+			"\\characterizationPlots%",
+			"strainRatio",
+			"#1",
+			"#2",
+			"#3",
+			"#4",
+			"#5",
+			"\\cm",
+			"quasistatic",
+			"x",
+			"5",
+			"12.9",
+			"12.7",
+			"\\per\\cm\\squared}",
+			"\\per\\cm\\squared",
+			"mm",
+			"cm",
+			"0.9",
+			"white",
+			"footnotesize",
+			"MHz",
+			"cm",
+			"../",
+			"#4",
+			"../assets/",
+			"#2",
+			"#1",
+			"#7",
+			"sec",
+			"8",
+			"9",
+			"strainRatio",
+			"#8",
+			"#9",
+			"sec",
+			"#6",
+			"    ",
+			"%\\",
+			"}",
+			"a",
+			"A",
+			"perror",
+			"assets/",
+			"../"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"	",
+			"Experimental Results, Ideal Unary Mapping",
+			"\\varepsilon_{rel,meas}",
+			"E_{rel,nom}",
+			"E_{rel,meas}",
+			"	",
+			"unstiff",
+			"soft",
+			"least stiff",
+			"\\left|v\\right|_{max}",
+			"\\left|d\\right|_{max}",
+			"w_{active}",
+			"Nominal Stiffness Ratio, $E_{nom}$",
+			"E_{nom}",
+			"Nominal Stiffness Ratio, $E_{nom}$",
+			"analysing",
+			"MRI-acquired",
+			"I_{SPPA}",
+			"I_{SPTA}",
+			"pseudo-spectral",
+			"height=2.5in",
+			"	",
+			"    ",
+			"\\percent\\ ",
+			"subsec:shear_results",
+			"	",
+			"_colour",
+			"\\percent",
+			"{\\cm}",
+			"{\\mm}",
+			"(\\si{\\cm})",
+			"{\\MHz}",
+			"(\\si{mm})",
+			"{\\metre\\per\\second}",
+			"\\SI",
+			"{assets/quasistatic/insets/",
+			"{assets/quasistatic/elastograms/",
+			"{assets/quasistatic/data/",
+			"\\SI",
+			"\\includegraphics{assets/quasistatic/insets/",
+			"{assets/quasistatic/data/",
+			"\\SI",
+			"ColourPlotCycle",
+			"\\SI",
+			"\\percent",
+			"{\\mm}",
+			"{\\cm}",
+			"{\\MHz}",
+			"\\si{\\mm}",
+			"\\si{\\MHz}",
+			"\\si{\\cm}",
+			"\\percent",
+			"\\%",
+			"\\percent",
+			"\\SI",
+			"bony",
+			"%\\lipsum",
+			"	",
+			"ColourPlotCycle"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "defense.tex",
+					"settings":
+					{
+						"buffer_size": 5974,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5696,
+								5629
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3373.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 140.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"assets/arfi/data/freq_force_width4.dat",
+				"assets/arfi/data/freq_force_width4.dat"
+			],
+			[
+				"assets/arfi/data/depth_isppa_freq1.dat",
+				"assets/arfi/data/depth_isppa_freq1.dat"
+			],
+			[
+				"assets/arfi/data/focal_force_depth_p5.dat",
+				"assets/arfi/data/focal_force_depth_p5.dat"
+			],
+			[
+				"assets/arfi/data/focal_force_depth_p4.dat",
+				"assets/arfi/data/focal_force_depth_p4.dat"
+			],
+			[
+				"assets/arfi/data/pulse_cycles.dat",
+				"assets/arfi/data/pulse_cycles.dat"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 272.0,
+	"status_bar_visible": true
+}

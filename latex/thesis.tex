@@ -1,6 +1,6 @@
 \documentclass[12pt]{book}
 
-\usepackage[top=1in, bottom=1in, left=1.5in, right=1.5in, letterpaper]{geometry}
+\usepackage[top=1.25in, bottom=1.25in, left=1.5in, right=1.5in, letterpaper]{geometry}
 \usepackage{booktabs}
 \usepackage{setspace}
 \usepackage{trackchanges}
@@ -464,11 +464,10 @@ fill=pc9\\%
 
 %% FRONT MATTER
 \pdfbookmark{Title Page}{title}
+\pagenumbering{roman}
 \input{frontback/titlepage}
 \newpage
 
-\setcounter{page}{1}
-\pagenumbering{roman}
 \doublespacing
 \rfoot[\thepage]{\thepage}
 

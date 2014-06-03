@@ -383,7 +383,7 @@
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=2.5in,
+							height=2.25in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							ylabel={Depth, $d$ (\si{\cm})},
@@ -402,7 +402,7 @@
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=2.5in,
+							height=2.25in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							axis on top,
@@ -421,7 +421,7 @@
 							scale only axis,
 							enlargelimits=false,
 							unit vector ratio*=1 1 1,
-							height=2.5in,
+							height=2.25in,
 							y dir=reverse,
 							xlabel={X-Coordinate, $x$ (\si{\cm})},
 							axis on top,
@@ -446,7 +446,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
 						ylabel style={align=center},
@@ -479,7 +479,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={ARFI Interrogation Frequency, $f_{ARFI}$ (\si{\MHz})},
 						ylabel style={align=center},
@@ -515,7 +515,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Pulse Cycles, $n_c$},
 						ylabel style={align=center},
@@ -541,7 +541,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_f$ (\si{\cm})},
 						ylabel style={align=center},
@@ -579,7 +579,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
 						ylabel style={align=center},
@@ -618,7 +618,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
 						ylabel style={align=center},
@@ -649,7 +649,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Focal Depth, $d_f$ (\si{\cm})},
 						ylabel style={align=center},
@@ -681,7 +681,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Probing Frequency, $f$ (\si{\MHz})},
 						ylabel style={align=center},
@@ -743,7 +743,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -795,7 +795,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -808,7 +808,7 @@
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
 						\addplot table[x expr=\thisrow{depth}*100] {assets/arfi/data/arfi_depth_mse.dat};
-						\node[anchor=south] at (axis cs:8,0.6) {\includegraphics{assets/insets/spherical_depth.pdf}};
+						\node[anchor=south] at (axis cs:8,0.58) {\includegraphics{assets/insets/spherical_depth.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[ARFI imaging-acquired lesion stiffness mean squared error related to lesion depth]{Mean squared error between the true and measured lesion stiffness ratios for increasing lesion depths for a hard-boundaried \SI{0.5}{cm} radius lesion using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -841,7 +841,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -889,7 +889,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -902,7 +902,7 @@
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
 						\addplot table {assets/arfi/data/arfi_cluster_dens_mse.dat};
-						\node[anchor=north] at (axis cs:40,0.95) {\includegraphics{assets/insets/cluster_density.pdf}};
+						\node[anchor=north] at (axis cs:35,0.95) {\includegraphics{assets/insets/cluster_density.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[ARFI imaging-acquired lesion stiffness mean squared error related to small lesion cluster density]{Mean squared error between the true and measured lesion stiffness ratios for increasing lesion cluster density for clustered \SI{1}{\mm} radius lesions within a \SI{1.0}{cm} radius at a depth of \SI{4}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -935,7 +935,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -983,7 +983,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						major x tick style = transparent,
 						ybar=2*\pgflinewidth,
@@ -992,12 +992,12 @@
 						xlabel={Lesion Width, $\diameter L$ (\si{\mm})},
 						ylabel={Mean Squared Error},
 						enlarge x limits=0.25,
-						ymin=0, ymax=1.4,
+						ymin=0, ymax=1.6,
 						symbolic x coords={5.0,10.0,20.0,25.0},
 						xtick=data,
 						cycle list name=BarColourPlotCycle]
 						\addplot table {assets/arfi/data/arfi_human_radius_mse.dat};
-						\node[anchor=north] at (axis cs:25.0,1.4) {\includegraphics{assets/insets/human_width.pdf}};
+						\node[anchor=north] at (axis cs:25.0,1.6) {\includegraphics{assets/insets/human_width.pdf}};
 					\end{axis}
 				\end{tikzpicture}
 				\caption[ARFI imaging-acquired lesion stiffness mean squared error related to MRI-acquired lesion size in a Visible Human model]{Mean squared error between the true and measured lesion stiffness ratios for increasing lesion radii for MRI-acquired lesion geometry in a Visible Human model at a depth of \SI{6}{\cm} using an ARFI interrogation frequency of \SI{2}{\MHz}.}
@@ -1016,7 +1016,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Nominal Stiffness Ratio, $E_{rel,nom}$},
 						ylabel style={align=center},
@@ -1053,7 +1053,7 @@
 				\begin{tikzpicture}
 					\begin{axis}[
 						scale only axis,
-						height=2.5in,
+						height=2.25in,
 						width=\textwidth-\widthof{100}-1in,
 						xlabel={Experimentally Measured Stiffness Ratio, $E_{exp,measured}$},
 						ylabel style={align=center},
