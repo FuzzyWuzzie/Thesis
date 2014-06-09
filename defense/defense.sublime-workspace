@@ -43,7 +43,7 @@
 			"file": "defense.tex",
 			"settings":
 			{
-				"buffer_size": 5974,
+				"buffer_size": 5931,
 				"line_ending": "Windows"
 			}
 		}
@@ -531,15 +531,15 @@
 					"file": "defense.tex",
 					"settings":
 					{
-						"buffer_size": 5974,
+						"buffer_size": 5931,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5696,
-								5629
+								749,
+								749
 							]
 						],
 						"settings":
@@ -595,7 +595,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3373.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
