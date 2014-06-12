@@ -1,0 +1,224 @@
+\pgfmathdeclarefunction{gauss}{3}{%
+  \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((#3-#1)^2)/(2*#2^2))}%
+}
+
+\definecolor{pc1}{HTML}{8DD3C7}
+\definecolor{pc2}{HTML}{FDB462}
+\definecolor{pc3}{HTML}{FB8072}
+\definecolor{pc4}{HTML}{80B1D3}
+\definecolor{pc5}{HTML}{B3DE69}
+\definecolor{pc6}{HTML}{BEBADA}
+\definecolor{pc7}{HTML}{FCCDE5}
+\definecolor{pc8}{HTML}{D9D9D9}
+\definecolor{pc9}{HTML}{FFFFB3}
+
+\pgfplotscreateplotcyclelist{ColourPlotCycle}{%
+only marks,mark options=solid,solid,thick,pc1,every mark/.append style={fill=pc1},mark=*\\%
+only marks,mark options=solid,solid,thick,pc2,every mark/.append style={fill=pc2},mark=square*\\%
+only marks,mark options=solid,solid,thick,pc3,every mark/.append style={fill=pc3},mark=diamond*\\%
+only marks,mark options=solid,solid,thick,pc4,every mark/.append style={fill=pc4},mark=pentagon*\\%
+only marks,mark options=solid,solid,thick,pc5,every mark/.append style={fill=pc5},mark=triangle*\\%
+only marks,mark options=solid,solid,thick,pc6,every mark/.append style={fill=pc6},mark=*\\%
+only marks,mark options=solid,solid,thick,pc7,every mark/.append style={fill=pc7},mark=square*\\%
+only marks,mark options=solid,solid,thick,pc8,every mark/.append style={fill=pc8},mark=diamond\\%
+only marks,mark options=solid,solid,thick,pc9,every mark/.append style={fill=pc9},mark=pentagon\\%
+}
+
+\pgfplotscreateplotcyclelist{ColourPlotRegressionCycle}{%
+only marks,solid,thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=*\\%
+solid,thick,pc1\\%
+only marks,solid,thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square*\\%
+solid,thick,pc2\\%
+only marks,solid,thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*\\%
+solid,thick,pc3\\%
+only marks,solid,thick,pc4,every mark/.append style={fill=pc4},mark options=solid,mark=pentagon*\\%
+solid,thick,pc4\\%
+only marks,solid,thick,pc5,every mark/.append style={fill=pc5},mark options=solid,mark=triangle*\\%
+solid,thick,pc5\\%
+only marks,solid,thick,pc6,every mark/.append style={fill=pc6},mark options=solid,mark=*\\%
+solid,thick,pc6\\%
+only marks,solid,thick,pc7,every mark/.append style={fill=pc7},mark options=solid,mark=square\\%
+solid,thick,pc7\\%
+only marks,solid,thick,pc8,every mark/.append style={fill=pc8},mark options=solid,mark=diamond\\%
+solid,thick,pc8\\%
+only marks,solid,thick,pc9,every mark/.append style={fill=pc9},mark options=solid,mark=pentagon\\%
+solid,thick,pc9\\%
+}
+
+\pgfplotscreateplotcyclelist{SmoothColourPlotCycle}{%
+solid,ultra thick,pc1\\%
+solid,ultra thick,pc2\\%
+solid,ultra thick,pc3\\%
+solid,ultra thick,pc4\\%
+solid,ultra thick,pc5\\%
+solid,ultra thick,pc6\\%
+solid,ultra thick,pc7\\%
+solid,ultra thick,pc8\\%
+solid,ultra thick,pc9\\%
+}
+
+\pgfplotscreateplotcyclelist{BarColourPlotCycle}{%
+fill=pc1\\%
+fill=pc2\\%
+fill=pc3\\%
+fill=pc4\\%
+fill=pc5\\%
+fill=pc6\\%
+fill=pc7\\%
+fill=pc8\\%
+fill=pc9\\%
+}
+
+\definecolor{RdBuWhiteGrey}{RGB}{247,247,247}
+\pgfplotsset{
+	colormap={RdBu}{
+		rgb255(0cm)=(5,48,97);
+		rgb255(1cm)=(33,102,172);
+		rgb255(2cm)=(67,147,195);
+		rgb255(3cm)=(146,197,222);
+		rgb255(4cm)=(209,229,240);
+		rgb255(5cm)=(247,247,247);
+		rgb255(6cm)=(253,219,199);
+		rgb255(7cm)=(244,165,130);
+		rgb255(8cm)=(214,96,77);
+		rgb255(9cm)=(178,24,43);
+		rgb255(10cm)=(103,0,31);
+	}
+}
+
+\pgfplotsset{
+	colormap={YlOrRd}{
+		rgb255(0cm)=(128,0,38);
+		rgb255(1cm)=(189,0,38);
+		rgb255(2cm)=(227,26,28);
+		rgb255(3cm)=(252,78,42);
+		rgb255(4cm)=(253,141,60);
+		rgb255(5cm)=(254,178,76);
+		rgb255(6cm)=(254,217,118);
+		rgb255(7cm)=(255,237,160);
+		rgb255(8cm)=(255,255,204);
+	}
+}
+% for drawing legends with regressions
+\newcommand{\drawLegendMarks}[1]{
+	\addlegendimage{empty legend}
+	\addlegendimage{solid,thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=*}
+	\ifnum#1>1
+		\addlegendimage{solid,thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square*}
+	\fi
+	\ifnum#1>2
+		\addlegendimage{solid,thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*}
+	\fi
+	\ifnum#1>3
+		\addlegendimage{solid,thick,pc4,every mark/.append style={fill=pc4},mark options=solid,mark=pentagon*}
+	\fi
+	\ifnum#1>4
+		\addlegendimage{solid,thick,pc5,every mark/.append style={fill=pc5},mark options=solid,mark=triangle*}
+	\fi
+	\ifnum#1>5
+		\addlegendimage{solid,thick,pc6,every mark/.append style={fill=pc6},mark options=solid,mark=*}
+	\fi
+	\ifnum#1>6
+		\addlegendimage{solid,thick,pc7,every mark/.append style={fill=pc7},mark options=solid,mark=square*}
+	\fi
+	\ifnum#1>7
+		\addlegendimage{solid,thick,pc8,every mark/.append style={fill=pc8},mark options=solid,mark=diamond}
+	\fi
+	\ifnum#1>8
+		\addlegendimage{solid,thick,pc9,every mark/.append style={fill=pc9},mark options=solid,mark=pentagon}
+	\fi
+	\addlegendimage{dashed,ExecusharesGrey}
+}
+
+\DeclareDocumentCommand\characterizationPlots{ m m g g g g }{%
+	\addplot+[forget plot,dashed,mark=none,draw=ExecusharesGrey,sharp plot] coordinates { (0,0) (3.5,3.5) };
+	\addplot+[forget plot] table{../latex/assets/#2}; \pgfplotsset{cycle list shift=1};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=#1}}] {../latex/assets/#2}; \pgfplotsset{cycle list shift=2};%
+	\xdef\slopeA{\pgfplotstableregressiona}; \xdef\interA{\pgfplotstableregressionb};%
+	\IfNoValueF {#3} {%
+		\addplot+[forget plot] table{../latex/assets/#3}; \pgfplotsset{cycle list shift=3};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=#1}}] {../latex/assets/#3}; \pgfplotsset{cycle list shift=4};%
+		\xdef\slopeB{\pgfplotstableregressiona}; \xdef\interB{\pgfplotstableregressionb};%
+	}%
+	\IfNoValueF {#4} {%
+		\addplot+[forget plot] table{../latex/assets/#4}; \pgfplotsset{cycle list shift=5};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=#1}}] {../latex/assets/#4}; \pgfplotsset{cycle list shift=6};%
+		\xdef\slopeC{\pgfplotstableregressiona}; \xdef\interC{\pgfplotstableregressionb};%
+	}%
+	\IfNoValueF {#5} {%
+		\addplot+[forget plot] table{../latex/assets/#5}; \pgfplotsset{cycle list shift=7};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=#1}}] {../latex/assets/#5}; \pgfplotsset{cycle list shift=8};%
+		\xdef\slopeD{\pgfplotstableregressiona}; \xdef\interD{\pgfplotstableregressionb};%
+	}%
+	\IfNoValueF {#6} {%
+		\addplot+[forget plot] table{../latex/assets/#6}; \pgfplotsset{cycle list shift=9};%
+		\addplot+[forget plot] table[y={create col/linear regression={y=#1}}] {../latex/assets/#6}; \pgfplotsset{cycle list shift=10};%
+		\xdef\slopeD{\pgfplotstableregressiona}; \xdef\interD{\pgfplotstableregressionb};%
+	}%
+}
+
+\DeclareDocumentCommand\comparisonPlots{ m }{%
+	\addplot+[forget plot,dashed,mark=none,draw=ExecusharesGrey,sharp plot] coordinates { (0,0) (3.5,3.5) };
+	\pgfplotstableread{../latex/assets/conclusions/#1.dat}{\tableData};%
+	\addplot+[forget plot] table[x={trueSR}, y={quasiSR}] {\tableData}; \pgfplotsset{cycle list shift=1};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=quasiSR}}] {\tableData}; \pgfplotsset{cycle list shift=2};%
+	\xdef\slopeA{\pgfplotstableregressiona}; \xdef\interA{\pgfplotstableregressionb};%
+	\addplot+[forget plot] table[x={trueSR}, y={arfiSR}] {\tableData}; \pgfplotsset{cycle list shift=3};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=arfiSR}}] {\tableData}; \pgfplotsset{cycle list shift=4};%
+	\xdef\slopeB{\pgfplotstableregressiona}; \xdef\interB{\pgfplotstableregressionb};%
+	\addplot+[forget plot] table[x={trueSR}, y={shearSR}] {\tableData}; \pgfplotsset{cycle list shift=5};%
+	\addplot+[forget plot] table[y={create col/linear regression={y=shearSR}}] {\tableData}; \pgfplotsset{cycle list shift=6};%
+	\xdef\slopeC{\pgfplotstableregressiona}; \xdef\interC{\pgfplotstableregressionb};%
+}%
+
+\DeclareDocumentCommand\characterizationLegend{ m m m g g g g}{%
+	\drawLegendMarks{\IfNoValueTF{#7}{\IfNoValueTF{#6}{\IfNoValueTF{#5}{\IfNoValueTF{#4}{1}{2}}{3}}{4}}{5}};%
+	\addlegendentry{\tiny\textbf{#1}};%
+	\addlegendentry{$#2 = #3$};%
+	\IfNoValueF {#4} { \addlegendentry{$#2 = #4$}; }%
+	\IfNoValueF {#5} { \addlegendentry{$#2 = #5$}; }%
+	\IfNoValueF {#6} { \addlegendentry{$#2 = #6$}; }%
+	\IfNoValueF {#7} { \addlegendentry{$#2 = #7$}; }%
+	\addlegendentry{\tiny Unary Mapping}
+	%
+	%\addlegendentry{\textbf{#1}};%
+	%\addlegendentry{$#2 = #3$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeA} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interA}$};%
+	%\IfNoValueF {#4} { \addlegendentry{$#2 = #4$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeB} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interB}$}; }%
+	%\IfNoValueF {#5} { \addlegendentry{$#2 = #5$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeC} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interC}$}; }%
+	%\IfNoValueF {#6} { \addlegendentry{$#2 = #6$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeD} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interD}$}; }%
+	%\IfNoValueF {#7} { \addlegendentry{$#2 = #7$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeE} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interE}$}; }%
+}
+
+\DeclareDocumentCommand\comparisonLegend{g}{%
+	\drawLegendMarks{3};%
+	\addlegendentry{\textbf{Imaging Modality}};%
+	\addlegendentry{Quasi-Static};%
+	\addlegendentry{ARFI};%
+	\addlegendentry{Shear};%
+	\addlegendentry{\tiny Unary Mapping}
+}
+
+\DeclareDocumentCommand\characterizationPic{ m m m m G{north west} g }{%
+	\begin{tikzpicture}%
+		\begin{axis}[%
+			scale only axis,%
+			height=0.25\textwidth,%
+			width=0.6\textwidth,%
+			font=\tiny,
+			axis background/.style={fill=white},%
+			xlabel={\color{ExecusharesBlack} Nominal Stiffness Ratio, $E_{rel,nom}$},%
+			ylabel style={align=center},%
+			ylabel={\color{ExecusharesBlack} Measured Lesion Stiffness \\ \color{ExecusharesBlack} Ratio, $E_{rel,meas}$},%
+			grid=major,%
+			\IfNoValueF {#6} { #6, }%
+			xmin=0, xmax=3.5,%
+			legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes={right}},%
+			clip=true,%
+			cycle list name=ColourPlotRegressionCycle,%
+			draw=black, text=black, fill=black]%
+			#1%
+			#2%
+			\node [anchor=north west] at (axis cs:#4) {\includegraphics[width=0.5cm]{../latex/assets/insets/#3.pdf}};%
+		\end{axis}%
+	\end{tikzpicture}%
+}

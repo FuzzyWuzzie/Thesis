@@ -25,8 +25,19 @@
 % set colours
 \setbeamercolor{itemize item}{fg=ExecusharesBlue}
 \setbeamercolor{enumerate item}{fg=ExecusharesBlue}
-\setbeamercolor{alerted text}{fg=ExecusharesBlue}
+\setbeamercolor{alerted text}{fg=ExecusharesRed}
 \setbeamercolor{section in toc}{fg=ExecusharesBlack}
+\setbeamercolor{bibliography item}{fg=ExecusharesBlue}
+\setbeamercolor*{bibliography entry title}{fg=ExecusharesRed}
+\setbeamercolor*{bibliography entry author}{fg=ExecusharesBlack}
+\setbeamercolor*{bibliography entry location}{fg=ExecusharesBlack}
+\setbeamercolor*{bibliography entry note}{fg=ExecusharesBlack}
+
+% make the bibliography use numbers/text instead of icons
+\setbeamertemplate{bibliography item}[text]
+
+% change the colour of beamer's continuation
+\setbeamertemplate{frametitle continuation}[from second][\color{ExecusharesWhite}\insertcontinuationtext]
 
 % set fonts
 \setbeamerfont{itemize/enumerate body}{size=\large}
