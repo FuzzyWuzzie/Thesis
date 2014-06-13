@@ -2,6 +2,7 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage[none]{hyphenat}
+\usepackage{lmodern}
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
 
@@ -14,6 +15,11 @@
 \definecolor{ExecusharesWhite}{RGB}{255,255,243}
 \definecolor{ExecusharesGrey}{RGB}{107,110,108}
 
+\usepackage{charter}
+\DeclareMathVersion{mathchartertext}
+\SetSymbolFont{letters}{mathchartertext}{OML}{mdbch}{m}{n}
+\newcommand{\charmu}{\mathversion{mathchartertext}$\mu$\mathversion{normal}}
+
 % use Adobe's Source Pro fonts:
 % Source Serif Pro: http://store1.adobe.com/cfusion/store/html/index.cfm?store=OLS-US&event=displayFontPackage&code=1966
 % Source Sans Pro: http://store1.adobe.com/cfusion/store/html/index.cfm?event=displayFontPackage&code=1959
@@ -21,6 +27,7 @@
 \setmainfont{Source Serif Pro}
 \setsansfont{Source Sans Pro}
 \setmonofont{Source Code Pro}
+%\usefonttheme{serif}
 
 % set colours
 \setbeamercolor{itemize item}{fg=ExecusharesBlue}

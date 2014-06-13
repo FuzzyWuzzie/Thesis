@@ -164,21 +164,43 @@
 					PU Risk scales & \xmark & --- & --- & --- & --- & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark \\
 					T$_2^*$ MRI & \cmark & --- & --- & --- & --- & \cmark & \cmark & \cmark& \cmark & \xmark & \xmark \\
 					\hline
-					Aoi et al. \cite{aoi08} & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \xmark \\
-					Deprez et al. \cite{deprez11} & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark \\
+					Aoi et al. \cite{aoi08} & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \color{ExecusharesBlue}\textbf{?} \\
 					Mahksous et al. \cite{mahksous10} & \cmark & --- & --- & --- & --- & --- & --- & \cmark & \xmark & \xmark & \cmark \\
+					Deprez et al. \cite{deprez11} & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark \\
 					\hline
-					This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark & \cmark \\
+					This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \color{ExecusharesBlue}\textbf{?} & \color{ExecusharesBlue}\textbf{?} & \cmark & \cmark \\
 				\end{tabular}
 			\end{center}
 			\begin{itemize}
-				\item The \alert{purpose} of this research was to gain understanding of and characterize the use of ultrasound elastography toward DTI
+				\item The \alert{purpose} of this research was to gain understanding of and characterize the use of ultrasound elastography toward DTI detection
 			\end{itemize}
 		\end{frame}
 
 		\note{The purpose of this work then was to characterize the use of ultrasound elastography toward the detection of DTI such that it may eventually be used clinically. This work is different from other DTI detection techniques largely by it's inclusion of ARFI imaging and shear wave speed quantification as well as numerical characterizations of a wide array of parameters on the detection sensitivity of the technique, and you can see how this work compares to other techniques and previous work here.}
 
+	\setbeamertemplate{section page}
+	{
+		\begin{tikzpicture}
+			% set up the entire slide as the canvas
+			\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+			\fill[color=ExecusharesWhite] (-1cm, 1cm) rectangle(11.8cm, 9.8cm);
+			\fill[color=ExecusharesRed] (-1cm, 3.9cm) rectangle(11.8cm, 5.9cm);
+			\node[text width=11.8cm,align=center] at (5.4cm, 4.9cm) {\color{ExecusharesWhite}\Huge\textbf{\insertsection *}};
+			\node[text width=11.8cm,align=center,anchor=north] at (5.4cm, 3.9cm) {\color{ExecusharesGrey} \small * Accepted for publication as: K. Hamaluik, W. Moussa, and M. Ferguson-Pell, ``Numerical Characterization of Quasi-Static Ultrasound Elastography for the Detection of Deep Tissue Injuries.'' \emph{IEEE Transactions on Medical Imaging} };
+		\end{tikzpicture}
+	}
 	\section[QS USE]{Quasi-Static Ultrasound Elastography}
+		\setbeamertemplate{section page}
+		{
+			\begin{tikzpicture}
+				% set up the entire slide as the canvas
+				\useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+				\fill[color=ExecusharesWhite] (-1cm, 1cm) rectangle(11.8cm, 9.8cm);
+				\fill[color=ExecusharesRed] (-1cm, 3.9cm) rectangle(11.8cm, 5.9cm);
+				\node[text width=11.8cm,align=center] at (5.4cm, 4.9cm) {\color{ExecusharesWhite}\Huge\textbf{\insertsection}};
+			\end{tikzpicture}
+		}
+
 		\begin{frame}
 			\frametitle{Introduction}
 			\vspace{0.5cm}
@@ -264,16 +286,16 @@
 						\subfloat{%
 							\begin{tikzpicture}
 								\node at (0, 0){\includegraphics[height=6cm]{../latex/assets/quasistatic/images/bModeA.png}};
-								\draw[draw=ExecusharesRed] (0, -1.7cm) ellipse (0.25cm and 0.125cm);
-								\draw[draw=ExecusharesBlue] (0.75cm, 1.9cm) circle(0.2cm);
+								\draw[draw=ExecusharesBlue] (0, -1.7cm) ellipse (0.25cm and 0.125cm);
+								\draw[draw=ExecusharesRed] (0.75cm, 1.9cm) circle(0.2cm);
 							\end{tikzpicture}
 						}
 						~
 						\subfloat{%
 							\begin{tikzpicture}
 								\node at (0, 0){\includegraphics[height=6cm]{../latex/assets/quasistatic/images/bModeB.png}};
-								\draw[draw=ExecusharesRed] (0, -1.45cm) ellipse (0.25cm and 0.125cm);
-								\draw[draw=ExecusharesBlue] (0.75cm, 1.95cm) circle(0.2cm);
+								\draw[draw=ExecusharesBlue] (0, -1.45cm) ellipse (0.25cm and 0.125cm);
+								\draw[draw=ExecusharesRed] (0.75cm, 1.95cm) circle(0.2cm);
 							\end{tikzpicture}
 						}
 						\caption{Pre- and Post- Compression B-Mode Images of DTI}
@@ -386,6 +408,40 @@
 			\end{figure}
 		\end{frame}
 
+		\begin{frame}
+			\frametitle{Sample Quasi-Static Results}
+			\begin{figure}
+				\centering
+				\subfloat{%
+				\characterizationPic{%
+						\characterizationPlots{strainRatio}%
+							{quasistatic/data/circular_frequency_2.dat}%
+							{quasistatic/data/circular_frequency_4.dat}%
+							{quasistatic/data/circular_frequency_8.dat}%
+					}{%
+						\characterizationLegend{Probing Frequency}{f}%
+							{\SI{2}{\MHz}}%
+							{\SI{4}{\MHz}}%
+							{\SI{8}{\MHz}}%
+					}{spherical_frequency}{0,2.25}{north west}{ymin=0.5,ymax=2.25}
+				}
+				\vspace{-0.25cm}
+				\subfloat{%
+					\characterizationPic{%
+						\characterizationPlots{strainRatio}%
+							{quasistatic/data/circular_strain_025.dat}%
+							{quasistatic/data/circular_strain_050.dat}%
+							{quasistatic/data/circular_strain_100.dat}%
+					}{%
+						\characterizationLegend{Applied Strain}{\varepsilon_{app}}%
+							{\SI{2.5}{\percent}}%
+							{\SI{5.0}{\percent}}%
+							{\SI{10.0}{\percent}}%
+					}{spherical_strain}{0,2.25}{north west}{ymin=0.5,ymax=2.25}
+				}
+			\end{figure}
+		\end{frame}
+
 		\note{By then comparing the strain ratio between lesionous regions and the surrounding ``healthy'' tissue, }
 
 		\begin{frame}
@@ -469,64 +525,117 @@
 				\end{itemize}
 			\end{itemize}
 			\vspace{-0.75cm}
-			\begin{columns}[c]
-				\column{0.3\textwidth}
-					\begin{subequations}
-						\tiny
-						\label{equ:arfi_gov}
-						\begin{align*}
-							\frac{\partial \vec{v}}{\partial t} &= - \frac{1}{\rho_0} \nabla p \\
-							\frac{\partial p}{\partial t} &= -\left(2 \rho + \rho_0\right)\nabla \cdot \vec{v} - \vec{v} \cdot \nabla \rho_0 \\
-							p &= c_0^2 \left(\rho + \vec{u} \cdot \nabla \rho_0 + \frac{B}{2A} \frac{\rho^2}{\rho_0} - \mathbf{L}\rho \right)
-						\end{align*}
-					\end{subequations}
+			\hspace{1cm}
+			\begin{center}
+				\begin{figure}
+					\centering
+					\subfloat{%
+						\begin{tikzpicture}
+							\begin{axis}
+								[
+								font=\tiny,
+								scale only axis,
+								enlargelimits=false,
+								unit vector ratio*=1 1 1,
+								width=0.5\textwidth,
+								y dir=reverse,
+								xlabel={X-Coordinate, $x$ (\si{\cm})},
+								ylabel={Depth, $d$ (\si{\cm})},
+								axis on top]
+									\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{../latex/assets/shear/data/Fx158.png};
+							\end{axis}
+							\node[anchor=south] at(0.9, 4.75) {\scriptsize Lateral Force};
+						\end{tikzpicture}
+					}
+					\subfloat{%
+						\begin{tikzpicture}
+							\begin{axis}
+								[
+								font=\tiny,
+								scale only axis,
+								enlargelimits=false,
+								unit vector ratio*=1 1 1,
+								width=0.5\textwidth,
+								y dir=reverse,
+								yticklabels={,,},
+								xlabel={X-Coordinate, $x$ (\si{\cm})},
+								axis on top,
+								colormap name={RdBu},
+								colorbar, point meta min=-175, point meta max=175, colorbar style={at={(1.05,0)}, font=\tiny, ytick={-175,-100,0,100,175}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\kN\per\metre\cubed})},
+								draw=black, text=black, fill=black}]
+									\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{../latex/assets/shear/data/Fy158.png};
+							\end{axis}
+							\node[anchor=south] at(0.9, 4.75) {\scriptsize Axial Force};
+						\end{tikzpicture}
+					}
+				\end{figure}
+			\end{center}
+		\end{frame}
 
-				\column{0.7\textwidth}
-					\begin{center}
-						\begin{figure}
-							\centering
-							\subfloat{%
-								\begin{tikzpicture}
-									\begin{axis}
-										[
-										font=\tiny,
-										scale only axis,
-										enlargelimits=false,
-										unit vector ratio*=1 1 1,
-										width=0.5\textwidth,
-										y dir=reverse,
-										xlabel={X-Coordinate, $x$ (\si{\cm})},
-										ylabel={Depth, $d$ (\si{\cm})},
-										axis on top]
-											\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{../latex/assets/shear/data/Fx158.png};
-									\end{axis}
-									\node[anchor=south] at(0.65, 3.25) {\scriptsize Lateral Force};
-								\end{tikzpicture}
-							}
-							\subfloat{%
-								\begin{tikzpicture}
-									\begin{axis}
-										[
-										font=\tiny,
-										scale only axis,
-										enlargelimits=false,
-										unit vector ratio*=1 1 1,
-										width=0.5\textwidth,
-										y dir=reverse,
-										yticklabels={,,},
-										xlabel={X-Coordinate, $x$ (\si{\cm})},
-										axis on top,
-										colormap name={RdBu},
-										colorbar, point meta min=-175, point meta max=175, colorbar style={at={(1.05,0)}, font=\tiny, ytick={-175,-100,0,100,175}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\kN\per\metre\cubed})},
-										draw=black, text=black, fill=black}]
-											\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{../latex/assets/shear/data/Fy158.png};
-									\end{axis}
-									\node[anchor=south] at(0.65, 3.25) {\scriptsize Axial Force};
-								\end{tikzpicture}
-							}
-						\end{figure}
-					\end{center}
-			\end{columns}
+		\begin{frame}
+			\frametitle{Sample ARFI Results}
+			\vspace{0.25cm}
+			\begin{figure}
+				\centering
+				\subfloat{%
+					\begin{tikzpicture}
+						\begin{axis}[
+							scale only axis,
+							height=0.25\textwidth,%
+							width=0.6\textwidth,%
+							font=\tiny,
+							axis background/.style={fill=white},
+							xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
+							ylabel style={align=center},
+							ylabel={Maximum Induced Tissue \\ Displacement, $\left|v\right|_{max}$ (\si{\charmu\metre})},
+							grid=major,
+							legend entries={\textbf{Interrogation}, \textbf{Frequency}, $f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$},
+							legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes={right}},
+							clip=true,
+							cycle list name=ColourPlotCycle,
+							draw=black, text=black, fill=black]
+							\addlegendimage{empty legend};
+							\addlegendimage{empty legend};
+							\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {../latex/assets/arfi/data/depth_maxDisp_freq1.dat};
+							\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {../latex/assets/arfi/data/depth_maxDisp_freq2.dat};
+							\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {../latex/assets/arfi/data/depth_maxDisp_freq4.dat};
+							\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {../latex/assets/arfi/data/depth_maxDisp_freq6.dat};
+							\node [anchor=north east](c) at (axis cs:9.5,4.2) {\includegraphics[width=0.5cm]{../latex/assets/insets/nolesion_frequency.pdf}};
+						\end{axis}
+					\end{tikzpicture}
+				}
+				\vspace{-0.25cm}
+				\subfloat{%
+					\begin{tikzpicture}
+						\begin{axis}[
+							scale only axis,
+							height=0.25\textwidth,%
+							width=0.6\textwidth,%
+							font=\tiny,
+							axis background/.style={fill=white},
+							xlabel={Focal Depth, $d_{f}$ (\si{\cm})},
+							ylabel style={align=center},
+							ylabel={Spatial-Peak Pulse-Average \\ Intensity, $I_{SPPA}$ (\si{\watt\per\cm\squared})},
+							grid=major,
+							legend entries={\textbf{Interrogation}, \textbf{Frequency}, $f = \SI{1}{\MHz}$, $f = \SI{2}{\MHz}$, $f = \SI{4}{\MHz}$, $f = \SI{6}{\MHz}$, Acceptable limit},
+							legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes={right}},
+							clip=true,
+							xmin=0,xmax=10,ymin=0,ymax=2250,
+							cycle list name=ColourPlotCycle,
+							draw=black, text=black, fill=black]
+							\addlegendimage{empty legend};
+							\addlegendimage{empty legend};
+							\addplot table {../latex/assets/arfi/data/depth_isppa_freq1.dat};
+							\addplot table {../latex/assets/arfi/data/depth_isppa_freq2.dat};
+							\addplot table {../latex/assets/arfi/data/depth_isppa_freq4.dat};
+							\addplot table {../latex/assets/arfi/data/depth_isppa_freq6.dat};
+							\addplot[mark=none,dashed,thick,draw=ExecusharesGrey] plot coordinates {(0, 933) (10, 933)};
+							\draw (axis cs:7,933) node[below]{\color{ExecusharesGrey} Acceptable};
+							\draw (axis cs:7,933) node[above]{\color{ExecusharesGrey} Unacceptable};
+						\end{axis}
+					\end{tikzpicture}
+				}
+			\end{figure}
 		\end{frame}
 
 		\begin{frame}
@@ -553,17 +662,17 @@
 				\subfloat{%
 					\characterizationPic{%
 						\characterizationPlots{esr}%
-							{arfi/data/arfi_cluster_dens_d10.dat}%
-							{arfi/data/arfi_cluster_dens_d20.dat}%
-							{arfi/data/arfi_cluster_dens_d30.dat}%
-							{arfi/data/arfi_cluster_dens_d40.dat}%
+							{arfi/data/arfi_maxDisp_depth_d2.dat}%
+							{arfi/data/arfi_maxDisp_depth_d4.dat}%
+							{arfi/data/arfi_maxDisp_depth_d6.dat}%
+							{arfi/data/arfi_maxDisp_depth_d8.dat}%
 					}{%
-						\characterizationLegend{Cluster Density}{b_\rho}%
-							{\SI{10}{\per\cm\squared}}%
-							{\SI{20}{\per\cm\squared}}%
-							{\SI{30}{\per\cm\squared}}%
-							{\SI{40}{\per\cm\squared}}%
-					}{cluster_density}{0, 2.5}{north west}{ymin=0.5,ymax=2.5}
+						\characterizationLegend{Lesion Depth}{d}%
+							{\SI{2}{\cm}}%
+							{\SI{4}{\cm}}%
+							{\SI{6}{\cm}}%
+							{\SI{8}{\cm}}%
+					}{spherical_depth}{0,2.25}{north west}{ymin=0.5,ymax=2.25}
 				}
 			\end{figure}
 		\end{frame}
@@ -635,7 +744,7 @@
 						height=3cm,
 						xlabel={Distance from centerline, $x$ (\si{\cm})},
 						ylabel style={align=center},
-						ylabel={Axial displacement, \\ $v$ (\si{\um})},
+						ylabel={Axial displacement, \\ $v$ (\si{\charmu\m})},
 						grid=major,
 						legend entries={$t = \SI{2.5}{\ms}$, $t = \SI{7.5}{\ms}$, $t = \SI{12.5}{\ms}$, $t = \SI{17.5}{\ms}$, $t = \SI{22.5}{\ms}$, $t = \SI{27.5}{\ms}$},
 						legend style={legend cell align=left, legend pos=outer north east,font=\tiny},
@@ -676,8 +785,8 @@
 							\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{../latex/assets/shear/data/lateralCut158.png};
 							\addplot[draw=black, solid, ultra thick] table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {../latex/assets/shear/data/shear_lateral_i158_isoline.dat};
 							\draw[ultra thick, <->, draw=black] (axis cs:15,0.75) -- (axis cs:15,1.75);
-							\draw[ultra thick, draw=black, dashed] (axis cs:0,0.75) -- (axis cs:17.5,0.75);
-							\draw[ultra thick, draw=black, dashed] (axis cs:0,1.75) -- (axis cs:17.5,1.75);
+							\draw[ultra thick, draw=black, dashed] (axis cs:0,0.75) -- (axis cs:17.25,0.75);
+							\draw[ultra thick, draw=black, dashed] (axis cs:0,1.75) -- (axis cs:17.25,1.75);
 							\node[right] at (axis cs:15,1.25) {Lesion};
 							\draw[ultra thick, ->, draw=black] (axis cs:25.65,2.75) -- (axis cs:25.65,3.7755102040816);
 							\node[below] at (axis cs:25.65,2.75) {Contour line};
@@ -692,6 +801,7 @@
 						ylabel={Shear Wave Speed, \\ $c_t$ (\si{\m\per\s})},
 						grid=major,
 						clip=true,
+						axis background/.style={fill=white},
 						draw=black, text=black, fill=black]
 						\addplot[solid, ultra thick, ExecusharesBlue] table[x expr=\thisrow{x}*100] {../latex/assets/shear/data/shear_lateral_i158_shear_wave_speed.dat};
 
@@ -728,6 +838,28 @@
 				\subfloat{%
 					\characterizationPic{%
 						\characterizationPlots{esr}%
+							{shear/data/shear_depth_o250_d2.dat}%
+							{shear/data/shear_depth_o250_d4.dat}%
+							{shear/data/shear_depth_o250_d6.dat}%
+							{shear/data/shear_depth_o250_d8.dat}%
+					}{%
+						\characterizationLegend{Lesion Depth}{d}%
+							{\SI{2}{\cm}}%
+							{\SI{4}{\cm}}%
+							{\SI{6}{\cm}}%
+							{\SI{8}{\cm}}%
+					}{spherical_depth}{0,4.5}{north west}{ymin=0,ymax=4.5}
+				}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{Sample Shear Results}
+			\begin{figure}
+				\centering
+				\subfloat{%
+					\characterizationPic{%
+						\characterizationPlots{esr}%
 							{shear/data/shear_doff_d4_o000.dat}%
 							{shear/data/shear_doff_d4_o125.dat}%
 							{shear/data/shear_doff_d4_o250.dat}%
@@ -739,6 +871,22 @@
 							{\SI{2.50}{\cm}}%
 							{\SI{3.75}{\cm}}%
 					}{offset}{0, 4.5}{north west}{ymin=0,ymax=4.5}
+				}
+				\vspace{-0.25cm}
+				\subfloat{%
+					\characterizationPic{%
+						\characterizationPlots{esr}%
+							{shear/data/shear_human_radius_r025.dat}%
+							{shear/data/shear_human_radius_r050.dat}%
+							{shear/data/shear_human_radius_r100.dat}%
+							{shear/data/shear_human_radius_r125.dat}%
+					}{%
+						\characterizationLegend{Lesion Width}{\diameter S}%
+							{\SI{5}{\mm}}%
+							{\SI{10}{\mm}}%
+							{\SI{20}{\mm}}%
+							{\SI{25}{\mm}}%
+					}{human_width}{0,4.75}{north west}{ymin=0,ymax=4.75}
 				}
 			\end{figure}
 		\end{frame}
@@ -872,6 +1020,9 @@
 					\item Quasi-static elastography for deep ($\gtrsim \SI{5}{\cm}$) regions
 				\end{itemize}
 				\item Small lesions ($r \lesssim \SI{5}{\mm}$) are difficult to detect
+				\begin{itemize}
+					\item MRI-acquired lesions generally have $r \gtrsim \SI{1}{\cm}$
+				\end{itemize}
 				\item Complicated geometries can affect results
 				\item Future work should involve \alert{animal} and \alert{human} studies
 				\begin{itemize}
