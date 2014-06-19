@@ -130,13 +130,23 @@
 			\fill[color=ExecusharesRed] (0, 4cm) rectangle(12.8cm, 9.6cm);
 
 			% draw the actual text
-			\node[anchor=south,text width=11.8cm,inner xsep=0.5cm] at (6.4cm,4cm) {\color{ExecusharesWhite}\Huge\textbf{\inserttitle}};
-			\node[anchor=north east,text width=11.8cm,align=right] at (12.3cm,4cm) {\color{ExecusharesBlack}\tiny\insertsubtitle};
-			\node[above] at(6.4cm,2.25cm) {\color{ExecusharesBlack}\tiny by};
-			\node at (6.4cm,2cm) {\color{ExecusharesBlack}\LARGE\insertauthor};
+			\node[anchor=south,text width=11.8cm,inner xsep=0.5cm] at (6.4cm,4cm) {\color{ExecusharesWhite}\fontsize{25}{25}\selectfont\textbf{\inserttitle}\par};
+			\node[above] at(6.4cm,3.5cm) {\color{ExecusharesBlack}\tiny by};
+			\node at (6.4cm,3.25cm) {\color{ExecusharesBlack}\LARGE\insertauthor};
+			
+			\node[anchor=north east, align=right] at (6.5cm, 2.75cm) {\color{ExecusharesGrey}\tiny Supervisors:};
+			\node[anchor=north west, align=left] at (6.3cm, 2.75cm) {\color{ExecusharesGrey}\tiny Dr. W. Moussa and Dr. M. Ferguson-Pell};
+
+			\node[anchor=north east, align=right] at (6.5cm, 2.5) {\color{ExecusharesGrey}\tiny Examiner:};
+			\node[anchor=north west, align=left] at (6.3cm, 2.5) {\color{ExecusharesGrey}\tiny Dr. R. Burrell};
+
+			\node[anchor=north east, align=right] at (6.5cm, 2.25) {\color{ExecusharesGrey}\tiny Chair:};
+			\node[anchor=north west, align=left] at (6.3cm, 2.25) {\color{ExecusharesGrey}\tiny Dr. M. Zuo};
 
 			% add the date in the corner
 			\node[anchor=south east] at(12.8cm,0cm) {\color{ExecusharesGrey}\tiny\insertdate};
+
+			\node[anchor=south west,align=left] at (0cm, 0cm) {\color{ExecusharesGrey}\tiny Department of Mechanical Engineering \\ \color{ExecusharesGrey}\tiny University of Alberta};
 		\else
 			% NOT the title page
 			% title bar

@@ -19,12 +19,13 @@
 \pgfplotsset{compat=newest}
 \usepackage{pgfplotstable}
 \usetikzlibrary{plotmarks,arrows}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
 \tikzset{>=latex}
+\usepackage{colortbl}
 
 \usetheme{Execushares}
 
 \title{Numerical Characterization of Ultrasound Elastography for the Early Detection of Deep Tissue Injuries}
-\subtitle{A thesis submitted in partial fulfilment of the requirements for the degree of Master of Science}
 \author{Kenton David Hamaluik}
 \institute{University of Alberta}
 \date{June 23, 2014}
@@ -33,6 +34,7 @@
 \newcommand{\cmark}{\color{ExecusharesBlue}\ding{51}}
 \newcommand{\xmark}{\color{ExecusharesRed}\ding{55}}
 \newcommand{\percent}{\%}
+\newcommand{\comment}[1]{}
 
 \input{pre}
 
@@ -44,15 +46,41 @@
 
 	\note{Hello everyone, and welcome to the oral defence of my thesis entitled: ``Numerical Characterization of Ultrasound Elastography for the Early Detection of Deep Tissue Injuries''. I would like to treat this similarly to the actual defence, so I will ask you to hold off on any questions until the end of the presentation, at which point I would love to hear all your comments, concerns, and suggestions. Without further ado, why don't we begin!}
 
+	%\begin{frame}
+	%	\frametitle{Contents}
+	%	\begin{enumerate}
+	%		\item Introduction \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} The reasons for and goals of this research}
+	%		\item Quasi-Static Ultrasound Elastography (\alert{QS USE}) \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Estimating stiffness using manual palpation}
+	%		\item Acoustic Radiation Force Impulse (\alert{ARFI}) Imaging \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Using transducer-generated forces instead of %manual palpation}
+	%		\item Shear Wave Speed Quantification \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Quantifying tissue stiffness using shear wave speeds}
+	%		\item Conclusions \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Recommendations and final thoughts}
+	%	\end{enumerate}
+	%\end{frame}
+
 	\begin{frame}
 		\frametitle{Contents}
-		\begin{enumerate}
-			\item Introduction \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} The reasons for and goals of this research}
-			\item Quasi-Static Ultrasound Elastography (\alert{QS USE}) \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Estimating stiffness using manual palpation}
-			\item Acoustic Radiation Force Impulse (\alert{ARFI}) Imaging \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Using transducer-generated forces instead of manual palpation}
-			\item Shear Wave Speed Quantification \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Quantifying tissue stiffness using shear wave speeds}
-			\item Conclusions \\ \textcolor{ExecusharesGrey}{\footnotesize\hspace{1em} Recommendations and final thoughts}
-		\end{enumerate}
+		\centering
+		\vspace{1cm}
+		\begin{tikzpicture}
+			\onslide<2->{\draw[->] (0, 0) -- (-3.5cm, 0cm) -- (-3.5cm, -0.7cm);
+			\draw[->] (0, 0) -- (0cm, -0.7cm);
+			\draw[->] (0, 0) -- (3.5cm, 0cm) -- (3.5cm, -0.7cm);}
+
+			\draw (0, 0) node[align=center,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Introduction};
+
+			\onslide<3->{\draw[->] (-3.5cm, -1.75cm) -- (-3.5cm, -3.5cm) -- (-2.65cm, -3.5cm);
+			\draw[->] (0cm, -1.75cm) -- (0, -3.2cm);
+			\draw[->] (3.5cm, -1.75cm) -- (3.5cm, -3.5cm) -- (2.65cm, -3.5cm);}
+
+			\onslide<2->{\draw (-3.5cm, -1.75cm) node[align=center,text width=3cm,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Quasi-Static Ultrasound Elastography (\alert{QS USE})};
+			\draw (0cm, -1.75cm) node[align=center,text width=3cm,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Acoustic Radiation Force Impulse Imaging (\alert{ARFI})};
+			\draw (3.5cm, -1.75cm) node[align=center,text width=3cm,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Shear Wave Speed Quantification (\alert{Shear})};}
+
+			\onslide<4->{\draw[->] (0cm, -3.5cm) -- (0cm, -4.7cm);}
+
+			\onslide<3->{\draw (0cm, -3.75cm) node[align=center,text width=5cm,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Experimental Validation \\ \& Method Comparison};}
+			\onslide<4->{\draw (0cm, -5cm) node[align=center,text width=5cm,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Conclusions};}
+		\end{tikzpicture}
 	\end{frame}
 
 	\note{Today's presentation is going to loosely follow the organization of my thesis, beginning with background of this work, then taking you through the three imaging modalities I studied, and finalizing with some conclusions and recommendations from the work.}
@@ -62,26 +90,26 @@
 	\setcounter{showSlideNumbers}{1}
 	\section{Introduction}
 		\begin{frame}
-			\frametitle{Deep Tissue Injuries}
+			\frametitle{Deep Tissue Injuries (DTI)}
 			\begin{columns}[c]
-				\column{0.65\textwidth}
+				\column{0.55\textwidth}
 				\begin{itemize}
-					\item Deep tissue injuries (\alert{DTI})
+					\item Secondary injuries (limited mobility)
+					\item Stage III -- IV pressure ulcers
+					\item Caused by pressure \& deformation
+					\item No clinical detection
+					\item Severe health burdens \cite{russo08}
 					\begin{itemize}
-						\item Secondary injuries for those with limited mobility
-						\item Form deep in tissue
-						\item Eventually break out into stage III -- IV pressure ulcers
+						\item 500,000 -- 2,000,000 annually (USA)
+						\item Increased mortality, length of stay
 					\end{itemize}
-					\item Tissue damage due to \alert{pressure} and \alert{deformation}
-					\item Almost impossible to detect clinically
-					\item Severe health and monetary burdens
 				\end{itemize}
 
-				\column{0.35\textwidth}
+				\column{0.45\textwidth}
 					\begin{figure}
 						\centering
 						\includegraphics[width=\textwidth]{assets/npuap/suspectedDTI.png}
-						\caption{\tiny \copyright\ National Pressure Ulcer Advisory Panel, used with permission.}
+						\caption{\fontsize{6}{4}\selectfont \copyright\ National Pressure Ulcer Advisory Panel, used with permission.}
 					\end{figure}
 			\end{columns}
 		\end{frame}
@@ -96,15 +124,15 @@
 					\item Norton, Braden, and Risk Assessment Pressure Sore scales
 					\item No actual detection, only risk assessment
 				\end{itemize}
-				\item Research settings: \alert{T$_2^*$-weighted MRI}
+				\item Research settings: \alert{MRI}
 				\begin{itemize}
-					\item Not feasible clinically
+					\item Not clinically feasible
 				\end{itemize}
 				\item New research:
 				\begin{itemize}
-					\item B-mode imaging (Aoi et al. \cite{aoi08})
-					\item Blood / urine markers (Mahksous et al. \cite{mahksous10})
-					\item \alert{Ultrasound elastography} (Deprez et al. \cite{deprez11})
+					\item B-mode imaging \cite{aoi08}
+					\item Blood / urine markers \cite{mahksous10}
+					\item \alert{Ultrasound elastography} \cite{deprez11}
 				\end{itemize}
 			\end{itemize}
 		\end{frame}
@@ -130,7 +158,7 @@
 						\draw[ultra thick, ->, draw=ExecusharesBlue] plot[smooth, tension=1] (0.3, 1) .. controls(0.45, 1) and (0.45, 0.1) .. (1, 0.1);
 
 						% axes
-						\draw[ultra thick, <->, draw=black] (0, 1) -- (0, 0) -- (1, 0);
+						\draw[ultra thick, <->, draw=ExecusharesBlack] (0, 1) -- (0, 0) -- (1, 0);
 
 						% time tick
 						\draw (0.3, -0.05) -- (0.3, 0.05);
@@ -139,11 +167,11 @@
 						\node[below] at (0.6, 0) {Days};
 						\node[rotate=90] at (-0.05, 0.75) {Stiffness};
 						\node[left] at (0, 0.3) {\scriptsize Basal Stiffness};
-						\node at (0.3125, 0.6) {\footnotesize Local Rigor Mortis};
+						\node at (0.3125, 0.6) {\footnotesize Local Rigor};
 						\node at (0.9, 0.2) {\footnotesize Decomposition};
 						\node at (0.9, -0.1) {Time};
 					\end{tikzpicture}
-					\caption{Adapted from Gefen \cite{gefen09}, used with permission}
+					\caption{Adapted from \cite{gefen09}, used with permission}
 				\end{figure}
 			\end{center}
 			\vspace{-0.5cm}
@@ -156,24 +184,25 @@
 
 		\begin{frame}
 			\frametitle{Literature Review}
+			\begin{itemize}
+				\item The \alert{purpose} of this research was to gain understanding of and characterize the use of ultrasound elastography toward DTI detection
+			\end{itemize}
 			\begin{center}
 				\vspace{1cm}
 				\begin{tabular}{r|c|cccc|cccc|cc}
 					& \rotHead{DTI} & \rotHead{B-Mode US} & \rotHead{QS USE} & \rotHead{ARFI} & \rotHead{Shear} & \rotHead{FE Models} & \rotHead{Gel Phantoms} & \rotHead{Animals} & \rotHead{Humans} & \rotHead{Characterized} & \rotHead{Clinical} \\
 					\hline
 					PU Risk scales & \xmark & --- & --- & --- & --- & \xmark & \xmark & \xmark & \cmark & \cmark & \cmark \\
-					T$_2^*$ MRI & \cmark & --- & --- & --- & --- & \cmark & \cmark & \cmark& \cmark & \xmark & \xmark \\
+					MRI & \cmark & --- & --- & --- & --- & \cmark & \cmark & \cmark& \cmark & \xmark & \xmark \\
 					\hline
-					Aoi et al. \cite{aoi08} & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \color{ExecusharesBlue}\textbf{?} \\
-					Mahksous et al. \cite{mahksous10} & \cmark & --- & --- & --- & --- & --- & --- & \cmark & \xmark & \xmark & \cmark \\
-					Deprez et al. \cite{deprez11} & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark \\
+					Aoi, 2009 & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \color{ExecusharesBlue}\textbf{?} \\
+					Makhsous, 2010 & \cmark & --- & --- & --- & --- & --- & --- & \cmark & \xmark & \xmark & \cmark \\
+					Deprez, 2011 & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark \\
 					\hline
-					This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \color{ExecusharesBlue}\textbf{?} & \color{ExecusharesBlue}\textbf{?} & \cmark & \cmark \\
+					%\rowcolor{ExecusharesBlack}\color{ExecusharesWhite}This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \color{ExecusharesBlue}\textbf{?} & \color{ExecusharesBlue}\textbf{?} & \cmark & \cmark \\
+					{\color{ExecusharesRed}\ding{220}} This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \color{ExecusharesBlue}\textbf{?} & \color{ExecusharesBlue}\textbf{?} & \cmark & \cmark \\
 				\end{tabular}
 			\end{center}
-			\begin{itemize}
-				\item The \alert{purpose} of this research was to gain understanding of and characterize the use of ultrasound elastography toward DTI detection
-			\end{itemize}
 		\end{frame}
 
 		\note{The purpose of this work then was to characterize the use of ultrasound elastography toward the detection of DTI such that it may eventually be used clinically. This work is different from other DTI detection techniques largely by it's inclusion of ARFI imaging and shear wave speed quantification as well as numerical characterizations of a wide array of parameters on the detection sensitivity of the technique, and you can see how this work compares to other techniques and previous work here.}
@@ -202,103 +231,91 @@
 		}
 
 		\begin{frame}
-			\frametitle{Introduction}
-			\vspace{0.5cm}
-			\begin{itemize}
-				\item Earliest form of ultrasound elastography
-				\item Apply manual pressure to tissue
-				\begin{itemize}
-					\item Measure localized deformation of tissue
-				\end{itemize}
-				\item Magnitude of deformation related to stiffness
-				\begin{itemize}
-					\item $\downarrow$ deformation $\approx$ $\uparrow$ stiffness $\approx$ $\uparrow$ damage magnitude
-				\end{itemize}
-			\end{itemize}
-
-			\vspace{0.5cm}
-			\begin{columns}[b]
-				\column{0.5\textwidth}
-					\begin{tikzpicture}[x=\textwidth,y=0.4\textwidth]
-						\draw[thick, draw=ExecusharesBlack, fill=ExecusharesWhite]
-						(0, 0) -- (1, 0) -- (1, 1) -- (0, 1) -- cycle;
-						\draw[dashed, thick, draw=ExecusharesBlack, fill=none]
-						(0.15, 0.1) -- (0.85, 0.1) -- (0.85, 1) -- (0.15, 1) -- cycle;
-						\draw[thick, draw=ExecusharesBlack, fill=ExecusharesRed]
-						(0.15, 1) -- (0.85, 1) -- (0.85, 1.25) -- (0.15, 1.25) -- cycle;
-						\draw[ultra thick, draw=ExecusharesBlue, fill=none]
-						(0.55, 0.45) -- (0.65, 0.45) -- (0.65, 0.75) -- (0.55, 0.75) -- cycle;
-						\tikzset{text=ExecusharesBlue}
-						\node at (0.6, 0.6) {$R_1$};
-						\tikzset{text=ExecusharesBlack}
-						\node at (0.5, 1.125) {US Probe};
-						\tikzset{text=ExecusharesBlack}
-						\node at (0.5, 0.25) {Field of View};
-						\tikzset{text=ExecusharesBlack}
-						\node at (0.5, -0.15) {Pre-compression image};
-					\end{tikzpicture}
-
-				\column{0.5\textwidth}
-					\begin{tikzpicture}[x=\textwidth,y=0.4\textwidth]
-						\draw[thick, draw=ExecusharesBlack, fill=ExecusharesWhite]
-						(0, 0) -- (1, 0) -- (1, 0.8) -- (0, 0.8) -- cycle;
-						\draw[dashed, thick, draw=ExecusharesBlack, fill=none]
-						(0.15, 0.1) -- (0.85, 0.1) -- (0.85, 0.8) -- (0.15, 0.8) -- cycle;
-						\draw[thick, draw=ExecusharesBlack, fill=ExecusharesRed]
-						(0.15, 0.8) -- (0.85, 0.8) -- (0.85, 1.05) -- (0.15, 1.05) -- cycle;
-						\draw[thick, draw=ExecusharesBlack, fill=ExecusharesBlue]
-						(0.5, 1.1) -- (0.6, 1.2) -- (0.55, 1.2) -- (0.55, 1.25) -- (0.45, 1.25) -- (0.45, 1.2) -- (0.4, 1.2) -- cycle;
-						\draw[ultra thick, draw=ExecusharesBlue, fill=none]
-						(0.65, 0.45) -- (0.75, 0.45) -- (0.75, 0.65) -- (0.65, 0.65) -- cycle;
-						\tikzset{text=ExecusharesBlue}
-						\node at (0.7, 0.55) {$R_2$};
-						\draw[ultra thick, ->, draw=ExecusharesBlue, fill=ExecusharesBlue]
-						(0.55, 0.4) -- (0.65, 0.45);
-						\tikzset{text=ExecusharesBlack}
-						\node at (0.5, 0.925) {US Probe};
-						\tikzset{text=ExecusharesBlack}
-						\node at (0.5, 0.25) {Field of View};
-						\node at (0.5, -0.15) {Post-compression image};
-					\end{tikzpicture}
-			\end{columns}
-		\end{frame}
-
-		\note{The first imaging modality I investigated was ``quasi-static ultrasound elastography'', which involves the manual manipulation of soft tissues in order to estimate deformation gradients and subsequently localized tissue strains. By comparing localized tissue strains throughout the domain, the stiffness ratio of lesions may be estimated.}
-
-		\begin{frame}
-			\frametitle{Tracking Localized Deformation}
-			\begin{columns}[c]
+			\frametitle{Theory of Operation}
+			\begin{columns}[t]
 				\column{0.6\textwidth}
 					\begin{itemize}
-						\item ``Noise'' isn't actually noise
+						\item Manual deformation
+						\item Magnitude of deformation related to stiffness
 						\begin{itemize}
-							\item Scattering centres anchored in tissue
+							%\item $\downarrow$ deformation $\approx$ $\uparrow$ stiffness $\approx$ $\uparrow$ damage magnitude
+							\item $\begin{aligned}[t]
+								& \downarrow \mathrm{\normalsize deformation} \\
+								\approx & \uparrow \mathrm{\normalsize stiffness} \\
+								\approx & \uparrow \mathrm{\normalsize damage\ magnitude}
+							\end{aligned}$
 						\end{itemize}
-						\item Track motion of scattering centres between pre/post compression
+						\item<2-> Track scattering centres
 						\begin{itemize}
-							\item Under assumptions of motion (Brusseau et al. \cite{brusseau08})
+							\item Assumptions of motion \cite{brusseau08}
 						\end{itemize}
 					\end{itemize}
+					\onslide<2->{\begin{columns}[c]
+						\column{0.5\textwidth}
+							\begin{tikzpicture}[x=\textwidth,y=0.4\textwidth]
+								\draw[thick, draw=ExecusharesBlack, fill=ExecusharesWhite]
+								(0, 0) -- (1, 0) -- (1, 1) -- (0, 1) -- cycle;
+								\draw[dashed, thick, draw=ExecusharesBlack, fill=none]
+								(0.15, 0.1) -- (0.85, 0.1) -- (0.85, 1) -- (0.15, 1) -- cycle;
+								\draw[thick, draw=ExecusharesBlack, fill=ExecusharesRed]
+								(0.15, 1) -- (0.85, 1) -- (0.85, 1.25) -- (0.15, 1.25) -- cycle;
+								\draw[thick, draw=ExecusharesBlue, fill=none]
+								(0.55, 0.45) -- (0.65, 0.45) -- (0.65, 0.75) -- (0.55, 0.75) -- cycle;
+								\tikzset{text=ExecusharesBlue}
+								\node at (0.6, 0.6) {\tiny $R_1$};
+								\tikzset{text=ExecusharesBlack}
+								\node at (0.5, 1.125) {\tiny US Probe};
+								\tikzset{text=ExecusharesBlack}
+								\node at (0.5, 0.25) {\tiny Field of View};
+								\tikzset{text=ExecusharesBlack}
+								\node at (0.5, -0.15) {\tiny Pre-compression image};
+							\end{tikzpicture}
+
+						\column{0.5\textwidth}
+							\begin{tikzpicture}[x=\textwidth,y=0.4\textwidth]
+								\draw[thick, draw=ExecusharesBlack, fill=ExecusharesWhite]
+								(0, 0) -- (1, 0) -- (1, 0.8) -- (0, 0.8) -- cycle;
+								\draw[dashed, thick, draw=ExecusharesBlack, fill=none]
+								(0.15, 0.1) -- (0.85, 0.1) -- (0.85, 0.8) -- (0.15, 0.8) -- cycle;
+								\draw[thick, draw=ExecusharesBlack, fill=ExecusharesRed]
+								(0.15, 0.8) -- (0.85, 0.8) -- (0.85, 1.05) -- (0.15, 1.05) -- cycle;
+								\draw[thick, draw=ExecusharesBlack, fill=ExecusharesBlue]
+								(0.5, 1.1) -- (0.6, 1.2) -- (0.55, 1.2) -- (0.55, 1.25) -- (0.45, 1.25) -- (0.45, 1.2) -- (0.4, 1.2) -- cycle;
+								\draw[thick, draw=ExecusharesBlue, fill=none]
+								(0.65, 0.45) -- (0.75, 0.45) -- (0.75, 0.65) -- (0.65, 0.65) -- cycle;
+								\tikzset{text=ExecusharesBlue}
+								\node at (0.7, 0.55) {\tiny $R_2$};
+								\draw[thick, ->, draw=ExecusharesBlue, fill=ExecusharesBlue]
+								(0.55, 0.4) -- (0.65, 0.45);
+								\tikzset{text=ExecusharesBlack}
+								\node at (0.5, 0.925) {\tiny US Probe};
+								\tikzset{text=ExecusharesBlack}
+								\node at (0.5, 0.25) {\tiny Field of View};
+								\node at (0.5, -0.15) {\tiny Post-compression image};
+							\end{tikzpicture}
+					\end{columns}}
 
 				\column{0.4\textwidth}
 					\begin{figure}
 						\centering
-						\subfloat{%
-							\begin{tikzpicture}
-								\node at (0, 0){\includegraphics[height=6cm]{../latex/assets/quasistatic/images/bModeA.png}};
-								\draw[draw=ExecusharesBlue] (0, -1.7cm) ellipse (0.25cm and 0.125cm);
-								\draw[draw=ExecusharesRed] (0.75cm, 1.9cm) circle(0.2cm);
-							\end{tikzpicture}
-						}
-						~
-						\subfloat{%
-							\begin{tikzpicture}
-								\node at (0, 0){\includegraphics[height=6cm]{../latex/assets/quasistatic/images/bModeB.png}};
-								\draw[draw=ExecusharesBlue] (0, -1.45cm) ellipse (0.25cm and 0.125cm);
-								\draw[draw=ExecusharesRed] (0.75cm, 1.95cm) circle(0.2cm);
-							\end{tikzpicture}
-						}
-						\caption{Pre- and Post- Compression B-Mode Images of DTI}
+						\only<1>{\includegraphics[width=\textwidth]{assets/quasistatic/springs.pdf}}
+						\only<2->{\begin{tikzpicture}
+							\node[anchor=south] at(-1cm, 0cm){\includegraphics[width=1.93cm]{assets/quasistatic/bModeA.png}};
+							\node[anchor=south] at(1cm, 0cm){\includegraphics[width=1.93cm]{assets/quasistatic/bModeB.png}};
+
+							\node[anchor=south] at(-1cm, 6.25cm){Pre};
+							\node[anchor=south] at(1cm, 6.25cm){Post};
+
+							\draw[thick, draw=ExecusharesBlack, fill=ExecusharesBlue]
+							(0.75, 6.1) -- (0.5, 6.1) -- (1, 5.9) -- (1.5, 6.1) -- (1.25, 6.1) -- (1.25, 6.2) -- (0.75, 6.2) -- cycle;
+
+							\draw[draw=ExecusharesBlue] (-0.9cm, 3.3cm) ellipse (0.25cm and 0.125cm);
+							\draw[draw=ExecusharesBlue] (1.1cm, 3.175cm) ellipse (0.25cm and 0.125cm);
+							\draw[ExecusharesBlue] (-0.65, 3.3cm) -- (0.5, 3.3cm);
+							\draw[ExecusharesBlue] (0.85cm, 3.175cm) -- (-0.25, 3.175cm);
+							\draw[->,ExecusharesBlue] (0.25cm, 2.875cm) -- (0.25cm, 3.175cm);
+							\draw[->,ExecusharesBlue] (0.25cm, 3.6cm) -- (0.25cm, 3.3cm);
+						\end{tikzpicture}}
 					\end{figure}
 			\end{columns}
 		\end{frame}
@@ -307,6 +324,7 @@
 
 		\begin{frame}
 			\frametitle{Investigated Models}
+			\centering
 			\begin{figure}
 				\centering
 				\subfloat{\includegraphics[width=0.84375in]{../latex/assets/quasistatic/drawings/schematic_single-crop.pdf}}
@@ -319,6 +337,15 @@
 				~
 				\subfloat{\includegraphics[width=1.34443125in]{../latex/assets/quasistatic/drawings/schematic_human-crop.png}}
 			\end{figure}
+
+			\small
+			\begin{tabular}{rlcrl}
+				$d$: & lesion depth & & $\delta_{sep}$: & separation distance \\
+				$h$: & lesion altitude & & $b_r$: & blur radius \\
+				$\diameter S$: & lesion size & & $b_\rho:$ & cluster density \\
+				$f$: & interrogation frequency & & $r_{bl}$: & cluster radii \\
+				$\varepsilon_{app}$: & applied strain & & & \\
+			\end{tabular}
 		\end{frame}
 
 		\note{In an effort to investigate a wide range of parameters, the various models you see here were evaluated, ranging from a simple ``spherical'' lesion to investigate overarching parameters such as lesion size and depth to a complicated geometry obtained from the combination of Visible Human data and and MRI-acquired image of a DTI in a pig model. A parametric study on all of the parameters you see here was carried out in order to determine how each variable affects the detection sensitivity of quasi-static elastography.}
@@ -330,9 +357,10 @@
 				\centering
 				\subfloat{%
 					\begin{tikzpicture}
-						\begin{axis}[height=7cm, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={$x$ (\si{\cm})}, ylabel={Depth, $d$ (\si{\cm})}, xtick={-2,0,2}, y dir=reverse, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{../latex/assets/quasistatic/images/bModeA.png};
+						\begin{axis}[font=\tiny, height=7cm, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={$x$ (\si{\cm})}, ylabel={Depth, $d$ (\si{\cm})}, xtick={-2,0,2}, y dir=reverse, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
+							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/bModeA.png};
 						\end{axis}
+						\node at(0.875, 5.75){\footnotesize Pre-Compression};
 					\end{tikzpicture}
 				}
 				~
@@ -345,9 +373,10 @@
 				~
 				\subfloat{%
 					\begin{tikzpicture}
-						\begin{axis}[height=7cm, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={$x$ (\si{\cm})}, xtick={-2,0,2}, yticklabels={,,}, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
-							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{../latex/assets/quasistatic/images/bModeB.png};
+						\begin{axis}[font=\tiny, height=7cm, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={$x$ (\si{\cm})}, xtick={-2,0,2}, yticklabels={,,}, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
+							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{assets/quasistatic/bModeB_trans.png};
 						\end{axis}
+						\node at(0.875, 5.75){\footnotesize Post-Compression};
 					\end{tikzpicture}
 				}
 				~
@@ -360,9 +389,10 @@
 				~
 				\subfloat{%
 					\begin{tikzpicture}
-						\begin{axis}[height=7cm, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={$x$ (\si{\cm})}, xtick={-2,0,2}, yticklabels={,,}, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack, colormap name={YlOrRd}, colorbar, point meta min=0, point meta max=7, colorbar style={yticklabel={\pgfmathprintnumber{\tick}\,\percent},at={(1.05,0)}, width=0.02\textwidth, ylabel={Compressive Strain}, anchor=south west, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack}]
+						\begin{axis}[font=\tiny, height=7cm, enlargelimits=false, unit vector ratio*=1 1 1, axis on top, xlabel={$x$ (\si{\cm})}, xtick={-2,0,2}, yticklabels={,,}, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack, colormap name={YlOrRd}, colorbar, point meta min=0, point meta max=7, colorbar style={font=\tiny, yticklabel={\pgfmathprintnumber{\tick}\,\percent},at={(1.05,0)}, width=0.02\textwidth, ylabel={Compressive Strain}, anchor=south west, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack}]
 							\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=12.5]{../latex/assets/quasistatic/elastograms/e040_colour.png};
 						\end{axis}
+						\node at(0.875, 5.75){\footnotesize Resulting Elastogram};
 					\end{tikzpicture}
 				}
 			\end{figure}
@@ -376,11 +406,12 @@
 				\centering
 				\subfloat{%
 					\characterizationPic{%
-						\characterizationPlots{strainRatio}%
+						\only<1>{\addplot+[forget plot,dashed,mark=none,draw=ExecusharesGrey,sharp plot] coordinates { (0,0) (3.5,3.5) };}%
+						\only<2->{\characterizationPlots{strainRatio}%
 							{quasistatic/data/circular_size_05.dat}%
 							{quasistatic/data/circular_size_10.dat}%
 							{quasistatic/data/circular_size_20.dat}%
-							{quasistatic/data/circular_size_25.dat}%
+							{quasistatic/data/circular_size_25.dat}}%
 					}{%
 						\characterizationLegend{Lesion Diameter}{\diameter S}%
 							{\SI{0.5}{\cm}}%
@@ -391,7 +422,7 @@
 				}
 				\vspace{-0.25cm}
 				\subfloat{%
-					\characterizationPic{%
+					\onslide<3->{\characterizationPic{%
 						\characterizationPlots{strainRatio}%
 							{quasistatic/data/circular_depth_035.dat}%
 							{quasistatic/data/circular_depth_065.dat}%
@@ -403,7 +434,7 @@
 							{\SI{6.5}{\cm}}%
 							{\SI{8.5}{\cm}}%
 							{\SI{10.0}{\cm}}%
-					}{spherical_depth}{0,2.5}{north west}{ymin=0.5,ymax=2.5}
+					}{spherical_depth}{0,2.5}{north west}{ymin=0.5,ymax=2.5}}
 				}
 			\end{figure}
 		\end{frame}
@@ -447,15 +478,32 @@
 		\begin{frame}
 			\frametitle{Quasi-Static USE Outcomes}
 			\begin{itemize}
-				\item QS USE \alert{is} capable of DTI detection
-				\item Detection sensitivity less than desirable
-				\item Manual palpation is not ideal
+				%\item QS USE \alert{is} capable of DTI detection
+				%\item Detection sensitivity less than desirable
+				%\item Manual palpation is not ideal
+				%\begin{itemize}
+				%	\item Suggest \alert{ARFI imaging} for machine-induced tissue deformation instead
+				%\end{itemize}
+				%\item Small lesions almost undetectable
+				%\item Use $\leq$ \SI{5}{\percent} applied strain
+				%\item Depth, interrogation frequency don't affect detection ability
+				\item Small lesions undetectable
 				\begin{itemize}
-					\item Suggest \alert{ARFI imaging} for machine-induced tissue deformation instead
+					\item Larger $\rightarrow$ more accurate
 				\end{itemize}
-				\item Small lesions almost undetectable
-				\item Use $\leq$ \SI{5}{\percent} applied strain
-				\item Depth, interrogation frequency don't affect detection ability
+				\item Not reliant on:
+				\begin{itemize}
+					\item Depth
+					\item Interrogation frequency
+				\end{itemize}
+				\item Apply $\lesssim \SI{5}{\percent}$ strain
+				\item Complicated geometry can affect results
+				\item Manual palpation not reliable
+				\begin{itemize}
+					\item ARFI imaging as an alternative
+				\end{itemize}
+				\item \alert{Can detect DTI}
+				\item \alert{Not ideally sensitive}
 			\end{itemize}
 		\end{frame}
 
@@ -463,18 +511,30 @@
 		\begin{frame}
 			\frametitle{Introduction}
 			\begin{itemize}
-				\item QS USE has low detection sensitivity, manual palpation is difficult and unreliable
-				\item \alert{ARFI} imaging works on the same principles as QS USE
+				\item QS USE has low detection sensitivity, unreliable
+				\item \alert{ARFI} imaging similar to QS USE
 				\begin{itemize}
-					\item But uses \alert{transducer-generated} force to displace tissue
+					\item \alert{Transducer-generated} force instead of manual
 				\end{itemize}
 				\item $\uparrow$ repeatability, $\uparrow$ inter-operator reliability
-				\item By imparting acoustic energy to the tissue, body force is generated:
+				\item Absorbed energy generates force:
+			\end{itemize}
 
+			\vspace{1cm}
+			\begin{columns}[c]
+				\column{0.5\textwidth}
 					\begin{equation*}
 						\left|\vec{F}\right| = \frac{2\alpha I}{c}
 					\end{equation*}
-			\end{itemize}
+
+				\column{0.5\textwidth}
+					\begin{tabular}{rl}
+						$\vec{F}$: & ARFI force \\
+						$\alpha$: & Absorption coefficient \\
+						$I$: & Intensity \\
+						$c$: & Longitudinal wave speed \\
+					\end{tabular}
+			\end{columns}
 		\end{frame}
 
 		\begin{frame}
@@ -562,7 +622,7 @@
 								axis on top,
 								colormap name={RdBu},
 								colorbar, point meta min=-175, point meta max=175, colorbar style={at={(1.05,0)}, font=\tiny, ytick={-175,-100,0,100,175}, anchor=south west, width=0.03\textwidth, ylabel={Acoustic Radiation Force, $F_{ARFI}$ (\si{\kN\per\metre\cubed})},
-								draw=black, text=black, fill=black}]
+								draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack}]
 									\addplot graphics[xmin=-2,xmax=2,ymin=0,ymax=10]{../latex/assets/shear/data/Fy158.png};
 							\end{axis}
 							\node[anchor=south] at(0.9, 4.75) {\scriptsize Axial Force};
@@ -593,7 +653,7 @@
 							legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes={right}},
 							clip=true,
 							cycle list name=ColourPlotCycle,
-							draw=black, text=black, fill=black]
+							draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
 							\addlegendimage{empty legend};
 							\addlegendimage{empty legend};
 							\addplot table[x expr=\thisrow{depth}*100, y expr=\thisrow{maxDisp}*1e6] {../latex/assets/arfi/data/depth_maxDisp_freq1.dat};
@@ -605,7 +665,7 @@
 					\end{tikzpicture}
 				}
 				\vspace{-0.25cm}
-				\subfloat{%
+				\onslide<2->{\subfloat{%
 					\begin{tikzpicture}
 						\begin{axis}[
 							scale only axis,
@@ -622,19 +682,20 @@
 							clip=true,
 							xmin=0,xmax=10,ymin=0,ymax=2250,
 							cycle list name=ColourPlotCycle,
-							draw=black, text=black, fill=black]
+							draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
 							\addlegendimage{empty legend};
 							\addlegendimage{empty legend};
 							\addplot table {../latex/assets/arfi/data/depth_isppa_freq1.dat};
 							\addplot table {../latex/assets/arfi/data/depth_isppa_freq2.dat};
 							\addplot table {../latex/assets/arfi/data/depth_isppa_freq4.dat};
 							\addplot table {../latex/assets/arfi/data/depth_isppa_freq6.dat};
-							\addplot[mark=none,dashed,thick,draw=ExecusharesGrey] plot coordinates {(0, 933) (10, 933)};
-							\draw (axis cs:7,933) node[below]{\color{ExecusharesGrey} Acceptable};
-							\draw (axis cs:7,933) node[above]{\color{ExecusharesGrey} Unacceptable};
+							\addplot[mark=none,dashed,thick,draw=ExecusharesBlack] plot coordinates {(0, 933) (10, 933)};
+							\draw (axis cs:7,933) node[below]{\color{ExecusharesBlack} Acceptable};
+							\draw (axis cs:7,933) node[above]{\color{ExecusharesBlack} Unacceptable};
+							\node [anchor=north east](c) at (axis cs:10,2250) {\includegraphics[width=0.5cm]{../latex/assets/insets/nolesion_frequency.pdf}};
 						\end{axis}
 					\end{tikzpicture}
-				}
+				}}
 			\end{figure}
 		\end{frame}
 
@@ -651,15 +712,15 @@
 							{arfi/data/arfi_radius_r100.dat}%
 							{arfi/data/arfi_radius_r125.dat}%
 					}{%
-						\characterizationLegend{Lesion Radius}{r_{lesion}}%
-							{\SI{2.5}{\mm}}%
-							{\SI{5.0}{\mm}}%
-							{\SI{10.0}{\mm}}%
-							{\SI{12.5}{\mm}}%
-					}{spherical_radius}{0, 2.5}{north west}{ymin=0.5,ymax=2.5}
+						\characterizationLegend{Lesion Diameter}{\diameter S}%
+							{\SI{5.0}{\cm}}%
+							{\SI{10.0}{\cm}}%
+							{\SI{20.0}{\cm}}%
+							{\SI{25.0}{\cm}}%
+					}{spherical_size}{0, 2.5}{north west}{ymin=0.5,ymax=2.5}
 				}
 				\vspace{-0.25cm}
-				\subfloat{%
+				\onslide<2->{\subfloat{%
 					\characterizationPic{%
 						\characterizationPlots{esr}%
 							{arfi/data/arfi_maxDisp_depth_d2.dat}%
@@ -673,28 +734,37 @@
 							{\SI{6}{\cm}}%
 							{\SI{8}{\cm}}%
 					}{spherical_depth}{0,2.25}{north west}{ymin=0.5,ymax=2.25}
-				}
+				}}
 			\end{figure}
 		\end{frame}
 
 		\begin{frame}
 			\frametitle{ARFI Imaging Outcomes}
+			%\begin{itemize}
+			%	\item ARFI more reliable than QS USE
+			%	\begin{itemize}
+			%		\item Computer-controlled deformation force
+			%	\end{itemize}
+			%	\item Safety implications
+			%	\begin{itemize}
+			%		\item High intensity acoustic waves can damage tissue
+			%		\item Difficult to get deep penetration without damage
+			%	\end{itemize}
+			%	\item No effect on detection sensitivity of lesion size for radii $\geq$ \SI{2.5}{\mm}
+			%	\item Lesion depth only a factor in generating radiation force
+			%	\begin{itemize}
+			%		\item Soft tissue absorption makes deep penetration difficult
+			%	\end{itemize}
+			%	\item Better at interrogating complicated geometry than QS USE
+			%\end{itemize}
 			\begin{itemize}
-				\item ARFI more reliable than QS USE
-				\begin{itemize}
-					\item Computer-controlled deformation force
-				\end{itemize}
-				\item Safety implications
-				\begin{itemize}
-					\item High intensity acoustic waves can damage tissue
-					\item Difficult to get deep penetration without damage
-				\end{itemize}
-				\item No effect on detection sensitivity of lesion size for radii $\geq$ \SI{2.5}{\mm}
-				\item Lesion depth only a factor in generating radiation force
-				\begin{itemize}
-					\item Soft tissue absorption makes deep penetration difficult
-				\end{itemize}
-				\item Better at interrogating complicated geometry than QS USE
+				\item ARFI sensitivity $\approx$ QS USE sensitivity
+				\item ARFI not as dependent on lesion size as QS USE
+				\item Not reliant on depth
+				\item Complicated geometry can affect results
+				\item Significant safety considerations
+				\item \alert{ARFI more reliable than QS USE}
+				\item \alert{ARFI has limited penetration depth}
 			\end{itemize}
 		\end{frame}
 
@@ -702,19 +772,33 @@
 		\begin{frame}
 			\frametitle{Introduction}
 			\begin{itemize}
-				\item QS USE and ARFI only provide \alert{qualitative} measures of stiffness
-				\item Measuring shear wave speed allows quantifiable calculation of stiffness
+				\item QS USE and ARFI provide \alert{qualitative} measures
+				\item Shear wave speed quantification is \alert{quantitative}
 				\begin{itemize}
-					\item Can be used to accurately track over time and give absolute references
+					\item Absolute values
+					\item Track over time
 				\end{itemize}
-				\item Uses ARFI pulses to generate shear waves in tissue
+				\item Uses ARFI pulses to generate shear wavess
 				\begin{itemize}
 					\item Measure shear wave speed $\rightarrow$ calculate stiffness:
 				\end{itemize}
 			\end{itemize}
-			\begin{equation*}
-				\mu = c_T^2 \rho
-			\end{equation*}
+
+			\vspace{1cm}
+			\begin{columns}[c]
+				\column{0.5\textwidth}
+					\begin{equation*}
+						\mu = c_T^2 \rho
+					\end{equation*}
+
+				\column{0.5\textwidth}
+					\begin{tabular}{rl}
+						$\mu$: & Shear modulus \\
+						$c_T$: & Shear wave speed \\
+						$\rho$: & Tissue density \\
+					\end{tabular}
+
+			\end{columns}
 		\end{frame}
 
 		\begin{frame}
@@ -727,12 +811,12 @@
 				\end{itemize}
 				\item<2-> Monitor deformation along a line extending from the focal point using B-mode ultrasound
 				\begin{itemize}
-					\item<4-> Calculate speed of shear wave along this line
+					\item<3-> Calculate speed of shear wave along this line
 				\end{itemize}
 			\end{enumerate}
 
 			\only<1>{\vspace{-0.2cm}}
-			\only<4>{\vspace{-0.49cm}}
+			\only<3>{\vspace{-0.49cm}}
 			\begin{figure}
 				\centering
 				\begin{tikzpicture}
@@ -746,13 +830,14 @@
 						ylabel style={align=center},
 						ylabel={Axial displacement, \\ $v$ (\si{\charmu\m})},
 						grid=major,
-						legend entries={$t = \SI{2.5}{\ms}$, $t = \SI{7.5}{\ms}$, $t = \SI{12.5}{\ms}$, $t = \SI{17.5}{\ms}$, $t = \SI{22.5}{\ms}$, $t = \SI{27.5}{\ms}$},
+						legend entries={\textbf{Time}, $t = \SI{2.5}{\ms}$, $t = \SI{7.5}{\ms}$, $t = \SI{12.5}{\ms}$, $t = \SI{17.5}{\ms}$, $t = \SI{22.5}{\ms}$, $t = \SI{27.5}{\ms}$},
 						legend style={legend cell align=left, legend pos=outer north east,font=\tiny},
 						clip=true,
 						cycle list name=SmoothColourPlotCycle,
-						draw=black, text=black, fill=black,
+						draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack,
 						xmin=0, xmax=5,
 						ymin=-0.75, ymax=0.5]
+						\addlegendimage{empty legend}
 						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {../latex/assets/shear/data/shear_lateral_i158_t025.dat};
 						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {../latex/assets/shear/data/shear_lateral_i158_t075.dat};
 						\addplot table[x expr=\thisrow{x}*100, y expr=\thisrow{v}*1e6] {../latex/assets/shear/data/shear_lateral_i158_t125.dat};
@@ -764,34 +849,24 @@
 						font=\scriptsize,
 						scale only axis,
 						enlargelimits=false,
-						width=0.85\textwidth,
+						width=0.75\textwidth,
 						height=3cm,
 						xlabel={Time, $t$ (\si{\ms})},
 						ylabel style={align=center},
 						ylabel={Distance from \\ centerline, $x$ (\si{\cm})},
-						axis on top]
+						axis on top,
+						colormap name={RdBu},
+						colorbar, point meta min=-6.6746e-01, point meta max=3.8648e-01, colorbar style={font=\tiny, at={(1.05,0)}, anchor=south west, width=0.03\textwidth, ylabel={Axial Displacement, $v$ (\si{\charmu\m})}, draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack, ytick={-0.6,-0.4,-0.2,0,0.2}}]
 							\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{../latex/assets/shear/data/lateralCut158.png};
-					\end{axis}}
-					\only<3>{\begin{axis}[
-						font=\scriptsize,
-						scale only axis,
-						enlargelimits=false,
-						width=0.85\textwidth,
-						height=3cm,
-						xlabel={Time, $t$ (\si{\ms})},
-						ylabel style={align=center},
-						ylabel={Distance from \\ centerline, $x$ (\si{\cm})},
-						axis on top]
-							\addplot graphics[xmin=0,xmax=31.7,ymin=0,ymax=5]{../latex/assets/shear/data/lateralCut158.png};
-							\addplot[draw=black, solid, ultra thick] table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {../latex/assets/shear/data/shear_lateral_i158_isoline.dat};
-							\draw[ultra thick, <->, draw=black] (axis cs:15,0.75) -- (axis cs:15,1.75);
-							\draw[ultra thick, draw=black, dashed] (axis cs:0,0.75) -- (axis cs:17.25,0.75);
-							\draw[ultra thick, draw=black, dashed] (axis cs:0,1.75) -- (axis cs:17.25,1.75);
+							\addplot[draw=ExecusharesBlack, solid, ultra thick] table[x expr=\thisrow{t}*1000, y expr=\thisrow{x}*100] {../latex/assets/shear/data/shear_lateral_i158_isoline.dat};
+							\draw[ultra thick, <->, draw=ExecusharesBlack] (axis cs:15,0.75) -- (axis cs:15,1.75);
+							\draw[ultra thick, draw=ExecusharesBlack, dashed] (axis cs:0,0.75) -- (axis cs:17.25,0.75);
+							\draw[ultra thick, draw=ExecusharesBlack, dashed] (axis cs:0,1.75) -- (axis cs:17.25,1.75);
 							\node[right] at (axis cs:15,1.25) {Lesion};
-							\draw[ultra thick, ->, draw=black] (axis cs:25.65,2.75) -- (axis cs:25.65,3.7755102040816);
+							\draw[ultra thick, ->, draw=ExecusharesBlack] (axis cs:25.65,2.75) -- (axis cs:25.65,3.7755102040816);
 							\node[below] at (axis cs:25.65,2.75) {Contour line};
 					\end{axis}}
-					\only<4>{\begin{axis}[
+					\only<3>{\begin{axis}[
 						font=\scriptsize,
 						scale only axis,
 						width=0.85\textwidth,
@@ -802,14 +877,14 @@
 						grid=major,
 						clip=true,
 						axis background/.style={fill=white},
-						draw=black, text=black, fill=black]
+						draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
 						\addplot[solid, ultra thick, ExecusharesBlue] table[x expr=\thisrow{x}*100] {../latex/assets/shear/data/shear_lateral_i158_shear_wave_speed.dat};
 
-						\draw[ultra thick, ->, draw=black] (axis cs:0.25,1.8) -- (axis cs:0.75,1.8);
-						\draw[ultra thick, <-, draw=black] (axis cs:1.75,1.8) -- (axis cs:2.25,1.8);
+						\draw[ultra thick, ->, draw=ExecusharesBlack] (axis cs:0.25,1.8) -- (axis cs:0.75,1.8);
+						\draw[ultra thick, <-, draw=ExecusharesBlack] (axis cs:1.75,1.8) -- (axis cs:2.25,1.8);
 						\node[right] at (axis cs:2.25,1.8) {Lesion};
-						\draw[ultra thick, draw=black, dashed] (axis cs:0.75,0) -- (axis cs:0.75,2.1);
-						\draw[ultra thick, draw=black, dashed] (axis cs:1.75,0) -- (axis cs:1.75,2.1);
+						\draw[ultra thick, draw=ExecusharesBlack, dashed] (axis cs:0.75,0) -- (axis cs:0.75,2.1);
+						\draw[ultra thick, draw=ExecusharesBlack, dashed] (axis cs:1.75,0) -- (axis cs:1.75,2.1);
 					\end{axis}}
 				\end{tikzpicture}
 			\end{figure}
@@ -827,15 +902,15 @@
 							{shear/data/shear_radius_r100.dat}%
 							{shear/data/shear_radius_r125.dat}%
 					}{%
-						\characterizationLegend{Lesion Radius}{r_{lesion}}%
-							{\SI{2.5}{\mm}}%
-							{\SI{5.0}{\mm}}%
-							{\SI{10.0}{\mm}}%
-							{\SI{12.5}{\mm}}%
-					}{spherical_radius}{0, 4.5}{north west}{ymin=0,ymax=4.5}
+						\characterizationLegend{Lesion Diameter}{\diameter S}%
+							{\SI{5.0}{\cm}}%
+							{\SI{10.0}{\cm}}%
+							{\SI{20.0}{\cm}}%
+							{\SI{25.0}{\cm}}%
+					}{spherical_size}{0, 4.5}{north west}{ymin=0,ymax=4.5}
 				}
 				\vspace{-0.25cm}
-				\subfloat{%
+				\onslide<2->{\subfloat{%
 					\characterizationPic{%
 						\characterizationPlots{esr}%
 							{shear/data/shear_depth_o250_d2.dat}%
@@ -849,7 +924,7 @@
 							{\SI{6}{\cm}}%
 							{\SI{8}{\cm}}%
 					}{spherical_depth}{0,4.5}{north west}{ymin=0,ymax=4.5}
-				}
+				}}
 			\end{figure}
 		\end{frame}
 
@@ -873,7 +948,7 @@
 					}{offset}{0, 4.5}{north west}{ymin=0,ymax=4.5}
 				}
 				\vspace{-0.25cm}
-				\subfloat{%
+				\onslide<2->{\subfloat{%
 					\characterizationPic{%
 						\characterizationPlots{esr}%
 							{shear/data/shear_human_radius_r025.dat}%
@@ -887,27 +962,56 @@
 							{\SI{20}{\mm}}%
 							{\SI{25}{\mm}}%
 					}{human_width}{0,4.75}{north west}{ymin=0,ymax=4.75}
-				}
+				}}
 			\end{figure}
 		\end{frame}
 
 		\begin{frame}
 			\frametitle{Shear Wave Speed Outcomes}
 			\begin{itemize}
-				\item More accurate than ARFI and QS USE
-				\item Quantifiable
+				\item Similar reliability to ARFI
+				\item Difficult to detect:
+				\begin{itemize}
+					\item Small lesions
+					\item Deep lesions
+				\end{itemize}
+				\item Localized measures only
+				\begin{itemize}
+					\item QS USE and ARFI provide domain interrogation
+				\end{itemize}
+				\item \alert{More sensitive than ARFI and QS USE}
+				\item \alert{Quantifiable}
 				\begin{itemize}
 					\item Can monitor injury over time
 				\end{itemize}
-				\item Localized  interrogation instead of full domain imaging
-				\item Necessary to locate ARFI focal point \SI{1.25}{\cm} -- \SI{2.50}{\cm} away from the region of interest
-				\item Lesions with radii $\lesssim \SI{5}{\mm}$ difficult to detect
-				\item Depths $\lesssim \SI{8}{\cm}$
-				\item Not strongly dependent on complicated geometry
 			\end{itemize}
 		\end{frame}
 
-	\section{Conclusions}
+	\section{Experimental Validation \& Method Comparisons}
+		\begin{frame}[label=experimentalSetup]
+			\frametitle{Experimental Setup}
+			\begin{center}
+				\begin{figure}
+					\centering
+					\begin{tikzpicture}
+						\node at (0, 0) {\includegraphics[width=0.9\textwidth]{../latex/assets/experimental_setup.png}};
+
+						% the phantom
+						\draw[pc3,->,ultra thick] (-0.5, 1) -- (-1,-0.6);
+						\draw (-0.5, 0.5) node[above,text width=1in,align=center,fill=white,rounded corners=3pt,draw=pc3,ultra thick]{\color{black}\footnotesize CIRS Elasticity QA Phantom model 049};
+
+						% the probe
+						\draw[pc2,->,ultra thick] (-2, -2.5) -- (0, -1);
+						\draw (-2, -2.5) node[below,text width=1in,align=center,fill=white,rounded corners=3pt,draw=pc2,ultra thick]{\color{black}\footnotesize 9L4 Transducer};
+
+						% the ultrasound machine
+						\draw[pc1,->,ultra thick] (-0.75, 3) -- (2.5, 2.15);
+						\draw (-0.5, 3) node[left,text width=1.5in,align=center,fill=white,rounded corners=3pt,draw=pc1,ultra thick]{\color{black}\footnotesize Siemens ACUSON S2000\textsuperscript{\texttrademark}\ portable ultrasound machine};
+					\end{tikzpicture}
+				\end{figure}
+			\end{center}
+		\end{frame}
+
 		\begin{frame}
 			\frametitle{Experimental Validations}
 			\begin{itemize}
@@ -929,7 +1033,7 @@
 					legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes={right}},grid=major,clip=true,cycle list name=ColourPlotCycle,
 					xmin=0, xmax=4,
 					ymin=0, ymax=5,
-					draw=black, text=black, fill=black]
+					draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
 						\addlegendimage{empty legend}
 						\addlegendimage{solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=o}
 						\addlegendimage{dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square}
@@ -1007,35 +1111,60 @@
 			\end{figure}
 		\end{frame}
 
+	\section{Conclusions}
 		\begin{frame}
 			\frametitle{Recommendations}
 			\begin{itemize}
 				\item \alert{Shear wave speed quantification} yields best results
 				\begin{itemize}
-					\item Quantifiable
-					\item Most accurate
+					\item Use when possible
 				\end{itemize}
-				\item ARFI and shear wave speed quantification are depth-limited (tissue safety)
+				\item ARFI more reliable than QS USE
 				\begin{itemize}
-					\item Quasi-static elastography for deep ($\gtrsim \SI{5}{\cm}$) regions
+					\item Lacks penetration depth
 				\end{itemize}
-				\item Small lesions ($r \lesssim \SI{5}{\mm}$) are difficult to detect
+				\item Small lesions ($r \lesssim \SI{0.5}{\cm}$) difficult to detect
 				\begin{itemize}
-					\item MRI-acquired lesions generally have $r \gtrsim \SI{1}{\cm}$
+					\item MRI'd lesions: $r \gtrsim \SI{1.0}{\cm}$
 				\end{itemize}
-				\item Complicated geometries can affect results
-				\item Future work should involve \alert{animal} and \alert{human} studies
+				\item Future work: \alert{animal} and \alert{human} studies
 				\begin{itemize}
-					\item This is the first stage in employing ultrasound elastography as a clinical deep tissue injury detection mechanism
+					\item Toward eventual clinical implementation
+				\end{itemize}
+			\end{itemize}
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{Conclusions}
+			\begin{itemize}
+				\item DTI are a major health concern
+				\begin{itemize}
+					\item No early detection
+				\end{itemize}
+				\item Ultrasound elastography \alert{can} detect DTI
+				\begin{itemize}
+					\item Within limits
+					\item Clinically feasible
+				\end{itemize}
+				\item Numerically characterized 3 modalities
+				\begin{itemize}
+					\item Quasi-Static Ultrasound Elastography
+					\item Acoustic Radiation Force Impulse Imaging
+					\item Shear Wave Speed Quantification \reflectbox{{\color{ExecusharesRed}\ding{220}}}
 				\end{itemize}
 			\end{itemize}
 		\end{frame}
 		
 		\begin{frame}
-			\frametitle{Thank-You}
-			\vspace{1cm}
-			Thank-you to my supervisors, \alert{Dr. Walied Moussa} and \alert{Dr. Martin Ferguson-Pell} for their guidance, my labmates for support, and the Project SMART team for funding and support.
-			\vspace{1cm}
+			\frametitle{Thank You}
+			\begin{itemize}
+				\item Supervisors:
+				\begin{itemize}
+					\item Dr. W. Moussa
+					\item Dr. M. Ferguson-Pell
+				\end{itemize}
+				\item Lab-mates
+			\end{itemize}
 			\begin{figure}
 				\includegraphics[width=\textwidth]{assets/SMART.eps}
 			\end{figure}
@@ -1051,44 +1180,24 @@
 			\frametitle{Additional Slides}
 			\begin{itemize}
 				\item \hyperlink{refs}{References}
-				\item \hyperlink{experimentalSetup}{Experimental Setup}
 				\item \hyperlink{arfiForceDerivation}{Derivation of ARFI}
 				\item \hyperlink{qsParameters}{Quasi-Static Parameters}
 				\item \hyperlink{arfiParameters}{ARFI Parameters}
 				\item \hyperlink{shearParameters}{Shear Parameters}
 				\item \hyperlink{cirsProperties}{Phantom Properties}
+				\item \hyperlink{quasiFEA}{Quasi-Static Finite-Element Details}
+				\item \hyperlink{quasiMeshDepend}{Quasi-Static Mesh Dependency}
+				\item \hyperlink{arfiFEA}{ARFI / Shear Finite-Element Details}
+				\item \hyperlink{arfiMeshDepend}{ARFI / Shear Mesh Dependency}
 			\end{itemize}
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]
 			\frametitle{References}
+			\tiny
 			\label{refs}
-			\bibliographystyle{IEEEtran}
+			\bibliographystyle{apalike}
 			\bibliography{../latex/references.bib}
-		\end{frame}
-
-		\begin{frame}[label=experimentalSetup]
-			\frametitle{Experimental Setup}
-			\begin{center}
-				\begin{figure}
-					\centering
-					\begin{tikzpicture}
-						\node at (0, 0) {\includegraphics[width=0.9\textwidth]{../latex/assets/experimental_setup.png}};
-
-						% the phantom
-						\draw[pc3,->,ultra thick] (-0.5, 1) -- (-1,-0.6);
-						\draw (-0.5, 0.5) node[above,text width=1in,align=center,fill=white,rounded corners=3pt,draw=pc3,ultra thick]{\color{black}\footnotesize CIRS Elasticity QA Phantom model 049};
-
-						% the probe
-						\draw[pc2,->,ultra thick] (-2, -2.5) -- (0, -1);
-						\draw (-2, -2.5) node[below,text width=1in,align=center,fill=white,rounded corners=3pt,draw=pc2,ultra thick]{\color{black}\footnotesize 9L4 Transducer};
-
-						% the ultrasound machine
-						\draw[pc1,->,ultra thick] (-0.75, 3) -- (2.5, 2.15);
-						\draw (-0.5, 3) node[left,text width=1.5in,align=center,fill=white,rounded corners=3pt,draw=pc1,ultra thick]{\color{black}\footnotesize Siemens ACUSON S2000\textsuperscript{\texttrademark}\ portable ultrasound machine};
-					\end{tikzpicture}
-				\end{figure}
-			\end{center}
 		\end{frame}
 
 		\begin{frame}[label=arfiForceDerivation]
@@ -1143,40 +1252,46 @@
 			\frametitle{QS USE Parameters}
 			\centering
 			\scriptsize
-			\begin{tabular}{lccs[table-unit-alignment = left]}
-				\toprule
-				Parameter & Symbol & Values & Units \\
-				\midrule
-				Lesion depth & $d$ & \numlist{3.5;6.5;8.5;10.0} & \si{\cm} \\
-				Lesion altitude & $h$ & \numlist{1.25;2.50;3.75} & \si{\cm} \\
-				Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
-				Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & - \\
-				Ultrasound frequency & $f$ & \numlist{2;4;8} & \si{\MHz} \\
-				Transducer-applied strain & $\varepsilon_{app}$ & \numlist{2.5;5.0;10.0} & \si{\percent} \\
-				Co-located separation distance & $\delta_{sep}$ & \numlist{1.25;1.50;1.75;2.00} & \si{\cm} \\
-				Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \si{\mm} \\
-				Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \si{\per\cm\squared} \\
-				Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \si{\mm} \\
-				Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
-				Visible human lesion depth & $d$ & \numlist{6.25;6.75;7.25} & \si{\cm} \\
-				\bottomrule
-			\end{tabular}
+			\begin{table}
+				\caption{QS USE Parametric Study Parameters}
+				\begin{tabular}{lccs[table-unit-alignment = left]}
+					\toprule
+					Parameter & Symbol & Values & Units \\
+					\midrule
+					Lesion depth & $d$ & \numlist{3.5;6.5;8.5;10.0} & \si{\cm} \\
+					Lesion altitude & $h$ & \numlist{1.25;2.50;3.75} & \si{\cm} \\
+					Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
+					Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & - \\
+					Ultrasound frequency & $f$ & \numlist{2;4;8} & \si{\MHz} \\
+					Transducer-applied strain & $\varepsilon_{app}$ & \numlist{2.5;5.0;10.0} & \si{\percent} \\
+					Co-located separation distance & $\delta_{sep}$ & \numlist{1.25;1.50;1.75;2.00} & \si{\cm} \\
+					Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \si{\mm} \\
+					Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \si{\per\cm\squared} \\
+					Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \si{\mm} \\
+					Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
+					Visible human lesion depth & $d$ & \numlist{6.25;6.75;7.25} & \si{\cm} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
 		\end{frame}
 
 		\begin{frame}[allowframebreaks,label=arfiParameters]
 			\frametitle{ARFI Parameters}
 			\centering
 			\scriptsize
-			\begin{tabular}{llSs[table-unit-alignment = left]}
-				\toprule
-				Property & Symbol & {Value} & Units \\
-				\midrule
-				Nonlinearity parameter & $\sfrac{B}{A}$ & 8 & - \\
-				Power law prefactor & $\alpha_0$ & 0.7 & $\si{\neper} \left(\si{rad\per\s}\right)^{-y} \si{\per\m}$ \\
-				Power law exponent & $y$ & 0.95 & - \\
-				Density & $\rho_0$ & 1060 & \si{\kg\per\m\cubed} \\
-				\bottomrule
-			\end{tabular}
+			\begin{table}
+				\caption{K-Space Psuedospectral Model Parameters}
+				\begin{tabular}{llSs[table-unit-alignment = left]}
+					\toprule
+					Property & Symbol & {Value} & Units \\
+					\midrule
+					Nonlinearity parameter & $\sfrac{B}{A}$ & 8 & - \\
+					Power law prefactor & $\alpha_0$ & 0.7 & $\si{\neper} \left(\si{rad\per\s}\right)^{-y} \si{\per\m}$ \\
+					Power law exponent & $y$ & 0.95 & - \\
+					Density & $\rho_0$ & 1060 & \si{\kg\per\m\cubed} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
 		\end{frame}
 
 		\begin{frame}
@@ -1184,26 +1299,32 @@
 			\centering
 			\scriptsize
 
-			\begin{tabular}{llSs[table-unit-alignment = left]}
-				\toprule
-				Property & Symbol & {Value} & Units \\
-				\midrule
-				Bulk Modulus & $K$ & 515.7 & \si{\kPa} \\
-				Shear Modulus & $\mu_{tissue}$ & 1.0 & \si{\kPa} \\
-				Density & $\rho$ & 1060 & \si{\kg\per\m\cubed} \\
-				\bottomrule
-			\end{tabular}
-			\vspace{1cm}
-			\begin{tabular}{SSS}
-				\toprule
-				{Branch} & {Shear Modulus} & {Relaxation Time} \\
-				& {(\si{\Pa})} & {(\si{\s})} \\
-				\midrule
-				1 & 791.0 & 2 \\
-				2 & 66.5 & 40 \\
-				3 & 0.6 & 80 \\
-				\bottomrule
-			\end{tabular}
+			\begin{table}
+				\caption{Simulated Material Parameters}
+				\begin{tabular}{llSs[table-unit-alignment = left]}
+					\toprule
+					Property & Symbol & {Value} & Units \\
+					\midrule
+					Bulk Modulus & $K$ & 515.7 & \si{\kPa} \\
+					Shear Modulus & $\mu_{tissue}$ & 1.0 & \si{\kPa} \\
+					Density & $\rho$ & 1060 & \si{\kg\per\m\cubed} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+			\vspace{0.5cm}
+			\begin{table}
+				\caption{Generalized Maxwell Viscoelastic Material Model Parameters}
+				\begin{tabular}{SSS}
+					\toprule
+					{Branch} & {Shear Modulus} & {Relaxation Time} \\
+					& {(\si{\Pa})} & {(\si{\s})} \\
+					\midrule
+					1 & 791.0 & 2 \\
+					2 & 66.5 & 40 \\
+					3 & 0.6 & 80 \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
 		\end{frame}
 
 		\begin{frame}
@@ -1211,23 +1332,26 @@
 			\centering
 			\scriptsize
 
-			\begin{tabular}{lccs[table-unit-alignment = left]}
-				\toprule
-				Parameter & Symbol & Values & {Units} \\
-				\midrule
-				ARFI interrogation frequency & $f$ & \numlist{1;2;4;6} & \MHz \\
-				Transducer width & $w_{trans}$ & \numlist{4;8;10} & \cm \\
-				ARFI pulse cycles & $n_c$ & \numlist{3;100;300;500;700} & - \\
-				ARFI source pressure & $P_{source}$ & \numlist{4;5;6;7;8} & \MPa \\
-				Lesion depth & $d$ & \numlist{1;2;3;4;5;6;7;8;9} & \cm \\
-				Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \cm \\
-				Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & - \\
-				Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \mm \\
-				Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \per\cm\squared \\
-				Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \mm \\
-				Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \cm \\
-				\bottomrule
-			\end{tabular}
+			\begin{table}
+				\caption{ARFI Parametric Study Parameters}
+				\begin{tabular}{lccs[table-unit-alignment = left]}
+					\toprule
+					Parameter & Symbol & Values & {Units} \\
+					\midrule
+					ARFI interrogation frequency & $f$ & \numlist{1;2;4;6} & \MHz \\
+					Transducer width & $w_{trans}$ & \numlist{4;8;10} & \cm \\
+					ARFI pulse cycles & $n_c$ & \numlist{3;100;300;500;700} & - \\
+					ARFI source pressure & $P_{source}$ & \numlist{4;5;6;7;8} & \MPa \\
+					Lesion depth & $d$ & \numlist{1;2;3;4;5;6;7;8;9} & \cm \\
+					Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \cm \\
+					Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & - \\
+					Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \mm \\
+					Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \per\cm\squared \\
+					Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \mm \\
+					Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \cm \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
 		\end{frame}
 
 		\begin{frame}[label=shearParameters]
@@ -1235,38 +1359,241 @@
 			\centering
 			\scriptsize
 
-			\begin{tabular}{lccs[table-unit-alignment = left]}
-				\toprule
-				Parameter & Symbol & Values & Units \\
-				\midrule
-				Lesion depth & $d$ & \numlist{1;2;3;4;5;6;7;8;9} & \si{\cm} \\
-				Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
-				Lesion offset & $d_{off}$ & \numlist{0.00;1.25;2.50;3.75} & \si{\cm} \\
-				Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & \\
-				Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \si{\mm} \\
-				Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \si{\per\cm\squared} \\
-				Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \si{\mm} \\
-				Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
-				\bottomrule
-			\end{tabular}
+			\begin{table}
+				\caption{Shear Parametric Study Parameters}
+				\begin{tabular}{lccs[table-unit-alignment = left]}
+					\toprule
+					Parameter & Symbol & Values & Units \\
+					\midrule
+					Lesion depth & $d$ & \numlist{1;2;3;4;5;6;7;8;9} & \si{\cm} \\
+					Lesion diameter & $\diameter S$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
+					Lesion offset & $d_{off}$ & \numlist{0.00;1.25;2.50;3.75} & \si{\cm} \\
+					Lesion stiffness ratio & $E_{rel}$ & \numlist{0.32;0.56;1.80;3.20} & \\
+					Blurred lesion blur radius & $b_r$ & \numlist{1.0;2.5;5.0;7.5} & \si{\mm} \\
+					Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \si{\per\cm\squared} \\
+					Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \si{\mm} \\
+					Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
 		\end{frame}
 
 		\begin{frame}[label=cirsProperties]
 			\frametitle{CIRS Phantom Properties}
 			\centering
-			\scriptsize
-			\begin{tabular}{lccs[table-unit-alignment = left]}
-				\toprule
-				Property & Symbol & Value & Units \\
-				\midrule
-				Nominal basal elastic modulus & $E_{tissue}$ & 25 & \si{\kPa} \\
-				Lesion elastic modulus & $E_{lesion}$ & \numlist{8;14;45;80} & \si{\kPa} \\
-				Speed of sound & $c_0$ & 1540 & \si{\metre\per\second} \\
-				Acoustic attenuation & $\alpha$ & 0.5 & \si{\decibel\per\cm\per\MHz} \\
-				Lesion diameter & $\diameter S$ & \numlist{10;20} & \si{\mm} \\
-				Lesion depth & $d$ & \numlist{15;35} & \si{\mm} \\
-				\bottomrule
-			\end{tabular}
+			\tiny
+			\begin{figure}
+				\begin{tikzpicture}[x=0.035\textwidth,y=0.035\textwidth]
+					% the side rectangle
+					\draw[fill=white,draw=ExecusharesBlack] (0, 0) rectangle(15, 8);
+
+					% the big lesions
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (3, 4.5) circle(1);
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (6, 4.5) circle(1);
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (9, 4.5) circle(1);
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (12, 4.5) circle(1);
+
+					% the small lesions
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (3, 6.5) circle(0.5);
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (6, 6.5) circle(0.5);
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (9, 6.5) circle(0.5);
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (12, 6.5) circle(0.5);
+
+					% lesion labels
+					\node[anchor=north] at(3, 3.5){Type I};
+					\node[anchor=north] at(6, 3.5){Type II};
+					\node[anchor=north] at(9, 3.5){Type III};
+					\node[anchor=north] at(12, 3.5){Type IV};
+
+					% small lesion depth
+					\draw[ExecusharesBlack] (2.45, 6.5) -- (0.05, 6.5);
+					\draw[ExecusharesBlack] (-0.05, 6.5) -- (-2, 6.5);
+					\draw[ExecusharesBlack] (-0.05, 8) -- (-4, 8);
+					\node at(-1, 7.25){\SI{1.5}{\cm}};
+					\draw[->] (-1, 9.5) -- (-1, 8);
+					\draw[->] (-1, 5.5) -- (-1, 6.5);
+
+					% large lesion depth
+					\draw[ExecusharesBlack] (1.95, 4.5) -- (0.05, 4.5);
+					\draw[ExecusharesBlack] (-0.05, 4.5) -- (-4, 4.5);
+					\node at(-3, 6.25){\SI{3.5}{\cm}};
+					\draw[->] (-3, 6.75) -- (-3, 8);
+					\draw[->] (-3, 5.75) -- (-3, 4.5);
+
+					% domain depth
+					\draw[ExecusharesBlack] (-0.05, 0) -- (-4, 0);
+					\node at(-3, 2.25){\SI{4.5}{\cm}};
+					\draw[->] (-3, 2.75) -- (-3, 4.5);
+					\draw[->] (-3, 1.75) -- (-3, 0);
+
+					% lesion lengthwise spacing
+					\draw[ExecusharesBlack] (0, 8.05) -- (0, 10);
+					\node at(1.5, 9){\SI{3}{\cm}};
+					\draw[ExecusharesBlack] (3, 7.05) -- (3, 7.95);
+					\draw[ExecusharesBlack] (3, 8.05) -- (3, 10);
+					\node at(4.5, 9){\SI{3}{\cm}};
+					\draw[ExecusharesBlack] (6, 7.05) -- (6, 7.95);
+					\draw[ExecusharesBlack] (6, 8.05) -- (6, 10);
+					\node at(7.5, 9){\SI{3}{\cm}};
+					\draw[ExecusharesBlack] (9, 7.05) -- (9, 7.95);
+					\draw[ExecusharesBlack] (9, 8.05) -- (9, 10);
+					\node at(10.5, 9){\SI{3}{\cm}};
+					\draw[ExecusharesBlack] (12, 7.05) -- (12, 7.95);
+					\draw[ExecusharesBlack] (12, 8.05) -- (12, 10);
+					\node at(13.5, 9){\SI{3}{\cm}};
+					\draw[ExecusharesBlack] (15, 8.05) -- (15, 10);
+
+					\draw[<-] (0, 9) -- (0.9, 9);
+					\draw[->] (2.1, 9) -- (3, 9);
+					\draw[<-] (3, 9) -- (3.9, 9);
+					\draw[->] (5.1, 9) -- (6, 9);
+					\draw[<-] (6, 9) -- (6.9, 9);
+					\draw[->] (8.1, 9) -- (9, 9);
+					\draw[<-] (9, 9) -- (9.9, 9);
+					\draw[->] (11.1, 9) -- (12, 9);
+					\draw[<-] (12, 9) -- (12.9, 9);
+					\draw[->] (14.1, 9) -- (15, 9);
+
+					% end on rectangle
+					\draw[fill=white,draw=ExecusharesBlack] (16, 0) rectangle(26, 8);
+
+					% end on lesions
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (18.75, 6.5) circle(0.5);
+					\draw[fill=ExecusharesRed,draw=ExecusharesBlack] (22.75, 4.5) circle(1);
+
+					% lesion diameters
+					\draw[<->] (22.04, 3.79) -- (23.46, 5.21);
+					\node[anchor=north] at(18.75, 6){$\SI{10}{\mm} \diameter$};
+					\draw[<->] (18.40, 6.15) -- (19.10, 6.85);
+					\node[anchor=north] at(22.75, 3.5){$\SI{20}{\mm} \diameter$};
+
+					% lesion lateral spacing
+					\draw[ExecusharesBlack] (16, 8.05) -- (16, 10);
+					\node at(17.375, 9){\SI{2.75}{cm}};
+					\draw[ExecusharesBlack] (18.75, 7.05) -- (18.75, 7.95);
+					\draw[ExecusharesBlack] (18.75, 8.05) -- (18.75, 10);
+					\node at(20.75, 9){\SI{4}{cm}};
+					\draw[ExecusharesBlack] (22.75, 5.55) -- (22.75, 7.95);
+					\draw[ExecusharesBlack] (22.75, 8.05) -- (22.75, 10);
+					\node at(24.375, 9){\SI{3.25}{cm}};
+					\draw[ExecusharesBlack] (26, 8.05) -- (26, 10);
+
+					\draw[<-] (16, 9) -- (16.5, 9);
+					\draw[->] (18.25, 9) -- (18.75, 9);
+					\draw[<-] (18.75, 9) -- (20, 9);
+					\draw[->] (21.5, 9) -- (22.75, 9);
+					\draw[<-] (22.75, 9) -- (23.25, 9);
+					\draw[->] (25.5, 9) -- (26, 9);
+				\end{tikzpicture}
+			\end{figure}
+			\vspace{-1cm}
+			\begin{table}
+				\caption{CIRS Phantom Material Properties and Geometry}
+				\begin{tabular}{llccs[table-unit-alignment = left]}
+					\toprule
+					\multicolumn{2}{l}{Property} & Symbol & Value & Units \\
+					\midrule
+					\multicolumn{2}{l}{Nominal basal elastic modulus} & $E_{tissue}$ & 25 & \si{\kPa} \\
+					\multicolumn{2}{l}{Lesion elastic modulii} & $E_{tissue}$ &  & \\
+					& Type I & & 4 & \si{\kPa} \\
+					& Type II & & 14 & \si{\kPa} \\
+					& Type III & & 45 & \si{\kPa} \\
+					& Type IV & & 80 & \si{\kPa} \\
+					\multicolumn{2}{l}{Speed of sound} & $c_0$ & 1540 & \si{\metre\per\second} \\
+					\multicolumn{2}{l}{Acoustic attenuation} & $\alpha$ & 0.5 & \si{\decibel\per\cm\per\MHz} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		\end{frame}
+
+		\begin{frame}[label=quasiFEA]
+			\frametitle{Quasi-Static FEA Details}
+			\begin{columns}[c]
+				\column{0.75\textwidth}
+					\begin{itemize}
+						\item Quadratic Lagrangian triangular elements
+						\item 9,468 degrees of freedom
+						\item Solved using COMSOL Multiphysics
+					\end{itemize}
+
+				\column{0.25\textwidth}
+					\begin{figure}
+						\includegraphics[height=6cm]{assets/quasistatic/mesh.png}
+						\caption{The Quasi-Static Mesh}
+					\end{figure}
+			\end{columns}
+		\end{frame}
+
+		\begin{frame}[label=quasiMeshDepend]
+			\frametitle{Quasi-Static Mesh Dependency}
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[%
+					scale only axis,%
+					height=0.4\textwidth,%
+					width=0.8\textwidth,%
+					font=\tiny,
+					axis background/.style={fill=white},%
+					xlabel={\color{ExecusharesBlack} Degrees of Freedom},%
+					ylabel style={align=center},%
+					ylabel={\color{ExecusharesBlack} Maximum Displacement, $\left|v_{max}\right|$ (\si{\charmu\m})},%
+					grid=major,%
+					clip=true,%
+					cycle list name=ColourPlotCycle,%
+					draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]%
+					\addplot table[x expr=\thisrow{dof},y expr=\thisrow{maxDisp}] {assets/quasistatic/meshdepend.dat};
+					\draw[->, thick, ExecusharesBlack] (axis cs:20e3,730) -- (axis cs:9468,752.2);
+					\node[anchor=north] at(axis cs:20e3,730){\footnotesize Calculation Point};
+					\end{axis}%
+				\end{tikzpicture}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}[label=arfiFEA]
+			\frametitle{ARFI / Shear FEA Details}
+			\begin{columns}[c]
+				\column{0.75\textwidth}
+					\begin{itemize}
+						\item Quadratic Lagrangian triangular elements
+						\item 51,096 degrees of freedom
+						\item \SI{25}{\ns} constant time stepping
+						\item Simulation stopped after focal displacement reached \SI{1}{\percent} of maximal value
+						\item Solved using COMSOL Multiphysics
+					\end{itemize}
+
+				\column{0.25\textwidth}
+					\begin{figure}
+						\includegraphics[height=6cm]{assets/arfi/mesh.png}
+						\caption{The ARFI / Shear Mesh}
+					\end{figure}
+			\end{columns}
+		\end{frame}
+
+		\begin{frame}[label=arfiMeshDepend]
+			\frametitle{ARFI / Shear Mesh Dependency}
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[%
+					scale only axis,%
+					height=0.4\textwidth,%
+					width=0.8\textwidth,%
+					font=\tiny,
+					axis background/.style={fill=white},%
+					xlabel={\color{ExecusharesBlack} Degrees of Freedom},%
+					ylabel style={align=center},%
+					ylabel={\color{ExecusharesBlack} Maximum Displacement, $\left|v_{max}\right|$ (\si{\charmu\m})},%
+					grid=major,%
+					clip=true,%
+					cycle list name=ColourPlotCycle,%
+					draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]%
+					\addplot table[x expr=\thisrow{dof},y expr=\thisrow{maxDisp}] {assets/shear/mesh_depend.dat};
+					\draw[->, thick, ExecusharesBlack] (axis cs:1e5,0.57) -- (axis cs:51096,0.5448);
+					\node[anchor=south] at(axis cs:1e5,0.57){\footnotesize Calculation Point};
+					\end{axis}%
+				\end{tikzpicture}
+			\end{figure}
 		\end{frame}
 
 \end{document}

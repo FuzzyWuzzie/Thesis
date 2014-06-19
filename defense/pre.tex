@@ -2,12 +2,18 @@
   \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((#3-#1)^2)/(2*#2^2))}%
 }
 
-\definecolor{pc1}{HTML}{8DD3C7}
-\definecolor{pc2}{HTML}{FDB462}
-\definecolor{pc3}{HTML}{FB8072}
-\definecolor{pc4}{HTML}{80B1D3}
-\definecolor{pc5}{HTML}{B3DE69}
-\definecolor{pc6}{HTML}{BEBADA}
+\definecolor{pc1}{HTML}{E41A1C}
+\definecolor{pc2}{HTML}{377EB8}
+\definecolor{pc3}{HTML}{4DAF4A}
+\definecolor{pc4}{HTML}{984EA3}
+\definecolor{pc5}{HTML}{FF7F00}
+\definecolor{pc6}{HTML}{A65628}
+%\definecolor{pc1}{HTML}{8DD3C7}
+%\definecolor{pc2}{HTML}{FDB462}
+%\definecolor{pc3}{HTML}{FB8072}
+%\definecolor{pc4}{HTML}{80B1D3}
+%\definecolor{pc5}{HTML}{B3DE69}
+%\definecolor{pc6}{HTML}{BEBADA}
 \definecolor{pc7}{HTML}{FCCDE5}
 \definecolor{pc8}{HTML}{D9D9D9}
 \definecolor{pc9}{HTML}{FFFFB3}
@@ -127,11 +133,11 @@ fill=pc9\\%
 	\ifnum#1>8
 		\addlegendimage{solid,thick,pc9,every mark/.append style={fill=pc9},mark options=solid,mark=pentagon}
 	\fi
-	\addlegendimage{dashed,ExecusharesGrey}
+	\addlegendimage{dashed,ExecusharesBlack}
 }
 
 \DeclareDocumentCommand\characterizationPlots{ m m g g g g }{%
-	\addplot+[forget plot,dashed,mark=none,draw=ExecusharesGrey,sharp plot] coordinates { (0,0) (3.5,3.5) };
+	\addplot+[forget plot,dashed,mark=none,draw=ExecusharesBlack,sharp plot] coordinates { (0,0) (3.5,3.5) };
 	\addplot+[forget plot] table{../latex/assets/#2}; \pgfplotsset{cycle list shift=1};%
 	\addplot+[forget plot] table[y={create col/linear regression={y=#1}}] {../latex/assets/#2}; \pgfplotsset{cycle list shift=2};%
 	\xdef\slopeA{\pgfplotstableregressiona}; \xdef\interA{\pgfplotstableregressionb};%
@@ -158,7 +164,7 @@ fill=pc9\\%
 }
 
 \DeclareDocumentCommand\comparisonPlots{ m }{%
-	\addplot+[forget plot,dashed,mark=none,draw=ExecusharesGrey,sharp plot] coordinates { (0,0) (3.5,3.5) };
+	\addplot+[forget plot,dashed,mark=none,draw=ExecusharesBlack,sharp plot] coordinates { (0,0) (3.5,3.5) };
 	\pgfplotstableread{../latex/assets/conclusions/#1.dat}{\tableData};%
 	\addplot+[forget plot] table[x={trueSR}, y={quasiSR}] {\tableData}; \pgfplotsset{cycle list shift=1};%
 	\addplot+[forget plot] table[y={create col/linear regression={y=quasiSR}}] {\tableData}; \pgfplotsset{cycle list shift=2};%
@@ -179,7 +185,7 @@ fill=pc9\\%
 	\IfNoValueF {#5} { \addlegendentry{$#2 = #5$}; }%
 	\IfNoValueF {#6} { \addlegendentry{$#2 = #6$}; }%
 	\IfNoValueF {#7} { \addlegendentry{$#2 = #7$}; }%
-	\addlegendentry{\tiny Unary Mapping}
+	\addlegendentry{\tiny Ideal Mapping}
 	%
 	%\addlegendentry{\textbf{#1}};%
 	%\addlegendentry{$#2 = #3$, $E_{rel,meas} = \pgfmathprintnumber[fixed,fixed zerofill,precision=2]{\slopeA} E_{rel,nom} \pgfmathprintnumber[print sign,fixed,fixed zerofill,precision=2]{\interA}$};%
@@ -195,7 +201,7 @@ fill=pc9\\%
 	\addlegendentry{Quasi-Static};%
 	\addlegendentry{ARFI};%
 	\addlegendentry{Shear};%
-	\addlegendentry{\tiny Unary Mapping}
+	\addlegendentry{\tiny Ideal Mapping}
 }
 
 \DeclareDocumentCommand\characterizationPic{ m m m m G{north west} g }{%
@@ -215,7 +221,7 @@ fill=pc9\\%
 			legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes={right}},%
 			clip=true,%
 			cycle list name=ColourPlotRegressionCycle,%
-			draw=black, text=black, fill=black]%
+			draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]%
 			#1%
 			#2%
 			\node [anchor=north west] at (axis cs:#4) {\includegraphics[width=0.5cm]{../latex/assets/insets/#3.pdf}};%
