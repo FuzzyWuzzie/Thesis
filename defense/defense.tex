@@ -25,6 +25,12 @@
 
 \usetheme{Execushares}
 
+% set up colours for schematics
+\definecolor{tissueColour}{RGB}{251,185,130}
+\definecolor{lesionColour}{RGB}{175,50,53}
+\definecolor{fatColour}{RGB}{240,236,182}
+\definecolor{boneColour}{RGB}{200,200,200}
+
 \title{Numerical Characterization of Ultrasound Elastography for the Early Detection of Deep Tissue Injuries}
 \author{Kenton David Hamaluik}
 \institute{University of Alberta}
@@ -68,9 +74,9 @@
 
 			\draw (0, 0) node[align=center,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Introduction};
 
-			\onslide<3->{\draw[->] (-3.5cm, -1.75cm) -- (-3.5cm, -3.5cm) -- (-2.65cm, -3.5cm);
+			\onslide<3->{\draw[->] (-3.5cm, -1.75cm) -- (-3.5cm, -3.75cm) -- (-2.65cm, -3.75cm);
 			\draw[->] (0cm, -1.75cm) -- (0, -3.2cm);
-			\draw[->] (3.5cm, -1.75cm) -- (3.5cm, -3.5cm) -- (2.65cm, -3.5cm);}
+			\draw[->] (3.5cm, -1.75cm) -- (3.5cm, -3.75cm) -- (2.65cm, -3.75cm);}
 
 			\onslide<2->{\draw (-3.5cm, -1.75cm) node[align=center,text width=3cm,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Quasi-Static Ultrasound Elastography (\alert{QS USE})};
 			\draw (0cm, -1.75cm) node[align=center,text width=3cm,fill=white,rounded corners=3pt,draw=ExecusharesBlack,ultra thick]{\color{ExecusharesBlack}Acoustic Radiation Force Impulse Imaging (\alert{ARFI})};
@@ -95,8 +101,8 @@
 				\column{0.55\textwidth}
 				\begin{itemize}
 					\item Secondary injuries (limited mobility)
-					\item Stage III -- IV pressure ulcers
 					\item Caused by pressure \& deformation
+					\item Stage III -- IV pressure ulcers
 					\item No clinical detection
 					\item Severe health burdens \cite{russo08}
 					\begin{itemize}
@@ -108,8 +114,9 @@
 				\column{0.45\textwidth}
 					\begin{figure}
 						\centering
-						\includegraphics[width=\textwidth]{assets/npuap/suspectedDTI.png}
-						\caption{\fontsize{6}{4}\selectfont \copyright\ National Pressure Ulcer Advisory Panel, used with permission.}
+						\only<1>{\includegraphics[width=\textwidth]{assets/npuap/suspectedDTI.png}}
+						\only<2>{\includegraphics[width=\textwidth]{assets/npuap/stage4.png}}
+						\caption{\fontsize{4}{4}\selectfont \copyright\ National Pressure Ulcer Advisory Panel, used with permission.}
 					\end{figure}
 			\end{columns}
 		\end{frame}
@@ -144,7 +151,7 @@
 		\begin{frame}
 			\frametitle{Ultrasound Elastography}
 			\begin{itemize}
-				\item Mechanical \alert{stiffness changes} with injury formation and progression
+				\item Ultrasound elastography is a technology which measures tissue \alert{stiffness}
 			\end{itemize}
 			\begin{center}
 				\begin{figure}
@@ -176,7 +183,7 @@
 			\end{center}
 			\vspace{-0.5cm}
 			\begin{itemize}
-				\item Ultrasound elastography is a technology which measures tissue \alert{stiffness}
+				\item Mechanical \alert{stiffness changes} with injury formation and progression
 			\end{itemize}
 		\end{frame}
 
@@ -185,7 +192,7 @@
 		\begin{frame}
 			\frametitle{Literature Review}
 			\begin{itemize}
-				\item The \alert{purpose} of this research was to gain understanding of and characterize the use of ultrasound elastography toward DTI detection
+				\item The \alert{purpose} of this research was understand ultrasound elastography for DTI detection
 			\end{itemize}
 			\begin{center}
 				\vspace{1cm}
@@ -196,10 +203,9 @@
 					MRI & \cmark & --- & --- & --- & --- & \cmark & \cmark & \cmark& \cmark & \xmark & \xmark \\
 					\hline
 					Aoi, 2009 & \cmark & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark & \xmark & \color{ExecusharesBlue}\textbf{?} \\
-					Makhsous, 2010 & \cmark & --- & --- & --- & --- & --- & --- & \cmark & \xmark & \xmark & \cmark \\
-					Deprez, 2011 & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark & \xmark & \cmark \\
+					Makhsous, 2010 & \cmark & --- & --- & --- & --- & --- & --- & \cmark & \color{ExecusharesBlue}\textbf{?} & \xmark & \cmark \\
+					Deprez, 2011 & \cmark & \xmark & \cmark & \xmark & \xmark & \cmark & \cmark & \cmark & \color{ExecusharesBlue}\textbf{?} & \xmark & \cmark \\
 					\hline
-					%\rowcolor{ExecusharesBlack}\color{ExecusharesWhite}This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \color{ExecusharesBlue}\textbf{?} & \color{ExecusharesBlue}\textbf{?} & \cmark & \cmark \\
 					{\color{ExecusharesRed}\ding{220}} This work & \cmark & \xmark & \cmark & \cmark & \cmark & \cmark & \cmark & \color{ExecusharesBlue}\textbf{?} & \color{ExecusharesBlue}\textbf{?} & \cmark & \cmark \\
 				\end{tabular}
 			\end{center}
@@ -215,7 +221,7 @@
 			\fill[color=ExecusharesWhite] (-1cm, 1cm) rectangle(11.8cm, 9.8cm);
 			\fill[color=ExecusharesRed] (-1cm, 3.9cm) rectangle(11.8cm, 5.9cm);
 			\node[text width=11.8cm,align=center] at (5.4cm, 4.9cm) {\color{ExecusharesWhite}\Huge\textbf{\insertsection *}};
-			\node[text width=11.8cm,align=center,anchor=north] at (5.4cm, 3.9cm) {\color{ExecusharesGrey} \small * Accepted for publication as: K. Hamaluik, W. Moussa, and M. Ferguson-Pell, ``Numerical Characterization of Quasi-Static Ultrasound Elastography for the Detection of Deep Tissue Injuries.'' \emph{IEEE Transactions on Medical Imaging} };
+			\node[text width=11.8cm,align=center,anchor=north] at (5.4cm, 3.9cm) {\color{ExecusharesGrey} \small * Accepted for publication as: K. Hamaluik, W. Moussa, and M. Ferguson-Pell, ``Numerical Characterization of Quasi-Static Ultrasound Elastography for the Detection of Deep Tissue Injuries.'' \emph{IEEE Transactions on Medical Imaging}, vol. 33, no. 7, pp. 1410--1421, July 2014.};
 		\end{tikzpicture}
 	}
 	\section[QS USE]{Quasi-Static Ultrasound Elastography}
@@ -351,7 +357,7 @@
 		\note{In an effort to investigate a wide range of parameters, the various models you see here were evaluated, ranging from a simple ``spherical'' lesion to investigate overarching parameters such as lesion size and depth to a complicated geometry obtained from the combination of Visible Human data and and MRI-acquired image of a DTI in a pig model. A parametric study on all of the parameters you see here was carried out in order to determine how each variable affects the detection sensitivity of quasi-static elastography.}
 
 		\begin{frame}
-			\frametitle{Sample Resultant Elastogram}
+			\frametitle{Sample Simulated Elastogram}
 			\vspace{-0.5cm}
 			\begin{figure}
 				\centering
@@ -502,8 +508,8 @@
 				\begin{itemize}
 					\item ARFI imaging as an alternative
 				\end{itemize}
-				\item \alert{Can detect DTI}
 				\item \alert{Not ideally sensitive}
+				\item \alert{Can detect DTI}
 			\end{itemize}
 		\end{frame}
 
@@ -512,7 +518,7 @@
 			\frametitle{Introduction}
 			\begin{itemize}
 				\item QS USE has low detection sensitivity, unreliable
-				\item \alert{ARFI} imaging similar to QS USE
+				\item Acoustic Radiation Force Impulse (\alert{ARFI}) imaging similar to QS USE
 				\begin{itemize}
 					\item \alert{Transducer-generated} force instead of manual
 				\end{itemize}
@@ -713,10 +719,10 @@
 							{arfi/data/arfi_radius_r125.dat}%
 					}{%
 						\characterizationLegend{Lesion Diameter}{\diameter S}%
-							{\SI{5.0}{\cm}}%
-							{\SI{10.0}{\cm}}%
-							{\SI{20.0}{\cm}}%
-							{\SI{25.0}{\cm}}%
+							{\SI{0.5}{\cm}}%
+							{\SI{1.0}{\cm}}%
+							{\SI{2.0}{\cm}}%
+							{\SI{2.5}{\cm}}%
 					}{spherical_size}{0, 2.5}{north west}{ymin=0.5,ymax=2.5}
 				}
 				\vspace{-0.25cm}
@@ -778,7 +784,7 @@
 					\item Absolute values
 					\item Track over time
 				\end{itemize}
-				\item Uses ARFI pulses to generate shear wavess
+				\item Uses ARFI pulses to generate shear waves
 				\begin{itemize}
 					\item Measure shear wave speed $\rightarrow$ calculate stiffness:
 				\end{itemize}
@@ -903,10 +909,10 @@
 							{shear/data/shear_radius_r125.dat}%
 					}{%
 						\characterizationLegend{Lesion Diameter}{\diameter S}%
-							{\SI{5.0}{\cm}}%
-							{\SI{10.0}{\cm}}%
-							{\SI{20.0}{\cm}}%
-							{\SI{25.0}{\cm}}%
+							{\SI{0.5}{\cm}}%
+							{\SI{1.0}{\cm}}%
+							{\SI{2.0}{\cm}}%
+							{\SI{2.5}{\cm}}%
 					}{spherical_size}{0, 4.5}{north west}{ymin=0,ymax=4.5}
 				}
 				\vspace{-0.25cm}
@@ -1035,9 +1041,9 @@
 					ymin=0, ymax=5,
 					draw=ExecusharesBlack, text=ExecusharesBlack, fill=ExecusharesBlack]
 						\addlegendimage{empty legend}
-						\addlegendimage{solid,ultra thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=o}
-						\addlegendimage{dashed,ultra thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square}
-						\addlegendimage{dotted,ultra thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*}
+						\addlegendimage{only marks,ultra thick,pc1,every mark/.append style={fill=pc1},mark options=solid,mark=*}
+						\addlegendimage{solid,ultra thick,pc2,every mark/.append style={fill=pc2},mark options=solid,mark=square*}
+						\addlegendimage{solid,ultra thick,pc3,every mark/.append style={fill=pc3},mark options=solid,mark=diamond*}
 
 						\addplot+[forget plot] table {../latex/assets/quasistatic/data/validation.dat}; \pgfplotsset{cycle list shift=1};
 						\addplot+[
@@ -1113,6 +1119,27 @@
 
 	\section{Conclusions}
 		\begin{frame}
+			\frametitle{Conclusions}
+			\begin{itemize}
+				\item DTI are a major health concern
+				\begin{itemize}
+					\item No early detection
+				\end{itemize}
+				\item Ultrasound elastography \alert{can} detect DTI
+				\begin{itemize}
+					\item Within limits
+					\item Clinically feasible
+				\end{itemize}
+				\item Numerically characterized 3 modalities
+				\begin{itemize}
+					\item Quasi-Static Ultrasound Elastography
+					\item Acoustic Radiation Force Impulse Imaging
+					\item Shear Wave Speed Quantification% \reflectbox{{\color{ExecusharesRed}\ding{220}}}
+				\end{itemize}
+			\end{itemize}
+		\end{frame}
+
+		\begin{frame}
 			\frametitle{Recommendations}
 			\begin{itemize}
 				\item \alert{Shear wave speed quantification} yields best results
@@ -1130,27 +1157,6 @@
 				\item Future work: \alert{animal} and \alert{human} studies
 				\begin{itemize}
 					\item Toward eventual clinical implementation
-				\end{itemize}
-			\end{itemize}
-		\end{frame}
-
-		\begin{frame}
-			\frametitle{Conclusions}
-			\begin{itemize}
-				\item DTI are a major health concern
-				\begin{itemize}
-					\item No early detection
-				\end{itemize}
-				\item Ultrasound elastography \alert{can} detect DTI
-				\begin{itemize}
-					\item Within limits
-					\item Clinically feasible
-				\end{itemize}
-				\item Numerically characterized 3 modalities
-				\begin{itemize}
-					\item Quasi-Static Ultrasound Elastography
-					\item Acoustic Radiation Force Impulse Imaging
-					\item Shear Wave Speed Quantification \reflectbox{{\color{ExecusharesRed}\ding{220}}}
 				\end{itemize}
 			\end{itemize}
 		\end{frame}
@@ -1176,20 +1182,29 @@
 	\setcounter{showProgressBar}{0}
 	\setcounter{showSlideNumbers}{0}
 
-		\begin{frame}
+		\begin{frame}[label=additionalSlides]
 			\frametitle{Additional Slides}
-			\begin{itemize}
-				\item \hyperlink{refs}{References}
-				\item \hyperlink{arfiForceDerivation}{Derivation of ARFI}
-				\item \hyperlink{qsParameters}{Quasi-Static Parameters}
-				\item \hyperlink{arfiParameters}{ARFI Parameters}
-				\item \hyperlink{shearParameters}{Shear Parameters}
-				\item \hyperlink{cirsProperties}{Phantom Properties}
-				\item \hyperlink{quasiFEA}{Quasi-Static Finite-Element Details}
-				\item \hyperlink{quasiMeshDepend}{Quasi-Static Mesh Dependency}
-				\item \hyperlink{arfiFEA}{ARFI / Shear Finite-Element Details}
-				\item \hyperlink{arfiMeshDepend}{ARFI / Shear Mesh Dependency}
-			\end{itemize}
+			\begin{columns}[t]
+				\column{0.5\textwidth}
+					\begin{itemize}
+						\item \hyperlink{additionalFigures}{Additional Figures}
+						\item \hyperlink{refs}{References}
+						\item \hyperlink{arfiForceDerivation}{Derivation of ARFI}
+						\item \hyperlink{kSpaceEquations}{K-Space Equations}
+						\item \hyperlink{qsParameters}{Quasi-Static Parameters}
+						\item \hyperlink{arfiParameters}{ARFI Parameters}
+						\item \hyperlink{shearParameters}{Shear Parameters}
+					\end{itemize}
+
+				\column{0.5\textwidth}
+					\begin{itemize}
+						\item \hyperlink{cirsProperties}{Phantom Properties}
+						\item \hyperlink{quasiFEA}{Quasi-Static Finite-Element Details}
+						\item \hyperlink{quasiMeshDepend}{Quasi-Static Mesh Dependency}
+						\item \hyperlink{arfiFEA}{ARFI / Shear Finite-Element Details}
+						\item \hyperlink{arfiMeshDepend}{ARFI / Shear Mesh Dependency}
+					\end{itemize}
+			\end{columns}
 		\end{frame}
 
 		\begin{frame}[allowframebreaks]
@@ -1248,6 +1263,40 @@
 			\end{columns}
 		\end{frame}
 
+		\begin{frame}[label=kSpaceEquations]
+			\frametitle{K-Space Equations}
+			\scriptsize
+			\begin{equation*}
+				\nabla^2 P - \frac{1}{c_0^2}\frac{\partial^2 P}{\partial t^2} = 0
+			\end{equation*}
+			\begin{columns}[t]
+				\column{0.5\textwidth}
+					Momentum conservation, mass conservation, and pressure-density relation in a homogeneous lossless medium:
+
+					\begin{align*}
+						\frac{\partial \vec{v}}{\partial t} &= -\frac{1}{\rho_0}\nabla P \\
+						\frac{\partial \rho}{\partial t} &= -\rho_0 \nabla \cdot \vec{v} \\
+						P &= c_0^2 \rho
+					\end{align*}
+
+				\column{0.5\textwidth}
+					Momentum conservation, mass conservation, and pressure-density relation in a non-linear heterogeneous lossy medium:
+
+					\begin{align*}
+						\frac{\partial \vec{v}}{\partial t} &= -\frac{1}{\rho_0}\nabla P \\
+						\frac{\partial \rho}{\partial t} &= -\left(2\rho + \rho_0\right)\nabla \cdot \vec{v} - \vec{v}\cdot\nabla\rho_0 \\
+						P &= c_0^2 \left(\rho + \vec{u}\cdot\nabla\rho_0 + \frac{B}{2A}\frac{\rho^2}{\rho_0} - \mathbf{L}\rho\right)
+					\end{align*}
+
+					\begin{equation*}
+						\mathbf{L} = \tau\left(-\nabla^2\right)^{\frac{y}{2}-1} + \eta\left(-\nabla^2\right)^{\frac{y+1}{2}-1}
+					\end{equation*}
+					\begin{equation*}
+						\tau = -2\alpha_0 c_0^{y - 1}\frac{\partial}{\partial t} \;,\qquad \eta = 2\alpha_0 c_0^y \tan\left(\frac{\pi y}{2}\right)
+					\end{equation*}
+			\end{columns}
+		\end{frame}
+
 		\begin{frame}[label=qsParameters]
 			\frametitle{QS USE Parameters}
 			\centering
@@ -1270,6 +1319,28 @@
 					Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \si{\mm} \\
 					Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \si{\cm} \\
 					Visible human lesion depth & $d$ & \numlist{6.25;6.75;7.25} & \si{\cm} \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		\end{frame}
+
+		\begin{frame}[label=quasiDefaultParams]
+			\frametitle{Quasi-Static Default Parameters}
+			\centering
+			\scriptsize
+			\begin{table}
+				\begin{tabular}{lSs[table-unit-alignment = left]}
+					\toprule
+					Property & {Value} & Units \\
+					\midrule
+					Domain Width & 4 & \cm \\
+					Domain Depth & 12.5 & \cm \\
+					B-Mode Sampling Frequency & 50 & \MHz \\
+					B-Mode Probing Frequency & 4 & \MHz \\
+					Wave Speed & 1540 & \metre\per\second \\
+					Basal Stiffness & 25 & \kPa \\
+					Tissue Density & 1060 & \kg\per\metre\cubed \\
+					Applied Strain & 5 & \% \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
@@ -1349,6 +1420,32 @@
 					Clustered lesion density & $b_\rho$ & \numlist{10;20;30;40} & \per\cm\squared \\
 					Clustered lesion radius & $r_{bl}$ & \numlist{0.5;1.0;1.5} & \mm \\
 					Visible human lesion width & $\diameter L$ & \numlist{0.5;1.0;2.0;2.5} & \cm \\
+					\bottomrule
+				\end{tabular}
+			\end{table}
+		\end{frame}
+
+		\begin{frame}[label=arfiDefaultParams]
+			\frametitle{ARFI / Shear Default Parameters}
+			\centering
+			\scriptsize
+			\begin{table}
+				\begin{tabular}{lSs[table-unit-alignment = left]}
+					\toprule
+					Property & {Value} & Units \\
+					\midrule
+					Domain Width & 4 & \cm \\
+					Domain Depth & 10 & \cm \\
+					Acoustic Pressure & 3.35 & \MPa \\
+					Probing Frequency & 6 & \MHz \\
+					Pulse Cycles & 300 & - \\
+					Sound Speed & 1540 & \metre\per\second \\
+					Attenuation Coefficient & 0.57 & {dB}\per\MHz\cm \\
+					Tissue Density & 1060 & \kg\per\m\cubed \\
+					Power law prefactor & 0.7 & $\si{\neper} \left(\si{rad\per\s}\right)^{-y} \si{\per\m}$ \\
+					Power law exponent & 0.95 & - \\
+					\sfrac{B}{A} & 8 & - \\
+					FEA Time-Step & 25 & \ns \\
 					\bottomrule
 				\end{tabular}
 			\end{table}
@@ -1592,6 +1689,371 @@
 					\draw[->, thick, ExecusharesBlack] (axis cs:1e5,0.57) -- (axis cs:51096,0.5448);
 					\node[anchor=south] at(axis cs:1e5,0.57){\footnotesize Calculation Point};
 					\end{axis}%
+				\end{tikzpicture}
+			\end{figure}
+		\end{frame}
+
+	\section{Additional Figures}
+		\begin{frame}[label=additionalFigures]
+			\frametitle{Additional Figures}
+			\begin{itemize}
+				\item \hyperlink{additionalSlides}{Additional Slides}
+				\item \hyperlink{npuapStaging}{NPUAP Staging System}
+				\item \hyperlink{psf}{Point Spread Function}
+				\item \hyperlink{quasiBC}{Quasi-Static Boundary Conditions}
+				\item \hyperlink{quasiError}{Quasi-Static Error Comparison}
+				\item \hyperlink{arfiBC}{ARFI Boundary Conditions}
+				\item \hyperlink{arfiError}{ARFI Error Comparison}
+				\item \hyperlink{shearError}{Shear Error Comparison}
+			\end{itemize}
+		\end{frame}
+
+		\begin{frame}[label=npuapStaging]
+			\frametitle{NPUAP Staging System}
+			\vspace{0.25cm}
+			\begin{figure}
+				\centering
+				\subfloat[Normal tissue]{\includegraphics[width=0.175\textwidth]{assets/npuap/normal.png}}
+
+				\subfloat[Stage I]{\includegraphics[width=0.175\textwidth]{assets/npuap/stage1.png}}
+				~
+				\subfloat[Stage II]{\includegraphics[width=0.175\textwidth]{assets/npuap/stage2.png}}
+				~
+				\subfloat[Stage III]{\includegraphics[width=0.175\textwidth]{assets/npuap/stage3.png}}
+
+				\subfloat[Stage IV]{\includegraphics[width=0.175\textwidth]{assets/npuap/stage4.png}}
+				~
+				\subfloat[Unstageable]{\includegraphics[width=0.175\textwidth]{assets/npuap/unstageable.png}}
+				~
+				\subfloat[Suspected DTI]{\includegraphics[width=0.175\textwidth]{assets/npuap/suspectedDTI.png}}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}[label=psf]
+			\frametitle{Point Spread Function}
+			\begin{figure}
+				\centering
+					\begin{tikzpicture}
+						\begin{axis}[
+						width=0.75\textwidth,
+						enlargelimits=false,
+						unit vector ratio*=1 1 1,
+						axis on top,
+						xlabel={Lateral (\si{\mm})},
+						ylabel={Axial (\si{\mm})},
+						y dir=reverse,
+						draw=black, text=black, fill=black,
+						xtick={-1,-0.5,0,0.5,1},
+						colormap/blackwhite, colorbar, point meta min=-1, point meta max=1
+						]
+							\addplot graphics[xmin=-1.15,xmax=1.15,ymin=0,ymax=1.54]{../latex/assets/quasistatic/images/psf.png};
+							\draw[<->, draw=black] (axis cs:-0.5,0.3925) -- (axis cs:-0.5,0.77);
+							\draw[draw=black] (axis cs:-0.55,0.3925) -- (axis cs:-0.45,0.3925);
+							\draw[draw=black] (axis cs:-0.55,0.77) -- (axis cs:-0.45,0.77);
+							\node [anchor=east](c) at (axis cs:-0.5,0.5813) {\textcolor{white}{$\lambda_{wave}$}};
+						\end{axis}
+					\end{tikzpicture}
+				\caption{Point spread function used for simulating b-mode ultrasound scans. The function is defined axially by a cosine function at the probing frequency and modulated by a Gaussian function both axially and laterally.}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}[label=quasiBC]
+			\frametitle{QS USE Boundary Conditions}
+			\vspace{0.75cm}
+			\begin{figure}
+				\centering
+					\begin{tikzpicture}[x=0.04\textwidth, y=0.04\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(4, 12.5);
+
+						% superficial / deep
+						%\node [anchor=north](c) at (2, 12.5) {\footnotesize Superficial};
+						%\node [anchor=south](c) at (2, 0) {\footnotesize Deep};
+
+						% bottom hold
+						\draw (0.0, -0.2) -- (0.2, 0);
+						\draw (0.4, -0.2) -- (0.6, 0);
+						\draw (0.8, -0.2) -- (1.0, 0);
+						\draw (1.2, -0.2) -- (1.4, 0);
+						\draw (1.6, -0.2) -- (1.8, 0);
+						\draw (2.0, -0.2) -- (2.2, 0);
+						\draw (2.4, -0.2) -- (2.6, 0);
+						\draw (2.8, -0.2) -- (3.0, 0);
+						\draw (3.2, -0.2) -- (3.4, 0);
+						\draw (3.6, -0.2) -- (3.8, 0);
+						\draw (2, -0.2) node[below] {\small $\vec{u} = 0$};
+
+						% top displacement
+						\draw[->] (0.2, 13) -- (0.2, 12.5);
+						\draw[->] (0.6, 13) -- (0.6, 12.5);
+						\draw[->] (1.0, 13) -- (1.0, 12.5);
+						\draw[->] (1.4, 13) -- (1.4, 12.5);
+						\draw[->] (1.8, 13) -- (1.8, 12.5);
+						\draw[->] (2.2, 13) -- (2.2, 12.5);
+						\draw[->] (2.6, 13) -- (2.6, 12.5);
+						\draw[->] (3.0, 13) -- (3.0, 12.5);
+						\draw[->] (3.4, 13) -- (3.4, 12.5);
+						\draw[->] (3.8, 13) -- (3.8, 12.5);
+						\draw (0, 13) -- (4, 13);
+						\draw (2, 13) node[above] {\small $\vec{u} = (0, -u_0)$};
+
+						\draw (2, 12.5) node[below]{\small $\Gamma = \Gamma_{top}$};
+						\draw (2, 0) node[above]{\small $\Gamma = \Gamma_{bottom}$};
+
+					\end{tikzpicture}
+				\caption{Boundary conditions used in the finite-element calculations of soft tissue deformation.}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}[label=quasiError]
+			\frametitle{Quasi-Static Error}
+			\begin{figure}
+				\centering
+				\subfloat{\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=0.25\textwidth,%
+						width=0.5\textwidth,%
+						font=\tiny,
+						axis background/.style={fill=white},
+						xlabel={Normalized Characterization Index, $NCI$},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
+						grid=major,
+						legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes={right}},
+						clip=true,
+						cycle list name=ColourPlotRegressionCycle,
+						draw=black, text=black, fill=black]
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_size.dat}; \pgfplotsset{cycle list shift=1}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_size.dat}; \pgfplotsset{cycle list shift=2}
+						\xdef\slopeA{\pgfplotstableregressiona} \xdef\interA{\pgfplotstableregressionb}
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_depth.dat}; \pgfplotsset{cycle list shift=3}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_depth.dat}; \pgfplotsset{cycle list shift=4}
+						\xdef\slopeB{\pgfplotstableregressiona} \xdef\interB{\pgfplotstableregressionb}
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_bottomsep.dat}; \pgfplotsset{cycle list shift=5}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_bottomsep.dat}; \pgfplotsset{cycle list shift=6}
+						\xdef\slopeC{\pgfplotstableregressiona} \xdef\interC{\pgfplotstableregressionb}
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_frequency.dat}; \pgfplotsset{cycle list shift=7}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_frequency.dat}; \pgfplotsset{cycle list shift=8}
+						\xdef\slopeD{\pgfplotstableregressiona} \xdef\interD{\pgfplotstableregressionb}
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_strain.dat}; \pgfplotsset{cycle list shift=9}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_strain.dat}; \pgfplotsset{cycle list shift=10}
+						\xdef\slopeE{\pgfplotstableregressiona} \xdef\interE{\pgfplotstableregressionb}
+
+						%\draw (axis cs:0.1,55) node{\color{pc1} $\varepsilon_p = \pgfmathprintnumber{\slopeA} NCI \pgfmathprintnumber[print sign]{\interA}$};
+						\drawLegendMarks{5}
+						\addlegendentry{\textbf{Investigated Parameters}}
+						\addlegendentry{Lesion Size, $\varepsilon_p = \pgfmathprintnumber{\slopeA} NCI \pgfmathprintnumber[print sign]{\interA}$}
+						\addlegendentry{Lesion Depth, $\varepsilon_p = \pgfmathprintnumber{\slopeB} NCI \pgfmathprintnumber[print sign]{\interB}$}
+						\addlegendentry{Lesion Altitude, $\varepsilon_p = \pgfmathprintnumber{\slopeC} NCI \pgfmathprintnumber[print sign]{\interC}$}
+						\addlegendentry{Probing Frequency, $\varepsilon_p = \pgfmathprintnumber{\slopeD} NCI \pgfmathprintnumber[print sign]{\interD}$}
+						\addlegendentry{Applied Strain, $\varepsilon_p = \pgfmathprintnumber{\slopeE} NCI \pgfmathprintnumber[print sign]{\interE}$}
+					\end{axis}
+				\end{tikzpicture}}
+				\vspace{-0.25cm}
+				\subfloat{%
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=0.25\textwidth,%
+						width=0.4\textwidth,%
+						font=\tiny,
+						axis background/.style={fill=white},
+						xlabel={Normalized Characterization Index},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
+						grid=major,
+						%legend entries={Boundary Blur Radius, Co-Located Lesion Separation, Clustered Lesion Density, Clustered Lesion Size, Human Lesion Size, Human Lesion Depth},
+						legend style={legend cell align=left, legend pos=outer north east,font=\tiny,nodes=right},
+						clip=true,
+						cycle list name=ColourPlotRegressionCycle,
+						draw=black, text=black, fill=black]
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_lesion_sep.dat}; \pgfplotsset{cycle list shift=1}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_lesion_sep.dat}; \pgfplotsset{cycle list shift=2}
+						\xdef\slopeA{\pgfplotstableregressiona} \xdef\interA{\pgfplotstableregressionb}
+						
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_blur_radius.dat}; \pgfplotsset{cycle list shift=3}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_blur_radius.dat}; \pgfplotsset{cycle list shift=4}
+						\xdef\slopeB{\pgfplotstableregressiona} \xdef\interB{\pgfplotstableregressionb}
+						
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_blob_density.dat}; \pgfplotsset{cycle list shift=5}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_blob_density.dat}; \pgfplotsset{cycle list shift=6}
+						\xdef\slopeC{\pgfplotstableregressiona} \xdef\interC{\pgfplotstableregressionb}
+						
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_blob_radius.dat}; \pgfplotsset{cycle list shift=7}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_blob_radius.dat}; \pgfplotsset{cycle list shift=8}
+						\xdef\slopeD{\pgfplotstableregressiona} \xdef\interD{\pgfplotstableregressionb}
+						
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_human_size.dat}; \pgfplotsset{cycle list shift=9}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_human_size.dat}; \pgfplotsset{cycle list shift=10}
+						\xdef\slopeE{\pgfplotstableregressiona} \xdef\interE{\pgfplotstableregressionb}
+						
+						\addplot+[forget plot] table {../latex/assets/quasistatic/data/normalized_human_depth.dat}; \pgfplotsset{cycle list shift=11}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/quasistatic/data/normalized_human_depth.dat}; \pgfplotsset{cycle list shift=12}
+						\xdef\slopeF{\pgfplotstableregressiona} \xdef\interF{\pgfplotstableregressionb}
+						\drawLegendMarks{6}
+						\addlegendentry{\textbf{Investigated Parameters}}
+						\addlegendentry{Boundary Blur Radius, $\varepsilon_p = \pgfmathprintnumber{\slopeA} NCI \pgfmathprintnumber[print sign]{\interA}$}
+						\addlegendentry{Co-Located Lesion Separation, $\varepsilon_p = \pgfmathprintnumber{\slopeB} NCI \pgfmathprintnumber[print sign]{\interB}$}
+						\addlegendentry{Clustered Lesion Density, $\varepsilon_p = \pgfmathprintnumber{\slopeC} NCI \pgfmathprintnumber[print sign]{\interC}$}
+						\addlegendentry{Clustered Lesion Size, $\varepsilon_p = \pgfmathprintnumber{\slopeD} NCI \pgfmathprintnumber[print sign]{\interD}$}
+						\addlegendentry{Human Lesion Size, $\varepsilon_p = \pgfmathprintnumber{\slopeE} NCI \pgfmathprintnumber[print sign]{\interE}$}
+						\addlegendentry{Human Lesion Depth, $\varepsilon_p = \pgfmathprintnumber{\slopeF} NCI \pgfmathprintnumber[print sign]{\interF}$}
+					\end{axis}
+				\end{tikzpicture}
+				}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}[label=arfiBC]
+			\frametitle{ARFI /Shear Boundary Conditions}
+			\begin{figure}
+				\centering
+					\begin{tikzpicture}[x=0.045\textwidth, y=0.045\textwidth, draw=black, text=black, fill=black]
+						% the main domain area
+						\draw[fill=tissueColour] (0, 0) rectangle(10, 10);
+
+						% bottom hold
+						\foreach \x in {0.0,0.4,...,9.6}
+						{
+							\draw (\x, -0.2) -- (\x + 0.2, 0);
+						}
+						\draw (5, -0.2) node[below] {$\vec{u} = 0$};
+
+						% top rollers
+						\foreach \x in {0.2,0.6,...,10}
+						{
+							\draw(\x, 10.2) circle(0.2);
+						}
+						\draw (0, 10.4) -- (10, 10.4);
+						\draw (5, 10.4) node[above] {$u_y = 0$};
+
+						% body load force arrows
+						\draw[->] (6, 7) arc[radius=3, start angle=135, end angle=180];
+						\draw[->] (4, 7) arc[radius=3, start angle=45, end angle=0];
+						\draw[->] (5.1, 4.75) arc[radius=3, start angle=180, end angle=200];
+						\draw[->] (4.9, 4.75) arc[radius=3, start angle=0, end angle=-20];
+						\draw (5.1, 5) node[right]{$\vec{F}$};
+
+						% bottom / top boundary labels
+						\draw (5, 10) node[below]{$\Gamma = \Gamma_{top}$};
+						\draw (5, 0) node[above]{$\Gamma = \Gamma_{bottom}$};
+
+					\end{tikzpicture}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}[label=arfiError]
+			\frametitle{ARFI Error}
+			\vspace{1cm}
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=0.4\textwidth,%
+						width=0.9\textwidth,%
+						font=\tiny,
+						axis background/.style={fill=white},
+						xlabel={Normalized Characterization Index, $NCI$},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
+						grid=major,
+						legend style={legend cell align=left, at={(axis cs:0.5,20)}, anchor=north,font=\tiny,nodes={right}},
+						clip=true,
+						cycle list name=ColourPlotRegressionCycle,
+						draw=black, text=black, fill=black]
+						\addplot+[forget plot] table {../latex/assets/arfi/data/normalized_radius.dat}; \pgfplotsset{cycle list shift=1}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/arfi/data/normalized_radius.dat}; \pgfplotsset{cycle list shift=2}
+						\xdef\slopeA{\pgfplotstableregressiona} \xdef\interA{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/arfi/data/normalized_depth.dat}; \pgfplotsset{cycle list shift=3}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/arfi/data/normalized_depth.dat}; \pgfplotsset{cycle list shift=4}
+						\xdef\slopeB{\pgfplotstableregressiona} \xdef\interB{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/arfi/data/normalized_blur.dat}; \pgfplotsset{cycle list shift=5}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/arfi/data/normalized_blur.dat}; \pgfplotsset{cycle list shift=6}
+						\xdef\slopeC{\pgfplotstableregressiona} \xdef\interC{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/arfi/data/normalized_clusterRadius.dat}; \pgfplotsset{cycle list shift=7}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/arfi/data/normalized_clusterRadius.dat}; \pgfplotsset{cycle list shift=8}
+						\xdef\slopeD{\pgfplotstableregressiona} \xdef\interD{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/arfi/data/normalized_clusterDensity.dat}; \pgfplotsset{cycle list shift=9}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/arfi/data/normalized_clusterDensity.dat}; \pgfplotsset{cycle list shift=10}
+						\xdef\slopeE{\pgfplotstableregressiona} \xdef\interE{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/arfi/data/normalized_humanRadius.dat}; \pgfplotsset{cycle list shift=11}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/arfi/data/normalized_humanRadius.dat}; \pgfplotsset{cycle list shift=12}
+						\xdef\slopeF{\pgfplotstableregressiona} \xdef\interF{\pgfplotstableregressionb}
+
+						\drawLegendMarks{6}
+						\addlegendentry{\textbf{Investigated Parameters}}
+						\addlegendentry{Lesion Size, $\varepsilon_p = \pgfmathprintnumber{\slopeA} NCI \pgfmathprintnumber[print sign]{\interA}$}
+						\addlegendentry{Lesion Depth, $\varepsilon_p = \pgfmathprintnumber{\slopeB} NCI \pgfmathprintnumber[print sign]{\interB}$}
+						\addlegendentry{Blur Radius, $\varepsilon_p = \pgfmathprintnumber{\slopeC} NCI \pgfmathprintnumber[print sign]{\interC}$}
+						\addlegendentry{Cluster Radius, $\varepsilon_p = \pgfmathprintnumber{\slopeD} NCI \pgfmathprintnumber[print sign]{\interD}$}
+						\addlegendentry{Cluster Density, $\varepsilon_p = \pgfmathprintnumber{\slopeE} NCI \pgfmathprintnumber[print sign]{\interE}$}
+						\addlegendentry{Visible Human Width, $\varepsilon_p = \pgfmathprintnumber{\slopeF} NCI \pgfmathprintnumber[print sign]{\interF}$}
+					\end{axis}
+				\end{tikzpicture}
+			\end{figure}
+		\end{frame}
+
+		\begin{frame}[label=shearError]
+			\frametitle{Shear Error}
+			\vspace{1cm}
+			\begin{figure}
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}[
+						scale only axis,
+						height=0.4\textwidth,%
+						width=0.9\textwidth,%
+						font=\tiny,
+						axis background/.style={fill=white},
+						xlabel={Normalized Characterization Index, $NCI$},
+						ylabel={Percent Error, $\varepsilon_p$ (\si{\percent})},
+						grid=major,
+						legend style={legend cell align=left, at={(axis cs:0.5,-20)}, anchor=north,font=\tiny,nodes={right}},
+						clip=true,
+						cycle list name=ColourPlotRegressionCycle,
+						draw=black, text=black, fill=black]
+						\addplot+[forget plot] table {../latex/assets/shear/data/normalized_radius.dat}; \pgfplotsset{cycle list shift=1}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/shear/data/normalized_radius.dat}; \pgfplotsset{cycle list shift=2}
+						\xdef\slopeA{\pgfplotstableregressiona} \xdef\interA{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/shear/data/normalized_depth.dat}; \pgfplotsset{cycle list shift=3}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/shear/data/normalized_depth.dat}; \pgfplotsset{cycle list shift=4}
+						\xdef\slopeB{\pgfplotstableregressiona} \xdef\interB{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/shear/data/normalized_blur.dat}; \pgfplotsset{cycle list shift=5}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/shear/data/normalized_blur.dat}; \pgfplotsset{cycle list shift=6}
+						\xdef\slopeC{\pgfplotstableregressiona} \xdef\interC{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/shear/data/normalized_clusterRadius.dat}; \pgfplotsset{cycle list shift=7}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/shear/data/normalized_clusterRadius.dat}; \pgfplotsset{cycle list shift=8}
+						\xdef\slopeD{\pgfplotstableregressiona} \xdef\interD{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/shear/data/normalized_clusterDensity.dat}; \pgfplotsset{cycle list shift=9}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/shear/data/normalized_clusterDensity.dat}; \pgfplotsset{cycle list shift=10}
+						\xdef\slopeE{\pgfplotstableregressiona} \xdef\interE{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/shear/data/normalized_humanRadius.dat}; \pgfplotsset{cycle list shift=11}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/shear/data/normalized_humanRadius.dat}; \pgfplotsset{cycle list shift=12}
+						\xdef\slopeF{\pgfplotstableregressiona} \xdef\interF{\pgfplotstableregressionb}
+
+						\addplot+[forget plot] table {../latex/assets/shear/data/normalized_offset.dat}; \pgfplotsset{cycle list shift=13}
+						\addplot+[forget plot] table[y={create col/linear regression={y=perror}}] {../latex/assets/shear/data/normalized_offset.dat}; \pgfplotsset{cycle list shift=14}
+						\xdef\slopeG{\pgfplotstableregressiona} \xdef\interG{\pgfplotstableregressionb}
+
+						\drawLegendMarks{7}
+						\addlegendentry{\textbf{Investigated Parameters}}
+						\addlegendentry{Lesion Size, $\varepsilon_p = \pgfmathprintnumber{\slopeA} NCI \pgfmathprintnumber[print sign]{\interA}$}
+						\addlegendentry{Lesion Depth, $\varepsilon_p = \pgfmathprintnumber{\slopeB} NCI \pgfmathprintnumber[print sign]{\interB}$}
+						\addlegendentry{Blur Radius, $\varepsilon_p = \pgfmathprintnumber{\slopeC} NCI \pgfmathprintnumber[print sign]{\interC}$}
+						\addlegendentry{Cluster Radius, $\varepsilon_p = \pgfmathprintnumber{\slopeD} NCI \pgfmathprintnumber[print sign]{\interD}$}
+						\addlegendentry{Cluster Density, $\varepsilon_p = \pgfmathprintnumber{\slopeE} NCI \pgfmathprintnumber[print sign]{\interE}$}
+						\addlegendentry{Visible Human Width, $\varepsilon_p = \pgfmathprintnumber{\slopeF} NCI \pgfmathprintnumber[print sign]{\interF}$}
+						\addlegendentry{Focal Offset, $\varepsilon_p = \pgfmathprintnumber{\slopeG} NCI \pgfmathprintnumber[print sign]{\interG}$}
+					\end{axis}
 				\end{tikzpicture}
 			\end{figure}
 		\end{frame}

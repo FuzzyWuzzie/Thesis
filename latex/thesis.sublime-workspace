@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"signal",
+				"signalPeriod"
+			],
+			[
 				"dom",
 				"domainDepth-focalDepth"
 			],
@@ -72,18 +76,18 @@
 			}
 		},
 		{
-			"file": "/C/Users/Kenton/Documents/Thesis/defense/defense.tex",
-			"settings":
-			{
-				"buffer_size": 54319,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "chapters/quasi-static.tex",
 			"settings":
 			{
 				"buffer_size": 79341,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "chapters/litreview.tex",
+			"settings":
+			{
+				"buffer_size": 39008,
 				"line_ending": "Windows"
 			}
 		}
@@ -91,9 +95,25 @@
 	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"command_palette":
 	{
-		"height": 35.0,
+		"height": 104.0,
 		"selected_items":
 		[
+			[
+				"copy",
+				"SublimeHighlight: copy to clipboard as RTF"
+			],
+			[
+				"copy to",
+				"SublimeHighlight: copy to clipboard as HTML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"c+",
+				"Set Syntax: C++"
+			],
 			[
 				"pastry",
 				"Text Pastry: Menu"
@@ -109,10 +129,6 @@
 			[
 				"enable",
 				"Package Control: Enable Package"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"word",
@@ -359,6 +375,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"rpm",
 			"height=2.5in",
 			".25",
 			"spacing",
@@ -485,8 +502,7 @@
 			"assets/",
 			"../",
 			"solid",
-			"a",
-			"A"
+			"a"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -577,8 +593,8 @@
 						"selection":
 						[
 							[
-								710,
-								710
+								20028,
+								20028
 							]
 						],
 						"settings":
@@ -606,6 +622,10 @@
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -634,7 +654,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5228.0,
+						"translation.y": 7767.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -725,8 +745,8 @@
 						"selection":
 						[
 							[
-								21815,
-								21815
+								24834,
+								24834
 							]
 						],
 						"settings":
@@ -754,6 +774,10 @@
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -782,7 +806,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6134.0,
+						"translation.y": 7337.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -828,6 +852,10 @@
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -856,87 +884,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1018.0,
+						"translation.y": 321.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "/C/Users/Kenton/Documents/Thesis/defense/defense.tex",
-					"settings":
-					{
-						"buffer_size": 54319,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 7171.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "chapters/quasi-static.tex",
 					"settings":
 					{
@@ -947,8 +901,8 @@
 						"selection":
 						[
 							[
-								44055,
-								44055
+								36726,
+								36726
 							]
 						],
 						"settings":
@@ -976,6 +930,10 @@
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -1004,7 +962,85 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 10021.0,
+						"translation.y": 8445.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "chapters/litreview.tex",
+					"settings":
+					{
+						"buffer_size": 39008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6530,
+								6530
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 714.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
