@@ -107,7 +107,7 @@
 					\item Severe health burdens \cite{russo08}
 					\begin{itemize}
 						\item 500,000 -- 2,000,000 annually (USA)
-						\item Increased mortality, length of stay
+						\item Increased length of stay, mortality
 					\end{itemize}
 				\end{itemize}
 
@@ -504,12 +504,12 @@
 				\end{itemize}
 				\item Apply $\lesssim \SI{5}{\percent}$ strain
 				\item Complicated geometry can affect results
-				\item Manual palpation not reliable
+				\item Not ideally sensitive
+				\item \alert{Can detect DTI}
+				\item \alert{Manual palpation not reliable}
 				\begin{itemize}
 					\item ARFI imaging as an alternative
 				\end{itemize}
-				\item \alert{Not ideally sensitive}
-				\item \alert{Can detect DTI}
 			\end{itemize}
 		\end{frame}
 
@@ -577,7 +577,7 @@
 			\end{columns}
 
 			\begin{itemize}
-				\item Acoustic energy is absorbed by tissue and causes deformation
+				\item Absorbed acoustic energy has safety implications
 			\end{itemize}
 		\end{frame}
 
@@ -766,11 +766,15 @@
 			\begin{itemize}
 				\item ARFI sensitivity $\approx$ QS USE sensitivity
 				\item ARFI not as dependent on lesion size as QS USE
-				\item Not reliant on depth
+				\begin{itemize}
+					\item Similar characterization results as QS USE
+				\end{itemize}
 				\item Complicated geometry can affect results
-				\item Significant safety considerations
 				\item \alert{ARFI more reliable than QS USE}
 				\item \alert{ARFI has limited penetration depth}
+				\begin{itemize}
+					\item Significant safety considerations
+				\end{itemize}
 			\end{itemize}
 		\end{frame}
 
@@ -821,8 +825,8 @@
 				\end{itemize}
 			\end{enumerate}
 
-			\only<1>{\vspace{-0.2cm}}
-			\only<3>{\vspace{-0.49cm}}
+			%\only<1>{\vspace{-0.2cm}}
+			%\only<3>{\vspace{-0.49cm}}
 			\begin{figure}
 				\centering
 				\begin{tikzpicture}
@@ -934,43 +938,43 @@
 			\end{figure}
 		\end{frame}
 
-		\begin{frame}
-			\frametitle{Sample Shear Results}
-			\begin{figure}
-				\centering
-				\subfloat{%
-					\characterizationPic{%
-						\characterizationPlots{esr}%
-							{shear/data/shear_doff_d4_o000.dat}%
-							{shear/data/shear_doff_d4_o125.dat}%
-							{shear/data/shear_doff_d4_o250.dat}%
-							{shear/data/shear_doff_d4_o375.dat}%
-					}{%
-						\characterizationLegend{Lesion Offset}{\Delta_{off}}%
-							{\SI{0.00}{\cm}}%
-							{\SI{1.25}{\cm}}%
-							{\SI{2.50}{\cm}}%
-							{\SI{3.75}{\cm}}%
-					}{offset}{0, 4.5}{north west}{ymin=0,ymax=4.5}
-				}
-				\vspace{-0.25cm}
-				\onslide<2->{\subfloat{%
-					\characterizationPic{%
-						\characterizationPlots{esr}%
-							{shear/data/shear_human_radius_r025.dat}%
-							{shear/data/shear_human_radius_r050.dat}%
-							{shear/data/shear_human_radius_r100.dat}%
-							{shear/data/shear_human_radius_r125.dat}%
-					}{%
-						\characterizationLegend{Lesion Width}{\diameter S}%
-							{\SI{5}{\mm}}%
-							{\SI{10}{\mm}}%
-							{\SI{20}{\mm}}%
-							{\SI{25}{\mm}}%
-					}{human_width}{0,4.75}{north west}{ymin=0,ymax=4.75}
-				}}
-			\end{figure}
-		\end{frame}
+		%\begin{frame}
+		%	\frametitle{Sample Shear Results}
+		%	\begin{figure}
+		%		\centering
+		%		\subfloat{%
+		%			\characterizationPic{%
+		%				\characterizationPlots{esr}%
+		%					{shear/data/shear_doff_d4_o000.dat}%
+		%					{shear/data/shear_doff_d4_o125.dat}%
+		%					{shear/data/shear_doff_d4_o250.dat}%
+		%					{shear/data/shear_doff_d4_o375.dat}%
+		%			}{%
+		%				\characterizationLegend{Lesion Offset}{\Delta_{off}}%
+		%					{\SI{0.00}{\cm}}%
+		%					{\SI{1.25}{\cm}}%
+		%					{\SI{2.50}{\cm}}%
+		%					{\SI{3.75}{\cm}}%
+		%			}{offset}{0, 4.5}{north west}{ymin=0,ymax=4.5}
+		%		}
+		%		\vspace{-0.25cm}
+		%		\onslide<2->{\subfloat{%
+		%			\characterizationPic{%
+		%				\characterizationPlots{esr}%
+		%					{shear/data/shear_human_radius_r025.dat}%
+		%					{shear/data/shear_human_radius_r050.dat}%
+		%					{shear/data/shear_human_radius_r100.dat}%
+		%					{shear/data/shear_human_radius_r125.dat}%
+		%			}{%
+		%				\characterizationLegend{Lesion Width}{\diameter S}%
+		%					{\SI{5}{\mm}}%
+		%					{\SI{10}{\mm}}%
+		%					{\SI{20}{\mm}}%
+		%					{\SI{25}{\mm}}%
+		%			}{human_width}{0,4.75}{north west}{ymin=0,ymax=4.75}
+		%		}}
+		%	\end{figure}
+		%\end{frame}
 
 		\begin{frame}
 			\frametitle{Shear Wave Speed Outcomes}
@@ -1613,6 +1617,10 @@
 						\item Solved using COMSOL Multiphysics
 					\end{itemize}
 
+					\begin{equation*}
+						-\nabla \cdot \sigma = \vec{F}
+					\end{equation*}
+
 				\column{0.25\textwidth}
 					\begin{figure}
 						\includegraphics[height=6cm]{assets/quasistatic/mesh.png}
@@ -1658,6 +1666,14 @@
 						\item Simulation stopped after focal displacement reached \SI{1}{\percent} of maximal value
 						\item Solved using COMSOL Multiphysics
 					\end{itemize}
+
+					\begin{equation*}
+						\rho \frac{\partial^2\vec{u}}{\partial t^2} - \nabla\cdot\sigma = \vec{F}
+					\end{equation*}
+
+					\begin{equation*}
+						\sigma - \sigma_0 = C:\varepsilon + \sum_m 2 G_m \tau_m \dot{\gamma}_m
+					\end{equation*}
 
 				\column{0.25\textwidth}
 					\begin{figure}
